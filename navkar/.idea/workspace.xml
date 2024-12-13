@@ -4,19 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Removes category model, routes, and updates category handling.">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Removes unused hero, popular, and related product components.">
+      <change afterPath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/GeneratedQuotation.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/GeneratedQuotation.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Hero/Hero.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Hero/Hero.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Popular/Popular.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Popular/Popular.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/RelatedProducts/RelatedProducts.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/RelatedProducts/RelatedProducts.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Pages/Product.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Pages/Product.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Pages/Shop.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Pages/Shop.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/Sidebar/Sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/Sidebar/Sidebar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Pages/Admin/Admin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Pages/Admin/Admin.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +156,7 @@
       <workItem from="1734021664333" duration="12579000" />
       <workItem from="1734070693438" duration="2000" />
       <workItem from="1734070787326" duration="946000" />
-      <workItem from="1734071768191" duration="5961000" />
+      <workItem from="1734071768191" duration="12758000" />
     </task>
     <task id="LOCAL-00001" summary="Removes category model, routes, and updates category handling.">
       <option name="closed" value="true" />
@@ -170,7 +166,23 @@
       <option name="project" value="LOCAL" />
       <updated>1734075477874</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Removes unused hero, popular, and related product components.">
+      <option name="closed" value="true" />
+      <created>1734078492161</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1734078492161</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Removes unused hero, popular, and related product components.">
+      <option name="closed" value="true" />
+      <created>1734078511019</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1734078511019</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,6 +190,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Removes category model, routes, and updates category handling." />
-    <option name="LAST_COMMIT_MESSAGE" value="Removes category model, routes, and updates category handling." />
+    <MESSAGE value="Removes unused hero, popular, and related product components." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removes unused hero, popular, and related product components." />
   </component>
 </project>

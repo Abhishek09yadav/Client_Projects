@@ -126,139 +126,44 @@
             Description: {type: String, required: true},
             date: {type: Date, default: Date.now},
             available: {type: Boolean, default: true},
+            MOQ: { type: Number, required: true },
         })
 
         // Updated Product Creation Endpoint
         app.post('/addProduct', async (req, res) => {
             try {
-                let products = await Product.find({})
-                let id;
-                if (products.length > 0) {
-                    let last_product_array = products.slice(-1);
-                    let last_product = last_product_array[0];
-                    id = last_product.id + 1;
-                } else
-                    id = 1;
+                const { name, category, new_price, old_price, Tax, Description, moq, image, image1, image2, image3 } = req.body;
+
+                // Validate required fields
+                if (!name || !category || !new_price || !old_price || !moq) {
+                    return res.status(400).json({ success: false, message: "Missing required fields" });
+                }
+
+                let products = await Product.find({});
+                const id = products.length > 0 ? products[products.length - 1].id + 1 : 1;
 
                 const product = new Product({
-                    id: id,
-                    name: req.body.name,
-                    image: req.body.image || '', // Ensure default empty string
-                    image1: req.body.image1 || '', // Ensure default empty string
-                    image2: req.body.image2 || '', // Ensure default empty string
-                    image3: req.body.image3 || '', // Ensure default empty string
-                    category: req.body.category,
-                    new_price: Number(req.body.new_price),
-                    old_price: Number(req.body.old_price),
-                    Tax: req.body.Tax,
-                    Description: req.body.Description,
-                    date: req.body.date || Date.now(),
+                    id,
+                    name,
+                    category,
+                    new_price: Number(new_price),
+                    old_price: Number(old_price),
+                    Tax: Tax || "", // Default empty string for optional fields
+                    Description: Description || "",
+                    MOQ: Number(moq),
+                    image: image || "", // Default empty string if not provided
+                    image1: image1 || "",
+                    image2: image2 || "",
+                    image3: image3 || "",
                 });
 
-                console.log("Saving Product:", product);
                 await product.save();
-                console.log("Product Saved Successfully");
-
-                res.json({
-                    success: true,
-                    name: req.body.name,
-                    productId: product.id
-                })
+                res.status(201).json({ success: true, message: "Product added successfully", productId: id });
             } catch (error) {
-                console.error('Error adding product:', error);
-                res.status(500).json({
-                    success: false,
-                    message: 'Error adding product',
-                    error: error.message
-                });
+                console.error('Error adding product:', error.message);
+                res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
             }
-        })
-        app.post('/addProduct', async (req, res) => {
-            let products = await Product.find({})
-            let id;
-            if (products.length > 0) {
-                let last_product_array = products.slice(-1);
-                let last_product = last_product_array[0];
-                id = last_product.id + 1;
-            } else
-                id = 1;
-
-
-
-
-
-        // schema for creating product
-            const Product = mongoose.model("Product", {
-                id: {
-                    type: Number,
-                    required: true,
-                },
-                name: {
-                    type: String,
-                    required: true,
-                },
-                image: {type: String, required: true},
-                image1: {type: String, required: false},
-                image2: {type: String, required: false},
-                image3: {type: String, required: false},
-                category: {type: String, required: true},
-                new_price: {type: Number, required: true},
-                old_price: {type: Number, required: true},
-                Tax: {type: String, required: true},
-                Description: {type: String, required: true},
-                date: {type: Date, default: Date.now},
-                available: {type: Boolean, default: true},
-            })
-            app.post('/addProduct', async (req, res) => {
-                try {
-                    let products = await Product.find({})
-                    let id;
-                    if (products.length > 0) {
-                        let last_product_array = products.slice(-1);
-                        let last_product = last_product_array[0];
-                        id = last_product.id + 1;
-                    } else
-                        id = 1;
-
-                    const product = new Product({
-                        id: id,
-                        name: req.body.name,
-                        image: req.body.image,
-                        image1: req.body.image1, // Add this line
-                        image2: req.body.image2, // Add this line
-                        image3: req.body.image3, // Add this line
-                        category: req.body.category,
-                        new_price: Number(req.body.new_price),
-                        old_price: Number(req.body.old_price),
-                        Tax: req.body.Tax,
-                        Description: req.body.Description,
-                        date: req.body.date || Date.now(),
-                    });
-
-                    console.log(product);
-                    await product.save();
-                    console.log("saved");
-                    res.json({
-                        success: true,
-                        name: req.body.name,
-                    })
-                } catch (error) {
-                    console.error('Error adding product:', error);
-                    res.status(500).json({
-                        success: false,
-                        message: 'Error adding product',
-                        error: error.message
-                    });
-                }
-            })
-            console.log(product);
-            await product.save();
-            console.log("saved");
-            res.json({
-                success: true,
-                name: req.body.name,
-            })
-        })
+        });
 
         // Creating api for deleting product
         app.post('/removeProduct', async (req, res) => {
@@ -422,8 +327,6 @@
             const products = await Product.find({ category: category });
             res.json(products);
         });
-
-
         // creating upload
         app.use('/images', express.static('upload/images'));
         app.post("/upload", upload.single("product"), (req, res) => {

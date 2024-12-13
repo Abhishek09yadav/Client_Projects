@@ -6,6 +6,7 @@ import rupee_icon from '../../assets/rupee.png';
 import title_icon from '../../assets/title.png';
 import percent_icon from '../../assets/percent.png';
 import detail_icon from '../../assets/detail.png';
+import moq_icon from '../../assets/minimum_order_quantity.png';
 
 const url = import.meta.env.VITE_API_URL;
 
@@ -28,6 +29,7 @@ function AddProduct(props) {
         Tax: '',
         new_price: '',
         old_price: '',
+        moq: '',
     });
     const [uploadCount, setUploadCount] = useState(1); // Track the number of uploaders to show
 
@@ -57,11 +59,11 @@ function AddProduct(props) {
     };
 
     const Add_Product = async () => {
-        console.log('ProductDetails', productDetails);
-        let product = { ...productDetails };
 
-        // Upload images sequentially
+
+        let product = { ...productDetails };
         const imageKeys = ['image', 'image1', 'image2', 'image3'];
+
         for (let key of imageKeys) {
             if (images[key]) {
                 let formData = new FormData();
@@ -69,7 +71,6 @@ function AddProduct(props) {
                 try {
                     const response = await fetch(`${url}/upload`, {
                         method: 'POST',
-                        headers: { Accept: 'application/json' },
                         body: formData,
                     });
                     const data = await response.json();
@@ -77,57 +78,39 @@ function AddProduct(props) {
                         product[key] = data.image_url;
                     }
                 } catch (error) {
-                    console.error(`Error during ${key} upload:`, error);
+                    console.error(`Error uploading ${key}:`, error.message);
                 }
+                console.log('Submitting product:', productDetails);
             }
         }
 
-        // Add product with uploaded image URLs
         try {
             const response = await fetch(`${url}/addProduct`, {
                 method: 'POST',
-                headers: {
-                    Accept: 'application/json',
-                    'content-type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(product),
             });
-            const data = await response.json();
-            data.success ? alert('Successfully Added!') : alert('Failed to upload!');
-        } catch (error) {
-            console.error('Error adding product:', error);
-            alert('Failed to add product');
-        }
 
-        console.log('Product with all images:', product);
-        // Reset form
-        setProductDetails({
-            name: '',
-            image: '',
-            image1: '',
-            image2: '',
-            image3: '',
-            category: '',
-            new_price: '',
-            old_price: '',
-            Tax: '',
-            Description: '',
-        });
-        setImages({
-            image: false,
-            image1: false,
-            image2: false,
-            image3: false,
-        });
-        setUploadCount(1); // Reset uploader count after submission
+            const data = await response.json();
+            if (data.success) {
+                alert('Product added successfully!');
+            } else {
+                alert(`Failed to add product: ${data.message}`);
+            }
+        } catch (error) {
+            console.error('Error adding product:', error.message);
+            alert('Failed to add product.');
+        }
     };
+
+
 
     return (
         <div className="AddProduct">
             <div className="AddProduct-itemfield">
                 <p>Product Title</p>
                 <div className="AddProduct-input-container">
-                    <img src={title_icon} alt="Title Icon" className="AddProduct-icon" />
+                    <img src={title_icon} alt="Title Icon" className="AddProduct-icon"/>
                     <input
                         type="text"
                         name="name"
@@ -141,7 +124,7 @@ function AddProduct(props) {
                 <div className="AddProduct-itemfield">
                     <p>Price</p>
                     <div className="AddProduct-price-input">
-                        <img src={rupee_icon} alt="Rupee" className="rupee-icon" />
+                        <img src={rupee_icon} alt="Rupee" className="rupee-icon"/>
                         <input
                             type="text"
                             name="old_price"
@@ -154,7 +137,7 @@ function AddProduct(props) {
                 <div className="AddProduct-itemfield">
                     <p>Offer Price</p>
                     <div className="AddProduct-price-input">
-                        <img src={rupee_icon} alt="Rupee" className="rupee-icon" />
+                        <img src={rupee_icon} alt="Rupee" className="rupee-icon"/>
                         <input
                             type="text"
                             name="new_price"
@@ -167,7 +150,7 @@ function AddProduct(props) {
                 <div className="AddProduct-itemfield">
                     <p>Tax(%)</p>
                     <div className="AddProduct-price-input">
-                        <img src={percent_icon} alt="Percent" className="percent-icon" />
+                        <img src={percent_icon} alt="Percent" className="percent-icon"/>
                         <input
                             type="text"
                             name="Tax"
@@ -176,6 +159,22 @@ function AddProduct(props) {
                             placeholder="Type Here"
                         />
                     </div>
+                </div>
+
+
+            </div>
+            <div className="AddProduct-itemfield">
+                <p>Minimum Order Quantity(moq)</p>
+                <div className="AddProduct-input-container">
+                    <img src={moq_icon} alt="MOQ Icon" className="AddProduct-icon"/>
+                    <input
+                        type="text"
+                        name="moq"
+                        value={productDetails.moq}
+                        onChange={changeHandler}
+                        placeholder="Type Here"
+
+                    />
                 </div>
             </div>
             <div className="AddProduct-itemfield">
@@ -195,7 +194,7 @@ function AddProduct(props) {
                 </select>
                 <p>Product Detail</p>
                 <div className="AddProduct-input-container">
-                    <img src={detail_icon} alt="Detail Icon" className="AddProduct-icon" />
+                    <img src={detail_icon} alt="Detail Icon" className="AddProduct-icon"/>
                     <textarea
                         name="Description"
                         value={productDetails.Description}
@@ -227,7 +226,7 @@ function AddProduct(props) {
                                         type="file"
                                         name={key}
                                         id={`file-input-${key}`}
-                                        style={{ display: 'none' }}
+                                        style={{display: 'none'}}
                                         hidden={true}
                                     />
                                 </div>
@@ -239,7 +238,7 @@ function AddProduct(props) {
                             className="AddProduct-btn-add"
                             onClick={() => setUploadCount(uploadCount + 1)}
                         >
-                            <img src={plus_icon} alt="Plus Icon" className="plus-icon" />
+                            <img src={plus_icon} alt="Plus Icon" className="plus-icon"/>
                             Add Another Image
                         </button>
                     )}

@@ -6,6 +6,7 @@ import AddProduct from "../../Components/AddProduct/AddProduct.jsx";
 import ListProduct from "../../Components/LIstProduct/ListProduct.jsx";
 import UserList from "../../Components/UserList/UserList.jsx";
 import AddCategory from "../../Components/AddCategory/AddCategory.jsx";
+import GeneratedQuotation from "../../Components/GeneratedQuotation/GeneratedQuotation.jsx";
 
 
 function Admin(props) {
@@ -18,6 +19,7 @@ function Admin(props) {
                 <Route path="/listproduct" element={<ListProduct/>}/>
                 <Route path="/userlist" element={<UserList/>}/>
                 <Route path="/addcategory" element={<AddCategory/>}/>
+                <Route path={'/generatedquotation'} element={<GeneratedQuotation/>}/>
             </Routes>
         </div>
 
