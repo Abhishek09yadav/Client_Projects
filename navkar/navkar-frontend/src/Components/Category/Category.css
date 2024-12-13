@@ -1,0 +1,206 @@
+/* Add this rule to limit the maximum size of product images */
+.product-item img {
+    max-width: 100%; /* Ensure images are responsive */
+    max-height: 200px; /* Limit the height of the image */
+    object-fit: contain; /* Maintain aspect ratio while fitting the container */
+    width: auto; /* Allow the width to adjust according to the height */
+}
+.products-grid{
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.company-details{
+    font-size: 11px;
+    line-height:1.7;
+}
+.customer-details{
+    font-size: 11px;
+    line-height: 1.7;
+}
+.details{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+/* Existing styles */
+.category-container {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px;
+    gap: 10px;
+    scrollbar-width: thin; /* Firefox */
+}
+
+.category-container::-webkit-scrollbar {
+    height: 8px; /* Height for horizontal scrollbar */
+}
+
+.category-container::-webkit-scrollbar-thumb {
+    background-color: #888; /* Scrollbar color */
+    border-radius: 10px;
+}
+
+.category-container::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+.category-pill {
+    flex-shrink: 0;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    cursor: pointer;
+    white-space: nowrap; /* Prevent text wrapping */
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+}
+
+.category-pill:hover {
+    background-color: #ddd;
+}
+
+.category-pill.active {
+    background-color: #007bff;
+    color: white;
+}
+.query-generator-button {
+    position: fixed;
+    bottom: 20px; /* Adjust this value for distance from the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px; /* Increase padding for bigger button */
+    font-size: 18px; /* Larger font size */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.query-generator-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.selected-products-table {
+    border-collapse: separate;
+    border-spacing: 0 10px; /* Adds spacing between rows */
+    width: 100%; /* Ensures table occupies available space */
+    text-align: left;
+    border: 1px solid #ddd; /* Adds a light border for better visibility */
+}
+
+.selected-products-table th,
+.selected-products-table td {
+    padding: 8px 12px; /* Adds padding for better spacing inside cells */
+    border-bottom: 1px solid #ddd; /* Adds a horizontal line for separation */
+}
+
+.selected-products-table th {
+    background-color: #f8f8f8; /* Light background for header */
+    font-weight: bold;
+}
+
+.selected-products-table td:last-child {
+    font-weight: bold; /* Emphasizes total price column */
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 800px;
+    width: 100%;
+    max-height: 100vh; /* Limit the height to 80% of the viewport */
+    overflow-y: auto; /* Enable vertical scrolling */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.modal-content h3 {
+    margin-bottom: 10px;
+}
+
+.modal-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.modal-content li {
+    margin-bottom: 10px;
+}
+
+.modal-content button {
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background-color: #0056b3;
+}
+.Quantity-field {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px; /* Space between label and input */
+    margin-top: 10px; /* Adds spacing from other elements */
+}
+
+.Quantity-field p {
+    font-size: 14px; /* Adjust font size for better readability */
+    font-weight: bold; /* Makes the label stand out */
+    margin: 0; /* Remove default margin */
+    color: #333; /* Neutral text color */
+}
+
+.Quantity-field input {
+    width: 60px; /* Sets a consistent width for the input box */
+    padding: 5px; /* Adds padding for better spacing inside */
+    font-size: 14px; /* Matches the label font size */
+    text-align: center; /* Centers the text for numeric input */
+    border: 1px solid #ccc; /* Adds a light border */
+    border-radius: 5px; /* Rounds the corners for a modern look */
+    outline: none; /* Removes default outline on focus */
+    transition: border-color 0.3s ease-in-out; /* Smooth transition for focus state */
+}
+
+.Quantity-field input:focus {
+    border-color: #007bff; /* Highlight border on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Adds a glow effect */
+}
+
+
+
+.Quantity-field input[type="number"] {
+    -moz-appearance: textfield; /* Hides spin buttons in Firefox */
+}
+
+.signature {
+    width: 60px; /* Adjust the size as needed */
+    height: auto; /* Maintains the aspect ratio */
+}
