@@ -148,12 +148,13 @@ const Category = () => {
                 {categories.map((category, index) => (
                     <div
                         key={index}
-                        className={`category-pill ${selectedCategory === category ? "active" : ""}`}
-                        onClick={() => fetchProductsByCategory(category)}
+                        className={`category-pill ${selectedCategory === category.category ? "active" : ""}`}
+                        onClick={() => fetchProductsByCategory(category.category)}
                     >
-                        {category}
+                        {category.category}
                     </div>
                 ))}
+
             </div>
             {selectedCategory && (
                 <div>

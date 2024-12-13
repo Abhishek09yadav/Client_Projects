@@ -8,8 +8,6 @@ const url = import.meta.env.VITE_API_URL; // Backend URL
 const AddCategory = () => {
     const [categories, setCategories] = useState([]);
     const [newCategory, setNewCategory] = useState('');
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [categoryToDelete, setCategoryToDelete] = useState(null);
 
     // Fetch categories on load
     useEffect(() => {
@@ -46,31 +44,20 @@ const AddCategory = () => {
         }
     };
 
-    const deleteCategory = async (category) => {
+    const deleteCategory = async (categoryId) => {
         try {
-            const response = await fetch(`${url}/categories/${category.id}`, {
+            const response = await fetch(`${url}/categories/${categoryId}`, { // Send category id instead of category name
                 method: 'DELETE',
             });
             const data = await response.json();
-            if (data.message === 'Category removed successfully') {
-                fetchCategories();
-                closeModal();
+            if (response.ok) {
+                fetchCategories(); // Refresh categories after deletion
             } else {
                 alert(data.error);
             }
         } catch (error) {
             console.error('Error deleting category:', error);
         }
-    };
-
-    const openModal = (category) => {
-        setCategoryToDelete(category);
-        setIsModalOpen(true);
-    };
-
-    const closeModal = () => {
-        setCategoryToDelete(null);
-        setIsModalOpen(false);
     };
 
     return (
@@ -89,24 +76,13 @@ const AddCategory = () => {
             <div className="categories-list">
                 {categories.map((category) => (
                     <div key={category.id} className="category-item">
-                        <span>{category}</span>
-                        <button onClick={() => openModal(category)}>
+                        <span>{category.category}</span>
+                        <button onClick={() => deleteCategory(category.id)}> {/* Send category id here */}
                             <img src={cross_icon} alt="Delete" />
                         </button>
                     </div>
                 ))}
             </div>
-            {isModalOpen && (
-                <div className="modal">
-                    <div className="modal-content">
-                        <h3>Are you sure you want to delete this category and all its products?</h3>
-                        <div className="modal-buttons">
-                            <button onClick={() => deleteCategory(categoryToDelete)}>Yes</button>
-                            <button onClick={closeModal}>No</button>
-                        </div>
-                    </div>
-                </div>
-            )}
         </div>
     );
 };

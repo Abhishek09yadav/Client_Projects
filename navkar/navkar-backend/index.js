@@ -53,10 +53,9 @@
         // Route to Fetch All Categories
         app.get('/categories', async (req, res) => {
             try {
-                const categories = await ProductCategory.find({}, 'category'); // Fetch only 'category' field
-                const categoryNames = categories.map(cat => cat.category); // Extract names into an array
-                res.status(200).json(categoryNames);
-                console.log("category names found", categoryNames);
+                const categories = await ProductCategory.find({}, 'id category'); // Fetch 'id' and 'category'
+                res.status(200).json(categories);
+                console.log("Categories fetched:", categories);
             } catch (error) {
                 res.status(500).json({ error: 'Error fetching categories' });
             }
@@ -82,23 +81,26 @@
             }
         });
 
-
-        // Route to Remove a Category and its Products
+        // Route to Remove a Category and its Associated Products
         app.delete('/categories/:id', async (req, res) => {
             try {
-                const { id } = req.params;
+                const { id } = req.params; // Extract the category ID from request parameters
 
-                // Delete all products associated with the category
-                await Product.deleteMany({ category: id });
-
-                // Then delete the category itself
-                const category = await ProductCategory.findOneAndDelete({ id });
+                // Fetch the category using its ID
+                const category = await ProductCategory.findOne({ id });
                 if (!category) {
                     return res.status(404).json({ error: 'Category not found' });
                 }
 
-                res.status(200).json({ message: 'Category removed successfully' });
+                // Delete all products associated with the category
+                await Product.deleteMany({ category: category.category });
+
+                // Then delete the category itself
+                await ProductCategory.findOneAndDelete({ id });
+
+                res.status(200).json({ message: 'Category and associated products removed successfully' });
             } catch (error) {
+                console.error('Error removing category:', error);
                 res.status(500).json({ error: 'Error removing category' });
             }
         });
