@@ -39,7 +39,8 @@ const Category = () => {
         const fetchCategories = async () => {
             try {
                 const response = await axios.get('http://localhost:4000/categories');
-                setCategories(response.data);
+
+                    setCategories(response.data);
 
                 const productsResponse = await axios.get('http://localhost:4000/allproducts');
                 setAllProducts(productsResponse.data);

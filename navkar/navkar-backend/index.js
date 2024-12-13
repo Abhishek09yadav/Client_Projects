@@ -423,19 +423,6 @@
             res.json(products);
         });
 
-        // app.get('/categories', async (req, res) => {
-        //     try {
-        //         const categories = await Product.distinct("category"); // Fetch distinct categories
-        //         console.log("Fetched Categories:", categories); // Debugging
-        //         res.json(categories); // Send the categories as JSON
-        //     } catch (error) {
-        //         console.error("Error fetching categories:", error);
-        //         res.status(500).send("Error fetching categories");
-        //     }
-        // });
-
-
-
 
         // creating upload
         app.use('/images', express.static('upload/images'));

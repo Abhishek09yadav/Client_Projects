@@ -188,8 +188,8 @@ function AddProduct(props) {
                 >
                     <option value="">Select Category</option>
                     {categories.map((category, index) => (
-                        <option key={index} value={category}>
-                            {category}
+                        <option key={index} value={category.category}>
+                            {category.category}
                         </option>
                     ))}
                 </select>
