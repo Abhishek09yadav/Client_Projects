@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import logo from "../Assets/logo.png";
 import { ShopContext } from '../../Context/ShopContext'; // Import the context
 import signanureimg from "../Assets/signature.jpeg";
+import cross_icon from "../Assets/cross_icon.png";
 const Category = () => {
     const [totalQuantity, setTotalQuantity] = useState(0);
 
@@ -39,17 +40,22 @@ const Category = () => {
         const fetchCategories = async () => {
             try {
                 const response = await axios.get('http://localhost:4000/categories');
-
-                    setCategories(response.data);
-
                 const productsResponse = await axios.get('http://localhost:4000/allproducts');
-                setAllProducts(productsResponse.data);
 
-                // Automatically select the first category and fetch products for it
-                if (response.data.length > 0) {
-                    const firstCategory = response.data[0];
+                const categoriesData = response.data;
+                const productsData = productsResponse.data;
+
+                setCategories(categoriesData);
+                setAllProducts(productsData);
+
+                // Automatically select the first category and fetch its products
+                if (categoriesData.length > 0) {
+                    const firstCategory = categoriesData[0].category;
                     setSelectedCategory(firstCategory);
-                    const categoryProducts = productsResponse.data.filter(product => product.category === firstCategory);
+
+                    const categoryProducts = productsData.filter(
+                        product => product.category === firstCategory
+                    );
                     setProducts(categoryProducts);
                 }
             } catch (error) {
@@ -106,6 +112,10 @@ const Category = () => {
 
 
     const generateQuery = () => {
+        if (!userDetails) {
+            alert("Please log in to continue.");
+            return;
+        }
         let total = 0;
         const selectedItems = Object.keys(selectedProducts).map((productId) => {
             const product = allProducts.find(item =>
@@ -162,7 +172,7 @@ const Category = () => {
 
                     {products.length > 0 ? (
                         <>
-                            <h3>Products in {selectedCategory}</h3>
+                            <h1>Products in {selectedCategory}</h1>
                             <div className="products-grid">
                                 {products.map((item) => (
                                     <div key={item.id} className="product-item">
@@ -172,6 +182,7 @@ const Category = () => {
                                             image={item.image}
                                             new_price={item.new_price}
                                             old_price={item.old_price}
+                                            MOQ={item.MOQ}
                                         />
                                         <input
                                             type="checkbox"
@@ -198,8 +209,28 @@ const Category = () => {
                     )}
                 </div>
             )}
-            <button className="query-generator-button" onClick={generateQuery}>
-                Query Generator
+
+            <button
+                className="query-generator-button"
+                onClick={generateQuery}
+            >
+                Generate Quotation
+                {totalQuantity > 0 && (
+                    <span
+                        style={{
+                            position: 'absolute',
+                            right: '10px',
+                            backgroundColor: 'white',
+                            color: 'red',
+                            borderRadius: '50%',
+                            padding: '6px 15px',
+                            fontSize: '12px',
+                            fontWeight: 'bold'
+                        }}
+                    >
+       Net Quantity: {totalQuantity}
+    </span>
+                )}
             </button>
             {totalPrice > 0 && (
                 <div className="total-price">
@@ -211,7 +242,7 @@ const Category = () => {
                     <div className="modal-content">
                         <h3>Selected Products</h3>
                         <div id={"generate-pdf"}>
-                            <Link to={'/'} className="nav-logo" style={{textDecoration: 'none'}}>
+                        <Link to={'/'} className="nav-logo" style={{textDecoration: 'none'}}>
                                 <img src={logo} alt="logo"/>
                                 <p>NAVKAR</p>
                             </Link>
@@ -255,7 +286,7 @@ const Category = () => {
                                         <td>{item.name}</td>
                                         <td>{item.quantity}</td>
                                         <td>{item.category}</td>
-                                        <td>₹{isNaN(item.price) ? '0.00' :item.price.toFixed(2)}</td>
+                                        <td>₹{isNaN(item.price) ? '0.00' : item.price.toFixed(2)}</td>
                                         <td>{isNaN(item.TotalTax) ? '0.00' : item.TotalTax}</td>
                                         <td>₹{item.totalPrice.toFixed(2)}</td>
                                     </tr>
@@ -273,9 +304,23 @@ const Category = () => {
 
                             <h3>Sign: <img src={signanureimg} className={'signature'}/></h3>
                         </div>
-{/*pdf generation ends here*/}
+                        {/*pdf generation ends here*/}
                         <button onClick={handleOnClick}>PDF</button>
-                        <button onClick={() => setIsModalOpen(false)}>Close</button>
+                        {/*<button onClick={() => setIsModalOpen(false)}>Close</button>*/}
+                        <img
+                            src={cross_icon}
+                            alt="Close"
+                            onClick={() => setIsModalOpen(false)}
+                            style={{
+                                position: 'absolute',
+                                top: '10px',
+                                right: '10px',
+                                cursor: 'pointer',
+                                width: '20px',
+                                height: '20px',
+                            }}
+                        />
+
                     </div>
                 </div>
             )}
