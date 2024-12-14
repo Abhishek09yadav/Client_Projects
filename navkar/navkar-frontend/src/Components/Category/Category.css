@@ -1,10 +1,54 @@
-/* Add this rule to limit the maximum size of product images */
-.product-item img {
-    max-width: 100%; /* Ensure images are responsive */
-    max-height: 200px; /* Limit the height of the image */
-    object-fit: contain; /* Maintain aspect ratio while fitting the container */
-    width: auto; /* Allow the width to adjust according to the height */
+.Category h1 {
+    margin-top: 50px;
+    color: #171717;
+    font-size: 50px;
+    font-weight: 600;
+    text-align: center;
+
 }
+.Category hr {
+    width: 200px;
+    height: 6px;
+    border-radius: 10px;
+    padding: 3px;
+    margin: 10px;
+    margin-left: 800px;
+    background: #252525;
+
+}
+{   margin-top: 50px;
+    color: #171717;
+    font-size: 50px;
+    font-weight: 600;
+    text-align: center;}
+.products-grid{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 70px;
+    margin-top: 200px;
+}
+.products-in{
+
+    color: #171717;
+    font-size: 30px;
+    font-weight: 600;
+    margin-left: 30px;
+    text-align: center;
+}
+.product-item img {
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    width: auto;
+}.product-item {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     gap: 10px;
+     margin-bottom: 70px;
+ }
 .products-grid{
     margin: 10px;
     display: grid;
@@ -24,21 +68,22 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
-/* Existing styles */
+
 .category-container {
     display: flex;
     overflow-x: auto;
     padding: 10px;
     gap: 10px;
-    scrollbar-width: thin; /* Firefox */
+    scrollbar-width: thin;
+    justify-content: flex-start;
 }
 
 .category-container::-webkit-scrollbar {
-    height: 8px; /* Height for horizontal scrollbar */
+    height: 8px;
 }
 
 .category-container::-webkit-scrollbar-thumb {
-    background-color: #888; /* Scrollbar color */
+    background-color: #888;
     border-radius: 10px;
 }
 
@@ -47,12 +92,13 @@
 }
 
 .category-pill {
+    align-items: start;
     flex-shrink: 0;
     padding: 10px 20px;
     background-color: #f0f0f0;
     border-radius: 20px;
     cursor: pointer;
-    white-space: nowrap; /* Prevent text wrapping */
+    white-space: nowrap;
     text-align: center;
     font-size: 14px;
     font-weight: bold;
@@ -65,50 +111,33 @@
 }
 
 .category-pill.active {
-    background-color:red;
+    background-color: red;
     color: white;
 }
-.query-generator-button {
-     width: 100%;
-     background-color: red;
-     position: fixed;
-     bottom: 0;
-     padding: 15px 30px;
-     font-size: 18px;
-     color: white;
-     border: none;
-     border-radius: 4px;
-     cursor: pointer;
-     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-     transition: background-color 0.3s;
-
- }
-
 
 .selected-products-table {
     border-collapse: separate;
-    border-spacing: 0 10px; /* Adds spacing between rows */
-    width: 100%; /* Ensures table occupies available space */
+    border-spacing: 0 10px;
+    width: 100%;
     text-align: left;
-    border: 1px solid #ddd; /* Adds a light border for better visibility */
+    border: 1px solid #ddd;
 }
 
 .selected-products-table th,
 .selected-products-table td {
-    padding: 8px 12px; /* Adds padding for better spacing inside cells */
-    border-bottom: 1px solid #ddd; /* Adds a horizontal line for separation */
+    padding: 8px 12px;
+    border-bottom: 1px solid #ddd;
 }
 
 .selected-products-table th {
-    background-color: #f8f8f8; /* Light background for header */
+    background-color: #f8f8f8;
     font-weight: bold;
 }
 
 .selected-products-table td:last-child {
-    font-weight: bold; /* Emphasizes total price column */
+    font-weight: bold;
 }
 
-/* Modal Styles */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -128,11 +157,10 @@
     border-radius: 8px;
     max-width: 800px;
     width: 100%;
-    max-height: 100vh; /* Limit the height to 80% of the viewport */
-    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 100vh;
+    overflow-y: auto;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-
 
 .modal-content h3 {
     margin-bottom: 10px;
@@ -157,45 +185,91 @@
     cursor: pointer;
 }
 
-
 .Quantity-field {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 10px; /* Space between label and input */
-    margin-top: 10px; /* Adds spacing from other elements */
+    gap: 10px;
+    margin-top: 10px;
 }
 
 .Quantity-field p {
-    font-size: 14px; /* Adjust font size for better readability */
-    font-weight: bold; /* Makes the label stand out */
-    margin: 0; /* Remove default margin */
-    color: #333; /* Neutral text color */
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
 }
 
 .Quantity-field input {
-    width: 60px; /* Sets a consistent width for the input box */
-    padding: 5px; /* Adds padding for better spacing inside */
-    font-size: 14px; /* Matches the label font size */
-    text-align: center; /* Centers the text for numeric input */
-    border: 1px solid #ccc; /* Adds a light border */
-    border-radius: 5px; /* Rounds the corners for a modern look */
-    outline: none; /* Removes default outline on focus */
-    transition: border-color 0.3s ease-in-out; /* Smooth transition for focus state */
+    width: 60px;
+    padding: 5px;
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
 }
 
 .Quantity-field input:focus {
-    border-color: #007bff; /* Highlight border on focus */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Adds a glow effect */
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-
-
 .Quantity-field input[type="number"] {
-    -moz-appearance: textfield; /* Hides spin buttons in Firefox */
+    -moz-appearance: textfield;
 }
 
 .signature {
-    width: 60px; /* Adjust the size as needed */
-    height: auto; /* Maintains the aspect ratio */
+    width: 60px;
+    height: auto;
+}
+.net-quantity-container {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding: 0 10px;
+    background-color: red;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.net-quantity {
+    flex: 1;
+    color: white;
+    font-size: 14px;
+    background-color: red;
+    text-align: center;
+    font-weight: bold;
+
+    margin-left: 50vi
+
+}
+
+.query-generator-button {
+    width: 250px;
+    background-color: blue;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.query-generator-button:hover {
+    background-color: darkblue;
 }

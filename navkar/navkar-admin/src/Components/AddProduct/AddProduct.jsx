@@ -7,7 +7,8 @@ import title_icon from '../../assets/title.png';
 import percent_icon from '../../assets/percent.png';
 import detail_icon from '../../assets/detail.png';
 import moq_icon from '../../assets/minimum_order_quantity.png';
-
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 const url = import.meta.env.VITE_API_URL;
 
 function AddProduct(props) {
@@ -192,18 +193,22 @@ function AddProduct(props) {
                         </option>
                     ))}
                 </select>
-                <p>Product Detail</p>
-                <div className="AddProduct-input-container">
-                    <img src={detail_icon} alt="Detail Icon" className="AddProduct-icon"/>
-                    <textarea
-                        name="Description"
-                        value={productDetails.Description}
-                        onChange={changeHandler}
-                        className="AddProduct-description"
-                        rows="4"
-                        placeholder="Type Description Here"
-                    />
+                <div className="AddProduct-itemfield">
+                    <p>Product Detail</p>
+                    <div className="AddProduct-input-container">
+                        <img src={detail_icon} alt="Detail Icon" className="AddProduct-icon"/>
+                        <ReactQuill
+                            theme="snow"
+                            value={productDetails.Description}
+                            onChange={(value) =>
+                                setProductDetails({...productDetails, Description: value})
+                            }
+                            className="AddProduct-description"
+                            placeholder="Type Description Here"
+                        />
+                    </div>
                 </div>
+
                 <div className="AddProduct-image-uploads">
                     <div className="AddProduct-upload-grid">
                         {['image', 'image1', 'image2', 'image3']

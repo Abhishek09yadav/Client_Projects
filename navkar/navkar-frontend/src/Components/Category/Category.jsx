@@ -24,20 +24,63 @@ const Category = () => {
     const [selectedItems, setSelectedItems] = useState([]);
     const { userDetails } = useContext(ShopContext);
     const notify = () => toast("Wow so easy!");
-    const handleOnClick = () => {
-        const element = document.querySelector('#generate-pdf');
-        var opt = {
-            margin:       1,
-            filename:   `${userDetails?.name}.pdf`, // 'myfile.pdf',
-            // image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  { scale: 2 },
-            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
-        };
 
-// New Promise-based usage:
-        html2pdf().set(opt).from(element).save();
-        console.log("PDF button clicked");
-        // html2pdf(element);
+
+    const handleOnClick = async () => {
+        try {
+            const element = document.querySelector('#generate-pdf');
+            const opt = {
+                margin: 1,
+                filename: `${userDetails?.name}_quotation.pdf`,
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            // Generate the PDF
+            const pdfBlob = await html2pdf().set(opt).from(element).outputPdf('blob');
+
+            // Create FormData to send the PDF
+            const formData = new FormData();
+            formData.append('pdf', pdfBlob, `${userDetails?.name}_quotation.pdf`);
+
+            // Prioritize _id, then fall back to id
+            const userId = userDetails?._id || userDetails?.id;
+
+            if (!userId) {
+                throw new Error('User ID is missing');
+            }
+
+            formData.append('userId', userId);
+
+            // Upload the PDF to the server
+            const response = await axios.post('http://localhost:4000/upload-pdf', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+
+            if (response.data.success) {
+                toast.success('Quotation saved successfully!', {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                });
+            }
+        } catch (error) {
+            console.error('Error uploading PDF:', error.response ? error.response.data : error);
+
+            toast.error('Failed to save the quotation.', {
+                position: "top-right",
+                autoClose: 3000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
+        }
     };
 
     useEffect(() => {
@@ -158,8 +201,9 @@ const Category = () => {
     // console.log("user details ", userDetails)
     return (
         <div className={'Category'}>
+            <ToastContainer/>
             <h1>Categories</h1>
-            <hr />
+            {/*<hr/>*/}
             <div className="category-container">
                 {categories.map((category, index) => (
                     <div
@@ -177,7 +221,7 @@ const Category = () => {
 
                     {products.length > 0 ? (
                         <>
-                            <h1>Products in {selectedCategory}</h1>
+                            <span className={'products-in'}>Products in {selectedCategory}</span>
                             <div className="products-grid">
                                 {products.map((item) => (
                                     <div key={item.id} className="product-item">
@@ -215,28 +259,19 @@ const Category = () => {
                 </div>
             )}
 
-            <button
-                className="query-generator-button"
-                onClick={generateQuery}
-            >
-                Generate Quotation
-                {totalQuantity > 0 && (
-                    <span
-                        style={{
-                            position: 'absolute',
-                            right: '10px',
-                            backgroundColor: 'white',
-                            color: 'red',
-                            borderRadius: '50%',
-                            padding: '6px 15px',
-                            fontSize: '12px',
-                            fontWeight: 'bold'
-                        }}
-                    >
-       Net Quantity: {totalQuantity}
-    </span>
-                )}
-            </button>
+            <div className="net-quantity-container">
+
+                    <span className="net-quantity">Net Quantity: {totalQuantity}</span>
+
+                <button
+                    className="query-generator-button"
+                    onClick={generateQuery}
+                >
+                    Generate Quotation
+                </button>
+            </div>
+
+
             {totalPrice > 0 && (
                 <div className="total-price">
                     <p>Total Price: ₹{totalPrice.toFixed(2)}</p>
@@ -247,7 +282,7 @@ const Category = () => {
                     <div className="modal-content">
                         <h3>Selected Products</h3>
                         <div id={"generate-pdf"}>
-                        <Link to={'/'} className="nav-logo" style={{textDecoration: 'none'}}>
+                            <Link to={'/'} className="nav-logo" style={{textDecoration: 'none'}}>
                                 <img src={logo} alt="logo"/>
                                 <p>NAVKAR</p>
                             </Link>

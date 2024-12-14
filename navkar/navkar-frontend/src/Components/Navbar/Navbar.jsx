@@ -27,12 +27,12 @@ function Navbar(props) {
             <img src={logo} alt="logo"/>
             <p>NAVKAR</p>
         </Link>
-        <img onClick={dropdown_toggle} className={'nav-dropdown'} src={Hamburger_Menu} alt={''}/>
+        {/*<img onClick={dropdown_toggle} className={'nav-dropdown'} src={Hamburger_Menu} alt={''}/>*/}
 
         <ul ref={menuRef} className="nav-menu">
-            <li onClick={() => {
-                setmenu("shop")
-            }}><Link to={'/'}>Shop</Link> {menu === 'shop' ? <hr/> : <></>}</li>
+            {/*<li onClick={() => {*/}
+            {/*    setmenu("shop")*/}
+            {/*}}><Link to={'/'}>Shop</Link> {menu === 'shop' ? <hr/> : <></>}</li>*/}
             {/*<li onClick={() => setmenu('mens')}><Link to='/mens'>Men</Link> {menu === 'mens' ? <hr></hr> : <></>}*/}
             {/*</li>*/}
             {/*<li onClick={() => {*/}
@@ -45,6 +45,9 @@ function Navbar(props) {
             {/*</li>*/}
         </ul>
         <ul className="nav-login-cart">
+            < Link to={'/quotationhistory'}>
+                <button type="button" className="btn  btn-secondary rounded-pill QuotationHistory" >Quotation History</button>
+            </Link>
             {
                 localStorage.getItem('auth-token') ? <button onClick={() => {
                     localStorage.removeItem('auth-token');
