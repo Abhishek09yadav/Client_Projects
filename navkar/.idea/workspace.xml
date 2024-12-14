@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Implements MOQ input and updates product schema.">
-      <change afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/cross_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/plus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/plus1.png" afterDir="false" />
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Updates product display with MOQ and restyles query generator.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +155,7 @@
       <workItem from="1734070787326" duration="946000" />
       <workItem from="1734071768191" duration="16455000" />
       <workItem from="1734089200839" duration="28000" />
-      <workItem from="1734089240578" duration="2925000" />
+      <workItem from="1734089240578" duration="6210000" />
     </task>
     <task id="LOCAL-00001" summary="Removes category model, routes, and updates category handling.">
       <option name="closed" value="true" />
@@ -194,7 +189,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734085148963</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Updates product display with MOQ and restyles query generator.">
+      <option name="closed" value="true" />
+      <created>1734092701754</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1734092701754</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -204,6 +207,7 @@
     <MESSAGE value="Removes category model, routes, and updates category handling." />
     <MESSAGE value="Removes unused hero, popular, and related product components." />
     <MESSAGE value="Implements MOQ input field and updates product schema." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implements MOQ input field and updates product schema." />
+    <MESSAGE value="Updates product display with MOQ and restyles query generator." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates product display with MOQ and restyles query generator." />
   </component>
 </project>

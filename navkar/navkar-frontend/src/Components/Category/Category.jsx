@@ -8,6 +8,9 @@ import logo from "../Assets/logo.png";
 import { ShopContext } from '../../Context/ShopContext'; // Import the context
 import signanureimg from "../Assets/signature.jpeg";
 import cross_icon from "../Assets/cross_icon.png";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Category = () => {
     const [totalQuantity, setTotalQuantity] = useState(0);
 
@@ -20,6 +23,7 @@ const Category = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedItems, setSelectedItems] = useState([]);
     const { userDetails } = useContext(ShopContext);
+    const notify = () => toast("Wow so easy!");
     const handleOnClick = () => {
         const element = document.querySelector('#generate-pdf');
         var opt = {
@@ -74,6 +78,7 @@ const Category = () => {
     };
 
     const handleProductSelection = (productId, isChecked) => {
+
         setSelectedProducts((prevSelectedProducts) => {
             const newSelectedProducts = { ...prevSelectedProducts };
 
