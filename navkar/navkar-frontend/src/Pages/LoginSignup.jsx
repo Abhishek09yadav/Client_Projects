@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import './CSS/LoginSignup.css';
 
 const LoginSignup = () => {
@@ -32,7 +32,7 @@ const LoginSignup = () => {
     const Login = async () => {
         console.log('Logging in...', formData);
         try {
-            const response = await fetch(`${url}/login`, {
+            const response = await fetch(`${url}/api/otp/login`, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/json',
@@ -56,14 +56,14 @@ const LoginSignup = () => {
     };
 
     const SignUp = async () => {
-        if (!formData.username || !formData.email || !formData.password) {
+        if (!formData.username || !formData.email || !formData.city || !formData.phoneNo || !formData.password) {
             alert('All fields are required');
             return;
         }
 
         try {
             // Request OTP
-            const response = await fetch(`${url}/request-otp`, {
+            const response = await fetch(`${url}/api/otp/request-otp`, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -87,7 +87,7 @@ const LoginSignup = () => {
 
     const verifyOTP = async () => {
         try {
-            const response = await fetch(`${url}/verify-otp`, {
+            const response = await fetch(`${url}/api/otp/verify-otp`, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -120,7 +120,7 @@ const LoginSignup = () => {
         }
 
         try {
-            const response = await fetch(`${url}/forgot-password-otp`, {
+            const response = await fetch(`${url}/api/otp/forgot-password-otp`, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -149,7 +149,7 @@ const LoginSignup = () => {
         }
 
         try {
-            const response = await fetch(`${url}/reset-password`, {
+            const response = await fetch(`${url}/api/otp/reset-password`, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',

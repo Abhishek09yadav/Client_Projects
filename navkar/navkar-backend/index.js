@@ -1,9 +1,6 @@
         require('dotenv').config();
-
         const port = process.env.PORT;
         const baseUrl = process.env.BASE_URL;
-
-
         const express = require('express');
         const app = express();
         const mongoose = require('mongoose');
@@ -11,18 +8,17 @@
         const multer = require('multer');
         const path = require('path');
         const cors = require('cors');
-        const nodemailer = require('nodemailer');
-        const crypto = require('crypto');
         app.use(express.json());
         app.use(cors());
-
-
+        const otpRoutes = require('./routes/otpRoutes');
+        app.use('/api/otp', otpRoutes);
         // Database Connection with mongodb
         mongoose.connect('mongodb+srv://Ecommerce:Z1*6$5*7A4$qC&@cluster0.dwmcu.mongodb.net/e-commerce')
 
         app.get("/", (req, res) => {
             res.send("Welcome to Ecommerce!");
         })
+        const Users = require('./models/models');
 
 
         // Image storage Engine
@@ -179,17 +175,7 @@
             console.log("All products Fetched");
         })
 
-        //Schema creating for use model
-        const Users = mongoose.model('Users', {
-            name: { type: String, required: true },
-            email: { type: String, required: true, unique: true },
-            password: { type: String, required: true },
-            state: { type: String },
-            city: { type: String },
-            phoneNo: { type: String },
 
-            date: { type: Date, default: Date.now },
-        });
         //creating middleware to fetch user
         const fetchUser = async (req, res, next) => {
             const token = req.header('auth-token');
@@ -248,28 +234,6 @@
             }
         });
         // Creating endpoint for registering the user
-        app.post('/signup', async (req, res) => {
-            let check = await Users.findOne({ email: req.body.email });
-            if (check) {
-                return res.status(400).json({ success: false, error: 'Email already exists' });
-            }
-
-            const user = new Users({
-                name: req.body.username,
-                email: req.body.email,
-                password: req.body.password,
-                state: req.body.state,
-                city: req.body.city,
-                phoneNo: req.body.phoneNo,
-
-            });
-
-            await user.save();
-
-            const data = { user: { id: user._id } };
-            const token = jwt.sign(data, 'secret_ecom');
-            res.json({ success: true, token });
-        });
 
         app.listen(port, (error) => {
             if (!error) {
@@ -281,21 +245,6 @@
             }
         })
         // Creating endpoint for user login
-        app.post('/login', async (req, res) => {
-            let user = await Users.findOne({email: req.body.email});
-            if (user) {
-                const passCompare = req.body.password === user.password;
-                if (passCompare) {
-                    const data = {user: {id: user.id}}
-                    const token = jwt.sign(data, 'secret_ecom');
-                    res.json({success: true, token})
-                } else {
-                    res.json({success: false, error: 'Wrong password'})
-                }
-            } else {
-                res.json({success: false, error: "Wrong Email id"})
-            }
-        })
         app.post('/getUserDetails', fetchUser, async (req, res) => {
             try {
                 // Find user by id
@@ -313,270 +262,9 @@
                 res.status(500).json({success: false, error: "Internal server error"});
             }
         });
-        // OTP storage to track generated OTPs
-        let otpStore = {};
 
-        // Nodemailer transporter configuration
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-                user: 'monuy8830@gmail.com',
-                pass: 'vljwjnavutkxfqyu',
-            }
-        });
-        function generateOTP() {
-            return crypto.randomInt(1000, 9999).toString();
-        }
-        // Function to send OTP via email
-        async function sendOTPEmail(email, otp) {
-            const mailOptions = {
-                from: process.env.EMAIL_USER,
-                to: email,
-                subject: 'Your OTP for Signup',
-                text: `Your One-Time Password (OTP) is: ${otp}. 
-        This OTP will expire in 10 minutes. 
-        Do not share this with anyone.`
-            };
 
-            try {
-                await transporter.sendMail(mailOptions);
-                return true;
-            } catch (error) {
-                console.error('Error sending OTP email:', error);
-                return false;
-            }
-        }
 
-        // Endpoint to request OTP
-        app.post('/request-otp', async (req, res) => {
-            const { email } = req.body;
-
-            // Check if email already exists
-            const existingUser = await Users.findOne({ email });
-            if (existingUser) {
-                return res.status(400).json({
-                    success: false,
-                    error: 'Email already registered'
-                });
-            }
-
-            // Generate OTP
-            const otp = generateOTP();
-
-            // Store OTP with timestamp
-            otpStore[email] = {
-                otp,
-                createdAt: Date.now()
-            };
-
-            // Send OTP via email
-            const otpSent = await sendOTPEmail(email, otp);
-
-            if (otpSent) {
-                res.json({
-                    success: true,
-                    message: 'OTP sent to your email'
-                });
-            } else {
-                res.status(500).json({
-                    success: false,
-                    error: 'Failed to send OTP'
-                });
-            }
-        });
-
-        // Endpoint to verify OTP and complete signup
-        app.post('/verify-otp', async (req, res) => {
-            const { email, otp, username, password, state, city, phoneNo } = req.body;
-
-            // Check if OTP exists and is valid
-            const storedOTP = otpStore[email];
-
-            if (!storedOTP) {
-                return res.status(400).json({
-                    success: false,
-                    error: 'No OTP request found'
-                });
-            }
-
-            // Check OTP expiration (10 minutes)
-            const currentTime = Date.now();
-            if (currentTime - storedOTP.createdAt > 10 * 60 * 1000) {
-                delete otpStore[email];
-                return res.status(400).json({
-                    success: false,
-                    error: 'OTP has expired'
-                });
-            }
-
-            // Verify OTP
-            if (storedOTP.otp !== otp) {
-                return res.status(400).json({
-                    success: false,
-                    error: 'Invalid OTP'
-                });
-            }
-
-            // Create new user
-            const user = new Users({
-                name: username,
-                email,
-                password,
-                state,
-                city,
-                phoneNo,
-            });
-
-            try {
-                await user.save();
-
-                // Generate token
-                const data = { user: { id: user._id } };
-                // const token = jwt.sign(data, 'secret_ecom');
-
-                // Remove OTP from store
-                delete otpStore[email];
-
-                res.json({
-                    success: true,
-                    // token
-                });
-            } catch (error) {
-                console.error('Signup error:', error);
-                res.status(500).json({
-                    success: false,
-                    error: 'Signup failed'
-                });
-            }
-        });
-
-        // Optional: Clean up expired OTPs periodically
-        setInterval(() => {
-            const currentTime = Date.now();
-            Object.keys(otpStore).forEach(email => {
-                if (currentTime - otpStore[email].createdAt > 10 * 60 * 1000) {
-                    delete otpStore[email];
-                }
-            });
-        }, 5 * 60 * 1000); // Run every 5 minutes
-        // Endpoint to request forgot password OTP
-        app.post('/forgot-password-otp', async (req, res) => {
-            const { email } = req.body;
-
-            // Check if email exists in the database
-            const existingUser = await Users.findOne({ email });
-            if (!existingUser) {
-                return res.status(400).json({
-                    success: false,
-                    error: 'Email not registered'
-                });
-            }
-
-            // Generate OTP
-            const otp = generateOTP();
-
-            // Store OTP with timestamp
-            otpStore[email] = {
-                otp,
-                createdAt: Date.now(),
-                type: 'forgot_password'
-            };
-
-            // Send OTP via email
-            const mailOptions = {
-                from: process.env.EMAIL_USER,
-                to: email,
-                subject: 'Password Reset OTP',
-                text: `Your One-Time Password (OTP) for password reset is: ${otp}. 
-This OTP will expire in 10 minutes. 
-Do not share this with anyone.`
-            };
-
-            try {
-                await transporter.sendMail(mailOptions);
-                res.json({
-                    success: true,
-                    message: 'Password reset OTP sent to your email'
-                });
-            } catch (error) {
-                console.error('Error sending password reset OTP:', error);
-                res.status(500).json({
-                    success: false,
-                    error: 'Failed to send OTP'
-                });
-            }
-        });
-
-        // Endpoint to reset password
-        app.post('/reset-password', async (req, res) => {
-            const { email, otp, newPassword } = req.body;
-
-            // Check if OTP exists and is valid
-            const storedOTP = otpStore[email];
-
-            if (!storedOTP) {
-                return res.status(400).json({
-                    success: false,
-                    error: 'No OTP request found'
-                });
-            }
-
-            // Check if this is a forgot password OTP
-            if (storedOTP.type !== 'forgot_password') {
-                return res.status(400).json({
-                    success: false,
-                    error: 'Invalid OTP request'
-                });
-            }
-
-            // Check OTP expiration (10 minutes)
-            const currentTime = Date.now();
-            if (currentTime - storedOTP.createdAt > 10 * 60 * 1000) {
-                delete otpStore[email];
-                return res.status(400).json({
-                    success: false,
-                    error: 'OTP has expired'
-                });
-            }
-
-            // Verify OTP
-            if (storedOTP.otp !== otp) {
-                return res.status(400).json({
-                    success: false,
-                    error: 'Invalid OTP'
-                });
-            }
-
-            try {
-                // Find the user by email
-                const user = await Users.findOne({ email });
-
-                if (!user) {
-                    return res.status(404).json({
-                        success: false,
-                        error: 'User not found'
-                    });
-                }
-
-                // Update user's password
-                user.password = newPassword;
-                await user.save();
-
-                // Remove OTP from store
-                delete otpStore[email];
-
-                res.json({
-                    success: true,
-                    message: 'Password reset successfully'
-                });
-            } catch (error) {
-                console.error('Password reset error:', error);
-                res.status(500).json({
-                    success: false,
-                    error: 'Failed to reset password'
-                });
-            }
-        });
         app.get('/newCollection', async (req, res) => {
             let products = await Product.find({});
             let newCollection = products.slice(-8);

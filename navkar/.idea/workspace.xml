@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Refactors quotation download and styles quotation history button.">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Implements password reset via OTP verification.">
+      <change afterPath="$PROJECT_DIR$/navkar-backend/models/models.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/routes/otpRoutes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Pages/LoginSignup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Pages/LoginSignup.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar.zip" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,9 +20,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="JSX File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -242,7 +245,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734254475132</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Implements password reset via OTP verification.">
+      <option name="closed" value="true" />
+      <created>1734258763715</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1734258763715</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,6 +267,7 @@
     <MESSAGE value="Updates product display with MOQ and restyles the query generator." />
     <MESSAGE value="Adds quotation history page and refactors product display." />
     <MESSAGE value="Refactors quotation download and styles quotation history button." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactors quotation download and styles quotation history button." />
+    <MESSAGE value="Implements password reset via OTP verification." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implements password reset via OTP verification." />
   </component>
 </project>
