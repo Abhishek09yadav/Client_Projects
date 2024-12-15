@@ -11,7 +11,8 @@
         const multer = require('multer');
         const path = require('path');
         const cors = require('cors');
-
+        const nodemailer = require('nodemailer');
+        const crypto = require('crypto');
         app.use(express.json());
         app.use(cors());
 
@@ -312,6 +313,152 @@
                 res.status(500).json({success: false, error: "Internal server error"});
             }
         });
+        // OTP storage to track generated OTPs
+        let otpStore = {};
+
+        // Nodemailer transporter configuration
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'monuy8830@gmail.com',
+                pass: 'vljwjnavutkxfqyu',
+            }
+        });
+        function generateOTP() {
+            return crypto.randomInt(1000, 9999).toString();
+        }
+        // Function to send OTP via email
+        async function sendOTPEmail(email, otp) {
+            const mailOptions = {
+                from: process.env.EMAIL_USER,
+                to: email,
+                subject: 'Your OTP for Signup',
+                text: `Your One-Time Password (OTP) is: ${otp}. 
+        This OTP will expire in 10 minutes. 
+        Do not share this with anyone.`
+            };
+
+            try {
+                await transporter.sendMail(mailOptions);
+                return true;
+            } catch (error) {
+                console.error('Error sending OTP email:', error);
+                return false;
+            }
+        }
+
+        // Endpoint to request OTP
+        app.post('/request-otp', async (req, res) => {
+            const { email } = req.body;
+
+            // Check if email already exists
+            const existingUser = await Users.findOne({ email });
+            if (existingUser) {
+                return res.status(400).json({
+                    success: false,
+                    error: 'Email already registered'
+                });
+            }
+
+            // Generate OTP
+            const otp = generateOTP();
+
+            // Store OTP with timestamp
+            otpStore[email] = {
+                otp,
+                createdAt: Date.now()
+            };
+
+            // Send OTP via email
+            const otpSent = await sendOTPEmail(email, otp);
+
+            if (otpSent) {
+                res.json({
+                    success: true,
+                    message: 'OTP sent to your email'
+                });
+            } else {
+                res.status(500).json({
+                    success: false,
+                    error: 'Failed to send OTP'
+                });
+            }
+        });
+
+        // Endpoint to verify OTP and complete signup
+        app.post('/verify-otp', async (req, res) => {
+            const { email, otp, username, password, state, city, phoneNo } = req.body;
+
+            // Check if OTP exists and is valid
+            const storedOTP = otpStore[email];
+
+            if (!storedOTP) {
+                return res.status(400).json({
+                    success: false,
+                    error: 'No OTP request found'
+                });
+            }
+
+            // Check OTP expiration (10 minutes)
+            const currentTime = Date.now();
+            if (currentTime - storedOTP.createdAt > 10 * 60 * 1000) {
+                delete otpStore[email];
+                return res.status(400).json({
+                    success: false,
+                    error: 'OTP has expired'
+                });
+            }
+
+            // Verify OTP
+            if (storedOTP.otp !== otp) {
+                return res.status(400).json({
+                    success: false,
+                    error: 'Invalid OTP'
+                });
+            }
+
+            // Create new user
+            const user = new Users({
+                name: username,
+                email,
+                password,
+                state,
+                city,
+                phoneNo,
+            });
+
+            try {
+                await user.save();
+
+                // Generate token
+                const data = { user: { id: user._id } };
+                const token = jwt.sign(data, 'secret_ecom');
+
+                // Remove OTP from store
+                delete otpStore[email];
+
+                res.json({
+                    success: true,
+                    token
+                });
+            } catch (error) {
+                console.error('Signup error:', error);
+                res.status(500).json({
+                    success: false,
+                    error: 'Signup failed'
+                });
+            }
+        });
+
+        // Optional: Clean up expired OTPs periodically
+        setInterval(() => {
+            const currentTime = Date.now();
+            Object.keys(otpStore).forEach(email => {
+                if (currentTime - otpStore[email].createdAt > 10 * 60 * 1000) {
+                    delete otpStore[email];
+                }
+            });
+        }, 5 * 60 * 1000); // Run every 5 minutes
 
         // creating endpoint for newCollection data
         app.get('/newCollection', async (req, res) => {

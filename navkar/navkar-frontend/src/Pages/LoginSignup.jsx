@@ -19,7 +19,8 @@ const LoginSignup = () => {
         city: '',
         phoneNo: ''
     });
-
+    const [otpState, setOtpState] = useState(false);
+    const [otpInput, setOtpInput] = useState('');
     const [state, setState] = useState("Login");
 
     const changeHandler = (e) => {
@@ -54,24 +55,56 @@ const LoginSignup = () => {
             alert('All fields are required');
             return;
         }
-        console.log('Signing up...', formData);
-        let responseData;
-        await fetch(`${url}/signup`, {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        }).then(res => res.json()).then(data => {
-            responseData = data;
-        });
-        if (responseData.success) {
-            localStorage.setItem('auth-token', responseData.token);
-            window.location.replace('/');
-        } else {
-            alert(responseData.error);
-            console.log('responseData', responseData);
+
+        try {
+            // Request OTP
+            const response = await fetch(`${url}/request-otp`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email: formData.email })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                setOtpState(true); // Show OTP input
+            } else {
+                alert(data.error);
+            }
+        } catch (error) {
+            console.error('OTP Request Error:', error);
+            alert('Failed to send OTP');
+        }
+    };
+
+    const verifyOTP = async () => {
+        try {
+            const response = await fetch(`${url}/verify-otp`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    ...formData,
+                    otp: otpInput
+                })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                localStorage.setItem('auth-token', data.token);
+                window.location.replace('/');
+            } else {
+                alert(data.error);
+            }
+        } catch (error) {
+            console.error('OTP Verification Error:', error);
+            alert('OTP verification failed');
         }
     };
 
@@ -114,6 +147,18 @@ const LoginSignup = () => {
                                 onChange={changeHandler}
                                 placeholder="Your Phone Number"
                             />
+                            {otpState ? (
+                                <div className="otp-verification">
+                                    <input
+                                        type="text"
+                                        placeholder="Enter OTP"
+                                        value={otpInput}
+                                        onChange={(e) => setOtpInput(e.target.value)}
+                                        maxLength={6}
+                                    />
+                                    <button onClick={verifyOTP}>Verify OTP</button>
+                                </div>
+                            ) : ''}
                         </>
                     )}
                     <input
@@ -132,6 +177,7 @@ const LoginSignup = () => {
                         placeholder="Your Password"
                     />
                 </div>
+
                 <button
                     onClick={() => {
                         state === 'Login' ? Login() : SignUp();

@@ -4,13 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Adds quotation history page and refactors product display.">
-      <change afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/quotation.png" afterDir="false" />
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Refactors quotation download and styles quotation history button.">
+      <change afterPath="$PROJECT_DIR$/navkar-admin/src/assets/abhi_quotation.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1734206908156.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1734206923511.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1734206930495.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1734206953953.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1734206956298.webp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Navbar/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Navbar/Navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Navbar/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Navbar/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Pages/LoginSignup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Pages/LoginSignup.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +168,7 @@
       <workItem from="1734071768191" duration="16455000" />
       <workItem from="1734089200839" duration="28000" />
       <workItem from="1734089240578" duration="6210000" />
-      <workItem from="1734157470358" duration="31320000" />
+      <workItem from="1734157470358" duration="33347000" />
     </task>
     <task id="LOCAL-00001" summary="Removes category model, routes, and updates category handling.">
       <option name="closed" value="true" />
@@ -229,7 +234,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734206200686</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Refactors quotation download and styles quotation history button.">
+      <option name="closed" value="true" />
+      <created>1734252586596</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1734252586596</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,6 +255,7 @@
     <MESSAGE value="Updates product display with MOQ and restyles query generator." />
     <MESSAGE value="Updates product display with MOQ and restyles the query generator." />
     <MESSAGE value="Adds quotation history page and refactors product display." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds quotation history page and refactors product display." />
+    <MESSAGE value="Refactors quotation download and styles quotation history button." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactors quotation download and styles quotation history button." />
   </component>
 </project>
