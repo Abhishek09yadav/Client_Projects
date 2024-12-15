@@ -61,6 +61,8 @@
 .customer-details{
     font-size: 11px;
     line-height: 1.7;
+}.customer-details-box{
+
 }
 .details{
     display: flex;

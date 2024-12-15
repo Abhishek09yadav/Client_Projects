@@ -25,7 +25,6 @@ const Category = () => {
     const { userDetails } = useContext(ShopContext);
     const notify = () => toast("Wow so easy!");
 
-
     const handleOnClick = async () => {
         try {
             const element = document.querySelector('#generate-pdf');
@@ -36,43 +35,11 @@ const Category = () => {
                 jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
             };
 
-            // Generate the PDF
-            const pdfBlob = await html2pdf().set(opt).from(element).outputPdf('blob');
-
-            // Create FormData to send the PDF
-            const formData = new FormData();
-            formData.append('pdf', pdfBlob, `${userDetails?.name}_quotation.pdf`);
-
-            // Prioritize _id, then fall back to id
-            const userId = userDetails?._id || userDetails?.id;
-
-            if (!userId) {
-                throw new Error('User ID is missing');
-            }
-
-            formData.append('userId', userId);
-
-            // Upload the PDF to the server
-            const response = await axios.post('http://localhost:4000/upload-pdf', formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            });
-
-            if (response.data.success) {
-                toast.success('Quotation saved successfully!', {
-                    position: "top-right",
-                    autoClose: 3000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                });
-            }
+            // Generate the PDF and download it directly
+            await html2pdf().set(opt).from(element).save();
         } catch (error) {
-            console.error('Error uploading PDF:', error.response ? error.response.data : error);
-
-            toast.error('Failed to save the quotation.', {
+            console.error('Error generating PDF:', error);
+            toast.error('Failed to generate the quotation.', {
                 position: "top-right",
                 autoClose: 3000,
                 hideProgressBar: false,
@@ -177,11 +144,8 @@ const Category = () => {
             const price = product.new_price;
             // Convert Tax to a number, default to 0 if not a valid number
             const tax = parseFloat(product?.Tax || 0);
-            // const tax = (price * taxRate) / 100;
             const itemTotal = (price + tax) * quantity; // Price + Tax
             total += itemTotal;
-            // var  TotalTax = tax*quantity;
-            //  TotalTax = TotalTax.toFixed(2);
             const TotalTax = tax;
             return {
                 name: product.name,
@@ -198,12 +162,10 @@ const Category = () => {
         setIsModalOpen(true);
     };
 
-    // console.log("user details ", userDetails)
     return (
         <div className={'Category'}>
             <ToastContainer/>
             <h1>Categories</h1>
-            {/*<hr/>*/}
             <div className="category-container">
                 {categories.map((category, index) => (
                     <div
@@ -214,11 +176,9 @@ const Category = () => {
                         {category.category}
                     </div>
                 ))}
-
             </div>
             {selectedCategory && (
                 <div>
-
                     {products.length > 0 ? (
                         <>
                             <span className={'products-in'}>Products in {selectedCategory}</span>
@@ -249,7 +209,6 @@ const Category = () => {
                                                 />
                                             </div>
                                         )}
-
                                     </div>
                                 ))}
                             </div>
@@ -261,9 +220,7 @@ const Category = () => {
             )}
 
             <div className="net-quantity-container">
-
-                    <span className="net-quantity">Net Quantity: {totalQuantity}</span>
-
+                <span className="net-quantity">Net Quantity: {totalQuantity}</span>
                 <button
                     className="query-generator-button"
                     onClick={generateQuery}
@@ -272,18 +229,18 @@ const Category = () => {
                 </button>
             </div>
 
-
             {totalPrice > 0 && (
                 <div className="total-price">
                     <p>Total Price: ₹{totalPrice.toFixed(2)}</p>
                 </div>
             )}
+
             {isModalOpen && (
                 <div className="modal-overlay">
                     <div className="modal-content">
                         <h3>Selected Products</h3>
                         <div id={"generate-pdf"}>
-                            <Link to={'/'} className="nav-logo" style={{textDecoration: 'none'}}>
+                            <Link to={'/'} className="nav-logo" style={{ textDecoration: 'none' }}>
                                 <img src={logo} alt="logo"/>
                                 <p>NAVKAR</p>
                             </Link>
@@ -302,7 +259,6 @@ const Category = () => {
                                                 <p className={"customer-details"}>State: {userDetails.state}</p>
                                                 <p className={"customer-details"}>City: {userDetails.city}</p>
                                                 <p className={"customer-details"}>Phone No.: {userDetails.phoneNo}</p>
-
                                             </div>
                                         ) : (
                                             <p>Loading user details...</p>
@@ -345,9 +301,7 @@ const Category = () => {
 
                             <h3>Sign: <img src={signanureimg} className={'signature'}/></h3>
                         </div>
-                        {/*pdf generation ends here*/}
-                        <button onClick={handleOnClick}>PDF</button>
-                        {/*<button onClick={() => setIsModalOpen(false)}>Close</button>*/}
+                        <button onClick={handleOnClick}>Download PDF</button>
                         <img
                             src={cross_icon}
                             alt="Close"
@@ -361,7 +315,6 @@ const Category = () => {
                                 height: '20px',
                             }}
                         />
-
                     </div>
                 </div>
             )}
