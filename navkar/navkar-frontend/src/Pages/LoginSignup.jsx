@@ -22,31 +22,36 @@ const LoginSignup = () => {
     const [otpState, setOtpState] = useState(false);
     const [otpInput, setOtpInput] = useState('');
     const [state, setState] = useState("Login");
+    const [forgotPasswordState, setForgotPasswordState] = useState(false);
+    const [newPassword, setNewPassword] = useState('');
 
     const changeHandler = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
-        console.log("form data ",formData)
     };
 
     const Login = async () => {
         console.log('Logging in...', formData);
-        let responseData;
-        await fetch(`${url}/login`, {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        }).then(res => res.json()).then(data => {
-            responseData = data;
-        });
-        if (responseData.success) {
-            localStorage.setItem('auth-token', responseData.token);
-            window.location.replace('/');
-        } else {
-            alert(responseData.error);
-            console.log('responseData', responseData);
+        try {
+            const response = await fetch(`${url}/login`, {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+            const responseData = await response.json();
+
+            if (responseData.success) {
+                localStorage.setItem('auth-token', responseData.token);
+                window.location.replace('/');
+            } else {
+                alert(responseData.error);
+                console.log('responseData', responseData);
+            }
+        } catch (error) {
+            console.error('Login Error:', error);
+            alert('Login failed. Please try again.');
         }
     };
 
@@ -97,8 +102,8 @@ const LoginSignup = () => {
             const data = await response.json();
 
             if (data.success) {
-                localStorage.setItem('auth-token', data.token);
-                window.location.replace('/');
+                // localStorage.setItem('auth-token', data.token);
+                // window.location.replace('/');
             } else {
                 alert(data.error);
             }
@@ -108,11 +113,81 @@ const LoginSignup = () => {
         }
     };
 
+    const requestForgotPasswordOTP = async () => {
+        if (!formData.email) {
+            alert('Please enter your email');
+            return;
+        }
+
+        try {
+            const response = await fetch(`${url}/forgot-password-otp`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email: formData.email })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                setOtpState(true);
+            } else {
+                alert(data.error);
+            }
+        } catch (error) {
+            console.error('Forgot Password OTP Request Error:', error);
+            alert('Failed to send OTP');
+        }
+    };
+
+    const resetPassword = async () => {
+        if (!otpInput || !newPassword) {
+            alert('Please enter OTP and new password');
+            return;
+        }
+
+        try {
+            const response = await fetch(`${url}/reset-password`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: formData.email,
+                    otp: otpInput,
+                    newPassword: newPassword
+                })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                alert('Password reset successfully');
+                setForgotPasswordState(false);
+                setOtpState(false);
+                setState('Login');
+            } else {
+                alert(data.error);
+            }
+        } catch (error) {
+            console.error('Password Reset Error:', error);
+            alert('Failed to reset password');
+        }
+    };
+
     return (
         <div className="login-signup">
             <div className="login-signup-container">
-                <h1>{state}</h1>
+                <h1>
+                    {forgotPasswordState
+                        ? 'Forgot Password'
+                        : state}
+                </h1>
                 <div className="login-signup-fields">
+                    {/* Signup Fields */}
                     {state === 'SignUp' && (
                         <>
                             <input
@@ -147,7 +222,7 @@ const LoginSignup = () => {
                                 onChange={changeHandler}
                                 placeholder="Your Phone Number"
                             />
-                            {otpState ? (
+                            {otpState && (
                                 <div className="otp-verification">
                                     <input
                                         type="text"
@@ -158,9 +233,11 @@ const LoginSignup = () => {
                                     />
                                     <button onClick={verifyOTP}>Verify OTP</button>
                                 </div>
-                            ) : ''}
+                            )}
                         </>
                     )}
+
+                    {/* Login and Forgot Password Email Field */}
                     <input
                         required
                         type="email"
@@ -169,32 +246,88 @@ const LoginSignup = () => {
                         onChange={changeHandler}
                         placeholder="Your Email"
                     />
-                    <input
-                        type="password"
-                        name="password"
-                        value={formData.password}
-                        onChange={changeHandler}
-                        placeholder="Your Password"
-                    />
+
+                    {/* Forgot Password OTP and New Password Fields */}
+                    {forgotPasswordState && otpState && (
+                        <>
+                            <input
+                                type="text"
+                                placeholder="Enter OTP"
+                                value={otpInput}
+                                onChange={(e) => setOtpInput(e.target.value)}
+                                maxLength={4}
+                            />
+                            <input
+                                type="password"
+                                placeholder="New Password"
+                                value={newPassword}
+                                onChange={(e) => setNewPassword(e.target.value)}
+                            />
+                        </>
+                    )}
+
+                    {/* Password Field for Login and Signup */}
+                    {!forgotPasswordState && (
+                        <input
+                            type="password"
+                            name="password"
+                            value={formData.password}
+                            onChange={changeHandler}
+                            placeholder="Your Password"
+                        />
+                    )}
                 </div>
 
                 <button
                     onClick={() => {
-                        state === 'Login' ? Login() : SignUp();
+                        if (forgotPasswordState) {
+                            if (!otpState) {
+                                requestForgotPasswordOTP();
+                            } else {
+                                resetPassword();
+                            }
+                        } else {
+                            state === 'Login' ? Login() : SignUp();
+                        }
                     }}
                     className="btn btn-lg login-signup-button"
                 >
-                    {state}
+                    {forgotPasswordState
+                        ? (otpState ? 'Reset Password' : 'Send OTP')
+                        : state}
                 </button>
-                {state === 'SignUp' ? (
-                    <p className="login-signup-login">
-                        Already have an account{' '}
-                        <span onClick={() => setState('Login')}>Login</span>
-                    </p>
+
+                {/* Navigation and Forgot Password Links */}
+                {!forgotPasswordState ? (
+                    state === 'SignUp' ? (
+                        <p className="login-signup-login">
+                            Already have an account{' '}
+                            <span onClick={() => setState('Login')}>Login</span>
+                        </p>
+                    ) : (
+                        <div className="login-signup-links">
+                            <p className="login-signup-login">
+                                Create an account{' '}
+                                <span onClick={() => setState('SignUp')}>Sign Up</span>
+                            </p>
+                            <p className="login-signup-login">
+                                <span onClick={() => {
+                                    setState('Login');
+                                    setForgotPasswordState(true);
+                                }}>
+                                    Forgot Password?
+                                </span>
+                            </p>
+                        </div>
+                    )
                 ) : (
                     <p className="login-signup-login">
-                        Create an account{' '}
-                        <span onClick={() => setState('SignUp')}>Sign Up</span>
+                        <span onClick={() => {
+                            setForgotPasswordState(false);
+                            setOtpState(false);
+                        }}>
+                            Back to Login
+                        </span>
                     </p>
                 )}
             </div>

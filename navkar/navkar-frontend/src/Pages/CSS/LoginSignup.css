@@ -52,6 +52,25 @@
     z-index: -1;
 }
 
+.login-signup-links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.otp-verification {
+    display: flex;
+    gap: 10px;
+}
+
+.otp-verification input {
+    flex-grow: 1;
+}
+
+.otp-verification button {
+    width: auto;
+    padding: 0 15px;
+}
 @keyframes rotate {
     0% {
         transform: rotate(0deg);
