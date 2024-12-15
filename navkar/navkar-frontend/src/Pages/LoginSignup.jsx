@@ -102,8 +102,8 @@ const LoginSignup = () => {
             const data = await response.json();
 
             if (data.success) {
-                // localStorage.setItem('auth-token', data.token);
-                // window.location.replace('/');
+                localStorage.setItem('auth-token', data.token);
+                window.location.replace('/');
             } else {
                 alert(data.error);
             }
@@ -255,7 +255,7 @@ const LoginSignup = () => {
                                 placeholder="Enter OTP"
                                 value={otpInput}
                                 onChange={(e) => setOtpInput(e.target.value)}
-                                maxLength={4}
+                                maxLength={6}
                             />
                             <input
                                 type="password"

@@ -7,7 +7,6 @@
     <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Refactors quotation download and styles quotation history button.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Pages/CSS/LoginSignup.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Pages/CSS/LoginSignup.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Pages/LoginSignup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Pages/LoginSignup.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

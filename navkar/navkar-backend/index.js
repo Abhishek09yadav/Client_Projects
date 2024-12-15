@@ -577,7 +577,6 @@ Do not share this with anyone.`
                 });
             }
         });
-        // creating endpoint for newCollection data
         app.get('/newCollection', async (req, res) => {
             let products = await Product.find({});
             let newCollection = products.slice(-8);
