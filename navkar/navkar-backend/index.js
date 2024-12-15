@@ -22,16 +22,23 @@
 
 
         // Image storage Engine
-        const storage = multer.diskStorage({
+        const imagesStorage = multer.diskStorage({
             destination: './upload/images',
             filename: (req, file, cb) => {
                 return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`);
 
             }
         })
-        const upload = multer({storage: storage});
+        const upload = multer({storage: imagesStorage});
 
-
+        // creating upload
+        app.use('/images', express.static('upload/images'));
+        app.post("/upload", upload.single("product"), (req, res) => {
+            res.json({
+                success: 1,
+                image_url: `${baseUrl}/images/${req.file.filename}`,
+            });
+        });
 
         // schema for category
         const ProductCategory = mongoose.model("Category", {
@@ -101,6 +108,11 @@
                 res.status(500).json({ error: 'Error removing category' });
             }
         });
+        app.get('/products/:category', async (req, res) => {
+            const category = req.params.category;
+            const products = await Product.find({category: category});
+            res.json(products);
+        });
 
         // schema for creating product
         const Product = mongoose.model("Product", {
@@ -119,7 +131,7 @@
             category: {type: String, required: true},
             new_price: {type: Number, required: true},
             old_price: {type: Number, required: true},
-            Tax: {type: String, required: true},
+            Tax: {type: Number, required: true},
             Description: {type: String, required: true},
             date: {type: Date, default: Date.now},
             available: {type: Boolean, default: true},
@@ -273,16 +285,3 @@
         })
 
         // API to fetch products by category
-        app.get('/products/:category', async (req, res) => {
-            const category = req.params.category;
-            const products = await Product.find({ category: category });
-            res.json(products);
-        });
-        // creating upload
-        app.use('/images', express.static('upload/images'));
-        app.post("/upload", upload.single("product"), (req, res) => {
-            res.json({
-                success: 1,
-                image_url: `${baseUrl}/images/${req.file.filename}`,
-            });
-        });

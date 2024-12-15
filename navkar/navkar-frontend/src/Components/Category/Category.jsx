@@ -1,14 +1,14 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import axios from 'axios';
 import './Category.css';
 import Item from '../item/item';
 import html2pdf from 'html2pdf.js';
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import logo from "../Assets/logo.png";
-import { ShopContext } from '../../Context/ShopContext'; // Import the context
+import {ShopContext} from '../../Context/ShopContext'; // Import the context
 import signanureimg from "../Assets/signature.jpeg";
 import cross_icon from "../Assets/cross_icon.png";
-import { ToastContainer, toast } from 'react-toastify';
+import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Category = () => {
@@ -142,18 +142,23 @@ const Category = () => {
             }
             const quantity = parseInt(selectedProducts[productId].quantity, 10);
             const price = product.new_price;
-            // Convert Tax to a number, default to 0 if not a valid number
-            const tax = parseFloat(product?.Tax || 0);
-            const itemTotal = (price + tax) * quantity; // Price + Tax
+
+
+            const taxPercentage = product?.Tax
+
+            const tax = (price * taxPercentage) / 100;
+            const itemTotal = (price * quantity) + (tax * quantity); // Separate price and tax contributions
             total += itemTotal;
-            const TotalTax = tax;
+            const TotalTax = tax * quantity; // Keep this as it is
+
+
             return {
                 name: product.name,
                 quantity,
                 price,
                 totalPrice: itemTotal,
                 category: product.category,
-                TotalTax, // convert to number
+                Tax: product.Tax, // convert to number
             };
         }).filter(item => item !== null);
 
@@ -229,11 +234,6 @@ const Category = () => {
                 </button>
             </div>
 
-            {totalPrice > 0 && (
-                <div className="total-price">
-                    <p>Total Price: ₹{totalPrice.toFixed(2)}</p>
-                </div>
-            )}
 
             {isModalOpen && (
                 <div className="modal-overlay">
@@ -284,7 +284,7 @@ const Category = () => {
                                         <td>{item.quantity}</td>
                                         <td>{item.category}</td>
                                         <td>₹{isNaN(item.price) ? '0.00' : item.price.toFixed(2)}</td>
-                                        <td>{isNaN(item.TotalTax) ? '0.00' : item.TotalTax}</td>
+                                        <td>{item.Tax}</td>
                                         <td>₹{item.totalPrice.toFixed(2)}</td>
                                     </tr>
                                 ))}
@@ -299,7 +299,7 @@ const Category = () => {
                                 </div>
                             )}
 
-                            <h3>Sign: <img src={signanureimg} className={'signature'}/></h3>
+                            <h3 className={'signature'}>Sign: <img src={signanureimg} className={'signature'}/></h3>
                         </div>
                         <button onClick={handleOnClick}>Download PDF</button>
                         <img

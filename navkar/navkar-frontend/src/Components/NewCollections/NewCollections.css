@@ -4,7 +4,7 @@
     align-items: center;
     gap: 10px;
     margin-bottom: 70px;
-    margin-top: 200px;
+    margin-top: 50px;
 
 }
 .collections img {
@@ -42,7 +42,12 @@
 }
 
 @media (max-width: 1280px) {
-
+    .collections img {
+        max-width: 100%; /* Ensure images are responsive */
+        max-height: 150px; /* Limit the height of the image */
+        object-fit: contain; /* Maintain aspect ratio while fitting the container */
+        width: auto; /* Allow the width to adjust according to the height */
+    }
 
     .NewCollections hr {
         width: 160px;
@@ -56,6 +61,14 @@
 }
 
 @media (max-width: 1024px) {
+
+    .collections img {
+        max-width: 100%; /* Ensure images are responsive */
+        max-height: 100px; /* Limit the height of the image */
+        object-fit: contain; /* Maintain aspect ratio while fitting the container */
+        width: auto; /* Allow the width to adjust according to the height */
+    }
+
     .NewCollections {
 
         gap: 4px;
