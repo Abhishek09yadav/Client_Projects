@@ -39,6 +39,58 @@
                 image_url: `${baseUrl}/images/${req.file.filename}`,
             });
         });
+        // PDF storage engine
+        const pdfStorage = multer.diskStorage({
+            destination: './upload/pdf', // Save PDFs in the pdf folder
+            filename: (req, file, cb) => {
+                const timestamp = Date.now(); // Use only the timestamp for simplicity
+                cb(null, `${file.fieldname}-${timestamp}${path.extname(file.originalname)}`);
+            }
+        });
+
+        // Configure multer for PDF uploads
+        const uploadPdf = multer({
+            storage: pdfStorage,
+            fileFilter: (req, file, cb) => {
+                if (file.mimetype === 'application/pdf') {
+                    cb(null, true);
+                } else {
+                    cb(new Error('Only PDF files are allowed!'), false);
+                }
+            }
+        });
+
+        app.post('/uploadQuotation', uploadPdf.single('quotation'), async (req, res) => {
+            const {userId} = req.body;
+
+            if (!userId || !req.file) {
+                return res.status(400).json({error: "User ID and PDF file are required."});
+            }
+
+            try {
+                // Find the user in MongoDB
+                const user = await Users.findById(userId);
+
+                if (!user) {
+                    return res.status(404).json({error: "User not found."});
+                }
+
+                // Create a public link for the uploaded PDF
+                const pdfLink = `${baseUrl}/uploads/pdf/${req.file.filename}`;
+
+                // Save the link in the user's QuotationPages array
+                user.QuotationPages.push(pdfLink);
+                await user.save();
+
+                res.status(200).json({success: true, message: "Quotation saved successfully.", pdfLink});
+            } catch (error) {
+                console.error("Error uploading quotation:", error);
+                res.status(500).json({error: "Internal server error."});
+            }
+        });
+
+        // Serve static files from the uploads directory
+        app.use('/uploads', express.static('upload'));
 
         // schema for category
         const ProductCategory = mongoose.model("Category", {

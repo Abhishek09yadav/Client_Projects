@@ -126,9 +126,9 @@ const Category = () => {
     };
 
 
-    const generateQuery = () => {
+    const generateQuery = async () => {
         if (!userDetails) {
-            alert("Please log in to continue.");
+            toast.warn("Please log in to continue.");
             return;
         }
         let total = 0;
@@ -165,6 +165,47 @@ const Category = () => {
         setTotalPrice(total);
         setSelectedItems(selectedItems);
         setIsModalOpen(true);
+
+        setTimeout(async () => {
+            try {
+                const element = document.querySelector('#generate-pdf');
+                const opt = {
+                    margin: 1,
+                    filename: `${userDetails?.name}_quotation.pdf`,
+                    html2canvas: {scale: 2},
+                    jsPDF: {unit: 'in', format: 'letter', orientation: 'portrait'}
+                };
+
+                // Generate the PDF as a Blob
+                const pdfBlob = await html2pdf().set(opt).from(element).outputPdf('blob');
+
+                // Create FormData and append the PDF file
+                const formData = new FormData();
+                const pdfFile = new File([pdfBlob], `${userDetails?.name}_quotation.pdf`, {type: 'application/pdf'});
+                formData.append('quotation', pdfFile);
+                formData.append('userId', userDetails._id); // Assuming userDetails contains the user's ID
+
+                // Upload the PDF to the server
+                const response = await axios.post('http://localhost:4000/uploadQuotation', formData, {
+                    headers: {'Content-Type': 'multipart/form-data'}
+                });
+
+                if (response.data.success) {
+                    toast.success(`Quotation Generated successfully`);
+                }
+            } catch (error) {
+                console.error('Error generating or uploading PDF:', error);
+                toast.error('Failed to upload the quotation.', {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                });
+            }
+        }, 1000); // Delay execution by 3 seconds
+
     };
 
     return (
