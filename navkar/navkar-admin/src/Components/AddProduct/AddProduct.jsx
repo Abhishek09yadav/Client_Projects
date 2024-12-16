@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import './AddProduct.css';
 import upload_area from '../../assets/upload_area.svg';
 import plus_icon from '../../assets/plus.png';
@@ -9,6 +9,7 @@ import detail_icon from '../../assets/detail.png';
 import moq_icon from '../../assets/minimum_order_quantity.png';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+
 const url = import.meta.env.VITE_API_URL;
 
 function AddProduct(props) {
@@ -165,7 +166,7 @@ function AddProduct(props) {
 
             </div>
             <div className="AddProduct-itemfield">
-                <p>Minimum Order Quantity(moq)</p>
+                <p>Minimum Order Quantity(MOQ)</p>
                 <div className="AddProduct-input-container">
                     <img src={moq_icon} alt="MOQ Icon" className="AddProduct-icon"/>
                     <input

@@ -131,7 +131,9 @@ const Category = () => {
             toast.warn("Please log in to continue.");
             return;
         }
+
         let total = 0;
+        let canGenerate = true;  // Flag to track if the modal should open
         const selectedItems = Object.keys(selectedProducts).map((productId) => {
             const product = allProducts.find(item =>
                 item.id === Number(productId) || item._id === productId
@@ -140,17 +142,24 @@ const Category = () => {
                 console.error(`Product with ID ${productId} not found.`);
                 return null;
             }
+
             const quantity = parseInt(selectedProducts[productId].quantity, 10);
+            const MOQ = product.MOQ;
+
+            // Check if quantity is below MOQ
+            if (quantity < MOQ) {
+                toast.error(`Quantity for ${product.name} is below the Minimum Order Quantity of ${MOQ}.`);
+                canGenerate = false; // Prevent opening the modal
+                return null; // Prevent proceeding with this product
+            }
+
             const price = product.new_price;
-
-
-            const taxPercentage = product?.Tax
+            const taxPercentage = product?.Tax;
 
             const tax = (price * taxPercentage) / 100;
             const itemTotal = (price * quantity) + (tax * quantity); // Separate price and tax contributions
             total += itemTotal;
             const TotalTax = tax * quantity; // Keep this as it is
-
 
             return {
                 name: product.name,
@@ -160,8 +169,14 @@ const Category = () => {
                 category: product.category,
                 Tax: product.Tax, // convert to number
             };
-        }).filter(item => item !== null);
+        }).filter(item => item !== null); // Filter out nulls (invalid products due to MOQ check)
 
+        // If the flag is false, do not open the modal
+        if (!canGenerate) {
+            return;
+        }
+
+        // If all quantities are valid (i.e., all quantities are >= MOQ), proceed with the modal
         setTotalPrice(total);
         setSelectedItems(selectedItems);
         setIsModalOpen(true);
@@ -207,6 +222,7 @@ const Category = () => {
         }, 1000); // Delay execution by 3 seconds
 
     };
+
 
     return (
         <div className={'Category'}>

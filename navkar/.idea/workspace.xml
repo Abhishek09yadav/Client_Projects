@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Implements PDF quotation generation and upload.">
-      <change afterPath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.css" afterDir="false" />
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Implements quotation history endpoint and admin page.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/GeneratedQuotation.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/GeneratedQuotation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/Sidebar/Sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/Sidebar/Sidebar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Pages/Admin/Admin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Pages/Admin/Admin.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/QuotationHistory/QuotationHistory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/QuotationHistory/QuotationHistory.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +163,7 @@
       <workItem from="1734089200839" duration="28000" />
       <workItem from="1734089240578" duration="6210000" />
       <workItem from="1734157470358" duration="35047000" />
-      <workItem from="1734329651149" duration="23903000" />
+      <workItem from="1734329651149" duration="27210000" />
     </task>
     <task id="LOCAL-00001" summary="Removes category model, routes, and updates category handling.">
       <option name="closed" value="true" />
@@ -306,7 +301,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734365883734</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Implements quotation history endpoint and admin page.">
+      <option name="closed" value="true" />
+      <created>1734367566618</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1734367566618</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,7 +330,8 @@
     <MESSAGE value="Styles category page for responsiveness." />
     <MESSAGE value="Implements quotation PDF generation and upload." />
     <MESSAGE value="Implements PDF quotation generation and upload." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implements PDF quotation generation and upload." />
+    <MESSAGE value="Implements quotation history endpoint and admin page." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implements quotation history endpoint and admin page." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

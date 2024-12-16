@@ -1,20 +1,37 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import './QuotationHistory.css'; // Import the CSS file
 
 const QuotationHistory = () => {
     const [quotations, setQuotations] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredQuotations, setFilteredQuotations] = useState([]);
 
+    // Format date to dd/mm/yy
+    const formatDate = (timestamp) => {
+        const date = new Date(timestamp);
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = String(date.getFullYear()).slice(-2);
+        return `${day}/${month}/${year}`;
+    };
+
     // Fetch quotations from the server
     useEffect(() => {
         const fetchQuotations = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/quotations'); // Update with the correct endpoint
+                const response = await axios.get('http://localhost:4000/quotations'); // Replace with your endpoint
                 // Sort by date (newest first)
-                const sortedQuotations = response.data.sort((a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt));
-                setQuotations(sortedQuotations);
-                setFilteredQuotations(sortedQuotations);
+                const sortedQuotations = response.data.sort(
+                    (a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt)
+                );
+                // Add formatted date to each quotation
+                const formattedQuotations = sortedQuotations.map((quotation) => ({
+                    ...quotation,
+                    formattedDate: formatDate(quotation.uploadedAt),
+                }));
+                setQuotations(formattedQuotations);
+                setFilteredQuotations(formattedQuotations);
             } catch (error) {
                 console.error('Error fetching quotations:', error);
             }
@@ -24,69 +41,52 @@ const QuotationHistory = () => {
 
     // Filter quotations based on search term
     useEffect(() => {
-        const filtered = quotations.filter(quotation =>
+        const filtered = quotations.filter((quotation) =>
             quotation.userName.toLowerCase().includes(searchTerm.toLowerCase()) ||
             quotation.phoneNo.includes(searchTerm) ||
-            new Date(quotation.uploadedAt).toLocaleDateString().includes(searchTerm)
+            quotation.formattedDate.includes(searchTerm)
         );
         setFilteredQuotations(filtered);
     }, [searchTerm, quotations]);
 
     return (
-        <div style={{padding: '20px'}}>
+        <div className="quotation-history-container">
             <h1>Quotation History</h1>
 
             {/* Search Bar */}
             <input
                 type="text"
-                placeholder="Search by date, user name, or phone number"
+                placeholder="Search by date (dd/mm/yy), user name, or phone number"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                style={{
-                    width: '100%',
-                    padding: '10px',
-                    marginBottom: '20px',
-                    border: '1px solid #ccc',
-                    borderRadius: '5px'
-                }}
+                className="search-bar"
             />
 
-            {/* Quotation List */}
-            <ul style={{listStyle: 'none', padding: 0}}>
+            {/* Quotation Table */}
+            <table className="quotation-table">
+                <thead>
+                <tr>
+                    <th>User Name</th>
+                    <th>Phone Number</th>
+                    <th>Date</th>
+                    <th>PDF</th>
+                </tr>
+                </thead>
+                <tbody>
                 {filteredQuotations.map((quotation, index) => (
-                    <li
-                        key={index}
-                        style={{
-                            marginBottom: '15px',
-                            padding: '10px',
-                            border: '1px solid #ddd',
-                            borderRadius: '5px',
-                            backgroundColor: '#f9f9f9'
-                        }}
-                    >
-                        <h3>{quotation.userName}</h3>
-                        <p>
-                            <strong>Phone:</strong> {quotation.phoneNo}
-                        </p>
-                        <p>
-                            <strong>Date:</strong> {new Date(quotation.uploadedAt).toLocaleString()}
-                        </p>
-                        <a
-                            href={quotation.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{
-                                display: 'inline-block',
-                                marginTop: '10px',
-                                textDecoration: 'none',
-                                color: '#007BFF'
-                            }}
-                        >
-                            View PDF
-                        </a>
-                    </li>
+                    <tr key={index}>
+                        <td>{quotation.userName}</td>
+                        <td>{quotation.phoneNo}</td>
+                        <td>{quotation.formattedDate}</td>
+                        <td>
+                            <a href={quotation.link} target="_blank" rel="noopener noreferrer">
+                                View PDF
+                            </a>
+                        </td>
+                    </tr>
                 ))}
-            </ul>
+                </tbody>
+            </table>
         </div>
     );
 };
