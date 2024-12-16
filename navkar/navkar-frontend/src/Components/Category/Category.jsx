@@ -178,7 +178,7 @@ const Category = () => {
                         className={`category-pill ${selectedCategory === category.category ? "active" : ""}`}
                         onClick={() => fetchProductsByCategory(category.category)}
                     >
-                        {category.category}
+                        <span className={'pill-text'}>  {category.category}    </span>
                     </div>
                 ))}
             </div>

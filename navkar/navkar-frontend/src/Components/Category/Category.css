@@ -306,12 +306,31 @@
         max-height: 100px;
     }
 
+    .category-pill span {
+        font-size: 15px;
+    }
+
+    .category-pill {
+        padding: 5px 20px;
+    }
 }
 
 @media (max-width: 800px) {
     .net-quantity {
         text-align: left;
         margin-left: 30vi
+    }
+
+    .Category h1 {
+        font-size: 20px;
+    }
+
+    .products-in {
+        font-size: 15px;
+    }
+
+    .query-generator-button {
+        width: 200px;
     }
 
 }
@@ -322,10 +341,34 @@
         margin-left: 0
     }
 
+    .category-pill span {
+        font-size: 12px;
+    }
     .products-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 10px;
     }
 
+    .Category h1 {
+        font-size: 15px;
+    }
+
+    .products-in {
+        font-size: 10px;
+    }
+
+    .query-generator-button {
+        width: 150px;
+    }
+
+}
+
+@media (max-width: 400px) {
+    .net-quantity {
+    }
+
+    .query-generator-button {
+        width: 100px;
+    }
 }

@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="created separate routes for otp">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Refactors product details styling and tax calculation.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +98,7 @@
       <recent name="C:\Users\monuy\Desktop\Repos\navkar\navkar-frontend\src\Components\Assets" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.backend">
+  <component name="RunManager" selected="npm.frontend">
     <configuration default="true" type="NodeJSConfigurationType" node-parameters="node index.js" working-dir="$PROJECT_DIR$/navkar-backend">
       <method v="2" />
     </configuration>
@@ -260,7 +258,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734274735523</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Refactors product details styling and tax calculation.">
+      <option name="closed" value="true" />
+      <created>1734293621578</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1734293621578</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,7 +283,8 @@
     <MESSAGE value="Refactors quotation download and styles quotation history button." />
     <MESSAGE value="Implements password reset via OTP verification." />
     <MESSAGE value="created separate routes for otp" />
-    <option name="LAST_COMMIT_MESSAGE" value="created separate routes for otp" />
+    <MESSAGE value="Refactors product details styling and tax calculation." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactors product details styling and tax calculation." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
