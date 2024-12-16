@@ -94,7 +94,30 @@
                 res.status(500).json({error: "Internal server error."});
             }
         });
+        // Endpoint to fetch all quotations
+        app.get('/quotations', async (req, res) => {
+            try {
+                // Find all users and populate quotations
+                const users = await Users.find({}, 'name phoneNo QuotationPages');
 
+                // Flatten and map the quotations with user details
+                const quotations = users.flatMap(user => {
+                    return user.QuotationPages.map(quotation => ({
+                        userName: user.name,
+                        phoneNo: user.phoneNo,
+                        uploadedAt: quotation.uploadedAt,
+                        link: quotation.link
+                    }));
+                });
+
+                // Send sorted quotations (newest first)
+                quotations.sort((a, b) => b.uploadedAt - a.uploadedAt);
+                res.status(200).json(quotations);
+            } catch (error) {
+                console.error('Error fetching quotations:', error);
+                res.status(500).json({error: 'Internal server error.'});
+            }
+        });
         // Serve static files from the uploads directory
         app.use('/uploads', express.static('upload'));
 

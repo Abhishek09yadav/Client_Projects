@@ -1,0 +1,79 @@
+/* Container for the entire page */
+.quotation-history-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    min-height: 100vh;
+}
+
+/* Page title */
+.quotation-history-container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Search bar styling */
+.search-bar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Quotation list container */
+.quotation-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+/* Individual quotation card */
+.quotation-card {
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Quotation card heading */
+.quotation-card h3 {
+    margin: 0;
+    color: #007BFF;
+    font-size: 18px;
+}
+
+/* Details inside the card */
+.quotation-card p {
+    margin: 0;
+    color: #555;
+    font-size: 14px;
+}
+
+/* Link to view PDF */
+.quotation-card a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+    margin-top: 10px;
+    display: inline-block;
+    transition: color 0.3s;
+}
+
+.quotation-card a:hover {
+    color: #0056b3;
+}
+
+/* Add hover effect for cards */
+.quotation-card:hover {
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

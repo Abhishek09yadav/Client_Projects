@@ -6,7 +6,7 @@ import Product_list_icon from '../../assets/Product_list_icon.svg'
 import UserList_icon from '../../assets/userList.png'
 import Add_category_icon from '../../assets/category.png'
 import Quotation_icon from '../../assets/quotation.png'
-import generatedQuotation from "../GeneratedQuotation/GeneratedQuotation.jsx";
+
 function Sidebar(props) {
     return (
         <div className="Sidebar">
