@@ -9,6 +9,7 @@ import detail_icon from '../../assets/detail.png';
 import moq_icon from '../../assets/minimum_order_quantity.png';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import cross_icon from '../../assets/cross_icon.png';
 
 const url = import.meta.env.VITE_API_URL;
 
@@ -103,6 +104,16 @@ function AddProduct(props) {
             console.error('Error adding product:', error.message);
             alert('Failed to add product.');
         }
+    };
+    const removeImage = (imageKey) => {
+        setImages(prevImages => ({
+            ...prevImages,
+            [imageKey]: false,
+        }));
+        setProductDetails(prevDetails => ({
+            ...prevDetails,
+            [imageKey]: '',
+        }));
     };
 
 
@@ -216,13 +227,19 @@ function AddProduct(props) {
                             .slice(0, uploadCount)
                             .map((key) => (
                                 <div key={key} className="AddProduct-itemfield">
+                                    {images[key] && (
+                                        <div className="AddProduct-delete-icon-container">
+                                            <img
+                                                src={cross_icon}
+                                                alt="Delete"
+                                                className="AddProduct-delete-icon"
+                                                onClick={() => removeImage(key)}
+                                            />
+                                        </div>
+                                    )}
                                     <label htmlFor={`file-input-${key}`}>
                                         <img
-                                            src={
-                                                images[key]
-                                                    ? URL.createObjectURL(images[key])
-                                                    : upload_area
-                                            }
+                                            src={images[key] ? URL.createObjectURL(images[key]) : upload_area}
                                             className="AddProduct-thumbnail-image"
                                             alt={`Upload ${key}`}
                                         />
@@ -238,6 +255,7 @@ function AddProduct(props) {
                                 </div>
                             ))}
                     </div>
+
                     {uploadCount < 4 && (
                         <button
                             type="button"
