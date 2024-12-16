@@ -44,7 +44,7 @@
             destination: './upload/pdf', // Save PDFs in the pdf folder
             filename: (req, file, cb) => {
                 const timestamp = Date.now(); // Use only the timestamp for simplicity
-                cb(null, `${file.fieldname}-${timestamp}${path.extname(file.originalname)}`);
+                cb(null, `${file.fieldname}_${Date.now()}`);
             }
         });
 

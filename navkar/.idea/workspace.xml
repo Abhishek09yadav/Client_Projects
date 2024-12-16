@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Styles category page for responsiveness.">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Implements quotation PDF generation and upload.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/models/models.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/models/models.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/images/pdf_1734166100637.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/images/pdf_1734166237160.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -165,7 +161,7 @@
       <workItem from="1734089200839" duration="28000" />
       <workItem from="1734089240578" duration="6210000" />
       <workItem from="1734157470358" duration="35047000" />
-      <workItem from="1734329651149" duration="8595000" />
+      <workItem from="1734329651149" duration="12605000" />
     </task>
     <task id="LOCAL-00001" summary="Removes category model, routes, and updates category handling.">
       <option name="closed" value="true" />
@@ -279,7 +275,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734329932734</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Implements quotation PDF generation and upload.">
+      <option name="closed" value="true" />
+      <created>1734340193543</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1734340193543</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,7 +302,8 @@
     <MESSAGE value="created separate routes for otp" />
     <MESSAGE value="Refactors product details styling and tax calculation." />
     <MESSAGE value="Styles category page for responsiveness." />
-    <option name="LAST_COMMIT_MESSAGE" value="Styles category page for responsiveness." />
+    <MESSAGE value="Implements quotation PDF generation and upload." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implements quotation PDF generation and upload." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

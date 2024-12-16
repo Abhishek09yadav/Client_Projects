@@ -181,7 +181,7 @@ const Category = () => {
 
                 // Create FormData and append the PDF file
                 const formData = new FormData();
-                const pdfFile = new File([pdfBlob], `${userDetails?.name}_quotation.pdf`, {type: 'application/pdf'});
+                const pdfFile = new File([pdfBlob], `${userDetails?.name}.pdf`, {type: 'application/pdf'});
                 formData.append('quotation', pdfFile);
                 formData.append('userId', userDetails._id); // Assuming userDetails contains the user's ID
 
