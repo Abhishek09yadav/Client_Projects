@@ -44,7 +44,7 @@
             destination: './upload/pdf', // Save PDFs in the pdf folder
             filename: (req, file, cb) => {
                 const timestamp = Date.now(); // Use only the timestamp for simplicity
-                cb(null, `${file.fieldname}_${Date.now()}`);
+                cb(null, `${file.fieldname}_${Date.now()}.pdf`);
             }
         });
 
@@ -77,12 +77,18 @@
 
                 // Create a public link for the uploaded PDF
                 const pdfLink = `${baseUrl}/uploads/pdf/${req.file.filename}`;
+                const timestamp = Date.now();
 
-                // Save the link in the user's QuotationPages array
-                user.QuotationPages.push(pdfLink);
+                // Save the link and timestamp in the user's QuotationPages array
+                user.QuotationPages.push({link: pdfLink, uploadedAt: timestamp});
                 await user.save();
 
-                res.status(200).json({success: true, message: "Quotation saved successfully.", pdfLink});
+                res.status(200).json({
+                    success: true,
+                    message: "Quotation saved successfully.",
+                    pdfLink,
+                    uploadedAt: timestamp
+                });
             } catch (error) {
                 console.error("Error uploading quotation:", error);
                 res.status(500).json({error: "Internal server error."});

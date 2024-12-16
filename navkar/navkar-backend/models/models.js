@@ -10,7 +10,10 @@ const Users = new mongoose.Schema({
     city: {type: String},
     phoneNo: {type: String},
     date: {type: Date, default: Date.now},
-    QuotationPages: {type: [String], default: []}
+    QuotationPages: {
+        type: [{link: String, uploadedAt: Number}],
+        default: []
+    }
 });
 
 // Create and export the User model
