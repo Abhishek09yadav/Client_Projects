@@ -6,11 +6,8 @@ import Shop from "./Pages/Shop";
 
 import Product from "./Pages/Product";
 import Footer from "./Components/Footer/Footer";
-import men_banner from './Components/Assets/banner_mens.png'
-import women_banner from "./Components/Assets/banner_women.png"
-import kids_banner from "./Components/Assets/banner_kids.png"
 import LoginSignup from "./Pages/LoginSignup";
-import Cart from "./Pages/Cart";
+import QuotationHistory from "./Components/QuotationHistory/QuotationHistory";
 
 
 function App() {
@@ -26,6 +23,7 @@ function App() {
                         <Route path=':productId' element={<Product/>}/>
                     </Route>
                     <Route path='/login' element={<LoginSignup/>}/>
+                    <Route path='/quotationhistory' element={<QuotationHistory/>}/>
 
 
 

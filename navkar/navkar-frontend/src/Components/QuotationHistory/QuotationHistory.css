@@ -1,0 +1,44 @@
+.quotation-history {
+    padding: 20px;
+}
+
+.quotation-history h1 {
+    font-size: 1.5rem; /* Adjust font size as needed */
+    margin-bottom: 20px;
+}
+
+.quotation-history input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.quotation-history .quotation-list {
+    list-style: none;
+    padding: 0;
+}
+
+.quotation-history .quotation-list li {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.quotation-history .quotation-list li p {
+    margin-bottom: 5px;
+}
+
+.quotation-history .quotation-list li strong {
+    font-weight: bold;
+}
+
+.quotation-history .quotation-list li a {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #007bff;
+}

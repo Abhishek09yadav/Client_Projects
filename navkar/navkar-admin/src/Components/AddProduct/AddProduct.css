@@ -140,7 +140,7 @@
 
 .AddProduct-delete-icon-container {
     position: absolute;
-    top: 5px;
+    top: 9px;
     right: 5px;
     cursor: pointer;
 }
@@ -152,5 +152,5 @@
 
 .AddProduct-itemfield {
     position: relative;
-    text-align: center;
+
 }

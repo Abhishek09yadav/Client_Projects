@@ -87,13 +87,13 @@ const Category = () => {
         setProducts(categoryProducts);
     };
 
-    const handleProductSelection = (productId, isChecked) => {
+    const handleProductSelection = (productId, initialQuantity, isChecked) => {
 
         setSelectedProducts((prevSelectedProducts) => {
             const newSelectedProducts = { ...prevSelectedProducts };
 
             if (isChecked) {
-                newSelectedProducts[productId] = { quantity: 1 };
+                newSelectedProducts[productId] = {quantity: initialQuantity};
             } else {
                 delete newSelectedProducts[productId];
             }
@@ -258,7 +258,9 @@ const Category = () => {
                                         <input
                                             type="checkbox"
                                             checked={!!selectedProducts[item.id]}
-                                            onChange={(e) => handleProductSelection(item.id, e.target.checked)}
+                                            onChange={(e) => {
+                                                handleProductSelection(item.id, item.MOQ, e.target.checked);
+                                            }}
                                         />
                                         {selectedProducts[item.id] && (
                                             <div className={'Quantity-field'}>
