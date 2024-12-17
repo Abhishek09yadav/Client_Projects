@@ -1,44 +1,140 @@
-.quotation-history {
+/* General Container */
+.quotation-history-container {
     padding: 20px;
+    margin: 0 auto;
+    max-width: 900px; /* Increased max-width for better layout */
+    font-family: sans-serif; /* More modern font stack */
+    background-color: #f8f9fa; /* Softer background */
+    border: 1px solid #dee2e6; /* Lighter border */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-.quotation-history h1 {
-    font-size: 1.5rem; /* Adjust font size as needed */
+/* Title */
+.quotation-history-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #343a40; /* Darker text color */
     margin-bottom: 20px;
 }
 
-.quotation-history input {
+/* Search Input */
+.search-input {
+    display: block;
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
-.quotation-history .quotation-list {
-    list-style: none;
+/* Loading and No Data Messages */
+.loading,
+.no-quotations {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #6c757d;
+    padding: 20px; /* Add padding for better spacing */
+}
+
+/* Quotation List */
+.quotation-list {
+    list-style-type: none;
     padding: 0;
 }
 
-.quotation-history .quotation-list li {
-    margin-bottom: 15px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+.quotation-item {
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out; /* Add a hover effect */
 }
 
-.quotation-history .quotation-list li p {
-    margin-bottom: 5px;
+.quotation-item:hover {
+    transform: translateY(-2px); /* Slightly lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
 }
 
-.quotation-history .quotation-list li strong {
-    font-weight: bold;
+.quotation-item p {
+    margin: 0 0 10px;
+    font-size: 1rem;
+    color: #495057;
 }
 
-.quotation-history .quotation-list li a {
-    display: inline-block;
+/* Button Container */
+.button-container {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+    justify-content: flex-end; /* Align buttons to the right */
     margin-top: 10px;
+}
+
+/* Beautiful Buttons */
+.quotation-view-button,
+.quotation-download-button {
+    background-color: #007bff; /* Primary blue */
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
     text-decoration: none;
-    color: #007bff;
+    display: inline-block;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition for hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.quotation-view-button:hover,
+.quotation-download-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+}
+
+.quotation-view-button:active,
+.quotation-download-button:active {
+    transform: translateY(1px); /* Slightly move down on click */
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Reduce shadow on click */
+}
+
+/* Modal Styles */
+.modal-content {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.modal-title {
+    color: #343a40;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .quotation-history-container {
+        padding: 10px;
+    }
+
+    .quotation-history-title {
+        font-size: 1.5rem;
+    }
+
+    .button-container {
+        flex-direction: column; /* Stack buttons vertically on smaller screens */
+        align-items: stretch; /* Make buttons take full width */
+    }
+
+    .quotation-view-button,
+    .quotation-download-button {
+        width: 100%; /* Full width buttons on small screens */
+        margin-bottom: 5px; /* Add a little spacing between stacked buttons */
+    }
 }

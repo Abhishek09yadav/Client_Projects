@@ -1,98 +1,125 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {ShopContext} from "../../Context/ShopContext";
+import './QuotationHistory.css';
+import {Modal} from 'react-bootstrap'; // Assuming React Bootstrap is used
 
 const QuotationHistory = () => {
     const [quotations, setQuotations] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredQuotations, setFilteredQuotations] = useState([]);
     const {userDetails} = useContext(ShopContext);
-    const [loading, setLoading] = useState(true); // Add loading state
+    const [loading, setLoading] = useState(true);
+    const [showPdfModal, setShowPdfModal] = useState(false);
+    const [selectedPdf, setSelectedPdf] = useState(null);
 
     useEffect(() => {
-        const handleDataChange = () => {
-            setLoading(true); // Set loading to true when data changes
+        const handleDataChange = async () => {
+            setLoading(true);
             if (userDetails?.QuotationPages) {
-                const sortedQuotations = [...userDetails.QuotationPages].sort((a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt));
+                const sortedQuotations = [...userDetails.QuotationPages].sort(
+                    (a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt)
+                );
                 setQuotations(sortedQuotations);
                 setFilteredQuotations(sortedQuotations);
             } else {
                 setQuotations([]);
                 setFilteredQuotations([]);
             }
-            setLoading(false); // Set loading to false after data is processed
+            setLoading(false);
         };
 
         handleDataChange();
     }, [userDetails]);
 
     useEffect(() => {
-        if (quotations.length > 0) { // Only filter if quotations exist
+        if (quotations.length > 0) {
             const filtered = quotations.filter(quotation =>
                 new Date(quotation.uploadedAt).toLocaleDateString().includes(searchTerm)
             );
             setFilteredQuotations(filtered);
         } else {
-            setFilteredQuotations([]); // Important: Set to empty array if no quotations
+            setFilteredQuotations([]);
         }
     }, [searchTerm, quotations]);
 
-    if (loading) {
-        return <div>Loading quotations...</div>;
-    }
+    const handlePdfClick = (quotation) => {
+        setSelectedPdf(quotation.link);
+        setShowPdfModal(true);
+    };
+
+    const handlePdfDownload = () => {
+        if (selectedPdf) {
+            const link = document.createElement('a');
+            link.href = selectedPdf;
+            link.download = 'quotation.pdf'; // Customize filename if needed
+            link.click();
+        }
+    };
 
     return (
-        <div style={{padding: '20px'}}>
-            <h1>Quotation History</h1>
+        <div className="quotation-history-container">
+            <h1 className="quotation-history-title">Quotation History</h1>
 
             <input
                 type="text"
                 placeholder="Search by date"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                style={{
-                    width: '100%',
-                    padding: '10px',
-                    marginBottom: '20px',
-                    border: '1px solid #ccc',
-                    borderRadius: '5px'
-                }}
+                className="search-input"
             />
 
-            {filteredQuotations.length === 0 ? (
-                <p>No quotations found.</p>
+            {loading ? (
+                <div className="loading">Loading quotations...</div>
+            ) : filteredQuotations.length === 0 ? (
+                <p className="no-quotations">No quotations found.</p>
             ) : (
-                <ul style={{listStyle: 'none', padding: 0}}>
+                <ul className="quotation-list">
                     {filteredQuotations.map((quotation, index) => (
-                        <li
-                            key={index}
-                            style={{
-                                marginBottom: '15px',
-                                padding: '10px',
-                                border: '1px solid #ddd',
-                                borderRadius: '5px',
-                                backgroundColor: '#f9f9f9'
-                            }}
-                        >
+                        <li key={index} className="quotation-item">
                             <p>
                                 <strong>Date:</strong> {new Date(quotation.uploadedAt).toLocaleString()}
                             </p>
-                            <a
-                                href={quotation.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                style={{
-                                    display: 'inline-block',
-                                    marginTop: '10px',
-                                    textDecoration: 'none',
-                                    color: '#007BFF'
-                                }}
-                            >
-                                View PDF
-                            </a>
+                            <div className="button-container">
+                                <button onClick={() => handlePdfClick(quotation)}>View PDF</button>
+
+                                <button onClick={() => handlePdfDownload(handlePdfDownload)}>Download PDF</button>
+
+                            </div>
+
                         </li>
                     ))}
                 </ul>
             )}
+
+            <Modal
+                size="lg" // Use "xl" for an even larger modal
+                show={showPdfModal}
+                onHide={() => setShowPdfModal(false)}
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>Quotation Preview</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    {selectedPdf ? (
+                        <iframe
+                            src={`${selectedPdf}#view=Fit`}
+                            width="100%"
+                            height="800px" // You can adjust this height as needed
+                            title="PDF Viewer"
+                            style={{border: 'none'}}
+                        />
+
+                    ) : (
+                        <p>PDF preview is not available.</p>
+                    )}
+                </Modal.Body>
+                {/*<Modal.Footer>*/}
+
+                {/*    <Button variant="primary" onClick={handlePdfDownload}>*/}
+                {/*        Download*/}
+                {/*    </Button>*/}
+                {/*</Modal.Footer>*/}
+            </Modal>
         </div>
     );
 };
