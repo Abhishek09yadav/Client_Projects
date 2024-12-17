@@ -3,7 +3,7 @@
     padding: 20px;
     margin: 0 auto;
     max-width: 900px; /* Increased max-width for better layout */
-    font-family: sans-serif; /* More modern font stack */
+    font-family: sans-serif; /* Modern font stack */
     background-color: #f8f9fa; /* Softer background */
     border: 1px solid #dee2e6; /* Lighter border */
     border-radius: 8px;
@@ -117,7 +117,7 @@
     color: #343a40;
 }
 
-/* Responsive adjustments for smaller screens */
+/* Responsive Adjustments for Smaller Screens */
 @media (max-width: 768px) {
     .quotation-history-container {
         padding: 10px;
@@ -135,6 +135,6 @@
     .quotation-view-button,
     .quotation-download-button {
         width: 100%; /* Full width buttons on small screens */
-        margin-bottom: 5px; /* Add a little spacing between stacked buttons */
+        margin-bottom: 5px; /* Add spacing between stacked buttons */
     }
 }

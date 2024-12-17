@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {ShopContext} from "../../Context/ShopContext";
 import './QuotationHistory.css';
-import {Modal} from 'react-bootstrap'; // Assuming React Bootstrap is used
+import {Button, Modal} from 'react-bootstrap'; // Assuming React Bootstrap is used
 
 const QuotationHistory = () => {
     const [quotations, setQuotations] = useState([]);
@@ -80,9 +80,10 @@ const QuotationHistory = () => {
                                 <strong>Date:</strong> {new Date(quotation.uploadedAt).toLocaleString()}
                             </p>
                             <div className="button-container">
-                                <button onClick={() => handlePdfClick(quotation)}>View PDF</button>
+                                <Button classname={'btn'} onClick={() => handlePdfClick(quotation)}>View PDF</Button>
 
-                                <button onClick={() => handlePdfDownload(handlePdfDownload)}>Download PDF</button>
+                                <Button classname={'btn'} onClick={() => handlePdfDownload(handlePdfDownload)}>Download
+                                    PDF</Button>
 
                             </div>
 
