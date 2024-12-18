@@ -1,19 +1,7 @@
-.item {
-    position: relative;
-    width: 250px;
-    font-size: 14px;
-    background: linear-gradient(145deg, #ffffff, #f5f5f5);
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 16px;
-    overflow: hidden;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
 .item-checkbox {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    bottom: 0px;
+    left: 10px;
 }
 
 .item-quantity {
@@ -23,11 +11,135 @@
     margin-top: 10px;
 }
 
-.item-quantity label {
-    margin-right: 10px;
+.item {
+    position: relative;
+    width: 300px;
+    font-size: 14px;
+    background: linear-gradient(145deg, #ffffff, #f5f5f5);
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 2px solid transparent;
+
+}
+
+.item-selected {
+    border-color: #10b981;
+    background: linear-gradient(145deg, #f0fdf4, #ecfdf5);
+}
+
+.item-select-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.item-checkbox-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 0;
     font-size: 12px;
 }
 
+.item-checkbox {
+    position: relative;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.select-text {
+    margin-right: 10px;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 4px;
+    border: 1px solid #10b981;
+}
+
+.item-checkbox-container:hover .checkmark {
+    background-color: #ddd;
+}
+
+.item-checkbox:checked ~ .checkmark {
+    background-color: #10b981;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.item-checkbox:checked ~ .checkmark:after {
+    display: block;
+}
+
+.item-checkbox-container .checkmark:after {
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.select-text {
+    color: #4b5563;
+    margin-left: 5px;
+}
+
+.item-quantity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.quantity-input-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.item-quantity label {
+    margin-right: 10px;
+    font-size: 12px;
+    color: #4b5563;
+}
+
+.quantity-input {
+    width: 70px;
+    padding: 6px;
+    border: 1px solid #10b981;
+    border-radius: 4px;
+    font-size: 12px;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.quantity-input:focus {
+    border-color: #059669;
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+
+/* Rest of the existing styles remain the same */
 .item-quantity input {
     width: 70px;
     padding: 5px;

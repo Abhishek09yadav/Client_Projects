@@ -242,6 +242,7 @@
     height: auto;
 }
 .net-quantity-container {
+    z-index: 10;
     display: flex;
     justify-content: right;
     align-items: center;

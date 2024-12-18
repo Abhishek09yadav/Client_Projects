@@ -15,15 +15,21 @@ const Item = ({
                   selectedQuantity
               }) => {
     return (
-        <div className="item">
-            <div className="item-checkbox">
-                <input
-                    type="checkbox"
-                    checked={isSelected}
-                    onChange={(e) => onProductSelect(id, MOQ, e.target.checked)}
-                />
-            </div>
+        <div className={`item ${isSelected ? 'item-selected' : ''}`}>
+            <div className="item-select-wrapper">
+                <label className="item-checkbox-container">
 
+                    <input
+                        type="checkbox"
+                        checked={isSelected}
+                        onChange={(e) => onProductSelect(id, MOQ, e.target.checked)}
+                        className="item-checkbox"
+                    />
+                    <span className="select-text">Select</span>
+                    <span className="checkmark"></span>
+
+                </label>
+            </div>
             <Link to={`/product/${id}`}>
                 <img className="item-img" src={image} alt={name}/>
             </Link>
@@ -32,17 +38,20 @@ const Item = ({
                 <span className="item-price-old">₹{old_price}</span>
                 <span className="item-price-new">₹{new_price}</span>
             </div>
-            <p className="MOQ">MOQ: {MOQ}</p>
+            <p title={"Minimum order Quantity"} className="MOQ">MOQ: {MOQ}</p>
 
             {isSelected && (
                 <div className="item-quantity">
                     <label>Quantity:</label>
-                    <input
-                        type="number"
-                        min={MOQ}
-                        value={selectedQuantity}
-                        onChange={(e) => onQuantityChange(id, e.target.value)}
-                    />
+                    <div className="quantity-input-wrapper">
+                        <input
+                            type="number"
+                            min={MOQ}
+                            value={selectedQuantity}
+                            onChange={(e) => onQuantityChange(id, e.target.value)}
+                            className="quantity-input"
+                        />
+                    </div>
                 </div>
             )}
         </div>
