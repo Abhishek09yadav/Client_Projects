@@ -1,4 +1,4 @@
-import React, {useContext, useRef, useState} from 'react';
+import React, {useContext, useRef} from 'react';
 import "./Navbar.css"
 import logo from '../Assets/logo.png'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,15 +11,15 @@ import {ShopContext} from "../../Context/ShopContext";
 
 function Navbar(props) {
     const {setTriggerFetchingUserDetails} = useContext(ShopContext);
-    const [menu, setmenu] = useState("shop");
+    // const [menu, setmenu] = useState("shop");
     const menuRef = useRef();
     const scrollDown = () => {
         window.scrollBy(0, 110);
     }
-    const dropdown_toggle = (e) => {
-        menuRef.current.classList.toggle('nav-menu-visible');
-        e.target.classList.toggle('open');
-    }
+    // const dropdown_toggle = (e) => {
+    //     menuRef.current.classList.toggle('nav-menu-visible');
+    //     e.target.classList.toggle('open');
+    // }
     return <div className="navbar">
         <Link to={'/'} className="nav-logo" style={{textDecoration: 'none'}}>
             <img src={logo} alt="logo"/>

@@ -1,12 +1,11 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import './ProductDisplay.css';
 import star_icon from "../Assets/star_icon.png";
 import star_dull_icon from "../Assets/star_dull_icon.png";
-import { ShopContext } from "../../Context/ShopContext";
 
 const ProductDisplay = (props) => {
     const { product } = props;
-    const { addToCart } = useContext(ShopContext);
+    // const { addToCart } = useContext(ShopContext);
 
     // State to manage the currently displayed main image
     const [mainImage, setMainImage] = useState('');
@@ -21,11 +20,11 @@ const ProductDisplay = (props) => {
 
     // UseEffect to set initial main image when product changes
     useEffect(() => {
-        // Set the first available image as main image
+        // Set the first available image as the main image
         if (productImages.length > 0) {
             setMainImage(productImages[0]);
         }
-    }, [product]);
+    }, [product, productImages]);
 
     return (
         <div className='productdisplay'>

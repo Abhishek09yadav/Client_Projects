@@ -48,7 +48,7 @@ const ShopContextProvider = (props) => {
             const response = await fetch(`${url}/allproducts`);
             const data = await response.json();
             setAll_Product([...data]);
-            console.log("all product data ->", all_product);
+
 
         }
         fetchProducts();

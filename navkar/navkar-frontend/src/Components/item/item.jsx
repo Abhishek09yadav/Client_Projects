@@ -14,7 +14,7 @@ const Item = ({
                   onQuantityChange,
                   selectedQuantity
               }) => {
-    return (
+    return (<div className={'item-main-container'}>
         <div className={`item ${isSelected ? 'item-selected' : ''}`}>
             <div className="item-select-wrapper">
                 <label className="item-checkbox-container">
@@ -54,6 +54,7 @@ const Item = ({
                     </div>
                 </div>
             )}
+        </div>
         </div>
     );
 };

@@ -37,12 +37,7 @@
     text-align: center;
 }
 
-/*.product-item img {*/
-/*    max-width: 100%;*/
-/*    max-height: 200px;*/
-/*    object-fit: contain;*/
-/*    width: auto;*/
-/*}*/
+
 
 .product-item {
      display: flex;
@@ -308,6 +303,11 @@
         max-height: 100px;
     }
 
+    .products-grid {
+
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+    }
     .category-pill span {
         font-size: 15px;
     }
