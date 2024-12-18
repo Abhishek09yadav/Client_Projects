@@ -202,7 +202,7 @@ const Category = () => {
                 formData.append('userId', userDetails._id); // Assuming userDetails contains the user's ID
 
                 // Upload the PDF to the server
-                const response = await axios.post('http://localhost:4000/uploadQuotation', formData, {
+                const response = await axios.post(`${url}/uploadQuotation`, formData, {
                     headers: {'Content-Type': 'multipart/form-data'}
                 });
 

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import './QuotationHistory.css'; // Import the CSS file
-
+const url = process.env.REACT_APP_API_URL;
 const QuotationHistory = () => {
     const [quotations, setQuotations] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
@@ -20,7 +20,7 @@ const QuotationHistory = () => {
     useEffect(() => {
         const fetchQuotations = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/quotations'); // Replace with your endpoint
+                const response = await axios.get(`${url}/quotations`); // Replace with your endpoint
                 // Sort by date (newest first)
                 const sortedQuotations = response.data.sort(
                     (a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt)

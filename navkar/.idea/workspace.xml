@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Adds nodemailer and nodemon to backend dependencies.">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="bux fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -170,7 +170,7 @@
       <workItem from="1734157470358" duration="35047000" />
       <workItem from="1734329651149" duration="42332000" />
       <workItem from="1734430418505" duration="9382000" />
-      <workItem from="1734500576350" duration="38681000" />
+      <workItem from="1734500576350" duration="39411000" />
     </task>
     <task id="LOCAL-00001" summary="Removes category model, routes, and updates category handling.">
       <option name="closed" value="true" />
@@ -412,7 +412,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734550817580</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="bux fixes">
+      <option name="closed" value="true" />
+      <created>1734551741103</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1734551741103</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -444,7 +452,8 @@
     <MESSAGE value="Implements product MOQ and styles item selection." />
     <MESSAGE value="Adds nodemailer and nodemon packages." />
     <MESSAGE value="Adds nodemailer and nodemon to backend dependencies." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds nodemailer and nodemon to backend dependencies." />
+    <MESSAGE value="bux fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="bux fixes" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
