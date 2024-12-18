@@ -1,4 +1,5 @@
 import React, {createContext, useEffect, useState} from 'react';
+
 const url = process.env.REACT_APP_API_URL;
 
 
@@ -8,7 +9,7 @@ const ShopContextProvider = (props) => {
     const authToken = localStorage.getItem("auth-token");
     const [all_product, setAll_Product] = useState([]);
     const [userDetails, setUserDetails] = useState(null);
-
+    const [triggerFetchingUserDetails, setTriggerFetchingUserDetails] = useState(false);
     // Function to fetch user details
 
 
@@ -39,7 +40,7 @@ const ShopContextProvider = (props) => {
             }
         };
         fetchUserDetails();
-    }, [authToken]);
+    }, [authToken, triggerFetchingUserDetails]);
 
 
     useEffect(() => {
@@ -54,8 +55,7 @@ const ShopContextProvider = (props) => {
     }, [authToken]);
 
 
-
-    const contextValue = {  all_product,  userDetails}
+    const contextValue = {all_product, userDetails, setTriggerFetchingUserDetails}
 
     return (
         <ShopContext.Provider value={contextValue}>

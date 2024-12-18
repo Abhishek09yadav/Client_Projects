@@ -1,10 +1,7 @@
 import React, {useContext, useRef, useState} from 'react';
 import "./Navbar.css"
 import logo from '../Assets/logo.png'
-import cart_icon from '../Assets/cart_icon.png'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Quotation_Button from "../Assets/quotation.png"
-import Hamburger_Menu from '../Admin Panel Assets/Hamburger_Menu.svg';
 //import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import {Link} from "react-router-dom";
 import {ShopContext} from "../../Context/ShopContext";
@@ -13,7 +10,7 @@ import {ShopContext} from "../../Context/ShopContext";
 
 
 function Navbar(props) {
-    const {getTotalCartItems} = useContext(ShopContext);
+    const {setTriggerFetchingUserDetails} = useContext(ShopContext);
     const [menu, setmenu] = useState("shop");
     const menuRef = useRef();
     const scrollDown = () => {
@@ -47,7 +44,12 @@ function Navbar(props) {
         </ul>
         <ul className="nav-login-cart">
             < Link to={'/quotationhistory'}>
-                <button type="button" className="btn  btn-secondary rounded-pill QuotationHistory" >Quotation History</button>
+                <button type="button" className="btn  btn-secondary rounded-pill QuotationHistory" onClick={
+                    () => {
+                        setTriggerFetchingUserDetails((prev) => !prev);
+                    }
+                }>Quotation History
+                </button>
             </Link>
             {
                 localStorage.getItem('auth-token') ? <button onClick={() => {
