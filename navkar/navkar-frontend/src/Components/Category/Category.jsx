@@ -11,6 +11,7 @@ import cross_icon from "../Assets/cross_icon.png";
 import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+const url = process.env.REACT_APP_API_URL;
 const Category = () => {
     const [totalQuantity, setTotalQuantity] = useState(0);
 
@@ -53,8 +54,8 @@ const Category = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/categories');
-                const productsResponse = await axios.get('http://localhost:4000/allproducts');
+                const response = await axios.get(`${url}/categories`);
+                const productsResponse = await axios.get(`${url}/allproducts`);
 
                 const categoriesData = response.data;
                 const productsData = productsResponse.data;
