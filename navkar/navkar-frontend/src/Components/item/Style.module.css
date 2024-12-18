@@ -1,0 +1,5 @@
+.link:hover {
+    /*transform: scale(1.1);*/
+    box-shadow: 1px 1px 10px #0000005c;
+    /*transition: all 0.1s ease-in-out !important;*/
+}

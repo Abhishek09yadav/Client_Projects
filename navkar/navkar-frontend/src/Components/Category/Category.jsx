@@ -246,34 +246,23 @@ const Category = () => {
                             <span className={'products-in'}>Products in {selectedCategory}</span>
                             <div className="products-grid">
                                 {products.map((item) => (
-                                    <div key={item.id} className="product-item">
-                                        <Item
-                                            id={item.id}
-                                            name={item.name}
-                                            image={item.image}
-                                            new_price={item.new_price}
-                                            old_price={item.old_price}
-                                            MOQ={item.MOQ}
-                                        />
-                                        <input
-                                            type="checkbox"
-                                            checked={!!selectedProducts[item.id]}
-                                            onChange={(e) => {
-                                                handleProductSelection(item.id, item.MOQ, e.target.checked);
-                                            }}
-                                        />
-                                        {selectedProducts[item.id] && (
-                                            <div className={'Quantity-field'}>
-                                                <p>Quantity: </p>
-                                                <input
-                                                    type="number"
-                                                    min="1"
-                                                    value={selectedProducts[item.id].quantity}
-                                                    onChange={(e) => handleQuantityChange(item.id, e.target.value)}
-                                                />
-                                            </div>
-                                        )}
-                                    </div>
+                                    <Item
+                                        key={item.id}
+                                        id={item.id}
+                                        name={item.name}
+                                        image={item.image}
+                                        new_price={item.new_price}
+                                        old_price={item.old_price}
+                                        MOQ={item.MOQ}
+                                        isSelected={!!selectedProducts[item.id]}
+                                        onProductSelect={(id, initialQuantity, isChecked) =>
+                                            handleProductSelection(id, initialQuantity, isChecked)
+                                        }
+                                        onQuantityChange={(id, quantity) =>
+                                            handleQuantityChange(id, quantity)
+                                        }
+                                        selectedQuantity={selectedProducts[item.id]?.quantity || item.MOQ}
+                                    />
                                 ))}
                             </div>
                         </>
