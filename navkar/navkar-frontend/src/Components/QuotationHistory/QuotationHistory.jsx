@@ -1,7 +1,8 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {ShopContext} from "../../Context/ShopContext";
 import './QuotationHistory.css';
-import {Button, Modal} from 'react-bootstrap'; // Assuming React Bootstrap is used
+// import { Document, Page, pdfjs } from 'react-pdf';
+import {Button, Modal} from 'react-bootstrap';
 
 const QuotationHistory = () => {
     const [quotations, setQuotations] = useState([]);
@@ -16,9 +17,7 @@ const QuotationHistory = () => {
         const handleDataChange = async () => {
             setLoading(true);
             if (userDetails?.QuotationPages) {
-                const sortedQuotations = [...userDetails.QuotationPages].sort(
-                    (a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt)
-                );
+                const sortedQuotations = [...userDetails.QuotationPages].sort((a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt));
                 setQuotations(sortedQuotations);
                 setFilteredQuotations(sortedQuotations);
             } else {
@@ -27,15 +26,12 @@ const QuotationHistory = () => {
             }
             setLoading(false);
         };
-
         handleDataChange();
     }, [userDetails]);
 
     useEffect(() => {
         if (quotations.length > 0) {
-            const filtered = quotations.filter(quotation =>
-                new Date(quotation.uploadedAt).toLocaleDateString().includes(searchTerm)
-            );
+            const filtered = quotations.filter(quotation => new Date(quotation.uploadedAt).toLocaleDateString().includes(searchTerm));
             setFilteredQuotations(filtered);
         } else {
             setFilteredQuotations([]);
@@ -46,28 +42,19 @@ const QuotationHistory = () => {
         setSelectedPdf(quotation.link);
         setShowPdfModal(true);
     };
-
-    const handlePdfDownload = () => {
-        if (selectedPdf) {
-            const link = document.createElement('a');
-            link.href = selectedPdf;
-            link.download = 'quotation.pdf'; // Customize filename if needed
-            link.click();
-        }
+    const handlePdfDownload = (quotation) => {
+        const link = document.createElement('a');
+        link.href = quotation.link; // Use the existing link from quotation
+        link.download = 'quotation.pdf';
+        link.click();
     };
+
 
     return (
         <div className="quotation-history-container">
             <h1 className="quotation-history-title">Quotation History</h1>
-
-            <input
-                type="text"
-                placeholder="Search by date"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="search-input"
-            />
-
+            <input type="text" placeholder="Search by date" value={searchTerm}
+                   onChange={(e) => setSearchTerm(e.target.value)} className="search-input"/>
             {loading ? (
                 <div className="loading">Loading quotations...</div>
             ) : filteredQuotations.length === 0 ? (
@@ -76,27 +63,17 @@ const QuotationHistory = () => {
                 <ul className="quotation-list">
                     {filteredQuotations.map((quotation, index) => (
                         <li key={index} className="quotation-item">
-                            <p>
-                                <strong>Date:</strong> {new Date(quotation.uploadedAt).toLocaleString()}
-                            </p>
+                            <p><strong>Date:</strong> {new Date(quotation.uploadedAt).toLocaleString()}</p>
                             <div className="button-container">
-                                <Button classname={'btn'} onClick={() => handlePdfClick(quotation)}>View PDF</Button>
-
-                                <Button classname={'btn'} onClick={() => handlePdfDownload(handlePdfDownload)}>Download
+                                <Button variant="primary" onClick={() => handlePdfClick(quotation)}>View PDF</Button>
+                                <Button variant="secondary" onClick={() => handlePdfDownload(quotation)}>Download
                                     PDF</Button>
-
                             </div>
-
                         </li>
                     ))}
                 </ul>
             )}
-
-            <Modal
-                size="lg" // Use "xl" for an even larger modal
-                show={showPdfModal}
-                onHide={() => setShowPdfModal(false)}
-            >
+            <Modal size="lg" show={showPdfModal} onHide={() => setShowPdfModal(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title>Quotation Preview</Modal.Title>
                 </Modal.Header>
@@ -105,21 +82,14 @@ const QuotationHistory = () => {
                         <iframe
                             src={`${selectedPdf}#view=Fit`}
                             width="100%"
-                            height="800px" // You can adjust this height as needed
+                            height="800px"
                             title="PDF Viewer"
                             style={{border: 'none'}}
                         />
-
                     ) : (
                         <p>PDF preview is not available.</p>
                     )}
                 </Modal.Body>
-                {/*<Modal.Footer>*/}
-
-                {/*    <Button variant="primary" onClick={handlePdfDownload}>*/}
-                {/*        Download*/}
-                {/*    </Button>*/}
-                {/*</Modal.Footer>*/}
             </Modal>
         </div>
     );
