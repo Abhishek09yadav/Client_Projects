@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Refactors user details fetching in `ShopContext`.">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Implements product MOQ and styles item selection.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +98,7 @@
       <recent name="C:\Users\monuy\Desktop\Repos\navkar\navkar-frontend\src\Pages" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.frontend">
+  <component name="RunManager" selected="npm.backend">
     <configuration default="true" type="NodeJSConfigurationType" node-parameters="node index.js" working-dir="$PROJECT_DIR$/navkar-backend">
       <method v="2" />
     </configuration>
@@ -121,6 +120,9 @@
       <command value="start" />
       <node-interpreter value="project" />
       <envs />
+      <EXTENSION ID="com.intellij.lang.javascript.buildTools.npm.rc.StartBrowserRunConfigurationExtension">
+        <browser with-js-debugger="true" />
+      </EXTENSION>
       <method v="2" />
     </configuration>
     <configuration name="frontend" type="js.build_tools.npm">
@@ -170,7 +172,7 @@
       <workItem from="1734157470358" duration="35047000" />
       <workItem from="1734329651149" duration="42332000" />
       <workItem from="1734430418505" duration="9382000" />
-      <workItem from="1734500576350" duration="27459000" />
+      <workItem from="1734500576350" duration="37648000" />
     </task>
     <task id="LOCAL-00001" summary="Removes category model, routes, and updates category handling.">
       <option name="closed" value="true" />
@@ -380,7 +382,23 @@
       <option name="project" value="LOCAL" />
       <updated>1734527998827</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Adds MOQ to product item and styles item selection.">
+      <option name="closed" value="true" />
+      <created>1734538787482</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1734538787482</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Implements product MOQ and styles item selection.">
+      <option name="closed" value="true" />
+      <created>1734547416979</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1734547416979</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -408,7 +426,9 @@
     <MESSAGE value="Refactors CSS and uses Bootstrap buttons in QuotationHistory." />
     <MESSAGE value="Refetches user details on Quotation History click." />
     <MESSAGE value="Refactors user details fetching in `ShopContext`." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactors user details fetching in `ShopContext`." />
+    <MESSAGE value="Adds MOQ to product item and styles item selection." />
+    <MESSAGE value="Implements product MOQ and styles item selection." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implements product MOQ and styles item selection." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
