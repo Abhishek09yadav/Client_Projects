@@ -20,11 +20,11 @@ const ProductDisplay = (props) => {
 
     // UseEffect to set initial main image when product changes
     useEffect(() => {
-        // Set the first available image as the main image
+
         if (productImages.length > 0) {
             setMainImage(productImages[0]);
         }
-    }, [product, productImages]);
+    }, [product]);
 
     return (
         <div className='productdisplay'>

@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
 import './ListProduct.css'
 import cross_icon from '../../assets/cross_icon.png'
-
+import edit_icon from '../../assets/edit_icon.svg'
+// import edit_icon from '../../assets/edit.png'
 const url = import.meta.env.VITE_API_URL;
-
 console.log(cross_icon);
 
 function ListProduct(props) {
@@ -39,7 +39,7 @@ function ListProduct(props) {
                     All Products List
                 </h1>
                 <div className="ListProduct-format-main">
-                    <p>Products</p><p>Title</p><p>Old Price</p><p>New Price</p><p>Category</p><p>Remove</p>
+                    <p>Products</p><p>Title</p><p>Old Price</p><p>New Price</p><p>Category</p><p>Edit</p><p>Remove</p>
                 </div>
                 <div className="ListProduct-allproducts">
                     <hr/>
@@ -51,6 +51,9 @@ function ListProduct(props) {
                             <p>₹{product.old_price}</p>
                             <p>₹{product.new_price}</p>
                             <p>{product.category}</p>
+                            <img className="ListProduct-remove-icon" src={edit_icon} onClick={() => {
+                                remove_product(product.id)
+                            }} alt=""/>
                             <img className="ListProduct-remove-icon" src={cross_icon} onClick={() => {
                                 remove_product(product.id)
                             }} alt=""/>

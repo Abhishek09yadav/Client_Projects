@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import './QuotationHistory.css'; // Import the CSS file
-const url = process.env.REACT_APP_API_URL;
+const url = import.meta.env.VITE_API_URL;
 const QuotationHistory = () => {
     const [quotations, setQuotations] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
