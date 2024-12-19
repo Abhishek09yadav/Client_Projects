@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="bux fixes for deployment">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Fixes item display and select button positioning.">
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -171,7 +170,7 @@
       <workItem from="1734157470358" duration="35047000" />
       <workItem from="1734329651149" duration="42332000" />
       <workItem from="1734430418505" duration="9382000" />
-      <workItem from="1734500576350" duration="44358000" />
+      <workItem from="1734500576350" duration="44726000" />
     </task>
     <task id="LOCAL-00001" summary="Removes category model, routes, and updates category handling.">
       <option name="closed" value="true" />
@@ -429,7 +428,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734552456695</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Fixes item display and select button positioning.">
+      <option name="closed" value="true" />
+      <created>1734590960711</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1734590960711</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,7 +444,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Removes unused hero, popular, and related product components." />
     <MESSAGE value="Implements MOQ input field and updates product schema." />
     <MESSAGE value="Updates product display with MOQ and restyles query generator." />
     <MESSAGE value="Updates product display with MOQ and restyles the query generator." />
@@ -462,7 +468,8 @@
     <MESSAGE value="Adds nodemailer and nodemon to backend dependencies." />
     <MESSAGE value="bux fixes" />
     <MESSAGE value="bux fixes for deployment" />
-    <option name="LAST_COMMIT_MESSAGE" value="bux fixes for deployment" />
+    <MESSAGE value="Fixes item display and select button positioning." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes item display and select button positioning." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
