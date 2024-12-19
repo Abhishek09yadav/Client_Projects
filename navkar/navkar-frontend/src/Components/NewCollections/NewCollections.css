@@ -8,10 +8,13 @@
 
 }
 .collections img {
-    max-width: 100%; /* Ensure images are responsive */
-    max-height: 200px; /* Limit the height of the image */
-    object-fit: contain; /* Maintain aspect ratio while fitting the container */
-    width: auto; /* Allow the width to adjust according to the height */
+    width: 100%;
+    max-height: 150px;
+    max-width: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin: 0 auto;
+    transition: transform 0.3s ease-in-out;
 }
 .NewCollections h1 {
     margin-top: 50px;

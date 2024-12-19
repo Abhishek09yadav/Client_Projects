@@ -12,11 +12,12 @@ const Item = ({
                   isSelected,
                   onProductSelect,
                   onQuantityChange,
-                  selectedQuantity
+                  selectedQuantity,
+                  showCheckbox = true,
               }) => {
     return (<div className={'item-main-container'}>
         <div className={`item ${isSelected ? 'item-selected' : ''}`}>
-            <div className="item-select-wrapper">
+            {showCheckbox && (<div className="item-select-wrapper">
                 <label className="item-checkbox-container">
 
                     <input
@@ -29,7 +30,7 @@ const Item = ({
                     <span className="checkmark"></span>
 
                 </label>
-            </div>
+            </div>)}
             <Link to={`/product/${id}`}>
                 <img className="item-img" src={image} alt={name}/>
             </Link>

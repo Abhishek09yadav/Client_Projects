@@ -286,7 +286,9 @@
         width: 100%;
         font-size: 11px;
         height: auto;
-        max-height: 345px;
+
+        max-width: 150px;
+        max-height: 310px;
     }
 
     .item-img {
@@ -294,7 +296,7 @@
     }
 
     .item-price {
-        flex-direction: column;
+        flex-direction: row;
         align-items: flex-start;
         margin-top: 2px;
     }
