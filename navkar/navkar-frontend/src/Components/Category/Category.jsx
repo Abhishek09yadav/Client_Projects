@@ -137,8 +137,34 @@ const Category = () => {
             return;
         }
 
+        // First check all MOQs before calculating anything
+        let hasInvalidQuantities = false;
+        Object.keys(selectedProducts).forEach((productId) => {
+            const product = allProducts.find(item =>
+                item.id === Number(productId) || item._id === productId
+            );
+            if (product) {
+                const quantity = parseInt(selectedProducts[productId].quantity, 10);
+                if (quantity < product.MOQ) {
+                    toast.error(`Quantity for ${product.name} is below the Minimum Order Quantity of ${product.MOQ}.`, {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                    });
+                    hasInvalidQuantities = true;
+                }
+            }
+        });
+
+        // If any product has invalid quantity, stop here
+        if (hasInvalidQuantities) {
+            return;
+        }
+
         let total = 0;
-        let canGenerate = true;  // Flag to track if the modal should open
         const selectedItems = Object.keys(selectedProducts).map((productId) => {
             const product = allProducts.find(item =>
                 item.id === Number(productId) || item._id === productId
@@ -149,22 +175,13 @@ const Category = () => {
             }
 
             const quantity = parseInt(selectedProducts[productId].quantity, 10);
-            const MOQ = product.MOQ;
-
-            // Check if quantity is below MOQ
-            if (quantity < MOQ) {
-                toast.error(`Quantity for ${product.name} is below the Minimum Order Quantity of ${MOQ}.`);
-                canGenerate = false; // Prevent opening the modal
-                return null; // Prevent proceeding with this product
-            }
-
             const price = product.new_price;
             const taxPercentage = product?.Tax;
 
             const tax = (price * taxPercentage) / 100;
-            const itemTotal = (price * quantity) + (tax * quantity); // Separate price and tax contributions
+            const itemTotal = (price * quantity) + (tax * quantity);
             total += itemTotal;
-            const TotalTax = tax * quantity; // Keep this as it is
+            const TotalTax = tax * quantity;
 
             return {
                 name: product.name,
@@ -172,20 +189,15 @@ const Category = () => {
                 price,
                 totalPrice: itemTotal,
                 category: product.category,
-                Tax: product.Tax, // convert to number
+                Tax: product.Tax,
             };
-        }).filter(item => item !== null); // Filter out nulls (invalid products due to MOQ check)
+        }).filter(item => item !== null);
 
-        // If the flag is false, do not open the modal
-        if (!canGenerate) {
-            return;
-        }
-
-        // If all quantities are valid (i.e., all quantities are >= MOQ), proceed with the modal
         setTotalPrice(total);
         setSelectedItems(selectedItems);
         setIsModalOpen(true);
 
+        // Delay PDF generation and upload
         setTimeout(async () => {
             try {
                 const element = document.querySelector('#generate-pdf');
@@ -203,7 +215,7 @@ const Category = () => {
                 const formData = new FormData();
                 const pdfFile = new File([pdfBlob], `${userDetails?.name}.pdf`, {type: 'application/pdf'});
                 formData.append('quotation', pdfFile);
-                formData.append('userId', userDetails._id); // Assuming userDetails contains the user's ID
+                formData.append('userId', userDetails._id);
 
                 // Upload the PDF to the server
                 const response = await axios.post(`${url}/uploadQuotation`, formData, {
@@ -224,8 +236,7 @@ const Category = () => {
                     draggable: true,
                 });
             }
-        }, 1000); // Delay execution by 3 seconds
-
+        }, 1000);
     };
 
 

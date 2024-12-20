@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Styles product details and adds edit functionality to product list.">
-      <change afterPath="$PROJECT_DIR$/navkar-admin/src/Components/LIstProduct/Modal.css" afterDir="false" />
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Implements product editing and modal styling.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/LIstProduct/ListProduct.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/LIstProduct/ListProduct.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/LIstProduct/ListProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/LIstProduct/ListProduct.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +174,7 @@
       <workItem from="1734430418505" duration="9382000" />
       <workItem from="1734500576350" duration="49537000" />
       <workItem from="1734600264234" duration="13045000" />
-      <workItem from="1734676868607" duration="3259000" />
+      <workItem from="1734676868607" duration="11796000" />
     </task>
     <task id="LOCAL-00001" summary="Removes category model, routes, and updates category handling.">
       <option name="closed" value="true" />
@@ -478,7 +472,23 @@
       <option name="project" value="LOCAL" />
       <updated>1734604570196</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Implements product editing and modal styling.">
+      <option name="closed" value="true" />
+      <created>1734684151775</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1734684151775</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Implements product editing and modal styling.">
+      <option name="closed" value="true" />
+      <created>1734684157742</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1734684157742</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -486,7 +496,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Adds quotation history page and refactors product display." />
     <MESSAGE value="Refactors quotation download and styles quotation history button." />
     <MESSAGE value="Implements password reset via OTP verification." />
     <MESSAGE value="created separate routes for otp" />
@@ -511,7 +520,8 @@
     <MESSAGE value="Refines item and category display styling." />
     <MESSAGE value="Styles item image, price, and category font size." />
     <MESSAGE value="Styles product details and adds edit functionality to product list." />
-    <option name="LAST_COMMIT_MESSAGE" value="Styles product details and adds edit functionality to product list." />
+    <MESSAGE value="Implements product editing and modal styling." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implements product editing and modal styling." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

@@ -47,7 +47,7 @@ const Item = ({
                     <div className="quantity-input-wrapper">
                         <input
                             type="number"
-                            min={MOQ}
+                            // min={MOQ}
                             value={selectedQuantity}
                             onChange={(e) => onQuantityChange(id, e.target.value)}
                             className="quantity-input"
