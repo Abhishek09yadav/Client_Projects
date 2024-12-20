@@ -43,6 +43,7 @@
     margin: auto;
 }
 
+
 @media (max-width: 800px) {
     .ListProduct {
         box-sizing: border-box;

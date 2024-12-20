@@ -132,6 +132,10 @@ const Category = () => {
             toast.warn("Please log in to continue.");
             return;
         }
+        if (Object.keys(selectedProducts).length === 0) {
+            toast.warn("No products selected. Please select a product to generate the quotation.");
+            return;
+        }
 
         let total = 0;
         let canGenerate = true;  // Flag to track if the modal should open

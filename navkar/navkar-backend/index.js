@@ -206,7 +206,7 @@
                 required: true,
             },
             image: {type: String, required: true},
-            image1: {type: String, required: false}, // Optional images
+            image1: {type: String, required: false},
             image2: {type: String, required: false},
             image3: {type: String, required: false},
             category: {type: String, required: true},
@@ -267,6 +267,25 @@
             res.send(products);
             console.log("All products Fetched");
         })
+        // Endpoint to Edit an Existing Product
+        app.put('/editProduct/:id', async (req, res) => {
+            try {
+                const {id} = req.params; // Get product ID from URL parameters
+                const updateData = req.body; // Get updated data from the request body
+
+                // Find the product by ID and update it
+                const updatedProduct = await Product.findOneAndUpdate({id: id}, updateData, {new: true});
+
+                if (!updatedProduct) {
+                    return res.status(404).json({success: false, message: "Product not found"});
+                }
+
+                res.status(200).json({success: true, message: "Product updated successfully", updatedProduct});
+            } catch (error) {
+                console.error("Error updating product:", error.message);
+                res.status(500).json({success: false, message: "Internal server error", error: error.message});
+            }
+        });
 
 
         //creating middleware to fetch user

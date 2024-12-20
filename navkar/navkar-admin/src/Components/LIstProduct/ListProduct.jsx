@@ -1,70 +1,150 @@
-import React, {useEffect} from 'react';
-import './ListProduct.css'
-import cross_icon from '../../assets/cross_icon.png'
-import edit_icon from '../../assets/edit_icon.svg'
-// import edit_icon from '../../assets/edit.png'
+import React, {useEffect, useState} from 'react';
+import Modal from 'react-modal';
+import './ListProduct.css';
+import cross_icon from '../../assets/cross_icon.png';
+import edit_icon from '../../assets/edit_icon.svg';
+import AddProduct from '../AddProduct/AddProduct';
+
+// Bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
+Modal.setAppElement('#root'); // Adjust this if your app's root element has a different id
+
 const url = import.meta.env.VITE_API_URL;
-console.log(cross_icon);
 
 function ListProduct(props) {
+    const [allProducts, setAllProducts] = useState([]);
+    const [showModal, setShowModal] = useState(false);
+    const [selectedProduct, setSelectedProduct] = useState(null);
 
-
-    const [allproducts, setAllProducts] = React.useState([]);
     const fetchInfo = async () => {
-        await fetch(url);
-        await fetch(`${url}/allproducts`)
-            .then(res => res.json())
-            .then(data => setAllProducts(data))
-    }
+        const response = await fetch(`${url}/allproducts`);
+        const data = await response.json();
+        setAllProducts(data);
+    };
 
     useEffect(() => {
         fetchInfo();
     }, []);
-    const remove_product = async (id) => {
+
+    const removeProduct = async (id) => {
         await fetch(`${url}/removeProduct`, {
             method: 'POST',
             headers: {
-                Accept: 'application/json',
-                'content-type': 'application/json',
-
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
             },
-            body: JSON.stringify({id: id}),
-
-        })
+            body: JSON.stringify({id}),
+        });
         await fetchInfo();
-    }
-    return (<>
-            <div className={'ListProduct'}>
-                <h1>
-                    All Products List
-                </h1>
+    };
+
+    const handleEdit = (product) => {
+        console.log("Editing product:", product);
+        setSelectedProduct(product);
+        setShowModal(true);
+    };
+
+    const handleModalClose = () => {
+        setShowModal(false);
+        setSelectedProduct(null);
+        fetchInfo();
+    };
+
+    const handleAddNew = () => {
+        setSelectedProduct(null);
+        setShowModal(true);
+    };
+
+    const customModalStyles = {
+        content: {
+            top: '50%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)',
+            padding: '20px',
+            maxWidth: '90%',
+            width: '90%',
+            maxHeight: '90vh',
+            overflow: 'auto'
+        },
+        overlay: {
+            backgroundColor: 'rgba(0, 0, 0, 0.5)'
+        }
+    };
+
+    return (
+        <>
+            <div className="ListProduct">
+                <div className="ListProduct-header">
+                    <h1>All Products List</h1>
+                    <button
+                        className="add-product-btn"
+                        onClick={handleAddNew}
+                    >
+                        Add New Product
+                    </button>
+                </div>
                 <div className="ListProduct-format-main">
-                    <p>Products</p><p>Title</p><p>Old Price</p><p>New Price</p><p>Category</p><p>Edit</p><p>Remove</p>
+                    <p>Products</p>
+                    <p>Title</p>
+                    <p>Old Price</p>
+                    <p>New Price</p>
+                    <p>Category</p>
+                    <p>Edit</p>
+                    <p>Remove</p>
                 </div>
                 <div className="ListProduct-allproducts">
                     <hr/>
-
-                    {allproducts.map((product, index) => (
+                    {allProducts.map((product, index) => (
                         <div key={index} className="ListProduct-format-main ListProduct-format">
                             <img src={product.image} alt="" className="ListProduct-product-icon"/>
                             <p>{product.name}</p>
                             <p>₹{product.old_price}</p>
                             <p>₹{product.new_price}</p>
                             <p>{product.category}</p>
-                            <img className="ListProduct-remove-icon" src={edit_icon} onClick={() => {
-                                remove_product(product.id)
-                            }} alt=""/>
-                            <img className="ListProduct-remove-icon" src={cross_icon} onClick={() => {
-                                remove_product(product.id)
-                            }} alt=""/>
-
-                        </div>))}
-
-
+                            <img
+                                className="ListProduct-remove-icon"
+                                src={edit_icon}
+                                onClick={() => handleEdit(product)}
+                                alt=""
+                            />
+                            <img
+                                className="ListProduct-remove-icon"
+                                src={cross_icon}
+                                onClick={() => removeProduct(product.id)}
+                                alt=""
+                            />
+                        </div>
+                    ))}
                 </div>
-
             </div>
-            <hr/>
+            <Modal
+                isOpen={showModal}
+                onRequestClose={handleModalClose}
+                style={customModalStyles}
+                contentLabel="Product Modal"
+            >
+                <button
+                    onClick={handleModalClose}
+                    style={{
+                        position: 'absolute',
+                        right: '10px',
+                        top: '10px',
+                        background: 'none',
+                        border: 'none',
+                        fontSize: '24px',
+                        cursor: 'pointer'
+                    }}
+                >
+                    ×
+                </button>
+                <AddProduct
+                    product={selectedProduct}
+                    onClose={handleModalClose}
+                    isEdit={!!selectedProduct}
+                />
+            </Modal>
         </>
     );
 }

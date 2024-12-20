@@ -13,7 +13,7 @@ import cross_icon from '../../assets/cross_icon.png';
 
 const url = import.meta.env.VITE_API_URL;
 
-function AddProduct(props) {
+function AddProduct({product, onClose}) {
     const [categories, setCategories] = useState([]); // State to store fetched categories
     const [images, setImages] = useState({
         image: false,
@@ -21,7 +21,7 @@ function AddProduct(props) {
         image2: false,
         image3: false,
     });
-    const [productDetails, setProductDetails] = useState({
+    const [productDetails, setProductDetails] = useState(product || {
         name: '',
         image: '',
         image1: '',
@@ -34,8 +34,28 @@ function AddProduct(props) {
         old_price: '',
         moq: '',
     });
-    const [uploadCount, setUploadCount] = useState(1); // Track the number of uploaders to show
+    const [uploadCount, setUploadCount] = useState(1);
+    const saveProduct = async () => {
+        const endpoint = product ? `${url}/editProduct/${product.id}` : `${url}/addProduct`;
+        const method = product ? 'PUT' : 'POST';
 
+        try {
+            const response = await fetch(endpoint, {
+                method,
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(productDetails),
+            });
+            const data = await response.json();
+            if (data.success) {
+                alert('Product saved successfully!');
+                onClose();
+            } else {
+                alert(`Failed to save product: ${data.message}`);
+            }
+        } catch (error) {
+            console.error('Error saving product:', error.message);
+        }
+    };
     useEffect(() => {
         // Fetch categories from the server
         const fetchCategories = async () => {
@@ -267,13 +287,19 @@ function AddProduct(props) {
                         </button>
                     )}
                 </div>
-                <button
+                {product ? (<button
+                    type="button"
+                    onClick={saveProduct}
+                    className="AddProduct-btn btn btn-lg no-border no-focus-outline"
+                >
+                    Save Changes
+                </button>) : <button
                     type="button"
                     onClick={Add_Product}
                     className="AddProduct-btn btn btn-lg no-border no-focus-outline"
                 >
-                    ADD
-                </button>
+                    ADD Product
+                </button>}
             </div>
         </div>
     );
