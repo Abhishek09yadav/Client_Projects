@@ -9,10 +9,10 @@ const url = import.meta.env.VITE_API_URL;
 
 const UserList = () => {
     const [users, setUsers] = useState([]);
+    const [filteredUsers, setFilteredUsers] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
     const [error, setError] = useState('');
-    const [modalOpen, setModalOpen] = useState(false);
-    const [userToDelete, setUserToDelete] = useState(null);
-    const [expandedUser, setExpandedUser] = useState(null); // Track which user is expanded
+    const [expandedUser, setExpandedUser] = useState(null);
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -21,6 +21,7 @@ const UserList = () => {
                 const data = await response.json();
                 if (data.success) {
                     setUsers(data.usersDetails);
+                    setFilteredUsers(data.usersDetails);
                 } else {
                     setError(data.error || 'No users found');
                 }
@@ -62,76 +63,120 @@ const UserList = () => {
         window.open(link, '_blank');
     };
 
+    const handleSearch = (event) => {
+        const query = event.target.value.toLowerCase();
+        setSearchQuery(query);
+
+        const formatDate = (timestamp) => {
+            const date = new Date(timestamp);
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const year = String(date.getFullYear()).slice(-2);
+            return `${day}/${month}/${year}`;
+        };
+
+        const filtered = users.filter((user) => {
+            // Check for matches in basic fields
+            const basicMatch =
+                user.name.toLowerCase().includes(query) ||
+                user.email.toLowerCase().includes(query) ||
+                user.phoneNo?.toLowerCase().includes(query);
+
+            // Check for matches in QuotationPages dates
+            const dateMatches = user.QuotationPages.some((quotation) =>
+                formatDate(quotation.uploadedAt).includes(query)
+            );
+
+            return basicMatch || dateMatches;
+        });
+
+        setFilteredUsers(filtered);
+    };
+
+
+
     return (
         <>
             {error && <div className="error-message">{error}</div>}
-            <div className="accordion">
-                {users.length > 0 ? (
-                    users.map((user) => (
-                        <div key={user.email}>
-                            <div className="accordion-item">
-                                <div
-                                    className="accordion-header"
-                                    onClick={() => toggleAccordion(user.email)}
-                                >
-                                    <span>{user.name}</span>
-                                    <span>{expandedUser === user.email ? '▲' : '▼'}</span>
-                                </div>
-                                {expandedUser === user.email && (
-                                    <div className="accordion-collapse">
-                                        <div className="user-details">
-                                            <p><strong>Email:</strong> {user.email}</p>
-                                            <p><strong>Phone:</strong> {user.phoneNo}</p>
-                                            <p><strong>State:</strong> {user.state}</p>
-                                            <p><strong>City:</strong> {user.city}</p>
-                                            {user.QuotationPages.length > 0 ? (
-                                                <table className="table table-bordered mt-3">
-                                                    <thead>
-                                                    <tr>
-                                                        <th>Date</th>
-                                                        <th>View</th>
-                                                        <th>Download</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    {user.QuotationPages.map((quotation, index) => (
-                                                        <tr key={index}>
-                                                            <td>
-                                                                {new Date(quotation.uploadedAt).toLocaleString()}
-                                                            </td>
-                                                            <td>
-                                                                <Button
-                                                                    variant="info"
-                                                                    onClick={() => handlePdfView(quotation.link)}
-                                                                >
-                                                                    <FontAwesomeIcon icon={faEye}/> View
-                                                                </Button>
-                                                            </td>
-                                                            <td>
-                                                                <Button
-                                                                    variant="secondary"
-                                                                    onClick={() => handlePdfDownload(quotation)}
-                                                                >
-                                                                    <FontAwesomeIcon icon={faDownload}/> Download
-                                                                </Button>
-                                                            </td>
-                                                        </tr>
-                                                    ))}
-                                                    </tbody>
-                                                </table>
-                                            ) : (
-                                                <p>No quotations available.</p>
-                                            )}
-                                        </div>
+            <div className={'main-container'}>
+                <div className="search-bar mb-3">
+                    <input
+                        type="text"
+                        placeholder="Search by name, email, phone, or date"
+                        value={searchQuery}
+                        onChange={handleSearch}
+                        className="form-control"
+                    />
+                </div>
+                <div className="accordion">
+                    {filteredUsers.length > 0 ? (
+                        filteredUsers.map((user) => (
+                            <div key={user.email}>
+                                <div className="accordion-item">
+                                    <div
+                                        className="accordion-header"
+                                        onClick={() => toggleAccordion(user.email)}
+                                    >
+                                        <span>{user.name}</span>
+                                        <span>{expandedUser === user.email ? '▲' : '▼'}</span>
                                     </div>
-                                )}
+                                    {expandedUser === user.email && (
+                                        <div className="accordion-collapse">
+                                            <div className="user-details">
+                                                <p><strong>Email:</strong> {user.email}</p>
+                                                <p><strong>Phone:</strong> {user.phoneNo}</p>
+                                                <p><strong>State:</strong> {user.state}</p>
+                                                <p><strong>City:</strong> {user.city}</p>
+                                                {user.QuotationPages.length > 0 ? (
+                                                    <table className="table table-bordered mt-3">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Date</th>
+                                                            <th>View</th>
+                                                            <th>Download</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        {user.QuotationPages.map((quotation, index) => (
+                                                            <tr key={index}>
+                                                                <td>
+                                                                    {new Date(quotation.uploadedAt).toLocaleDateString('en-GB')}
+                                                                </td>
+                                                                <td>
+                                                                    <Button
+                                                                        variant="info"
+                                                                        onClick={() => handlePdfView(quotation.link)}
+                                                                    >
+                                                                        <FontAwesomeIcon icon={faEye}/> View
+                                                                    </Button>
+                                                                </td>
+                                                                <td>
+                                                                    <Button
+                                                                        variant="secondary"
+                                                                        onClick={() => handlePdfDownload(quotation)}
+                                                                    >
+                                                                        <FontAwesomeIcon icon={faDownload}/> Download
+                                                                    </Button>
+                                                                </td>
+                                                            </tr>
+                                                        ))}
+                                                        </tbody>
+                                                    </table>
+                                                ) : (
+                                                    <p>No quotations available.</p>
+                                                )}
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
                             </div>
-                        </div>
-                    ))
-                ) : (
-                    <p className="no-users">No users to display</p>
-                )}
+                        ))
+                    ) : (
+                        <p className="no-users">No users to display</p>
+                    )}
+                </div>
             </div>
+
         </>
     );
 };
