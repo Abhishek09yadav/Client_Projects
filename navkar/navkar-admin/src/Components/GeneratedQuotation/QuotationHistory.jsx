@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faDownload, faEye} from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
 import './QuotationHistory.css'; // Import the CSS file
 const url = import.meta.env.VITE_API_URL;
@@ -99,10 +101,18 @@ const QuotationHistory = () => {
                         <td>{quotation.phoneNo}</td>
                         <td>{quotation.formattedDate}</td>
                         <td>
-                            <a href={quotation.link} target="_blank" rel="noopener noreferrer">
-                                View PDF
+                            <a className="pdf" href={quotation.link} target="_blank" rel="noopener noreferrer"
+                               title={'view pdf'}>
+                                <FontAwesomeIcon icon={faEye}/>
+                            </a>
+                            <a
+                                onClick={() => handlePdfDownload(quotation)}
+                                title="Download PDF"
+                                className="pdf">
+                                <FontAwesomeIcon icon={faDownload}/>
                             </a>
                         </td>
+
                     </tr>
                 ))}
                 </tbody>

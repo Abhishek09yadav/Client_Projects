@@ -13,6 +13,11 @@
     margin-bottom: 20px;
 }
 
+.pdf {
+
+    padding: 10px;
+    /*margin:20px ;*/
+}
 /* Search bar */
 .search-bar {
     width: 100%;

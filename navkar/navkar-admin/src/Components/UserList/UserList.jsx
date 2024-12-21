@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import cross_icon from '../../assets/cross_icon.png';
-import Modal from './Modal'; // Import the Modal component
 import './UserList.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faDownload, faEye} from "@fortawesome/free-solid-svg-icons";
+import {Button} from 'react-bootstrap';
 
 const url = import.meta.env.VITE_API_URL;
 
@@ -12,7 +14,6 @@ const UserList = () => {
     const [userToDelete, setUserToDelete] = useState(null);
     const [expandedUser, setExpandedUser] = useState(null); // Track which user is expanded
 
-    // Fetch users on component mount
     useEffect(() => {
         const fetchUsers = async () => {
             try {
@@ -31,82 +32,107 @@ const UserList = () => {
         fetchUsers();
     }, []);
 
-    // Function to open the modal and set the user to be deleted
-    const openModal = (user) => {
-        setUserToDelete(user);
-        setModalOpen(true);
-    };
-
-    // Function to remove the user
-    const removeUser = async (email) => {
-        try {
-            const response = await fetch(`${import.meta.env.VITE_API_URL}/removeUser`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email }),
-            });
-            const data = await response.json();
-            if (data.success) {
-                setUsers(users.filter((user) => user.email !== email)); // Remove user from the state
-            } else {
-                alert(data.error || 'Error removing user');
-            }
-        } catch (err) {
-            alert('Error removing user');
-            console.error(err);
-        } finally {
-            setModalOpen(false); // Close modal after deletion
-        }
-    };
-
-    // Toggle expanded user details
     const toggleAccordion = (email) => {
         setExpandedUser(expandedUser === email ? null : email);
     };
 
-    // Close the modal
-    const closeModal = () => {
-        setModalOpen(false);
+    const handlePdfDownload = async (quotation) => {
+        try {
+            const response = await fetch(quotation.link);
+            if (response.ok) {
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = url;
+                a.download = `Quotation_${quotation.uploadedAt}`;
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+            } else {
+                throw new Error(`Failed to download PDF: ${response.statusText}`);
+            }
+        } catch (error) {
+            console.error('Error downloading the PDF:', error);
+        }
+    };
+
+    const handlePdfView = (link) => {
+        window.open(link, '_blank');
     };
 
     return (
-        <div className="user-list-container">
+        <>
             {error && <div className="error-message">{error}</div>}
-            <div className="user-grid">
+            <div className="accordion">
                 {users.length > 0 ? (
                     users.map((user) => (
-                        <div key={user.email} className="user-card">
-
-                                <p><strong>Name:</strong> {user.name}</p>
-                                <p><strong>Phone:</strong> {user.phoneNo}</p>
-
-                            <button className="accordion-btn" onClick={() => toggleAccordion(user.email)}>
-                                {expandedUser === user.email ? 'Hide Details' : 'Show Details'}
-                            </button>
-                            {expandedUser === user.email && (
-                                <div className="user-details">
-                                    <p><strong>Email:</strong> {user.email}</p>
-                                    <p><strong>State:</strong> {user.state}</p>
-                                    <p><strong>City:</strong> {user.city}</p>
+                        <div key={user.email}>
+                            <div className="accordion-item">
+                                <div
+                                    className="accordion-header"
+                                    onClick={() => toggleAccordion(user.email)}
+                                >
+                                    <span>{user.name}</span>
+                                    <span>{expandedUser === user.email ? '▲' : '▼'}</span>
                                 </div>
-                            )}
-                            <button className="remove-btn" onClick={() => openModal(user)}>
-                                <img src={cross_icon} alt="Remove" />
-                            </button>
+                                {expandedUser === user.email && (
+                                    <div className="accordion-collapse">
+                                        <div className="user-details">
+                                            <p><strong>Email:</strong> {user.email}</p>
+                                            <p><strong>Phone:</strong> {user.phoneNo}</p>
+                                            <p><strong>State:</strong> {user.state}</p>
+                                            <p><strong>City:</strong> {user.city}</p>
+                                            {user.QuotationPages.length > 0 ? (
+                                                <table className="table table-bordered mt-3">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Date</th>
+                                                        <th>View</th>
+                                                        <th>Download</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    {user.QuotationPages.map((quotation, index) => (
+                                                        <tr key={index}>
+                                                            <td>
+                                                                {new Date(quotation.uploadedAt).toLocaleString()}
+                                                            </td>
+                                                            <td>
+                                                                <Button
+                                                                    variant="info"
+                                                                    onClick={() => handlePdfView(quotation.link)}
+                                                                >
+                                                                    <FontAwesomeIcon icon={faEye}/> View
+                                                                </Button>
+                                                            </td>
+                                                            <td>
+                                                                <Button
+                                                                    variant="secondary"
+                                                                    onClick={() => handlePdfDownload(quotation)}
+                                                                >
+                                                                    <FontAwesomeIcon icon={faDownload}/> Download
+                                                                </Button>
+                                                            </td>
+                                                        </tr>
+                                                    ))}
+                                                    </tbody>
+                                                </table>
+                                            ) : (
+                                                <p>No quotations available.</p>
+                                            )}
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
                         </div>
                     ))
                 ) : (
                     <p className="no-users">No users to display</p>
                 )}
             </div>
-
-            <Modal
-                isOpen={modalOpen}
-                user={userToDelete}
-                onConfirm={removeUser}
-                onCancel={closeModal}
-            />
-        </div>
+        </>
     );
 };
 
