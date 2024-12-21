@@ -15,9 +15,10 @@ function Admin(props) {
             <Sidebar/>
 
             <Routes>
-                <Route path="/addproduct" element={<AddProduct/>}/>
-                <Route path="/listproduct" element={<ListProduct/>}/>
                 <Route path="/userlist" element={<UserList/>}/>
+                {/*<Route path="/addproduct" element={<AddProduct/>}/>*/}
+                <Route path="/" element={<AddProduct/>}/>
+                <Route path="/listproduct" element={<ListProduct/>}/>
                 <Route path="/addcategory" element={<AddCategory/>}/>
                 <Route path={'/generatedquotation'} element={<QuotationHistory/>}/>
             </Routes>

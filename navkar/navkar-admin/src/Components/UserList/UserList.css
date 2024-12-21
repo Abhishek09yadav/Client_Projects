@@ -10,7 +10,7 @@
 /* Grid layout for user cards */
 .user-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 20px;
     padding-top: 20px;
 }
@@ -23,7 +23,7 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     transition: transform 0.3s ease-in-out;
 }
@@ -94,4 +94,40 @@
 .remove-btn:hover img {
     filter: brightness(0) saturate(100%) invert(34%) sepia(68%) saturate(358%) hue-rotate(188deg) brightness(97%) contrast(100%);
     transform: scale(1.1);
+}
+
+/* Accordion button */
+.accordion-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-btn:hover {
+    background-color: #0056b3;
+}
+
+/* User details section for accordion */
+.user-details {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+    padding-left: 20px;
+    display: block;
+    transition: max-height 0.3s ease;
+}
+
+
+.remove-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    transition: transform 0.3s ease, opacity 0.2s ease;
 }

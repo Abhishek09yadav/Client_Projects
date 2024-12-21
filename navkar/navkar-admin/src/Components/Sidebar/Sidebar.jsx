@@ -22,12 +22,18 @@ function Sidebar(props) {
                     <p>AddCategory</p>
                 </div>
             </Link>
-            <Link to="/addproduct" style={{textDecoration: 'none'}}>
+            <Link to="/" style={{textDecoration: 'none'}}>
                 <div className="sidebar-item">
                     <img src={add_product_icon} alt=""/>
                     <p>Add Product</p>
                 </div>
             </Link>
+            {/*<Link to="/addproduct" style={{textDecoration: 'none'}}>*/}
+            {/*    <div className="sidebar-item">*/}
+            {/*        <img src={add_product_icon} alt=""/>*/}
+            {/*        <p>Add Product</p>*/}
+            {/*    </div>*/}
+            {/*</Link>*/}
             <Link to="/generatedquotation" style={{textDecoration: 'none'}}>
                 <div className="sidebar-item">
                     <img src={Quotation_icon} alt=""/>

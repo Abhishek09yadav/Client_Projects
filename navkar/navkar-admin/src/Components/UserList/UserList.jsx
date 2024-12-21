@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import cross_icon from '../../assets/cross_icon.png';
 import Modal from './Modal'; // Import the Modal component
-const url = import.meta.env.VITE_API_URL;
 import './UserList.css';
+
+const url = import.meta.env.VITE_API_URL;
 
 const UserList = () => {
     const [users, setUsers] = useState([]);
     const [error, setError] = useState('');
     const [modalOpen, setModalOpen] = useState(false);
     const [userToDelete, setUserToDelete] = useState(null);
+    const [expandedUser, setExpandedUser] = useState(null); // Track which user is expanded
 
     // Fetch users on component mount
     useEffect(() => {
@@ -57,6 +59,11 @@ const UserList = () => {
         }
     };
 
+    // Toggle expanded user details
+    const toggleAccordion = (email) => {
+        setExpandedUser(expandedUser === email ? null : email);
+    };
+
     // Close the modal
     const closeModal = () => {
         setModalOpen(false);
@@ -69,13 +76,20 @@ const UserList = () => {
                 {users.length > 0 ? (
                     users.map((user) => (
                         <div key={user.email} className="user-card">
-                            <div className="user-details">
+
                                 <p><strong>Name:</strong> {user.name}</p>
-                                <p><strong>Email:</strong> {user.email}</p>
                                 <p><strong>Phone:</strong> {user.phoneNo}</p>
-                                <p><strong>State:</strong> {user.state}</p>
-                                <p><strong>City:</strong> {user.city}</p>
-                            </div>
+
+                            <button className="accordion-btn" onClick={() => toggleAccordion(user.email)}>
+                                {expandedUser === user.email ? 'Hide Details' : 'Show Details'}
+                            </button>
+                            {expandedUser === user.email && (
+                                <div className="user-details">
+                                    <p><strong>Email:</strong> {user.email}</p>
+                                    <p><strong>State:</strong> {user.state}</p>
+                                    <p><strong>City:</strong> {user.city}</p>
+                                </div>
+                            )}
                             <button className="remove-btn" onClick={() => openModal(user)}>
                                 <img src={cross_icon} alt="Remove" />
                             </button>

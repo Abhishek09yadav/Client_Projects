@@ -48,7 +48,26 @@ const QuotationHistory = () => {
         );
         setFilteredQuotations(filtered);
     }, [searchTerm, quotations]);
-
+    const handlePdfDownload = async (quotation) => {
+        try {
+            const response = await fetch(quotation.link);
+            if (!response.ok) {
+                throw new Error(`Failed to download PDF: ${response.statusText}`);
+            }
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = `Quotation_${quotation.uploadedAt}`; // Adjust file name if needed
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url); // Clean up URL object
+            document.body.removeChild(a);
+        } catch (error) {
+            console.error('Error downloading the PDF:', error);
+        }
+    };
     return (
         <div className="quotation-history-container">
             <h1>Quotation History</h1>
@@ -70,6 +89,7 @@ const QuotationHistory = () => {
                     <th>Phone Number</th>
                     <th>Date</th>
                     <th>PDF</th>
+
                 </tr>
                 </thead>
                 <tbody>
