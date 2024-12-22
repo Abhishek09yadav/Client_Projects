@@ -1,0 +1,33 @@
+.bgImage1 {
+  background-image: url("../public/images/1.png");
+  background-size: cover;
+  width: 100svw;
+  /* height: 100vh; */
+  height: fit-content;
+}
+.bgImage2 {
+  background-image: url("../public/images/2.png");
+  background-size: cover;
+  width: 100svw;
+  /* height: 100vh; */
+  height: fit-content;
+}
+
+.logo {
+  /* position: relative; */
+  top: 10%;
+  left: 10%;
+  mix-blend-mode: color-burn;
+}
+
+.font {
+  font-size: 3em;
+  color: white;
+  font-weight: 600;
+  margin: 10px;
+}
+.font2 {
+  font-size: 1.5em;
+  color: rgba(255, 255, 255, 0.664);
+  margin: 10px;
+}
