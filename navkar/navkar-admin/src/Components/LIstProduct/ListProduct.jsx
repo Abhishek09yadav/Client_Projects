@@ -78,12 +78,7 @@ function ListProduct(props) {
             <div className="ListProduct">
                 <div className="ListProduct-header">
                     <h1>All Products List</h1>
-                    <button
-                        className="add-product-btn"
-                        onClick={handleAddNew}
-                    >
-                        Add New Product
-                    </button>
+
                 </div>
                 <div className="ListProduct-format-main">
                     <p>Products</p>

@@ -263,10 +263,15 @@
         })
         // Creating api for getting all products
         app.get('/allproducts', async (req, res) => {
-            let products = await Product.find({});
-            res.send(products);
-            console.log("All products Fetched");
-        })
+            try {
+                const products = await Product.find().sort({date: -1}); // Sort by date in descending order
+                res.status(200).json(products);
+            } catch (error) {
+                console.error('Error fetching all products:', error);
+                res.status(500).json({success: false, message: 'Failed to fetch products.'});
+            }
+        });
+
         // Endpoint to Edit an Existing Product
         app.put('/editProduct/:id', async (req, res) => {
             try {

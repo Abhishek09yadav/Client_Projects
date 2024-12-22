@@ -32,7 +32,7 @@ function AddProduct({product, onClose}) {
         Tax: '',
         new_price: '',
         old_price: '',
-        moq: '',
+        MOQ: '',
     });
     const [uploadCount, setUploadCount] = useState(1);
     const saveProduct = async () => {
@@ -202,8 +202,8 @@ function AddProduct({product, onClose}) {
                     <img src={moq_icon} alt="MOQ Icon" className="AddProduct-icon"/>
                     <input
                         type="text"
-                        name="moq"
-                        value={productDetails.moq}
+                        name="MOQ"
+                        value={productDetails.MOQ}
                         onChange={changeHandler}
                         placeholder="Type Here"
 
