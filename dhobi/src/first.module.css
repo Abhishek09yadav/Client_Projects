@@ -31,3 +31,32 @@
   color: rgba(255, 255, 255, 0.664);
   margin: 10px;
 }
+@media (max-width: 1024px) {
+  /*.bgImage1 {*/
+  /*  background-image: url("../public/images/1-1024.png");*/
+
+  /*}*/
+  /*.bgImage2 {*/
+  /*  background-image: url("../public/images/2-1024.png");*/
+  /*  !*background-size: cover;*!*/
+  /*  !*width: 100svw;*!*/
+  /*  !*!* height: 100vh; *!*!*/
+  /*  !*height: fit-content;*!*/
+  /*}*/
+  .bgImage1 {
+    background-image: url("../public/images/default.png");
+
+  }
+  .bgImage2 {
+    background-image: url("../public/images/default.png");
+    /*background-size: cover;*/
+    /*width: 100svw;*/
+    /*!* height: 100vh; *!*/
+    /*height: fit-content;*/
+  }
+}
+@media (max-width: 500px) {
+  .logo {
+   max-height: 100px;
+  }
+}
