@@ -18,6 +18,7 @@
     "react-bootstrap": "^2.10.7",
     "react-dom": "^18.3.1",
     "react-infinite-scroll-component": "^6.1.0",
+    "react-paginate": "^8.2.0",
     "react-pdf-html": "^2.1.2",
     "react-quill": "^2.0.0",
     "react-router-dom": "^6.27.0",

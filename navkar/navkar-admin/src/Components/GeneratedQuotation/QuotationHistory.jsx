@@ -1,13 +1,18 @@
 import React, {useEffect, useState} from 'react';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import ReactPaginate from 'react-paginate';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faDownload, faEye} from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
 import './QuotationHistory.css'; // Import the CSS file
+
 const url = import.meta.env.VITE_API_URL;
+
 const QuotationHistory = () => {
     const [quotations, setQuotations] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredQuotations, setFilteredQuotations] = useState([]);
+    const [currentPage, setCurrentPage] = useState(0);
+    const itemsPerPage = 10; // Adjust the number of items per page as needed
 
     // Format date to dd/mm/yy
     const formatDate = (timestamp) => {
@@ -22,12 +27,10 @@ const QuotationHistory = () => {
     useEffect(() => {
         const fetchQuotations = async () => {
             try {
-                const response = await axios.get(`${url}/quotations`); // Replace with your endpoint
-                // Sort by date (newest first)
+                const response = await axios.get(`${url}/quotations`);
                 const sortedQuotations = response.data.sort(
                     (a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt)
                 );
-                // Add formatted date to each quotation
                 const formattedQuotations = sortedQuotations.map((quotation) => ({
                     ...quotation,
                     formattedDate: formatDate(quotation.uploadedAt),
@@ -50,6 +53,15 @@ const QuotationHistory = () => {
         );
         setFilteredQuotations(filtered);
     }, [searchTerm, quotations]);
+
+    // Handle pagination
+    const handlePageClick = (data) => {
+        setCurrentPage(data.selected);
+    };
+
+    const startIndex = currentPage * itemsPerPage;
+    const currentItems = filteredQuotations.slice(startIndex, startIndex + itemsPerPage);
+
     const handlePdfDownload = async (quotation) => {
         try {
             const response = await fetch(quotation.link);
@@ -61,15 +73,16 @@ const QuotationHistory = () => {
             const a = document.createElement('a');
             a.style.display = 'none';
             a.href = url;
-            a.download = `Quotation_${quotation.uploadedAt}`; // Adjust file name if needed
+            a.download = `Quotation_${quotation.uploadedAt}`;
             document.body.appendChild(a);
             a.click();
-            window.URL.revokeObjectURL(url); // Clean up URL object
+            window.URL.revokeObjectURL(url);
             document.body.removeChild(a);
         } catch (error) {
             console.error('Error downloading the PDF:', error);
         }
     };
+
     return (
         <div className="quotation-history-container">
             <h1>Quotation History</h1>
@@ -91,32 +104,44 @@ const QuotationHistory = () => {
                     <th>Phone Number</th>
                     <th>Date</th>
                     <th>PDF</th>
-
                 </tr>
                 </thead>
                 <tbody>
-                {filteredQuotations.map((quotation, index) => (
+                {currentItems.map((quotation, index) => (
                     <tr key={index}>
                         <td>{quotation.userName}</td>
                         <td>{quotation.phoneNo}</td>
                         <td>{quotation.formattedDate}</td>
                         <td>
                             <a className="pdf" href={quotation.link} target="_blank" rel="noopener noreferrer"
-                               title={'view pdf'}>
+                               title="View PDF">
                                 <FontAwesomeIcon icon={faEye}/>
                             </a>
                             <a
                                 onClick={() => handlePdfDownload(quotation)}
                                 title="Download PDF"
-                                className="pdf">
+                                className="pdf"
+                            >
                                 <FontAwesomeIcon icon={faDownload}/>
                             </a>
                         </td>
-
                     </tr>
                 ))}
                 </tbody>
             </table>
+
+            {/* Pagination */}
+            <ReactPaginate
+                previousLabel={'Previous'}
+                nextLabel={'Next'}
+                breakLabel={'...'}
+                pageCount={Math.ceil(filteredQuotations.length / itemsPerPage)}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={5}
+                onPageChange={handlePageClick}
+                containerClassName={'pagination'}
+                activeClassName={'active'}
+            />
         </div>
     );
 };

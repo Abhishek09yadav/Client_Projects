@@ -1,19 +1,22 @@
 import React, {useEffect, useState} from 'react';
 import Modal from 'react-modal';
+import ReactPaginate from 'react-paginate';
 import './ListProduct.css';
 import cross_icon from '../../assets/cross_icon.png';
 import edit_icon from '../../assets/edit_icon.svg';
 import AddProduct from '../AddProduct/AddProduct';
 
-// Bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
-Modal.setAppElement('#root'); // Adjust this if your app's root element has a different id
+Modal.setAppElement('#root'); // Adjust if your app's root element has a different id
 
 const url = import.meta.env.VITE_API_URL;
 
-function ListProduct(props) {
+function ListProduct() {
     const [allProducts, setAllProducts] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
+
+    const [currentPage, setCurrentPage] = useState(0);
+    const itemsPerPage = 5;
 
     const fetchInfo = async () => {
         const response = await fetch(`${url}/allproducts`);
@@ -38,7 +41,6 @@ function ListProduct(props) {
     };
 
     const handleEdit = (product) => {
-        console.log("Editing product:", product);
         setSelectedProduct(product);
         setShowModal(true);
     };
@@ -54,6 +56,10 @@ function ListProduct(props) {
         setShowModal(true);
     };
 
+    const handlePageChange = (selectedPage) => {
+        setCurrentPage(selectedPage.selected);
+    };
+
     const customModalStyles = {
         content: {
             top: '50%',
@@ -66,19 +72,23 @@ function ListProduct(props) {
             maxWidth: '90%',
             width: '90%',
             maxHeight: '90vh',
-            overflow: 'auto'
+            overflow: 'auto',
         },
         overlay: {
-            backgroundColor: 'rgba(0, 0, 0, 0.5)'
-        }
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        },
     };
+
+    // Calculate paginated products
+    const offset = currentPage * itemsPerPage;
+    const paginatedProducts = allProducts.slice(offset, offset + itemsPerPage);
+    const pageCount = Math.ceil(allProducts.length / itemsPerPage);
 
     return (
         <>
             <div className="ListProduct">
                 <div className="ListProduct-header">
                     <h1>All Products List</h1>
-
                 </div>
                 <div className="ListProduct-format-main">
                     <p>Products</p>
@@ -91,7 +101,7 @@ function ListProduct(props) {
                 </div>
                 <div className="ListProduct-allproducts">
                     <hr/>
-                    {allProducts.map((product, index) => (
+                    {paginatedProducts.map((product, index) => (
                         <div key={index} className="ListProduct-format-main ListProduct-format">
                             <img src={product.image} alt="" className="ListProduct-product-icon"/>
                             <p>{product.name}</p>
@@ -102,17 +112,28 @@ function ListProduct(props) {
                                 className="ListProduct-remove-icon"
                                 src={edit_icon}
                                 onClick={() => handleEdit(product)}
-                                alt=""
+                                alt="Edit"
                             />
                             <img
                                 className="ListProduct-remove-icon"
                                 src={cross_icon}
                                 onClick={() => removeProduct(product.id)}
-                                alt=""
+                                alt="Remove"
                             />
                         </div>
                     ))}
                 </div>
+                <ReactPaginate
+                    previousLabel="Previous"
+                    nextLabel="Next"
+                    breakLabel="..."
+                    pageCount={pageCount}
+                    marginPagesDisplayed={2}
+                    pageRangeDisplayed={25}
+                    onPageChange={handlePageChange}
+                    containerClassName="pagination"
+                    activeClassName="active"
+                />
             </div>
             <Modal
                 isOpen={showModal}
@@ -129,7 +150,7 @@ function ListProduct(props) {
                         background: 'none',
                         border: 'none',
                         fontSize: '24px',
-                        cursor: 'pointer'
+                        cursor: 'pointer',
                     }}
                 >
                     ×

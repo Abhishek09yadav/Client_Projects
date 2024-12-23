@@ -5,60 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="fixed bugs in add product">
+      <change beforePath="$PROJECT_DIR$/../Vj sir classes/Backend/Vishal-jhoshi-classes" beforeDir="false" afterPath="$PROJECT_DIR$/../Vj sir classes/Backend/Vishal-jhoshi-classes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vj sir classes/Frontend/vishal-joshi-sir-classes-fontend" beforeDir="false" afterPath="$PROJECT_DIR$/../Vj sir classes/Frontend/vishal-joshi-sir-classes-fontend" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/1734344563950.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/1734350061753" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/1734350247111" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734336113987-126152678.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734336219661-695826963.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734336296499-818191679.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734337052608.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734337532434.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734337564855.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734337566227.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734337574568.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734340541844.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734340940709.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734342159386.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734344131981.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734344256887.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734344295578.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734344451528.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734344836002_.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734345844467" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734345853947" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734345980013" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734346406791" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734347045851" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734348468599" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734350854783" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734351348453" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734351876236" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734352427402.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734364618437.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734366722239.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734366733618.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734366736595.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734366774497.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734368528973.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734371967880.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734418594953.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734418829644.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734421044080.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734432927804.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734433783142.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734440173348.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734440808202.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734501701746.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734503761341.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734505451301.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734505568117.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734506103129.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734527813429.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734538448713.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734538455505.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734549441312.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/LIstProduct/ListProduct.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/LIstProduct/ListProduct.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/LIstProduct/ListProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/LIstProduct/ListProduct.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +184,7 @@
       <workItem from="1734676868607" duration="19218000" />
       <workItem from="1734760480739" duration="22678000" />
       <workItem from="1734853073071" duration="4793000" />
-      <workItem from="1734934470150" duration="8051000" />
+      <workItem from="1734934470150" duration="11417000" />
     </task>
     <task id="LOCAL-00001" summary="Removes category model, routes, and updates category handling.">
       <option name="closed" value="true" />
@@ -598,7 +554,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734939541866</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="fixed bugs in add product">
+      <option name="closed" value="true" />
+      <created>1734944057441</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1734944057441</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

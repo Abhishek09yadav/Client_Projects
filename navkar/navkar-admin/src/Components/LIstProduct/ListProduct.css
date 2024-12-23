@@ -15,7 +15,7 @@
 .ListProduct-format-main {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    justify-items: center; /* Horizontally center each grid item */
+    justify-items: center;
     gap: 10px;
     width: 100%;
     padding: 20px 0;
@@ -31,7 +31,14 @@
 }
 
 .ListProduct-allproducts {
-    overflow-y: auto;
+    /*overflow-y: auto;*/
+    justify-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 20px 0;
+    color: #454545;
+    font-size: 15px;
+    font-weight: 500;
 }
 
 .ListProduct-product-icon {
