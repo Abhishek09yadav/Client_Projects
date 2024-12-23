@@ -14,12 +14,18 @@ import cross_icon from '../../assets/cross_icon.png';
 const url = import.meta.env.VITE_API_URL;
 
 function AddProduct({product, onClose}) {
-    const [categories, setCategories] = useState([]); // State to store fetched categories
+    const [categories, setCategories] = useState([]);
     const [images, setImages] = useState({
         image: false,
         image1: false,
         image2: false,
         image3: false,
+    });
+    const [existingImages, setExistingImages] = useState({
+        image: '',
+        image1: '',
+        image2: '',
+        image3: '',
     });
     const [productDetails, setProductDetails] = useState(product || {
         name: '',
@@ -34,35 +40,40 @@ function AddProduct({product, onClose}) {
         old_price: '',
         MOQ: '',
     });
-    const [uploadCount, setUploadCount] = useState(1);
-    const saveProduct = async () => {
-        const endpoint = product ? `${url}/editProduct/${product.id}` : `${url}/addProduct`;
-        const method = product ? 'PUT' : 'POST';
 
-        try {
-            const response = await fetch(endpoint, {
-                method,
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(productDetails),
-            });
-            const data = await response.json();
-            if (data.success) {
-                alert('Product saved successfully!');
-                onClose();
-            } else {
-                alert(`Failed to save product: ${data.message}`);
-            }
-        } catch (error) {
-            console.error('Error saving product:', error.message);
+    // Calculate initial upload count based on existing images
+    const calculateInitialUploadCount = () => {
+        if (product) {
+            let count = 1; // Start with 1 for the main image
+            if (product.image1) count++;
+            if (product.image2) count++;
+            if (product.image3) count++;
+            return count;
         }
+        return 1;
     };
+
+    const [uploadCount, setUploadCount] = useState(calculateInitialUploadCount());
+
+    // Set existing images when product prop changes
     useEffect(() => {
-        // Fetch categories from the server
+        if (product) {
+            setExistingImages({
+                image: product.image || '',
+                image1: product.image1 || '',
+                image2: product.image2 || '',
+                image3: product.image3 || '',
+            });
+            setUploadCount(calculateInitialUploadCount());
+        }
+    }, [product]);
+
+    useEffect(() => {
         const fetchCategories = async () => {
             try {
                 const response = await fetch(`${url}/categories`);
                 const data = await response.json();
-                setCategories(data); // Set categories to state
+                setCategories(data);
             } catch (error) {
                 console.error('Error fetching categories:', error);
             }
@@ -71,31 +82,35 @@ function AddProduct({product, onClose}) {
     }, []);
 
     const imageHandler = (event, imageKey) => {
-        setImages(prevImages => ({
-            ...prevImages,
-            [imageKey]: event.target.files[0],
-        }));
+        const file = event.target.files[0];
+        if (file) {
+            setImages(prevImages => ({
+                ...prevImages,
+                [imageKey]: file,
+            }));
+            // Clear the existing image when a new file is selected
+            setExistingImages(prevImages => ({
+                ...prevImages,
+                [imageKey]: '',
+            }));
+        }
     };
 
     const changeHandler = (e) => {
         setProductDetails({ ...productDetails, [e.target.name]: e.target.value });
     };
 
-    const Add_Product = async () => {
+    const saveProduct = async () => {
         try {
-            // Create a copy of the product details
             let updatedProduct = {...productDetails};
 
-            // Handle image uploads first
+            // Handle image uploads
             const imageKeys = ['image', 'image1', 'image2', 'image3'];
 
-            // Upload all images sequentially
             for (let key of imageKeys) {
                 if (images[key]) {
                     const formData = new FormData();
                     formData.append('product', images[key]);
-
-                    console.log(`Uploading ${key}...`);
 
                     try {
                         const uploadResponse = await fetch(`${url}/upload`, {
@@ -108,54 +123,51 @@ function AddProduct({product, onClose}) {
                         }
 
                         const uploadData = await uploadResponse.json();
-                        console.log(`Upload response for ${key}:`, uploadData);
-
                         if (uploadData.success === 1) {
                             updatedProduct[key] = uploadData.image_url;
-                        } else {
-                            console.error(`Failed to upload ${key}`);
                         }
                     } catch (uploadError) {
                         console.error(`Error uploading ${key}:`, uploadError);
                         alert(`Failed to upload ${key}. Please try again.`);
                         return;
                     }
+                } else if (existingImages[key]) {
+                    // Keep the existing image URL if no new image was uploaded
+                    updatedProduct[key] = existingImages[key];
                 }
             }
 
-            console.log('Submitting product with images:', updatedProduct);
+            const endpoint = product ? `${url}/editProduct/${product.id}` : `${url}/addProduct`;
+            const method = product ? 'PUT' : 'POST';
 
-            // Submit the product with image URLs
-            const productResponse = await fetch(`${url}/addProduct`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+            const response = await fetch(endpoint, {
+                method,
+                headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(updatedProduct),
             });
 
-            if (!productResponse.ok) {
-                throw new Error(`HTTP error! status: ${productResponse.status}`);
-            }
-
-            const productData = await productResponse.json();
-
-            if (productData.success) {
-                alert('Product added successfully!');
-                if (onClose) onClose();
+            const data = await response.json();
+            if (data.success) {
+                alert(product ? 'Product updated successfully!' : 'Product added successfully!');
+                onClose();
             } else {
-                alert(`Failed to add product: ${productData.message}`);
+                alert(`Failed to ${product ? 'update' : 'add'} product: ${data.message}`);
             }
-
         } catch (error) {
-            console.error('Error in Add_Product:', error);
-            alert('Failed to add product.');
+            console.error('Error saving product:', error);
+            alert(`Failed to ${product ? 'update' : 'add'} product.`);
         }
     };
+
+
     const removeImage = (imageKey) => {
         setImages(prevImages => ({
             ...prevImages,
             [imageKey]: false,
+        }));
+        setExistingImages(prevImages => ({
+            ...prevImages,
+            [imageKey]: '',
         }));
         setProductDetails(prevDetails => ({
             ...prevDetails,
@@ -163,6 +175,14 @@ function AddProduct({product, onClose}) {
         }));
     };
 
+    const getImageSource = (imageKey) => {
+        if (images[imageKey]) {
+            return URL.createObjectURL(images[imageKey]);
+        } else if (existingImages[imageKey]) {
+            return existingImages[imageKey];
+        }
+        return upload_area;
+    };
 
 
     return (
@@ -274,7 +294,7 @@ function AddProduct({product, onClose}) {
                             .slice(0, uploadCount)
                             .map((key) => (
                                 <div key={key} className="AddProduct-itemfield">
-                                    {images[key] && (
+                                    {(images[key] || existingImages[key]) && (
                                         <div className="AddProduct-delete-icon-container">
                                             <img
                                                 src={cross_icon}
@@ -286,7 +306,7 @@ function AddProduct({product, onClose}) {
                                     )}
                                     <label htmlFor={`file-input-${key}`}>
                                         <img
-                                            src={images[key] ? URL.createObjectURL(images[key]) : upload_area}
+                                            src={getImageSource(key)}
                                             className="AddProduct-thumbnail-image"
                                             alt={`Upload ${key}`}
                                         />
@@ -297,7 +317,7 @@ function AddProduct({product, onClose}) {
                                         name={key}
                                         id={`file-input-${key}`}
                                         style={{display: 'none'}}
-                                        hidden={true}
+                                        accept="image/*"
                                     />
                                 </div>
                             ))}
@@ -314,19 +334,13 @@ function AddProduct({product, onClose}) {
                         </button>
                     )}
                 </div>
-                {product ? (<button
+                <button
                     type="button"
                     onClick={saveProduct}
                     className="AddProduct-btn btn btn-lg no-border no-focus-outline"
                 >
-                    Save Changes
-                </button>) : <button
-                    type="button"
-                    onClick={Add_Product}
-                    className="AddProduct-btn btn btn-lg no-border no-focus-outline"
-                >
-                    ADD Product
-                </button>}
+                    {product ? 'Save Changes' : 'ADD Product'}
+                </button>
             </div>
         </div>
     );

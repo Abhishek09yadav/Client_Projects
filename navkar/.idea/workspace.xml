@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Implements product sorting by date and updates product schema.">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="fixed bugs in add product">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/1734344563950.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/1734350061753" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/1734350247111" beforeDir="false" />
@@ -60,7 +59,6 @@
       <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734538448713.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734538455505.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734549441312.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/ProductDisplay/ProductDisplay.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/ProductDisplay/ProductDisplay.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,7 +228,7 @@
       <workItem from="1734676868607" duration="19218000" />
       <workItem from="1734760480739" duration="22678000" />
       <workItem from="1734853073071" duration="4793000" />
-      <workItem from="1734934470150" duration="4684000" />
+      <workItem from="1734934470150" duration="8051000" />
     </task>
     <task id="LOCAL-00001" summary="Removes category model, routes, and updates category handling.">
       <option name="closed" value="true" />
@@ -592,7 +590,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734853635989</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="fixed bugs in add product">
+      <option name="closed" value="true" />
+      <created>1734939541866</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1734939541866</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -611,7 +617,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Implements quotation PDF generation and upload." />
     <MESSAGE value="Implements PDF quotation generation and upload." />
     <MESSAGE value="Implements quotation history endpoint and admin page." />
     <MESSAGE value="Adds image removal functionality in Add Product." />
@@ -636,7 +641,8 @@
     <MESSAGE value="added Quotation history in userlist" />
     <MESSAGE value="Implements quotation search and date formatting." />
     <MESSAGE value="Implements product sorting by date and updates product schema." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implements product sorting by date and updates product schema." />
+    <MESSAGE value="fixed bugs in add product" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bugs in add product" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
