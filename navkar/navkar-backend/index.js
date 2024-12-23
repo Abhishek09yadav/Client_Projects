@@ -219,42 +219,76 @@
             MOQ: { type: Number, required: true },
         })
 
-        // Updated Product Creation Endpoint
+
+        const validateAndConvertProduct = (data) => {
+            try {
+                return {
+                    name: String(data.name),
+                    category: String(data.category),
+                    new_price: Number(data.new_price),
+                    old_price: Number(data.old_price),
+                    Tax: data.Tax ? Number(data.Tax) : 0,
+                    Description: String(data.Description || ""),
+                    MOQ: Number(data.MOQ),
+                    image: String(data.image || ""),
+                    image1: String(data.image1 || ""),
+                    image2: String(data.image2 || ""),
+                    image3: String(data.image3 || "")
+                };
+            } catch (error) {
+                throw new Error(`Data validation failed: ${error.message}`);
+            }
+        };
+
+        // Replace your existing addProduct endpoint with this updated version
         app.post('/addProduct', async (req, res) => {
             try {
-                const { name, category, new_price, old_price, Tax, Description, moq, image, image1, image2, image3 } = req.body;
-
                 // Validate required fields
-                if (!name || !category || !new_price || !old_price || !moq) {
-                    return res.status(400).json({ success: false, message: "Missing required fields" });
+                const {name, category, new_price, old_price, MOQ} = req.body;
+
+                if (!name || !category || !new_price || !old_price || !MOQ) {
+                    return res.status(400).json({
+                        success: false,
+                        message: "Missing required fields",
+                        required: ["name", "category", "new_price", "old_price", "MOQ"],
+                        received: req.body
+                    });
                 }
 
+                // Convert and validate the data
+                const validatedData = validateAndConvertProduct(req.body);
+
+                // Get the next available ID
                 let products = await Product.find({});
                 const id = products.length > 0 ? products[products.length - 1].id + 1 : 1;
 
+                // Create new product with validated data
                 const product = new Product({
                     id,
-                    name,
-                    category,
-                    new_price: Number(new_price),
-                    old_price: Number(old_price),
-                    Tax: Tax || "", // Default empty string for optional fields
-                    Description: Description || "",
-                    MOQ: Number(moq),
-                    image: image || "", // Default empty string if not provided
-                    image1: image1 || "",
-                    image2: image2 || "",
-                    image3: image3 || "",
+                    ...validatedData
                 });
 
+                // Save the product
                 await product.save();
-                res.status(201).json({ success: true, message: "Product added successfully", productId: id });
+
+                // Return success response
+                res.status(201).json({
+                    success: true,
+                    message: "Product added successfully",
+                    productId: id,
+                    product: product
+                });
+
             } catch (error) {
-                console.error('Error adding product:', error.message);
-                res.status(500).json({ success: false, message: 'Internal server error', error: error.message });
+                console.error('Error adding product:', error);
+                res.status(400).json({
+                    success: false,
+                    message: 'Failed to add product',
+                    error: error.message,
+                    receivedData: req.body
+                });
             }
         });
-
         // Creating api for deleting product
         app.post('/removeProduct', async (req, res) => {
             await Product.findOneAndDelete({id: req.body.id,});

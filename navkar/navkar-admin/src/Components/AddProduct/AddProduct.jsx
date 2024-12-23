@@ -82,46 +82,73 @@ function AddProduct({product, onClose}) {
     };
 
     const Add_Product = async () => {
-
-
-        let product = { ...productDetails };
-        const imageKeys = ['image', 'image1', 'image2', 'image3'];
-
-        for (let key of imageKeys) {
-            if (images[key]) {
-                let formData = new FormData();
-                formData.append('product', images[key]);
-                try {
-                    const response = await fetch(`${url}/upload`, {
-                        method: 'POST',
-                        body: formData,
-                    });
-                    const data = await response.json();
-                    if (data.success) {
-                        product[key] = data.image_url;
-                    }
-                } catch (error) {
-                    console.error(`Error uploading ${key}:`, error.message);
-                }
-                console.log('Submitting product:', productDetails);
-            }
-        }
-
         try {
-            const response = await fetch(`${url}/addProduct`, {
+            // Create a copy of the product details
+            let updatedProduct = {...productDetails};
+
+            // Handle image uploads first
+            const imageKeys = ['image', 'image1', 'image2', 'image3'];
+
+            // Upload all images sequentially
+            for (let key of imageKeys) {
+                if (images[key]) {
+                    const formData = new FormData();
+                    formData.append('product', images[key]);
+
+                    console.log(`Uploading ${key}...`);
+
+                    try {
+                        const uploadResponse = await fetch(`${url}/upload`, {
+                            method: 'POST',
+                            body: formData,
+                        });
+
+                        if (!uploadResponse.ok) {
+                            throw new Error(`HTTP error! status: ${uploadResponse.status}`);
+                        }
+
+                        const uploadData = await uploadResponse.json();
+                        console.log(`Upload response for ${key}:`, uploadData);
+
+                        if (uploadData.success === 1) {
+                            updatedProduct[key] = uploadData.image_url;
+                        } else {
+                            console.error(`Failed to upload ${key}`);
+                        }
+                    } catch (uploadError) {
+                        console.error(`Error uploading ${key}:`, uploadError);
+                        alert(`Failed to upload ${key}. Please try again.`);
+                        return;
+                    }
+                }
+            }
+
+            console.log('Submitting product with images:', updatedProduct);
+
+            // Submit the product with image URLs
+            const productResponse = await fetch(`${url}/addProduct`, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(product),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(updatedProduct),
             });
 
-            const data = await response.json();
-            if (data.success) {
-                alert('Product added successfully!');
-            } else {
-                alert(`Failed to add product: ${data.message}`);
+            if (!productResponse.ok) {
+                throw new Error(`HTTP error! status: ${productResponse.status}`);
             }
+
+            const productData = await productResponse.json();
+
+            if (productData.success) {
+                alert('Product added successfully!');
+                if (onClose) onClose();
+            } else {
+                alert(`Failed to add product: ${productData.message}`);
+            }
+
         } catch (error) {
-            console.error('Error adding product:', error.message);
+            console.error('Error in Add_Product:', error);
             alert('Failed to add product.');
         }
     };

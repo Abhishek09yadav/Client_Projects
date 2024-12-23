@@ -4,11 +4,63 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Implements quotation search and date formatting.">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Implements product sorting by date and updates product schema.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/LIstProduct/ListProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/LIstProduct/ListProduct.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/1734344563950.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/1734350061753" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/1734350247111" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734336113987-126152678.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734336219661-695826963.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734336296499-818191679.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734337052608.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734337532434.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734337564855.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734337566227.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734337574568.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734340541844.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734340940709.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734342159386.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734344131981.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734344256887.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734344295578.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation-1734344451528.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734344836002_.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734345844467" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734345853947" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734345980013" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734346406791" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734347045851" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734348468599" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734350854783" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734351348453" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734351876236" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734352427402.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734364618437.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734366722239.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734366733618.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734366736595.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734366774497.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734368528973.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734371967880.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734418594953.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734418829644.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734421044080.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734432927804.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734433783142.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734440173348.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734440808202.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734501701746.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734503761341.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734505451301.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734505568117.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734506103129.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734527813429.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734538448713.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734538455505.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1734549441312.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/ProductDisplay/ProductDisplay.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/ProductDisplay/ProductDisplay.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,30 +103,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Node.js.backend.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/monuy/Desktop/Repos/Client_Projects/navkar/navkar-frontend/src/Components/Assets&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.admin.executor&quot;: &quot;Run&quot;,
-    &quot;npm.backend.executor&quot;: &quot;Run&quot;,
-    &quot;npm.frontend.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.28614458&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Node.js.backend.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/monuy/Desktop/Repos/Client_Projects/navkar",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.admin.executor": "Run",
+    "npm.backend.executor": "Run",
+    "npm.frontend.executor": "Run",
+    "settings.editor.selected.configurable": "configurable.group.build",
+    "settings.editor.splitter.proportion": "0.28614458",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -177,7 +229,8 @@
       <workItem from="1734600264234" duration="13045000" />
       <workItem from="1734676868607" duration="19218000" />
       <workItem from="1734760480739" duration="22678000" />
-      <workItem from="1734853073071" duration="528000" />
+      <workItem from="1734853073071" duration="4793000" />
+      <workItem from="1734934470150" duration="4684000" />
     </task>
     <task id="LOCAL-00001" summary="Removes category model, routes, and updates category handling.">
       <option name="closed" value="true" />
@@ -531,15 +584,33 @@
       <option name="project" value="LOCAL" />
       <updated>1734782056172</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Implements product sorting by date and updates product schema.">
+      <option name="closed" value="true" />
+      <created>1734853635989</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1734853635989</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Styles category page for responsiveness." />
     <MESSAGE value="Implements quotation PDF generation and upload." />
     <MESSAGE value="Implements PDF quotation generation and upload." />
     <MESSAGE value="Implements quotation history endpoint and admin page." />
@@ -564,7 +635,8 @@
     <MESSAGE value="Implements user details accordion and download functionality." />
     <MESSAGE value="added Quotation history in userlist" />
     <MESSAGE value="Implements quotation search and date formatting." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implements quotation search and date formatting." />
+    <MESSAGE value="Implements product sorting by date and updates product schema." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implements product sorting by date and updates product schema." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
