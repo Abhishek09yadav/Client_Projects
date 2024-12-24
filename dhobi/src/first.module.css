@@ -51,14 +51,11 @@
   /*}*/
   .bgImage1 {
     background-image: url("../public/images/default.png");
-
+    height: 100vh;
   }
   .bgImage2 {
     background-image: url("../public/images/default.png");
-    /*background-size: cover;*/
-    /*width: 100svw;*/
-    /*!* height: 100vh; *!*/
-    /*height: fit-content;*/
+    height: 100vh;
   }
 }
 @media (max-width: 500px) {
