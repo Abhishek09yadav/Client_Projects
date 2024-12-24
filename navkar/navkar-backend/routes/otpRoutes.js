@@ -70,14 +70,19 @@ router.post('/verify-otp', async (req, res) => {
     if (!storedOTP) {
         return res.status(400).json({success: false, error: 'No OTP request found'});
     }
+    // Check OTP expiration (10 minutes)
     if (Date.now() - storedOTP.createdAt > 10 * 60 * 1000) {
         delete otpStore[email];
         return res.status(400).json({success: false, error: 'OTP has expired'});
     }
+
+    // Validate the OTP
     if (storedOTP.otp !== otp) {
         return res.status(400).json({success: false, error: 'Invalid OTP'});
     }
+
     try {
+        // Save user to database
         const user = new Users({
             name: username,
             email,
@@ -86,9 +91,18 @@ router.post('/verify-otp', async (req, res) => {
             city,
             phoneNo,
         });
+
         await user.save();
+
+        // Generate JWT token
+        const payload = {user: {id: user._id}};
+        const token = jwt.sign(payload, 'secret_ecom');
+
+        // Clean up OTP storage
         delete otpStore[email];
-        res.json({success: true, message: 'Signup successful'});
+
+        // Respond with success and token
+        res.json({success: true, message: 'Signup successful', token});
     } catch (error) {
         console.error('Signup error:', error);
         res.status(500).json({success: false, error: 'Signup failed'});

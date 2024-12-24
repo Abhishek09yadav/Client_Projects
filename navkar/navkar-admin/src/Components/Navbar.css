@@ -19,6 +19,8 @@
 @media (max-width: 800px) {
     .Navbar {
         padding: 15px 30px;
+        width: 100%;
+        max-width: 550px;
     }
 
     .nav-logo {

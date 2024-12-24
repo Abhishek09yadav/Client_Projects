@@ -9,6 +9,7 @@ function Navbar(props) {
         <div className={'Navbar'}>
             <img src={navlogo} alt="" className="nav-logo"/>
             <img src={navprofile} alt="" className="nav-profile"/>
+
         </div>
     );
 }

@@ -205,6 +205,7 @@
                 type: String,
                 required: true,
             },
+
             image: {type: String, required: true},
             image1: {type: String, required: false},
             image2: {type: String, required: false},
@@ -365,9 +366,9 @@
             }
         });
 
-        app.post('/removeUser', async (req, res) => {
+        app.delete('/removeUser', async (req, res) => {
             try {
-                const { email } = req.body; // Get the email from the request body
+                const {email} = req.body;
                 if (!email) {
                     return res.status(400).json({ success: false, error: "Email is required" });
                 }

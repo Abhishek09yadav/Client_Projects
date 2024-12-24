@@ -16,6 +16,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     justify-items: center;
+
+    text-overflow: ellipsis;
     gap: 10px;
     width: 100%;
     padding: 20px 0;
@@ -23,6 +25,17 @@
     font-size: 15px;
     font-weight: 500;
 }
+
+.ListProduct-format-main p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%; /* Ensure the container has a width */
+    display: inline-block; /* Ensure it is inline-block for ellipsis to work */
+}
+
+
+
 
 .ListProduct-format {
     align-items: center;

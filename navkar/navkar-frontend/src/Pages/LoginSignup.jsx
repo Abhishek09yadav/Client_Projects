@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import './CSS/LoginSignup.css';
+import {toast, ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const LoginSignup = () => {
     const url = process.env.REACT_APP_API_URL;
@@ -24,7 +26,7 @@ const LoginSignup = () => {
     const [state, setState] = useState("Login");
     const [forgotPasswordState, setForgotPasswordState] = useState(false);
     const [newPassword, setNewPassword] = useState('');
-
+    const [disableLoginSignupButtonAfterOTP, setDisableLoginSignupButtonAfterOTP] = useState(false);
     const changeHandler = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
@@ -61,6 +63,7 @@ const LoginSignup = () => {
             return;
         }
 
+
         try {
             // Request OTP
             const response = await fetch(`${url}/api/otp/request-otp`, {
@@ -76,6 +79,11 @@ const LoginSignup = () => {
 
             if (data.success) {
                 setOtpState(true); // Show OTP input
+                toast.info('OTP sent please check your mail for OTP.');
+                setDisableLoginSignupButtonAfterOTP(true);
+                setTimeout(() => {
+                    setDisableLoginSignupButtonAfterOTP(prev => !prev)
+                }, 60000);
             } else {
                 alert(data.error);
             }
@@ -102,6 +110,7 @@ const LoginSignup = () => {
             const data = await response.json();
 
             if (data.success) {
+                toast.success("OTP verified successfully!");
                 localStorage.setItem('auth-token', data.token);
                 window.location.replace('/');
             } else {
@@ -133,6 +142,11 @@ const LoginSignup = () => {
 
             if (data.success) {
                 setOtpState(true);
+                toast.info('OTP sent please check your mail for OTP.');
+                setDisableLoginSignupButtonAfterOTP(true);
+                setTimeout(() => {
+                    setDisableLoginSignupButtonAfterOTP(prev => !prev)
+                }, 60000);
             } else {
                 alert(data.error);
             }
@@ -180,6 +194,7 @@ const LoginSignup = () => {
 
     return (
         <div className="login-signup">
+            <ToastContainer/>
             <div className="login-signup-container">
                 <h1>
                     {forgotPasswordState
@@ -279,6 +294,7 @@ const LoginSignup = () => {
                 </div>
 
                 <button
+                    disabled={disableLoginSignupButtonAfterOTP}
                     onClick={() => {
                         if (forgotPasswordState) {
                             if (!otpState) {

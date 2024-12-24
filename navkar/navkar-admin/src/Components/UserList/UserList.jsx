@@ -4,6 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faDownload, faEye} from "@fortawesome/free-solid-svg-icons";
 import {Button} from 'react-bootstrap';
+import {confirmAlert} from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 const url = import.meta.env.VITE_API_URL;
 
@@ -76,13 +78,11 @@ const UserList = () => {
         };
 
         const filtered = users.filter((user) => {
-            // Check for matches in basic fields
             const basicMatch =
                 user.name.toLowerCase().includes(query) ||
                 user.email.toLowerCase().includes(query) ||
                 user.phoneNo?.toLowerCase().includes(query);
 
-            // Check for matches in QuotationPages dates
             const dateMatches = user.QuotationPages.some((quotation) =>
                 formatDate(quotation.uploadedAt).includes(query)
             );
@@ -93,12 +93,48 @@ const UserList = () => {
         setFilteredUsers(filtered);
     };
 
+    const openDeleteModal = (user) => {
+        confirmAlert({
+            title: 'Confirm Delete',
+            message: `Are you sure you want to delete user ${user.name}?`,
+            buttons: [
+                {
+                    label: 'Cancel',
+                    onClick: () => {
+                    }
+                },
+                {
+                    label: 'Delete',
+                    onClick: () => handleDeleteUser(user)
+                }
+            ]
+        });
+    };
 
+    const handleDeleteUser = async (userToDelete) => {
+        try {
+            const response = await fetch(`${url}/removeUser`, {
+                method: 'DELETE',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({email: userToDelete.email}),
+            });
+            const data = await response.json();
+            if (data.success) {
+                setUsers(users.filter((user) => user.email !== userToDelete.email));
+                setFilteredUsers(filteredUsers.filter((user) => user.email !== userToDelete.email));
+            } else {
+                setError(data.error);
+            }
+        } catch (err) {
+            setError('Failed to delete user');
+            console.error(err);
+        }
+    };
 
     return (
         <>
             {error && <div className="error-message">{error}</div>}
-            <div className={'main-container'}>
+            <div className="main-container">
                 <div className="search-bar mb-3">
                     <input
                         type="text"
@@ -127,6 +163,12 @@ const UserList = () => {
                                                 <p><strong>Phone:</strong> {user.phoneNo}</p>
                                                 <p><strong>State:</strong> {user.state}</p>
                                                 <p><strong>City:</strong> {user.city}</p>
+                                                <Button
+                                                    variant="danger"
+                                                    onClick={() => openDeleteModal(user)}
+                                                >
+                                                    Delete User
+                                                </Button>
                                                 {user.QuotationPages.length > 0 ? (
                                                     <table className="table table-bordered mt-3">
                                                         <thead>
@@ -176,7 +218,6 @@ const UserList = () => {
                     )}
                 </div>
             </div>
-
         </>
     );
 };

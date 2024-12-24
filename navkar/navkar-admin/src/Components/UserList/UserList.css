@@ -142,3 +142,11 @@
     filter: brightness(0) saturate(100%) invert(34%) sepia(68%) saturate(358%) hue-rotate(188deg) brightness(97%) contrast(100%);
     transform: scale(1.1);
 }
+
+/*.modal-backdrop {*/
+/*    background-color: rgba(0, 0, 0, 0.5) !important;*/
+/*}*/
+
+/*.modal.show {*/
+/*    display: block !important;*/
+/*}*/
