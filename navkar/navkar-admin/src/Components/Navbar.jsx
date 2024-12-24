@@ -23,7 +23,7 @@ function Navbar(props) {
     return <div className="navbar">
         <Link to={'/'} className="nav-logo" style={{textDecoration: 'none'}}>
             <img src={logo} alt="logo"/>
-            <p>NAVKAR</p>
+            {/*<p>NAVKAR</p>*/}
         </Link>
         {/*<img onClick={dropdown_toggle} className={'nav-dropdown'} src={Hamburger_Menu} alt={''}/>*/}
 

@@ -4,22 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Implements pagination for product list and quotation history.">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Refactors environment variables and adds logout functionality.">
       <change beforePath="$PROJECT_DIR$/../Vj sir classes/Backend/Vishal-jhoshi-classes" beforeDir="false" afterPath="$PROJECT_DIR$/../Vj sir classes/Backend/Vishal-jhoshi-classes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Vj sir classes/Frontend/vishal-joshi-sir-classes-fontend" beforeDir="false" afterPath="$PROJECT_DIR$/../Vj sir classes/Frontend/vishal-joshi-sir-classes-fontend" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/LIstProduct/ListProduct.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/LIstProduct/ListProduct.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/Navbar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/Navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/Sidebar/Sidebar.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/Sidebar/Sidebar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/models/models.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/models/models.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/routes/otpRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/routes/otpRoutes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Pages/LoginSignup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Pages/LoginSignup.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,30 +52,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Node.js.backend.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/monuy/Desktop/Repos/Client_Projects/navkar&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.admin.executor&quot;: &quot;Run&quot;,
-    &quot;npm.backend.executor&quot;: &quot;Run&quot;,
-    &quot;npm.frontend.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.28614458&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Node.js.backend.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/monuy/Desktop/Repos/Client_Projects/navkar/navkar-admin/src",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.admin.executor": "Run",
+    "npm.backend.executor": "Run",
+    "npm.frontend.executor": "Run",
+    "settings.editor.selected.configurable": "configurable.group.build",
+    "settings.editor.splitter.proportion": "0.28614458",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -97,20 +86,21 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-frontend\src\Components\Assets" />
       <recent name="C:\Users\monuy\Desktop\Repos\navkar\navkar-admin" />
       <recent name="C:\Users\monuy\Desktop\Repos\navkar\navkar-backend" />
       <recent name="C:\Users\monuy\Desktop\Repos\navkar\navkar-frontend\src\Pages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-frontend\src\Components\item" />
       <recent name="C:\Users\monuy\Desktop\Repos\navkar\navkar-admin\src\Components\UserList" />
       <recent name="C:\Users\monuy\Desktop\Repos\navkar\navkar-admin\src\Components\LIstProduct" />
       <recent name="C:\Users\monuy\Desktop\Repos\navkar\navkar-admin\src" />
-      <recent name="C:\Users\monuy\Desktop\Repos\navkar\navkar-frontend\src\Pages" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.frontend">
+  <component name="RunManager" selected="npm.backend">
     <configuration default="true" type="NodeJSConfigurationType" node-parameters="node index.js" working-dir="$PROJECT_DIR$/navkar-backend">
       <method v="2" />
     </configuration>
@@ -193,15 +183,7 @@
       <workItem from="1734976353691" duration="3598000" />
       <workItem from="1735021377132" duration="752000" />
       <workItem from="1735022538860" duration="520000" />
-      <workItem from="1735023887608" duration="370000" />
-    </task>
-    <task id="LOCAL-00001" summary="Removes category model, routes, and updates category handling.">
-      <option name="closed" value="true" />
-      <created>1734075477874</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1734075477874</updated>
+      <workItem from="1735023887608" duration="7407000" />
     </task>
     <task id="LOCAL-00002" summary="Removes unused hero, popular, and related product components.">
       <option name="closed" value="true" />
@@ -579,7 +561,23 @@
       <option name="project" value="LOCAL" />
       <updated>1734948157843</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="Implements pagination for product list and quotation history.">
+      <option name="closed" value="true" />
+      <created>1735024488421</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1735024488421</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Refactors environment variables and adds logout functionality.">
+      <option name="closed" value="true" />
+      <created>1735032858886</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1735032858887</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -598,7 +596,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Implements quotation history endpoint and admin page." />
     <MESSAGE value="Adds image removal functionality in Add Product." />
     <MESSAGE value="created quotation history page" />
     <MESSAGE value="Refactors CSS comments and uses Bootstrap Buttons in QuotationHistory." />
@@ -623,7 +620,8 @@
     <MESSAGE value="Implements product sorting by date and updates product schema." />
     <MESSAGE value="fixed bugs in add product" />
     <MESSAGE value="Implements pagination for product list and quotation history." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implements pagination for product list and quotation history." />
+    <MESSAGE value="Refactors environment variables and adds logout functionality." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactors environment variables and adds logout functionality." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
