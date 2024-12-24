@@ -19,7 +19,7 @@ function Sidebar(props) {
             <Link to="/addcategory" style={{textDecoration: 'none'}}>
                 <div className="sidebar-item">
                     <img src={Add_category_icon} alt=""/>
-                    <p>AddCategory</p>
+                    <p>Add Category</p>
                 </div>
             </Link>
             <Link to="/" style={{textDecoration: 'none'}}>

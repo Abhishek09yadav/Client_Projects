@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Refactors environment variables and adds logout functionality.">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="making admin panel device responsive">
       <change beforePath="$PROJECT_DIR$/../Vj sir classes/Backend/Vishal-jhoshi-classes" beforeDir="false" afterPath="$PROJECT_DIR$/../Vj sir classes/Backend/Vishal-jhoshi-classes" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Vj sir classes/Frontend/vishal-joshi-sir-classes-fontend" beforeDir="false" afterPath="$PROJECT_DIR$/../Vj sir classes/Frontend/vishal-joshi-sir-classes-fontend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/Navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/Navbar.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,15 +180,7 @@
       <workItem from="1734976353691" duration="3598000" />
       <workItem from="1735021377132" duration="752000" />
       <workItem from="1735022538860" duration="520000" />
-      <workItem from="1735023887608" duration="7407000" />
-    </task>
-    <task id="LOCAL-00002" summary="Removes unused hero, popular, and related product components.">
-      <option name="closed" value="true" />
-      <created>1734078492161</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1734078492161</updated>
+      <workItem from="1735023887608" duration="8098000" />
     </task>
     <task id="LOCAL-00003" summary="Removes unused hero, popular, and related product components.">
       <option name="closed" value="true" />
@@ -577,7 +566,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735032858887</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="making admin panel device responsive">
+      <option name="closed" value="true" />
+      <created>1735033275939</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1735033275939</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -596,7 +593,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="Adds image removal functionality in Add Product." />
     <MESSAGE value="created quotation history page" />
     <MESSAGE value="Refactors CSS comments and uses Bootstrap Buttons in QuotationHistory." />
     <MESSAGE value="Refactors CSS and uses Bootstrap buttons in QuotationHistory." />
@@ -621,7 +617,8 @@
     <MESSAGE value="fixed bugs in add product" />
     <MESSAGE value="Implements pagination for product list and quotation history." />
     <MESSAGE value="Refactors environment variables and adds logout functionality." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactors environment variables and adds logout functionality." />
+    <MESSAGE value="making admin panel device responsive" />
+    <option name="LAST_COMMIT_MESSAGE" value="making admin panel device responsive" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
