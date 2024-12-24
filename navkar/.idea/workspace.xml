@@ -5,8 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="making admin panel device responsive">
-      <change beforePath="$PROJECT_DIR$/../Vj sir classes/Backend/Vishal-jhoshi-classes" beforeDir="false" afterPath="$PROJECT_DIR$/../Vj sir classes/Backend/Vishal-jhoshi-classes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Vj sir classes/Frontend/vishal-joshi-sir-classes-fontend" beforeDir="false" afterPath="$PROJECT_DIR$/../Vj sir classes/Frontend/vishal-joshi-sir-classes-fontend" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-admin/Context/adminContext.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-admin/src/Components/LoginSignup/LoginSignup.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-admin/src/Components/LoginSignup/LoginSignup.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vj sir classes/Backend/Vishal-jhoshi-classes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vj sir classes/Frontend/vishal-joshi-sir-classes-fontend" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/Context/ShopContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/Context/ShopContext.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/LIstProduct/ListProduct.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/LIstProduct/ListProduct.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/LIstProduct/ListProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/LIstProduct/ListProduct.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Pages/Admin/Admin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Pages/Admin/Admin.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/assets/abhi_quotation (1).pdf" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/assets/abhi_quotation (1).pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/assets/long username for testing 1234 sdsdsdsdsdsd_quotation.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/assets/long username for testing 1234 sdsdsdsdsdsd_quotation.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/assets/quotation_1734351876236" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/assets/quotation_1734351876236" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/routes/otpRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/routes/otpRoutes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,9 +32,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JSX File" />
         <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JSX File" />
       </list>
     </option>
   </component>
@@ -56,7 +72,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "deletionFromPopupRequiresConfirmation": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/monuy/Desktop/Repos/Client_Projects/navkar/navkar-admin/src",
+    "last_opened_file_path": "C:/Users/monuy/Desktop/Repos/Client_Projects/dhobi",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -83,18 +99,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\Components\LoginSignup" />
+      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\Pages" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-frontend\src\Components\Assets" />
       <recent name="C:\Users\monuy\Desktop\Repos\navkar\navkar-admin" />
-      <recent name="C:\Users\monuy\Desktop\Repos\navkar\navkar-backend" />
-      <recent name="C:\Users\monuy\Desktop\Repos\navkar\navkar-frontend\src\Pages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\Components\LoginSignup" />
+      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\Components" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-frontend\src\Components\item" />
       <recent name="C:\Users\monuy\Desktop\Repos\navkar\navkar-admin\src\Components\UserList" />
-      <recent name="C:\Users\monuy\Desktop\Repos\navkar\navkar-admin\src\Components\LIstProduct" />
-      <recent name="C:\Users\monuy\Desktop\Repos\navkar\navkar-admin\src" />
     </key>
   </component>
   <component name="RunManager" selected="npm.backend">
@@ -180,23 +196,7 @@
       <workItem from="1734976353691" duration="3598000" />
       <workItem from="1735021377132" duration="752000" />
       <workItem from="1735022538860" duration="520000" />
-      <workItem from="1735023887608" duration="8098000" />
-    </task>
-    <task id="LOCAL-00003" summary="Removes unused hero, popular, and related product components.">
-      <option name="closed" value="true" />
-      <created>1734078511019</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1734078511019</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Implements MOQ input field and updates product schema.">
-      <option name="closed" value="true" />
-      <created>1734085148963</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1734085148963</updated>
+      <workItem from="1735023887608" duration="14888000" />
     </task>
     <task id="LOCAL-00005" summary="Updates product display with MOQ and restyles query generator.">
       <option name="closed" value="true" />
@@ -574,7 +574,23 @@
       <option name="project" value="LOCAL" />
       <updated>1735033275939</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="making admin panel device responsive">
+      <option name="closed" value="true" />
+      <created>1735034034699</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1735034034700</updated>
+    </task>
+    <task id="LOCAL-00053" summary="making admin panel device responsive">
+      <option name="closed" value="true" />
+      <created>1735034659516</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1735034659516</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -136,6 +136,7 @@ function ListProduct() {
                 />
             </div>
             <Modal
+                classname={'Modal-main-container'}
                 isOpen={showModal}
                 onRequestClose={handleModalClose}
                 style={customModalStyles}

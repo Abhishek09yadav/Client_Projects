@@ -238,4 +238,34 @@ router.post('/signup', async (req, res) => {
     res.json({success: true, token});
 });
 
+router.post('/adminlogin', async (req, res) => {
+    try {
+        // Find the user by email
+        const user = await Users.findOne({ email: req.body.email });
+        if (!user) {
+            return res.json({ success: false, error: 'Email not found' });
+        }
+
+        // Check if the password matches
+        const passCompare = req.body.password === user.password;
+        if (!passCompare) {
+            return res.json({ success: false, error: 'Wrong password' });
+        }
+
+        // Check if the user role is "admin"
+        if (user.role !== 'admin') {
+            return res.json({ success: false, error: 'Only admin can login' });
+        }
+
+        // Generate token for the admin
+        const data = { user: { id: user.id, role: user.role } };
+        const token = jwt.sign(data, 'secret_ecom');
+        res.json({ success: true, token });
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+
 module.exports = router;

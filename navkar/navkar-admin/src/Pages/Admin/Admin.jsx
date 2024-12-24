@@ -7,6 +7,7 @@ import ListProduct from "../../Components/LIstProduct/ListProduct.jsx";
 import UserList from "../../Components/UserList/UserList.jsx";
 import AddCategory from "../../Components/AddCategory/AddCategory.jsx";
 import QuotationHistory from "../../Components/GeneratedQuotation/QuotationHistory.jsx";
+import LoginSignup from "../../Components/LoginSignup/LoginSignup.jsx";
 
 
 function Admin(props) {
@@ -16,6 +17,7 @@ function Admin(props) {
 
             <Routes>
                 <Route path="/userlist" element={<UserList/>}/>
+                <Route path="/login" element={<LoginSignup/>}/>
                 {/*<Route path="/addproduct" element={<AddProduct/>}/>*/}
                 <Route path="/" element={<AddProduct/>}/>
                 <Route path="/listproduct" element={<ListProduct/>}/>

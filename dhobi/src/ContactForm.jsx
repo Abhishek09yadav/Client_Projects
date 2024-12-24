@@ -2,7 +2,7 @@ import { useState } from "react";
 import style from "./first.module.css";
 import "./common.css";
 import { VscCircleLargeFilled } from "react-icons/vsc";
-
+import textimage from '../public/images/text-image.png'
 const ContactForm = ({ contactDetails, setFormNumber }) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -35,20 +35,26 @@ const ContactForm = ({ contactDetails, setFormNumber }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <p className={`${style.font}`}>Fill contact details</p>
-        <p>
-          <span className={`${style.font}`}>&</span>
+      <div style={{
+        height: "30%",
+      }}>
+        <p className={`${style.font} m0`}>Fill contact details</p>
+        <p className="m0">
+          <span className={`${style.font} m0`}>&</span>
           <b className={`${style.font}`} style={{ color: "yellow" }}>
             Proceed
           </b>
         </p>
-        <p className={`${style.font2}`}>
+        <p className={`${style.font2} `} style={{
+          margin:"20px 0px"
+        }}>
           The Dhobi’z Is The One Of The Most Trusted Solution for all types of
           laundry services
         </p>
       </div>
-      <div className="contact-form">
+      <div className="contact-form" style={{
+        height: "70%",
+      }}>
         <div className="form-group">
           <label htmlFor="name">Your name</label>
           <input
@@ -57,7 +63,7 @@ const ContactForm = ({ contactDetails, setFormNumber }) => {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            placeholder="Enter your name"
+
             required
           />
         </div>
@@ -70,7 +76,7 @@ const ContactForm = ({ contactDetails, setFormNumber }) => {
             name="mobile"
             value={formData.mobile}
             onChange={handleChange}
-            placeholder="Enter your mobile number"
+
             required
           />
         </div>
@@ -83,20 +89,20 @@ const ContactForm = ({ contactDetails, setFormNumber }) => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            placeholder="Enter your email address"
+
             required
           />
         </div>
 
         <div className="form-group">
           <label htmlFor="address">Address</label>
-          <textarea
+          <textarea cols="1"
             id="address"
             name="address"
             value={formData.address}
             onChange={handleChange}
-            placeholder="Enter your address"
-          ></textarea>
+
+          />
         </div>
 
         <div className="circles">
@@ -109,6 +115,10 @@ const ContactForm = ({ contactDetails, setFormNumber }) => {
             Proceed
           </button>
         </div>
+        <div className="text-image-holder">
+          <img src={textimage} alt=""/>
+        </div>
+
       </div>
     </form>
   );

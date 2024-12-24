@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import {Link} from "react-router-dom";
 import {ShopContext} from "../../Context/ShopContext.jsx";
+const url = import.meta.env.VITE_API_URL;
 // import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 // import {faSquareCaretRight} from '@fortawesome/free-solid-svg-icons';
 

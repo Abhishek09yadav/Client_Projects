@@ -55,7 +55,7 @@ const ShopContextProvider = (props) => {
     }, [authToken]);
 
 
-    const contextValue = {all_product, userDetails, setTriggerFetchingUserDetails}
+    const contextValue = {all_product, userDetails, setTriggerFetchingUserDetails, authToken}
 
     return (
         <ShopContext.Provider value={contextValue}>

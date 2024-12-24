@@ -1,5 +1,5 @@
 import style from "./first.module.css";
-import logo from "../public/images/logo.png";
+import logo from "../public/images/thedb.png";
 import "./common.css";
 import ContactForm from "./ContactForm";
 import { useState } from "react";
