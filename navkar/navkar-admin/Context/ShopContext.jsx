@@ -1,5 +1,6 @@
 import React, {createContext, useEffect, useState} from 'react';
-const url = process.env.REACT_APP_API_URL;
+
+const url = import.meta.env.VITE_API_URL;
 
 
 export const ShopContext = createContext(null);
@@ -8,7 +9,7 @@ const ShopContextProvider = (props) => {
     const authToken = localStorage.getItem("auth-token");
     const [all_product, setAll_Product] = useState([]);
     const [userDetails, setUserDetails] = useState(null);
-
+    const [triggerFetchingUserDetails, setTriggerFetchingUserDetails] = useState(false);
     // Function to fetch user details
 
 
@@ -39,7 +40,7 @@ const ShopContextProvider = (props) => {
             }
         };
         fetchUserDetails();
-    }, [authToken]);
+    }, [authToken, triggerFetchingUserDetails]);
 
 
     useEffect(() => {
@@ -47,15 +48,14 @@ const ShopContextProvider = (props) => {
             const response = await fetch(`${url}/allproducts`);
             const data = await response.json();
             setAll_Product([...data]);
-            console.log("all product data ->", all_product);
+
 
         }
         fetchProducts();
     }, [authToken]);
 
 
-
-    const contextValue = {  all_product,  userDetails}
+    const contextValue = {all_product, userDetails, setTriggerFetchingUserDetails}
 
     return (
         <ShopContext.Provider value={contextValue}>
