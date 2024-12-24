@@ -183,7 +183,17 @@ textarea {
   .contact-form {
     max-width: 350px;
   }
+  input,
+  textarea {
+    font-size: 1rem;
+    margin-top: 10px;
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
 
+  }
   .proceed {
     font-size: 1.5em;
     padding: 10px 40px;
@@ -200,7 +210,11 @@ textarea {
     width: 100%;
     padding: 2%;
   }
+  .button-wrapper{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
 
+  }
   .contact-form {
     max-width: 300px;
   }
