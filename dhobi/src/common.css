@@ -115,9 +115,7 @@ textarea {
 
 @media (max-width: 1024px) {
   .button-wrapper{
-
     gap: 20px;
-
   }
   .text-image-holder{
     display: none;
@@ -139,6 +137,7 @@ textarea {
 }
 @media (max-width: 700px) {
   .button-wrapper{
+
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
