@@ -6,6 +6,7 @@ import { useState } from "react";
 import SecondForm from "./SecondForm";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import ThirdForm from "./ThirdForm.jsx";
+const url = import.meta.env.VITE_API_URL;
 
 const FirstForm = () => {
   const [formNumber, setFormNumber] = useState(0);
@@ -44,18 +45,17 @@ const FirstForm = () => {
 
     // Final submission or next action
     const payload = {
-      access_key: "93d67399-7852-4437-b553-73042a7abb7c", // Replace with your Web3Forms access key
       name: details.name,
       email: details.email,
-      phone: details.mobile || "Not Provided", // Default value if undefined
+      phone: details.mobile || "Not Provided",
       address: details.address,
-      services: services.join(", "), // Convert services array to a string
+      services: services.join(", "),
       pickup_date: date || "Not Provided",
       pickup_time: time || "Not Provided",
     };
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch(`${url}/submit`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
