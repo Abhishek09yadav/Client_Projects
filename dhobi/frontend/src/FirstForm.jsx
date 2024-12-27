@@ -43,11 +43,11 @@ const FirstForm = () => {
       time: time,
     }));
 
-    // Final submission or next action
+    // Final submission
     const payload = {
       name: details.name,
       email: details.email,
-      phone: details.mobile || "Not Provided",
+      mobile: details.mobile || "Not Provided",
       address: details.address,
       services: services.join(", "),
       pickup_date: date || "Not Provided",
@@ -55,7 +55,7 @@ const FirstForm = () => {
     };
 
     try {
-      const response = await fetch(`${url}/submit`, {
+      const response = await fetch(`${url}/submitform`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -66,7 +66,8 @@ const FirstForm = () => {
       if (response.ok) {
         const result = await response.json();
         console.log("Form submission successful:", result);
-
+        alert("Your form has been submitted successfully!");
+        setFormNumber(2); // Move to the final step
       } else {
         console.error("Form submission failed:", response);
         alert("Failed to submit your order. Please try again.");
@@ -78,25 +79,24 @@ const FirstForm = () => {
   };
 
   return (
-    <div className={`${formNumber === 0 ? style.bgImage1 : style.bgImage2}`}>
-      <div className="left">
-        <img className={`${style.logo}`} src={logo} alt="logo" />
-        {formNumber === 0 ? (
-          <ContactForm
-            contactDetails={contactDetails}
-            setFormNumber={setFormNumber}
-          />
-        ) : formNumber === 1 ? (
-          <SecondForm
-            handleSecondForm={handleSecondForm}
-            setFormNumber={setFormNumber}
-          />
-        ):
-            <ThirdForm
-                setFormNumber={setFormNumber}
-            /> }
+      <div className={`${formNumber === 0 ? style.bgImage1 : style.bgImage2}`}>
+        <div className="left">
+          <img className={`${style.logo}`} src={logo} alt="logo" />
+          {formNumber === 0 ? (
+              <ContactForm
+                  contactDetails={contactDetails}
+                  setFormNumber={setFormNumber}
+              />
+          ) : formNumber === 1 ? (
+              <SecondForm
+                  handleSecondForm={handleSecondForm}
+                  setFormNumber={setFormNumber}
+              />
+          ) : (
+              <ThirdForm setFormNumber={setFormNumber} />
+          )}
+        </div>
       </div>
-    </div>
   );
 };
 
