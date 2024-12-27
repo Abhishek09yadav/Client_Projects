@@ -11,6 +11,7 @@ import curtain from "../public/images/cc.png";
 import premium from "../public/images/pl.png";
 import { MdOutlineDateRange, MdOutlineTimer } from "react-icons/md";
 import textimage from "../public/images/text-image.png";
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 const SecondForm = ({ handleSecondForm, setFormNumber }) => {
   const [services, setServices] = useState([]);
@@ -42,7 +43,7 @@ const SecondForm = ({ handleSecondForm, setFormNumber }) => {
     }
 
     handleSecondForm(services, pickupDate, pickupTime);
-    setFormNumber(0);
+    setFormNumber(2);
   };
 
   return (
@@ -132,7 +133,7 @@ const SecondForm = ({ handleSecondForm, setFormNumber }) => {
 
           <div className="circles">
             <VscCircleLargeFilled style={{color: "orange"}}/>
-            <VscCircleLargeFilled style={{color: "orange"}}/>
+
           </div>
 
           <div className="pro-btn">

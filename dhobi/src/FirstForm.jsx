@@ -4,6 +4,8 @@ import "./common.css";
 import ContactForm from "./ContactForm";
 import { useState } from "react";
 import SecondForm from "./SecondForm";
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import ThirdForm from "./ThirdForm.jsx";
 
 const FirstForm = () => {
   const [formNumber, setFormNumber] = useState(0);
@@ -64,7 +66,7 @@ const FirstForm = () => {
       if (response.ok) {
         const result = await response.json();
         console.log("Form submission successful:", result);
-        alert("Order successfully submitted!");
+
       } else {
         console.error("Form submission failed:", response);
         alert("Failed to submit your order. Please try again.");
@@ -84,12 +86,15 @@ const FirstForm = () => {
             contactDetails={contactDetails}
             setFormNumber={setFormNumber}
           />
-        ) : (
+        ) : formNumber === 1 ? (
           <SecondForm
             handleSecondForm={handleSecondForm}
             setFormNumber={setFormNumber}
           />
-        )}
+        ):
+            <ThirdForm
+                setFormNumber={setFormNumber}
+            /> }
       </div>
     </div>
   );

@@ -2,15 +2,15 @@ import React, {useEffect, useState} from 'react';
 import './AddProduct.css';
 import upload_area from '../../assets/upload_area.svg';
 import plus_icon from '../../assets/plus.png';
-import rupee_icon from '../../assets/rupee.png';
-import title_icon from '../../assets/title.png';
-import percent_icon from '../../assets/percent.png';
-import detail_icon from '../../assets/detail.png';
-import moq_icon from '../../assets/minimum_order_quantity.png';
+import rupee_icon from '../../assets/rupee.svg';
+import title_icon from '../../assets/title.svg';
+import percent_icon from '../../assets/percent.svg';
+import detail_icon from '../../assets/detail.svg';
+import moq_icon from '../../assets/minimum_order_quantity.svg';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import cross_icon from '../../assets/cross_icon.png';
-
+import select_category from '../../assets/select-category.svg';
 const url = import.meta.env.VITE_API_URL;
 
 function AddProduct({product, onClose}) {
@@ -190,7 +190,7 @@ function AddProduct({product, onClose}) {
             <div className="AddProduct-itemfield">
                 <p>Product Title</p>
                 <div className="AddProduct-input-container">
-                    <img src={title_icon} alt="Title Icon" className="AddProduct-icon"/>
+                    <img src={title_icon} alt="Title Icon" className="input-icon"/>
                     <input
                         type="text"
                         name="name"
@@ -204,7 +204,7 @@ function AddProduct({product, onClose}) {
                 <div className="AddProduct-itemfield">
                     <p>Price</p>
                     <div className="AddProduct-price-input">
-                        <img src={rupee_icon} alt="Rupee" className="rupee-icon"/>
+                        <img src={rupee_icon} alt="Rupee" className="input-icon"/>
                         <input
                             type="text"
                             name="old_price"
@@ -217,7 +217,7 @@ function AddProduct({product, onClose}) {
                 <div className="AddProduct-itemfield">
                     <p>Offer Price</p>
                     <div className="AddProduct-price-input">
-                        <img src={rupee_icon} alt="Rupee" className="rupee-icon"/>
+                        <img src={rupee_icon} alt="Rupee" className="input-icon"/>
                         <input
                             type="text"
                             name="new_price"
@@ -230,7 +230,7 @@ function AddProduct({product, onClose}) {
                 <div className="AddProduct-itemfield">
                     <p>Tax(%)</p>
                     <div className="AddProduct-price-input">
-                        <img src={percent_icon} alt="Percent" className="percent-icon"/>
+                        <img src={percent_icon} alt="Percent" className="input-icon"/>
                         <input
                             type="text"
                             name="Tax"
@@ -246,7 +246,7 @@ function AddProduct({product, onClose}) {
             <div className="AddProduct-itemfield">
                 <p>Minimum Order Quantity(MOQ)</p>
                 <div className="AddProduct-input-container">
-                    <img src={moq_icon} alt="MOQ Icon" className="AddProduct-icon"/>
+                    <img src={moq_icon} alt="MOQ Icon" className="input-icon"/>
                     <input
                         type="text"
                         name="MOQ"
@@ -259,6 +259,7 @@ function AddProduct({product, onClose}) {
             </div>
             <div className="AddProduct-itemfield">
                 <p>Product Category</p>
+                <img src={select_category} alt="select-category-Icon" className="input-icon"/>
                 <select
                     name="category"
                     value={productDetails.category}
@@ -275,7 +276,7 @@ function AddProduct({product, onClose}) {
                 <div className="AddProduct-itemfield">
                     <p>Product Detail</p>
                     <div className="AddProduct-input-container">
-                        <img src={detail_icon} alt="Detail Icon" className="AddProduct-icon"/>
+                        <img src={detail_icon} alt="Detail Icon" className="input-icon"/>
                         <ReactQuill
                             theme="snow"
                             value={productDetails.Description}

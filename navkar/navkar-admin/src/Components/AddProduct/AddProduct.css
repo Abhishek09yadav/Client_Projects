@@ -1,3 +1,4 @@
+
 .AddProduct {
     box-sizing: border-box;
     width: 100%;
@@ -7,7 +8,11 @@
     border-radius: 6px;
     background: white;
 }
-
+.input-icon{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
 .AddProduct-itemfield {
     width: 100%;
     padding: 10px 0;
@@ -43,9 +48,9 @@
     gap: 10px;
 }
 
-.rupee-icon, .percent-icon {
-    width: 20px;
-    height: 20px;
+.input-icon {
+    max-width: 40px;
+    max-height: 40px;
 }
 
 .AddProduct-thumbnail-image {
@@ -121,11 +126,7 @@
     align-items: center;
 }
 
-.AddProduct-icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-}
+
 
 .AddProduct-select {
     margin-bottom: 40px;

@@ -5,24 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="making admin panel device responsive">
-      <change afterPath="$PROJECT_DIR$/navkar-admin/Context/adminContext.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-admin/src/Components/LoginSignup/LoginSignup.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-admin/src/Components/LoginSignup/LoginSignup.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Vj sir classes/Backend/Vishal-jhoshi-classes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Vj sir classes/Frontend/vishal-joshi-sir-classes-fontend" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/Context/ShopContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/Context/ShopContext.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/LIstProduct/ListProduct.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/LIstProduct/ListProduct.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/LIstProduct/ListProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/LIstProduct/ListProduct.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/Navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Pages/Admin/Admin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Pages/Admin/Admin.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/assets/abhi_quotation (1).pdf" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/assets/abhi_quotation (1).pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/assets/long username for testing 1234 sdsdsdsdsdsd_quotation.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/assets/long username for testing 1234 sdsdsdsdsdsd_quotation.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/assets/quotation_1734351876236" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/assets/quotation_1734351876236" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/routes/otpRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/routes/otpRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/LoginSignup/LoginSignup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/LoginSignup/LoginSignup.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/assets/abhi_quotation (1).pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/assets/abhi_quotation.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/assets/long username for testing 1234 sdsdsdsdsdsd_quotation.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/assets/quotation_1734351876236" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/assets/title.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Pages/LoginSignup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Pages/LoginSignup.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,29 +57,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Node.js.backend.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "deletionFromPopupRequiresConfirmation": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/monuy/Desktop/Repos/Client_Projects/dhobi",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.admin.executor": "Run",
-    "npm.backend.executor": "Run",
-    "npm.frontend.executor": "Run",
-    "settings.editor.selected.configurable": "configurable.group.build",
-    "settings.editor.splitter.proportion": "0.28614458",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Node.js.backend.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/monuy/Desktop/Repos/Client_Projects/navkar&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.admin.executor&quot;: &quot;Run&quot;,
+    &quot;npm.backend.executor&quot;: &quot;Run&quot;,
+    &quot;npm.frontend.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.28614458&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -113,7 +105,7 @@
       <recent name="C:\Users\monuy\Desktop\Repos\navkar\navkar-admin\src\Components\UserList" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.backend">
+  <component name="RunManager" selected="npm.frontend">
     <configuration default="true" type="NodeJSConfigurationType" node-parameters="node index.js" working-dir="$PROJECT_DIR$/navkar-backend">
       <method v="2" />
     </configuration>
@@ -197,6 +189,8 @@
       <workItem from="1735021377132" duration="752000" />
       <workItem from="1735022538860" duration="520000" />
       <workItem from="1735023887608" duration="14888000" />
+      <workItem from="1735194735592" duration="8499000" />
+      <workItem from="1735207880736" duration="4909000" />
     </task>
     <task id="LOCAL-00005" summary="Updates product display with MOQ and restyles query generator.">
       <option name="closed" value="true" />

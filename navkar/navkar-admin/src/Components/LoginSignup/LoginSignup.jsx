@@ -62,9 +62,12 @@ const LoginSignup = () => {
             alert('All fields are required');
             return;
         }
-
-
+        setDisableLoginSignupButtonAfterOTP(true);
+        setTimeout(() => {
+            setDisableLoginSignupButtonAfterOTP(false);
+        }, 60000);
         try {
+            toast.info('Request sent ');
             // Request OTP
             const response = await fetch(`${url}/api/otp/request-otp`, {
                 method: 'POST',
@@ -79,19 +82,19 @@ const LoginSignup = () => {
 
             if (data.success) {
                 setOtpState(true); // Show OTP input
-                toast.info('OTP sent please check your mail for OTP.');
-                setDisableLoginSignupButtonAfterOTP(true);
-                setTimeout(() => {
-                    setDisableLoginSignupButtonAfterOTP(prev => !prev)
-                }, 60000);
+                toast.success('OTP sent please check your mail.');
+
             } else {
                 alert(data.error);
+                setDisableLoginSignupButtonAfterOTP(false);
             }
         } catch (error) {
             console.error('OTP Request Error:', error);
             alert('Failed to send OTP');
+            setDisableLoginSignupButtonAfterOTP(false);
         }
     };
+
 
     const verifyOTP = async () => {
         try {
@@ -129,6 +132,10 @@ const LoginSignup = () => {
         }
 
         try {
+            setDisableLoginSignupButtonAfterOTP(true);
+            setTimeout(() => {
+                setDisableLoginSignupButtonAfterOTP(false);
+            }, 60000);
             const response = await fetch(`${url}/api/otp/forgot-password-otp`, {
                 method: 'POST',
                 headers: {
@@ -144,15 +151,15 @@ const LoginSignup = () => {
                 setOtpState(true);
                 toast.info('OTP sent please check your mail for OTP.');
                 setDisableLoginSignupButtonAfterOTP(true);
-                setTimeout(() => {
-                    setDisableLoginSignupButtonAfterOTP(prev => !prev)
-                }, 60000);
+
             } else {
                 alert(data.error);
+                setDisableLoginSignupButtonAfterOTP(false);
             }
         } catch (error) {
             console.error('Forgot Password OTP Request Error:', error);
             alert('Failed to send OTP');
+            setDisableLoginSignupButtonAfterOTP(false);
         }
     };
 
