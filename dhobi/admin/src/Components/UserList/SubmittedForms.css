@@ -1,5 +1,120 @@
-.small-header {
-    font-size: 1.9rem; /* Adjust size as needed */
-    font-weight: normal;
-    color: #555; /* Optional: Change the color */
+.submitted-forms-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    /*background-image: url("../../assets/default.png");*/
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.search-bar {
+    display: flex;
+    gap: 10px;
+}
+
+.search-bar input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex-grow: 1;
+}
+
+.search-bar button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.sidebar {
+    flex: 1;
+    order: 2;
+}
+
+.main-content {
+    flex: 3;
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.accordion-item {
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+button {
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0040861a;
+}
+
+@media (max-width: 1024px) {
+    .content {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-bar input {
+        width: 100%;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+@media (max-width: 500px) {
+    .header {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 425px) {
+    .main-content, .sidebar {
+        flex: 1;
+        order: unset;
+    }
+}
+
+@media (max-width: 320px) {
+    .small-header {
+        font-size: 1.4rem;
+    }
+
+    .search-bar button {
+        padding: 8px;
+    }
 }

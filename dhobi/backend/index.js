@@ -57,6 +57,8 @@
                                         $or: [
                                                 { name: { $regex: search, $options: 'i' } },
                                                 { email: { $regex: search, $options: 'i' } },
+                                                { mobile: { $regex: search, $options: 'i' } },
+                                                { services: { $regex: search, $options: 'i' } },
                                         ],
                                 } : null),
                                 ...(date && {
