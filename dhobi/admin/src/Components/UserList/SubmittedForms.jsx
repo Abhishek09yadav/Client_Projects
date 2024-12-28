@@ -77,19 +77,22 @@ const SubmittedForms = () => {
                         onChange={(e) => setSearchQuery(e.target.value)}
                     />
                     <button onClick={handleSearch}>
-                        <FaSearch/>
+                        <FaSearch />
                     </button>
                 </div>
             </div>
             <div className="content">
+                <div className="sidebar">
+                    <Calendar onChange={handleDateChange} value={selectedDate} />
+                </div>
                 <div className="main-content">
                     <Accordion>
                         {forms.map((form, index) => (
                             <Accordion.Item eventKey={index.toString()} key={index}>
                                 <Accordion.Header>
-                        <span className="small-header">
-                            {form.name} - {form.email}
-                        </span>
+                                    <span className="small-header">
+                                        {form.name} - {form.email}
+                                    </span>
                                 </Accordion.Header>
                                 <Accordion.Body>
                                     <p><strong>Name:</strong> {form.name}</p>
@@ -103,6 +106,7 @@ const SubmittedForms = () => {
                             </Accordion.Item>
                         ))}
                     </Accordion>
+
                     <div className="pagination mt-3">
                         <Button
                             variant="secondary"
@@ -121,11 +125,7 @@ const SubmittedForms = () => {
                         </Button>
                     </div>
                 </div>
-                <div className="sidebar">
-                    <Calendar onChange={handleDateChange} value={selectedDate}/>
-                </div>
             </div>
-
         </div>
     );
 };
