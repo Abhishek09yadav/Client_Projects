@@ -1,11 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import './SubmittedForms.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faDownload, faEye} from "@fortawesome/free-solid-svg-icons";
-import {Button} from 'react-bootstrap';
-import {confirmAlert} from 'react-confirm-alert';
-import 'react-confirm-alert/src/react-confirm-alert.css';
+import 'react-calendar/dist/Calendar.css';
+import { Accordion, Button } from 'react-bootstrap';
+import Calendar from 'react-calendar';
+import { FaSearch } from 'react-icons/fa';
 
 const url = import.meta.env.VITE_API_URL;
 
@@ -13,26 +12,45 @@ const SubmittedForms = () => {
     const [forms, setForms] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
-    const limit = 10; // Number of items per page
+    const [searchQuery, setSearchQuery] = useState('');
+    const [selectedDate, setSelectedDate] = useState(null); // State for selected date
+    const limit = 10;
 
     useEffect(() => {
-        const fetchForms = async () => {
-            try {
-                const response = await fetch(`${url}/submittedforms?page=${currentPage}&limit=${limit}`);
-                if (response.ok) {
-                    const data = await response.json();
-                    setForms(data.forms);
-                    setTotalPages(data.totalPages);
-                } else {
-                    console.error("Failed to fetch submitted forms");
-                }
-            } catch (error) {
-                console.error("Error occurred while fetching forms:", error);
-            }
-        };
-
         fetchForms();
-    }, [currentPage]); // Re-fetch data whenever the current page changes
+    }, [currentPage, selectedDate]); // Fetch whenever currentPage or selectedDate changes
+
+    const fetchForms = async () => {
+        try {
+            const query = new URLSearchParams({
+                page: currentPage,
+                limit,
+                search: searchQuery,
+                date: selectedDate ? selectedDate.toISOString().split('T')[0] : '', // Format date as YYYY-MM-DD
+            }).toString();
+
+            const response = await fetch(`${url}/submittedforms?${query}`);
+            if (response.ok) {
+                const data = await response.json();
+                setForms(data.forms);
+                setTotalPages(data.totalPages);
+            } else {
+                console.error('Failed to fetch submitted forms');
+            }
+        } catch (error) {
+            console.error('Error occurred while fetching forms:', error);
+        }
+    };
+
+    const handleSearch = () => {
+        setCurrentPage(1);
+        fetchForms();
+    };
+
+    const handleDateChange = (date) => {
+        setSelectedDate(date); // Update selected date
+        setCurrentPage(1); // Reset to the first page for new date
+    };
 
     const handleNextPage = () => {
         if (currentPage < totalPages) setCurrentPage(currentPage + 1);
@@ -43,39 +61,69 @@ const SubmittedForms = () => {
     };
 
     return (
-        <div className="submitted-forms">
-            <h1>Submitted Forms</h1>
-            {forms.map((form, index) => (
-                <div key={index} className="form-item">
-                    <p><strong>Name:</strong> {form.name}</p>
-                    <p><strong>Email:</strong> {form.email}</p>
-                    <p><strong>Mobile:</strong> {form.mobile}</p>
-                    <p><strong>Address:</strong> {form.address}</p>
-                    <p><strong>Services:</strong> {form.services}</p>
-                    <p><strong>Pickup Date:</strong> {form.pickup_date}</p>
-                    <p><strong>Pickup Time:</strong> {form.pickup_time}</p>
+        <div className="submitted-forms-container">
+            <div className="header">
+                <h1>Contact Form</h1>
+                <div className="search-bar">
+                    <input
+                        type="text"
+                        placeholder="Search by name or email..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                    <button onClick={handleSearch}>
+                        <FaSearch />
+                    </button>
                 </div>
-            ))}
-            <div className="pagination">
-                <button
-                    disabled={currentPage === 1}
-                    onClick={handlePreviousPage}
-                >
-                    Previous
-                </button>
-                <span>Page {currentPage} of {totalPages}</span>
-                <button
-                    disabled={currentPage === totalPages}
-                    onClick={handleNextPage}
-                >
-                    Next
-                </button>
+            </div>
+            <div className="content">
+                <div className="sidebar">
+                    <Calendar onChange={handleDateChange} value={selectedDate} />
+                </div>
+                <div className="main-content">
+                    <Accordion>
+                        {forms.map((form, index) => (
+                            <Accordion.Item eventKey={index.toString()} key={index}>
+                                <Accordion.Header>
+                                    <span className="small-header">
+                                        {form.name} - {form.email}
+                                    </span>
+                                </Accordion.Header>
+                                <Accordion.Body>
+                                    <p><strong>Name:</strong> {form.name}</p>
+                                    <p><strong>Email:</strong> {form.email}</p>
+                                    <p><strong>Mobile:</strong> {form.mobile}</p>
+                                    <p><strong>Address:</strong> {form.address}</p>
+                                    <p><strong>Services:</strong> {form.services}</p>
+                                    <p><strong>Pickup Date:</strong> {form.pickup_date}</p>
+                                    <p><strong>Pickup Time:</strong> {form.pickup_time}</p>
+                                </Accordion.Body>
+                            </Accordion.Item>
+                        ))}
+                    </Accordion>
+
+                    <div className="pagination mt-3">
+                        <Button
+                            variant="secondary"
+                            disabled={currentPage === 1}
+                            onClick={handlePreviousPage}
+                        >
+                            Previous
+                        </Button>
+                        <span className="mx-2">Page {currentPage} of {totalPages}</span>
+                        <Button
+                            variant="secondary"
+                            disabled={currentPage === totalPages}
+                            onClick={handleNextPage}
+                        >
+                            Next
+                        </Button>
+                    </div>
+                </div>
             </div>
         </div>
     );
 };
 
-
-
-
 export default SubmittedForms;
+ 

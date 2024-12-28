@@ -48,26 +48,37 @@
         res.status(400).json({error:error.message});
 
         }});
-        app.get("/submittedforms", async (req, res) => {
-                const { page = 1, limit = 10 } = req.query;
+        app.get('/submittedforms', async (req, res) => {
+                const { page = 1, limit = 10, search = '', date } = req.query;
 
                 try {
-                        const forms = await Form.find()
-                            .skip((page - 1) * limit) // Skip documents for previous pages
-                            .limit(Number(limit)); // Limit the number of results
+                        const query = {
+                                ...(search && {
+                                        $or: [
+                                                { name: { $regex: search, $options: 'i' } },
+                                                { email: { $regex: search, $options: 'i' } },
+                                        ],
+                                }),
+                                ...(date && { pickup_date: date }), // Filter by exact date if provided
+                        };
 
-                        const total = await Form.countDocuments(); // Total number of documents
+                        const forms = await Form.find(query)
+                            .skip((page - 1) * limit)
+                            .limit(Number(limit));
+
+                        const total = await Form.countDocuments(query);
 
                         res.status(200).json({
                                 total,
                                 currentPage: page,
                                 totalPages: Math.ceil(total / limit),
-                                forms
+                                forms,
                         });
                 } catch (error) {
                         res.status(500).json({ error: error.message });
                 }
         });
+
 
 
         app.listen(port,()=>{
