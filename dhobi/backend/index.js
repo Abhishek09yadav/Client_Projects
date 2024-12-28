@@ -53,20 +53,25 @@
 
                 try {
                         const query = {
-                                ...(search && {
+                                ...(search ? {
                                         $or: [
                                                 { name: { $regex: search, $options: 'i' } },
                                                 { email: { $regex: search, $options: 'i' } },
                                         ],
+                                } : null),
+                                ...(date && {
+                                        pickup_date: {
+                                                $eq: new Date(date).toLocaleDateString('en-CA') // Format as YYYY-MM-DD
+                                        }
                                 }),
-                                ...(date && { pickup_date: date }), // Filter by exact date if provided
                         };
 
-                        const forms = await Form.find(query)
+                        const forms = await Form.find(query || null) // If query is empty, pass null
+                            .sort({ pickup_date: -1 }) // Sort by pickup_date in descending order
                             .skip((page - 1) * limit)
                             .limit(Number(limit));
 
-                        const total = await Form.countDocuments(query);
+                        const total = await Form.countDocuments(query || null);
 
                         res.status(200).json({
                                 total,
@@ -78,7 +83,6 @@
                         res.status(500).json({ error: error.message });
                 }
         });
-
 
 
         app.listen(port,()=>{
