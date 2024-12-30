@@ -9,8 +9,8 @@
 
 .productdisplay-left {
     display: flex;
-    gap: 200px;
-    /*padding: 0 20px;*/
+    gap: 158px;
+    padding: 49px 40px;
 
 }
 
@@ -27,15 +27,16 @@
 }
 
 .productdisplay-main-img {
-    width: 486px;
-    height: 500px;
+    width: 500px;
+    height: 450px;
     border-radius: 10px;
+
 }
 
 .productdisplay-right {
     display: flex;
     flex-direction: column;
-    margin: 0 70px
+    margin: 62px 70px;
 }
 
 .productdisplay-right h1 {

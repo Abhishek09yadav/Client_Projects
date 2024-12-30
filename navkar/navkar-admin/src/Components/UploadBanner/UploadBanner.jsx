@@ -99,18 +99,16 @@ function UploadBanner() {
 
             const formData = new FormData();
 
-            if (images.image) {
-                formData.append('image', images.image);
-            }
-            if (images.image1) {
-                formData.append('image1', images.image1);
-            }
-            if (images.image2) {
-                formData.append('image2', images.image2);
-            }
-            if (images.image3) {
-                formData.append('image3', images.image3);
-            }
+            // Ensure all keys are included in FormData
+            ['image', 'image1', 'image2', 'image3'].forEach((key) => {
+                if (images[key]) {
+                    formData.append(key, images[key]); // New file
+                } else if (existingImages[key]) {
+                    formData.append(key, existingImages[key]); // Existing URL
+                } else {
+                    formData.append(key, ''); // Removed image
+                }
+            });
 
             const uploadResponse = await fetch(`${url}/banners/${updatedBanner.id}`, {
                 method: 'PUT',
@@ -129,7 +127,6 @@ function UploadBanner() {
             alert('Failed to update banner.');
         }
     };
-
 
 
     const removeImage = (imageKey) => {

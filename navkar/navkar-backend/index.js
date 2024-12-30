@@ -69,7 +69,7 @@
             //     type: String,
             //     required: true,
             // },
-            image: {type: String, required: true},
+            image: {type: String, required: false},
             image1: {type: String, required: false},
             image2: {type: String, required: false},
             image3: {type: String, required: false},
@@ -91,25 +91,24 @@
             {name: 'image3', maxCount: 1},
         ]), async (req, res) => {
             const {id} = req.params;
+
             try {
                 const banner = await Banner.findOne({id});
                 if (!banner) {
                     return res.status(404).json({error: 'Banner not found.'});
                 }
 
-                // Update image fields if new files are uploaded
-                if (req.files.image) {
-                    banner.image = `${baseUrl}/images/${req.files.image[0].filename}`;
-                }
-                if (req.files.image1) {
-                    banner.image1 = `${baseUrl}/images/${req.files.image1[0].filename}`;
-                }
-                if (req.files.image2) {
-                    banner.image2 = `${baseUrl}/images/${req.files.image2[0].filename}`;
-                }
-                if (req.files.image3) {
-                    banner.image3 = `${baseUrl}/images/${req.files.image3[0].filename}`;
-                }
+                // Update or clear image fields based on FormData
+                ['image', 'image1', 'image2', 'image3'].forEach((key) => {
+                    if (req.body[key] === '') {
+                        // Clear the image field if empty string is sent
+                        banner[key] = '';
+                    } else if (req.files[key]) {
+                        // Update the field with the new file
+                        banner[key] = `${baseUrl}/images/${req.files[key][0].filename}`;
+                    }
+                    // If neither an empty string nor a file is provided, retain the existing value
+                });
 
                 await banner.save();
                 res.status(200).json({success: true, banner});
@@ -118,8 +117,6 @@
                 res.status(500).json({error: 'Failed to update banner.'});
             }
         });
-
-
 
 
         app.post('/uploadQuotation', uploadPdf.single('quotation'), async (req, res) => {
