@@ -1,9 +1,9 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding: 10px;
-    box-shadow: 0 1px 3px -2px black;
     align-items: center;
+    padding: 10px 20px; /* Add padding for spacing */
+    box-shadow: 0 1px 3px -2px black;
     position: relative;
 }
 
@@ -15,22 +15,32 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-shrink: 0; /* Prevents shrinking of the logo */
+}
+
+.nav-logo img {
+
+    max-width: 90px;
 }
 
 .nav-logo p {
     color: black;
     font-size: 38px;
     font-weight: 600;
+    margin-top: 10px;
+    align-items: center
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
     align-items: center;
+    justify-content: center; /* Center the menu items */
     gap: 50px;
     color: #626262;
     font-weight: 500;
     font-size: 15px;
+    flex-grow: 1;
 }
 
 .nav-menu a {
@@ -89,7 +99,8 @@
     }
 
     .nav-logo img {
-        width: 200px;
+        /*vertical-align: middle;*/
+        max-width: 90px;
     }
 
     .nav-logo p {
@@ -135,21 +146,20 @@
         padding: 10px;
     }
 
-    .nav-dropdown {
-        display: block;
-        width: 30px;
-        transition: 0.5s;
-    }
-
-    .nav-menu {
-        display: none;
-        height: 100px;
-        width: 100%;
-        position: absolute;
-        justify-content: center;
-        top: 50px;
-        background-color: white;
-    }
+    /*.nav-dropdown {*/
+    /*    display: block;*/
+    /*    width: 30px;*/
+    /*    transition: 0.5s;*/
+    /*}*/
+    /*.nav-menu {*/
+    /*    display: none;*/
+    /*    height: 100px;*/
+    /*    width: 100%;*/
+    /*    position: absolute;*/
+    /*    justify-content: center;*/
+    /*    top: 50px;*/
+    /*    background-color: white;*/
+    /*}*/
 
     .nav-menu-visible {
         display: flex;
@@ -170,9 +180,6 @@
         transform: scale(0.6);
     }
 
-    .nav-logo img {
-        padding-bottom: 33px;
-    }
 
     .nav-logo p {
         font-size: 22px;
@@ -191,8 +198,5 @@
         transition: 0.5s;
     }
 
-    .nav-login-cart {
-        transform: scale(0.6);
-        padding: 0;
-    }
+
 }

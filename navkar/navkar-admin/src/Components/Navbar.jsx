@@ -1,10 +1,11 @@
 import React, {useContext, useRef} from 'react';
 import "./Navbar.css"
-import logo from '../assets/nav-logo.svg'
+import logo from '../assets/logo.png'
 import 'bootstrap/dist/css/bootstrap.min.css';
 //import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import {Link} from "react-router-dom";
 import {ShopContext} from "../../Context/ShopContext.jsx";
+
 const url = import.meta.env.VITE_API_URL;
 // import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 // import {faSquareCaretRight} from '@fortawesome/free-solid-svg-icons';
@@ -22,9 +23,9 @@ function Navbar(props) {
     //     e.target.classList.toggle('open');
     // }
     return <div className="navbar">
-        <Link to={'/'} className="nav-logo" style={{textDecoration: 'none'}}>
+        <Link to={'/'} className="nav-logo" style={{textDecoration: 'none', maxWidth: '91px'}}>
             <img src={logo} alt="logo"/>
-            {/*<p>NAVKAR</p>*/}
+            <p>NAVKAR</p>
         </Link>
         {/*<img onClick={dropdown_toggle} className={'nav-dropdown'} src={Hamburger_Menu} alt={''}/>*/}
 

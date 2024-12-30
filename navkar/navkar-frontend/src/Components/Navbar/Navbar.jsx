@@ -21,7 +21,7 @@ function Navbar(props) {
     //     e.target.classList.toggle('open');
     // }
     return <div className="navbar">
-        <Link to={'/'} className="nav-logo" style={{textDecoration: 'none'}}>
+        <Link to={'/'} className="nav-logo" style={{textDecoration: 'none', maxWidth: '90px'}}>
             <img src={logo} alt="logo"/>
             <p>NAVKAR</p>
         </Link>
