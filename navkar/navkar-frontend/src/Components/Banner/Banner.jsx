@@ -1,26 +1,46 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './Banner.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import banner1 from '../Assets/banner_kids.png'
-import banner2 from '../Assets/banner_women.png'
-import banner3 from '../Assets/banner_mens.png'
 
+const url = process.env.REACT_APP_API_URL;
 const Banner = () => {
+    const [images, setImages] = useState('');
+
+    useEffect(() => {
+        const fetchBanners = async () => {
+            try {
+                const response = await fetch(`${url}/banners`);
+                const data = await response.json();
+                setImages(data[0]); // Assuming you are working with the first banner
+            } catch (error) {
+                console.error('Error fetching banners:', error);
+            }
+            console.log('fetchBanners:', fetchBanners);
+        };
+
+        fetchBanners();
+    }, []);
+
+
 
 
     return (
         <div>
             <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel">
                 <div className="carousel-inner">
-                    <div className="carousel-item active">
-                        <img src={banner1} className="d-block w-100" alt="..."/>
-                    </div>
-                    <div className="carousel-item">
-                        <img src={banner2} className="d-block w-100" alt="..."/>
-                    </div>
-                    <div className="carousel-item">
-                        <img src={banner3} className="d-block w-100" alt="..."/>
-                    </div>
+                    {images.image ? (<div className="carousel-item active">
+                        <img src={images.image} className="d-block w-100  images" alt="..."/>
+                    </div>) : ''}
+                    {images.image1 ? (<div className="carousel-item">
+                        <img src={images.image1} className="d-block w-100 images" alt="..."/>
+                    </div>) : ''}
+                    {images.image2 ? (<div className="carousel-item">
+                        <img src={images.image2} className="d-block w-100 images" alt="..."/>
+                    </div>) : ''}
+                    {images.image3 ? (<div className="carousel-item">
+                        <img src={images.image3} className="d-block w-100 images" alt="..."/>
+                    </div>) : ''}
+
                 </div>
             </div>
         </div>

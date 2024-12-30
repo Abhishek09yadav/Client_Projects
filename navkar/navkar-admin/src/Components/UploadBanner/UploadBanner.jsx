@@ -71,21 +71,20 @@ function UploadBanner() {
         }
     }, [product]);
 
-
     const imageHandler = (event, imageKey) => {
         const file = event.target.files[0];
         if (file) {
-            setImages(prevImages => ({
+            setImages((prevImages) => ({
                 ...prevImages,
                 [imageKey]: file,
             }));
-            // Clear the existing image when a new file is selected
-            setExistingImages(prevImages => ({
+            setExistingImages((prevImages) => ({
                 ...prevImages,
                 [imageKey]: '',
             }));
         }
     };
+
 
     const changeHandler = (e) => {
         setProductDetails({...productDetails, [e.target.name]: e.target.value});
@@ -98,28 +97,39 @@ function UploadBanner() {
             // Hardcode the ID to 123
             updatedBanner.id = 123;
 
+            const formData = new FormData();
+
             if (images.image) {
-                const formData = new FormData();
                 formData.append('image', images.image);
-
-                const uploadResponse = await fetch(`${url}/banners/${updatedBanner.id}`, {
-                    method: 'PUT',
-                    body: formData,
-                });
-
-                const uploadData = await uploadResponse.json();
-                if (uploadData.success) {
-                    updatedBanner.image = uploadData.banner.image;
-                }
+            }
+            if (images.image1) {
+                formData.append('image1', images.image1);
+            }
+            if (images.image2) {
+                formData.append('image2', images.image2);
+            }
+            if (images.image3) {
+                formData.append('image3', images.image3);
             }
 
-            setProduct(updatedBanner);
-            alert('Banner updated successfully!');
+            const uploadResponse = await fetch(`${url}/banners/${updatedBanner.id}`, {
+                method: 'PUT',
+                body: formData,
+            });
+
+            const uploadData = await uploadResponse.json();
+            if (uploadData.success) {
+                setProduct(uploadData.banner); // Update the product state with the response data
+                alert('Banner updated successfully!');
+            } else {
+                alert('Failed to update banner.');
+            }
         } catch (error) {
             console.error('Error updating banner:', error);
             alert('Failed to update banner.');
         }
     };
+
 
 
     const removeImage = (imageKey) => {
@@ -146,10 +156,9 @@ function UploadBanner() {
         return upload_area;
     };
 
-
     return (
         <div className="AddProduct">
-
+            <h1>Upload Banner Images</h1>
             <div className="AddProduct-itemfield">
 
 
@@ -186,6 +195,7 @@ function UploadBanner() {
                                     />
                                 </div>
                             ))}
+
                     </div>
 
                     {uploadCount < 4 && (

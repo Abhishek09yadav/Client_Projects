@@ -1,9 +1,9 @@
-/* Background Gradient with Modern Soft Red Colors */
+/* Background Gradient with Modern Soft Blue Colors */
 .login-signup {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(135deg, #cb1106 0%, #fc2525 100%);
+    background: linear-gradient(135deg, #34498a 0%, #4a90e2 100%);
     width: 100%;
     min-height: 100vh;
     padding: 50px 0;
@@ -34,7 +34,7 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: conic-gradient(transparent, transparent, transparent, #cb1106);
+    background: conic-gradient(transparent, transparent, transparent, #34498a);
     animation: rotate 16s linear infinite;
     z-index: -1;
 }
@@ -46,7 +46,7 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: conic-gradient(transparent, transparent, transparent, #fc2525);
+    background: conic-gradient(transparent, transparent, transparent, #4a90e2);
     animation: rotate 16s linear infinite;
     animation-delay: -2s;
     z-index: -1;
@@ -71,6 +71,7 @@
     width: auto;
     padding: 0 15px;
 }
+
 @keyframes rotate {
     0% {
         transform: rotate(0deg);
@@ -138,7 +139,7 @@
 .login-signup-container button {
     width: 100%;
     height: 50px;
-    background: linear-gradient(135deg, #cb1106 0%, #fc2525 100%);
+    background: linear-gradient(135deg, #34498a 0%, #4a90e2 100%);
     color: white;
     font-size: 18px;
     font-weight: bold;
