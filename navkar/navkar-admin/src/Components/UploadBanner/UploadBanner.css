@@ -1,0 +1,259 @@
+
+.AddProduct {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 800px;
+    padding: 30px 50px;
+    margin: 10px 30px;
+    border-radius: 6px;
+    background: white;
+}
+
+.input-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.AddProduct-itemfield {
+    width: 100%;
+    padding: 10px 0;
+    color: #7b7b7b;
+    font-size: 16px;
+}
+
+.AddProduct-itemfield input,
+.AddProduct-itemfield select {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 200px;
+    height: 50px;
+    border-radius: 4px;
+    padding-left: 15px;
+    border: 1px solid #c3c3c3;
+    outline: none;
+    color: #7b7b7b;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+
+.AddProduct-price {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    padding: 10px 0;
+}
+
+.AddProduct-price-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-icon {
+    max-width: 40px;
+    max-height: 40px;
+}
+
+.AddProduct-thumbnail-image {
+    height: 120px;
+    width: 120px;
+}
+
+.AddProduct-btn {
+    width: 160px;
+    height: 50px;
+}
+
+.AddProduct-description {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100px;
+    resize: both;
+    border-radius: 4px;
+    padding: 10px;
+    border: 1px solid #c3c3c3;
+    outline: none;
+    color: #7b7b7b;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+}
+
+.AddProduct-image-uploads {
+    padding: 10px 0;
+}
+
+.AddProduct-upload-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 20px;
+}
+
+.AddProduct-upload-grid .AddProduct-itemfield {
+    text-align: center;
+}
+
+.AddProduct-upload-grid label {
+    cursor: pointer;
+}
+
+.AddProduct-upload-grid img {
+    border-radius: 8px;
+    max-width: 100%;
+}
+
+.AddProduct-btn-add {
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 10px 20px;
+    border: 1px solid #c3c3c3;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.AddProduct-btn-add:hover {
+    background-color: #e0e0e0;
+}
+
+.plus-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.AddProduct-input-container {
+    display: flex;
+    align-items: center;
+}
+
+
+.AddProduct-select {
+    margin-bottom: 40px;
+    box-sizing: border-box;
+    max-width: 200px;
+    height: 50px;
+    padding-left: 15px;
+    border-radius: 4px;
+    border: 1px solid #c3c3c3;
+    outline: none;
+}
+
+.AddProduct-delete-icon-container {
+    position: absolute;
+    top: 9px;
+    right: 5px;
+    cursor: pointer;
+}
+
+.AddProduct-delete-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.AddProduct-itemfield {
+    position: relative;
+
+}
+
+/* Tablet landscape (1024px) */
+@media (max-width: 1024px) {
+    .AddProduct {
+        padding: 20px 40px;
+        margin: 10px 20px;
+    }
+
+    .AddProduct-price {
+        gap: 30px;
+    }
+}
+
+/* Tablet portrait (768px) */
+@media (max-width: 768px) {
+    .AddProduct {
+        padding: 15px 50px;
+        margin: 10px 15px;
+    }
+
+    .AddProduct-price {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .AddProduct-upload-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+}
+
+/* Small devices (500px) */
+@media (max-width: 500px) {
+    .AddProduct {
+        padding: 10px 35px;
+        margin: 10px 10px;
+    }
+
+    .AddProduct-upload-grid {
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    }
+}
+
+/* Extra small devices (425px) */
+@media (max-width: 425px) {
+    .AddProduct {
+        padding: 10px 25px;
+        margin: 5px;
+    }
+
+    .AddProduct-itemfield {
+        font-size: 14px;
+    }
+
+    .AddProduct-upload-grid {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+}
+
+/* Very small devices (325px, 320px) */
+@media (max-width: 325px) {
+    .AddProduct {
+        padding: 5px 10px;
+        margin: 5px;
+    }
+
+    .AddProduct-itemfield input,
+    .AddProduct-itemfield select {
+        font-size: 12px;
+        padding-left: 10px;
+    }
+
+    .AddProduct-thumbnail-image {
+        height: 100px;
+        width: 100px;
+    }
+
+    .AddProduct-btn {
+        width: 140px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 320px) {
+    .AddProduct {
+        padding: 5px;
+    }
+
+    .AddProduct-itemfield {
+        font-size: 12px;
+    }
+
+    .AddProduct-thumbnail-image {
+        height: 90px;
+        width: 90px;
+    }
+
+    .AddProduct-btn {
+        width: 120px;
+        height: 35px;
+    }
+}

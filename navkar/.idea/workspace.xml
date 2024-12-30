@@ -4,17 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="making admin panel device responsive">
-      <change afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dhobi/admin/src/Components/UserList/SubmittedForms.css" beforeDir="false" afterPath="$PROJECT_DIR$/../dhobi/admin/src/Components/UserList/SubmittedForms.css" afterDir="false" />
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="adding banner in app.js">
+      <change afterPath="$PROJECT_DIR$/navkar-admin/src/Components/UploadBanner/UploadBanner.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-admin/src/Components/UploadBanner/UploadBanner.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/image_1735557768907.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/image_1735559237066.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/image_1735560188581.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/image_1735560196206.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/image_1735560200258.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/image_1735560326313.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/image_1735560417000.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/image_1735560452485.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/Navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/Navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Navbar/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Navbar/Navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Pages/Shop.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Pages/Shop.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/Sidebar/Sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/Sidebar/Sidebar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Pages/Admin/Admin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Pages/Admin/Admin.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../thedhobi-form" beforeDir="false" afterPath="$PROJECT_DIR$/../thedhobi-form" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,6 +69,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Node.js.backend.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -106,7 +116,7 @@
       <recent name="C:\Users\monuy\Desktop\Repos\navkar\navkar-admin\src\Components\UserList" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.admin">
+  <component name="RunManager" selected="npm.backend">
     <configuration default="true" type="NodeJSConfigurationType" node-parameters="node index.js" working-dir="$PROJECT_DIR$/navkar-backend">
       <method v="2" />
     </configuration>
@@ -192,15 +202,8 @@
       <workItem from="1735023887608" duration="14888000" />
       <workItem from="1735194735592" duration="8499000" />
       <workItem from="1735207880736" duration="4909000" />
-      <workItem from="1735540144731" duration="4149000" />
-    </task>
-    <task id="LOCAL-00005" summary="Updates product display with MOQ and restyles query generator.">
-      <option name="closed" value="true" />
-      <created>1734092701754</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1734092701754</updated>
+      <workItem from="1735540144731" duration="12294000" />
+      <workItem from="1735554265731" duration="6273000" />
     </task>
     <task id="LOCAL-00006" summary="Updates product display with MOQ and restyles the query generator.">
       <option name="closed" value="true" />
@@ -586,7 +589,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735034659516</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="adding banner in app.js">
+      <option name="closed" value="true" />
+      <created>1735544589037</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1735544589038</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -605,7 +616,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <MESSAGE value="created quotation history page" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Refactors CSS comments and uses Bootstrap Buttons in QuotationHistory." />
     <MESSAGE value="Refactors CSS and uses Bootstrap buttons in QuotationHistory." />
     <MESSAGE value="Refetches user details on Quotation History click." />
@@ -630,7 +641,8 @@
     <MESSAGE value="Implements pagination for product list and quotation history." />
     <MESSAGE value="Refactors environment variables and adds logout functionality." />
     <MESSAGE value="making admin panel device responsive" />
-    <option name="LAST_COMMIT_MESSAGE" value="making admin panel device responsive" />
+    <MESSAGE value="adding banner in app.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding banner in app.js" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

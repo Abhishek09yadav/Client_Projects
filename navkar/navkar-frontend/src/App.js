@@ -3,7 +3,7 @@ import React from 'react';
 import Navbar from "./Components/Navbar/Navbar";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Shop from "./Pages/Shop";
-
+import 'bootstrap/dist/js/bootstrap.min.js';
 import Product from "./Pages/Product";
 import Footer from "./Components/Footer/Footer";
 import LoginSignup from "./Pages/LoginSignup";

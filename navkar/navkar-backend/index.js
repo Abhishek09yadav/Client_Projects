@@ -59,6 +59,68 @@
                 }
             }
         });
+        const Banner = mongoose.model("Banner", {
+            id: {
+                type: Number,
+                required: true,
+                default: 123
+            },
+            // name: {
+            //     type: String,
+            //     required: true,
+            // },
+            image: {type: String, required: true},
+            image1: {type: String, required: false},
+            image2: {type: String, required: false},
+            image3: {type: String, required: false},
+        });
+        app.get('/banners', async (req, res) => {
+            try {
+                const banners = await Banner.find();
+                res.status(200).json(banners);
+            } catch (error) {
+                console.error('Error fetching banners:', error);
+                res.status(500).json({error: 'Failed to fetch banners.'});
+            }
+        });
+
+        app.put('/banners/:id', upload.fields([
+            {name: 'image', maxCount: 1},
+            {name: 'image1', maxCount: 1},
+            {name: 'image2', maxCount: 1},
+            {name: 'image3', maxCount: 1},
+        ]), async (req, res) => {
+            const {id} = req.params;
+            try {
+                const banner = await Banner.findOne({id});
+                if (!banner) {
+                    return res.status(404).json({error: 'Banner not found.'});
+                }
+
+                // Update image fields if new files are uploaded
+                if (req.files.image) {
+                    banner.image = `${baseUrl}/images/${req.files.image[0].filename}`;
+                }
+                if (req.files.image1) {
+                    banner.image1 = `${baseUrl}/images/${req.files.image1[0].filename}`;
+                }
+                if (req.files.image2) {
+                    banner.image2 = `${baseUrl}/images/${req.files.image2[0].filename}`;
+                }
+                if (req.files.image3) {
+                    banner.image3 = `${baseUrl}/images/${req.files.image3[0].filename}`;
+                }
+
+                await banner.save();
+                res.status(200).json({success: true, banner});
+            } catch (error) {
+                console.error('Error updating banner:', error);
+                res.status(500).json({error: 'Failed to update banner.'});
+            }
+        });
+
+
+
 
         app.post('/uploadQuotation', uploadPdf.single('quotation'), async (req, res) => {
             const {userId} = req.body;

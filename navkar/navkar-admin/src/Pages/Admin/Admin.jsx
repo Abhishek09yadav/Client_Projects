@@ -8,6 +8,7 @@ import UserList from "../../Components/UserList/UserList.jsx";
 import AddCategory from "../../Components/AddCategory/AddCategory.jsx";
 import QuotationHistory from "../../Components/GeneratedQuotation/QuotationHistory.jsx";
 import LoginSignup from "../../Components/LoginSignup/LoginSignup.jsx";
+import UploadBanner from "../../Components/UploadBanner/UploadBanner.jsx";
 
 
 function Admin(props) {
@@ -23,6 +24,7 @@ function Admin(props) {
                 <Route path="/listproduct" element={<ListProduct/>}/>
                 <Route path="/addcategory" element={<AddCategory/>}/>
                 <Route path={'/generatedquotation'} element={<QuotationHistory/>}/>
+                <Route path={'/uploadbanner'} element={<UploadBanner/>}/>
             </Routes>
         </div>
 
