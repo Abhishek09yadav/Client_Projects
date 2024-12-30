@@ -4,15 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="banner upload and banner display is now completed">
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/image1_1735565885914.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1735566123396.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1735566265356.pdf" afterDir="false" />
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Styles active category pill and adds logo to PDF.">
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/image2_1735575976215.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/image2_1735576008221.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/image2_1735576013494.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/image3_1735576028349.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/logo_big.png" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/logo_big.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Footer/Footer.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Footer/Footer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../thedhobi-form" beforeDir="false" afterPath="$PROJECT_DIR$/../thedhobi-form" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -192,15 +194,7 @@
       <workItem from="1735194735592" duration="8499000" />
       <workItem from="1735207880736" duration="4909000" />
       <workItem from="1735540144731" duration="12294000" />
-      <workItem from="1735554265731" duration="11959000" />
-    </task>
-    <task id="LOCAL-00008" summary="Adds quotation history page and refactors product display.">
-      <option name="closed" value="true" />
-      <created>1734206200686</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1734206200686</updated>
+      <workItem from="1735554265731" duration="15638000" />
     </task>
     <task id="LOCAL-00009" summary="Refactors quotation download and styles quotation history button.">
       <option name="closed" value="true" />
@@ -586,7 +580,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735564644608</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Styles active category pill and adds logo to PDF.">
+      <option name="closed" value="true" />
+      <created>1735572774353</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1735572774353</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -606,7 +608,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Refetches user details on Quotation History click." />
     <MESSAGE value="Refactors user details fetching in `ShopContext`." />
     <MESSAGE value="Adds MOQ to product item and styles item selection." />
     <MESSAGE value="Implements product MOQ and styles item selection." />
@@ -631,7 +632,8 @@
     <MESSAGE value="adding banner in app.js" />
     <MESSAGE value="adding banner upload in admin panel" />
     <MESSAGE value="banner upload and banner display is now completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="banner upload and banner display is now completed" />
+    <MESSAGE value="Styles active category pill and adds logo to PDF." />
+    <option name="LAST_COMMIT_MESSAGE" value="Styles active category pill and adds logo to PDF." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

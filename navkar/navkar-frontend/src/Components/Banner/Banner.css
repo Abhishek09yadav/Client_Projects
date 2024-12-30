@@ -1,3 +1,51 @@
 .images {
     height: 200px;
 }
+
+.carousel-main-container {
+    margin: 20px 0 10px 0;
+
+}
+
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .images {
+        height: 180px;
+    }
+}
+
+@media (max-width: 768px) {
+    .images {
+        height: 160px;
+    }
+}
+
+@media (max-width: 500px) {
+    .images {
+        height: 140px;
+    }
+
+    .carousel-main-container {
+        margin: 5px 0 5px 0;
+
+    }
+}
+
+@media (max-width: 425px) {
+    .images {
+        height: 120px;
+    }
+}
+
+@media (max-width: 325px) {
+    .images {
+        height: 100px;
+    }
+}
+
+@media (max-width: 320px) {
+    .images {
+        height: 90px;
+    }
+}

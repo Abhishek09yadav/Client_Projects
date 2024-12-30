@@ -25,7 +25,7 @@ const Banner = () => {
 
 
     return (
-        <div>
+        <div className={'carousel-main-container'}>
             <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel">
                 <div className="carousel-inner">
                     {images.image ? (<div className="carousel-item active">
