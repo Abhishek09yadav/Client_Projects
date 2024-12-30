@@ -302,10 +302,10 @@ const Category = () => {
             {isModalOpen && (
                 <div className="modal-overlay">
                     <div className="modal-content">
-                        <h3>Selected Products</h3>
+
                         <div id={"generate-pdf"}>
                             <Link to={'/'} className="nav-logo" style={{ textDecoration: 'none' }}>
-                                <img src={logo} alt="logo"/>
+                                <img src={logo} style={{maxWidth: "90px"}} alt="logo"/>
                                 <p>NAVKAR</p>
                             </Link>
                             <div className="details">
