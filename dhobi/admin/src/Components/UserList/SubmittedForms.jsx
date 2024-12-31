@@ -83,7 +83,7 @@ const SubmittedForms = () => {
     return (
         <div className="submitted-forms-container w-100">
             <div className="header">
-                <h1>Contact Form</h1>
+                <h1>Manual Order List</h1>
                 <div className="search-bar">
                     <input
                         type="text"
