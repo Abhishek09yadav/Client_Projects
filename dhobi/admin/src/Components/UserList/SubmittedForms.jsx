@@ -6,7 +6,7 @@ import 'react-calendar/dist/Calendar.css';
 import { Accordion, Button } from 'react-bootstrap';
 import Calendar from 'react-calendar';
 import { FaSearch } from 'react-icons/fa';
-
+import logo from '../../assets/logo.png';
 
 const url = import.meta.env.VITE_API_URL;
 
@@ -82,6 +82,7 @@ const SubmittedForms = () => {
          };
     return (
         <div className="submitted-forms-container w-100">
+            <img className={'logo'} src={logo} alt="logo"/>
             <div className="header">
                 <h1>Manual Order List</h1>
                 <div className="search-bar">
@@ -103,7 +104,8 @@ const SubmittedForms = () => {
                             <Accordion.Item className="mb-3" eventKey={index.toString()} key={index}>
                                 <Accordion.Header>
                         <span className="small-header">
-                            {form.name} - <span className={'header-color'}> {formatDate(form.pickup_date)} {formatTimeAmPm(form.pickup_time)}</span>
+                            {form.name} - <span
+                            className={'header-color'}> {formatDate(form.pickup_date)} {formatTimeAmPm(form.pickup_time)}</span>
                         </span>
                                 </Accordion.Header>
                                 <Accordion.Body>
@@ -114,6 +116,7 @@ const SubmittedForms = () => {
                                     <p><strong>Services:</strong> {form.services}</p>
                                     <p><strong>Pickup Date:</strong> {formatDate(form.pickup_date)}</p>
                                     <p><strong>Pickup Time:</strong> {formatTimeAmPm(form.pickup_time)}</p>
+                                    <p><strong>Ordered on:</strong>{formatDate(form.Date)}</p>
                                 </Accordion.Body>
                             </Accordion.Item>
                         ))}

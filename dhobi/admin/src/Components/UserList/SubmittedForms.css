@@ -4,14 +4,23 @@
     --glass-background: rgba(255, 255, 255, 0.95);
     --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 .header-color{
     color: var(--primary-gradient);
 }
+.logo {
+    /* position: relative; */
+    /*top: 10%;*/
+    /*left: 10%;*/
+    width: 300px;
+    z-index: 1;
+}
+
 .submitted-forms-container {
     display: flex;
     flex-direction: column;
-    padding: 2.5rem;
+    padding: 1rem 2.5rem;
     gap: 2.5rem;
     min-height: 100vh;
     background: linear-gradient(135deg, #f0f9ff, #e0f2fe, #dbeafe);
@@ -38,7 +47,7 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    padding: 2rem;
+    padding: 1rem;
     background: var(--glass-background);
     backdrop-filter: blur(12px);
     border-radius: 24px;
@@ -47,8 +56,8 @@
 }
 
 .header h1 {
-    font-size: 3rem;
-    font-weight: 800;
+    font-size: 2.2rem;
+    font-weight: 700;
     background: var(--primary-gradient);
     -webkit-background-clip: text;
     background-clip: text;
@@ -62,7 +71,7 @@
     display: flex;
     gap: 0.75rem;
     background: white;
-    padding: 0.75rem;
+    padding: 0.45rem;
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     border: 1px solid rgba(99, 102, 241, 0.1);
@@ -85,7 +94,7 @@
 }
 
 .search-bar button {
-    padding: 1rem 2rem;
+    padding: 0.75rem 1.5rem;
     background: var(--primary-gradient);
     color: white;
     border: none;
@@ -286,7 +295,9 @@
         gap: 1.5rem;
         text-align: center;
     }
+    .submitted-forms-container::before {
 
+    }
     .header h1 {
         font-size: 2rem;
     }
@@ -299,6 +310,9 @@
 
     .pagination button {
         width: 20%;
+    }
+    .logo {
+        max-width: 200px;
     }
 }
 
