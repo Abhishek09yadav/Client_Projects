@@ -35,7 +35,11 @@ const SubmittedForms = () => {
                 date: formattedDate,
             }).toString();
 
-            const response = await fetch(`${url}/submittedforms?${query}`);
+            const response = await fetch(`${url}/submittedforms?${query}`, {
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json' },
+            });
+
             if (response.ok) {
                 const data = await response.json();
                 setForms(data.forms);
@@ -99,7 +103,7 @@ const SubmittedForms = () => {
                             <Accordion.Item className="mb-3" eventKey={index.toString()} key={index}>
                                 <Accordion.Header>
                         <span className="small-header">
-                            {form.name} - {formatDate(form.pickup_date)} {formatTimeAmPm(form.pickup_time)}
+                            {form.name} - <span className={'header-color'}> {formatDate(form.pickup_date)} {formatTimeAmPm(form.pickup_time)}</span>
                         </span>
                                 </Accordion.Header>
                                 <Accordion.Body>

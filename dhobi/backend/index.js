@@ -1,7 +1,7 @@
         require('dotenv').config();
         const port = process.env.PORT;
         const baseUrl = process.env.BASE_URL;
-
+        const mongourl = process.env.MONGODB_URI;
         const express = require('express');
         const app = express();
         const mongoose = require('mongoose');
@@ -13,10 +13,10 @@
 
 
         // Database Connection with MongoDB
-        mongoose.connect('mongodb://localhost:27017/dhobi-forum', {
+        mongoose.connect(mongourl, {
                 useNewUrlParser: true,
                 useUnifiedTopology: true
-        }).then(() => console.log("Connected to MongoDB"))
+        }).then(() => console.log("Connected to MongoDB",mongourl))
             .catch(err => console.error("Could not connect to MongoDB", err));
 
         const formSchema = new mongoose.Schema({
@@ -31,7 +31,7 @@
 
         });
 
-        const Form = mongoose.model('Form', formSchema);
+        const Form = mongoose.model('DhobiForm', formSchema);
 
         app.get("/", (req, res) => {
             res.send("Welcome to TheDhobi!");

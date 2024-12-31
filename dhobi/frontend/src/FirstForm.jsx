@@ -66,7 +66,7 @@ const FirstForm = () => {
       if (response.ok) {
         const result = await response.json();
         console.log("Form submission successful:", result);
-        alert("Your form has been submitted successfully!");
+
         setFormNumber(2); // Move to the final step
       } else {
         console.error("Form submission failed:", response);

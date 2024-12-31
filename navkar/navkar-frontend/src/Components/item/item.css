@@ -157,7 +157,7 @@
 
 @media (max-width: 768px) {
     .item {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
     }
 
@@ -168,7 +168,7 @@
     }
 
     .item-img {
-        width: 120px;
-        height: 120px;
+        width: 85px;
+        height: 85px;
     }
 }
