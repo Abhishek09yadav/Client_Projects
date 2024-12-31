@@ -11,7 +11,7 @@
     flex-direction: row;
     align-items: center;
     gap: 5px;
-    max-width: 90px;
+    max-width: 70px;
 }
 
 .footer-logo p {
@@ -58,7 +58,7 @@
     align-items: center;
     gap: 20px;
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 62px;
     color: #1a1a1a;
     font-size: 20px;
 }

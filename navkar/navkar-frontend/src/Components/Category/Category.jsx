@@ -88,7 +88,7 @@ const Category = () => {
         setProducts(categoryProducts);
     };
 
-    const handleProductSelection = (productId, initialQuantity, isChecked) => {
+    const onProductSelect = (productId, initialQuantity, isChecked) => {
 
         setSelectedProducts((prevSelectedProducts) => {
             const newSelectedProducts = { ...prevSelectedProducts };
@@ -108,9 +108,11 @@ const Category = () => {
     };
 
 
-    const handleQuantityChange = (productId, quantity) => {
+    const onQuantityChange = (productId, quantity) => {
         const parsedQuantity = Math.max(0, parseInt(quantity, 10) || 0);
-
+        if (!userDetails) {
+            toast.warn("please login to continue");
+        }
         setSelectedProducts((prevSelectedProducts) => {
             const newSelectedProducts = { ...prevSelectedProducts };
 
@@ -271,12 +273,8 @@ const Category = () => {
                                         old_price={item.old_price}
                                         MOQ={item.MOQ}
                                         isSelected={!!selectedProducts[item.id]}
-                                        onProductSelect={(id, initialQuantity, isChecked) =>
-                                            handleProductSelection(id, initialQuantity, isChecked)
-                                        }
-                                        onQuantityChange={(id, quantity) =>
-                                            handleQuantityChange(id, quantity)
-                                        }
+                                        onProductSelect={onProductSelect}
+                                        onQuantityChange={onQuantityChange}
                                         selectedQuantity={selectedProducts[item.id]?.quantity || item.MOQ}
                                     />
                                 ))}

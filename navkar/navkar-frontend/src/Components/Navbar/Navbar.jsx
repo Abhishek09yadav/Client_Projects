@@ -7,10 +7,11 @@ import {Link} from "react-router-dom";
 import {ShopContext} from "../../Context/ShopContext";
 // import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 // import {faSquareCaretRight} from '@fortawesome/free-solid-svg-icons';
-
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Navbar(props) {
-    const {setTriggerFetchingUserDetails} = useContext(ShopContext);
+    const {userDetails, setTriggerFetchingUserDetails} = useContext(ShopContext);
     // const [menu, setmenu] = useState("shop");
     const menuRef = useRef();
     const scrollDown = () => {
@@ -43,14 +44,26 @@ function Navbar(props) {
             {/*</li>*/}
         </ul>
         <ul className="nav-login-cart">
-            < Link to={'/quotationhistory'}>
+            {userDetails ? (< Link to={'/quotationhistory'}>
                 <button type="button" className="btn  btn-secondary rounded-pill QuotationHistory" onClick={
                     () => {
                         setTriggerFetchingUserDetails((prev) => !prev);
                     }
                 }>Quotation History
                 </button>
-            </Link>
+            </Link>) : (<button type="button" className="btn  btn-secondary rounded-pill QuotationHistory" onClick={
+                () => {
+                    toast.warn("Please log in to continue.", {
+                        position: "top-center",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                    });
+                }
+            }>Quotation History
+            </button>)}
             {
                 localStorage.getItem('auth-token') ? <button onClick={() => {
                     localStorage.removeItem('auth-token');

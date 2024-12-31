@@ -154,7 +154,8 @@ function ListProduct() {
                         cursor: 'pointer',
                     }}
                 >
-                    ×
+                    <img src={cross_icon} alt="" className="ListProduct-icon"/>
+
                 </button>
                 <AddProduct
                     product={selectedProduct}
