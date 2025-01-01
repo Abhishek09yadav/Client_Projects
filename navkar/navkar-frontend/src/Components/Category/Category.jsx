@@ -3,13 +3,13 @@ import axios from 'axios';
 import './Category.css';
 import Item from '../item/item';
 import html2pdf from 'html2pdf.js';
-import {Link} from "react-router-dom";
 import logo from "../Assets/logo.png";
 import {ShopContext} from '../../Context/ShopContext'; // Import the context
 import signanureimg from "../Assets/signature.jpeg";
 import cross_icon from "../Assets/cross_icon.png";
 import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import no_products_found from "../Assets/no_products_found.jpeg"
 
 const url = process.env.REACT_APP_API_URL;
 const Category = () => {
@@ -108,10 +108,20 @@ const Category = () => {
     };
 
 
-    const onQuantityChange = (productId, quantity) => {
+    const onQuantityChange = (productId, quantity, MOQ) => {
         const parsedQuantity = Math.max(0, parseInt(quantity, 10) || 0);
         if (!userDetails) {
             toast.warn("please login to continue");
+        }
+        if (quantity < MOQ) {
+            toast.warn(`Current Quantity: ${quantity} is below the Minimum Order Quantity of ${MOQ}`, {
+                // position: "top-center",
+                autoClose: 2500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
         }
         setSelectedProducts((prevSelectedProducts) => {
             const newSelectedProducts = { ...prevSelectedProducts };
@@ -281,7 +291,8 @@ const Category = () => {
                             </div>
                         </>
                     ) : (
-                        <p>No products found for this category.</p>
+                        <img className={'no_products_found'} src={no_products_found} alt={''}/>
+                        // <p>No products found for this category.</p>
                     )}
                 </div>
             )}
@@ -302,15 +313,16 @@ const Category = () => {
                     <div className="modal-content">
 
                         <div id={"generate-pdf"}>
-                            <Link to={'/'} className="nav-logo" style={{ textDecoration: 'none' }}>
+                            <div className="nav-logo-container" style={{textDecoration: 'none'}}>
                                 <img src={logo} style={{maxWidth: "90px"}} alt="logo"/>
                                 <p>NAVKAR</p>
-                            </Link>
+                            </div>
                             <div className="details">
                                 <div className="company-details-box">
-                                    <p className={"company-details"}>Contact: 1234</p>
-                                    <p className={"company-details"}>mail: 1234@nav.com</p>
-                                    <p className={"company-details"}>Address: 1234</p>
+                                    <p className={"company-details"}>Contact: 02646221638</p>
+                                    <p className={"company-details"}>Email: shrinavkar@gmail.com</p>
+                                    <p className={"company-details"}>Address: F-7, Arunoday Complex,<br/> GIDC
+                                        Ankleshwar - 393002 Gujarat (India)</p>
                                 </div>
                                 <div className="customer-details-box">
                                     <div>

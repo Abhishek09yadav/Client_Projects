@@ -49,6 +49,28 @@
 
 }
 
+.no_products_found {
+    width: 30%;
+    margin: 5% 0 0 33%;
+    border-radius: 20px;
+    /*display: flex;*/
+    /* margin: auto; */
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-direction: row;
+}
+
+.nav-logo-container p {
+    color: black;
+    font-size: 38px;
+    font-weight: 600;
+}
 .company-details{
     font-size: 11px;
     line-height:1.7;
@@ -63,10 +85,10 @@
     padding-top: 1px;
 }
 .details{
-    margin: 20px;
+    margin: 5px 5px 20px 5px;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: space-between;
 }
 
@@ -294,6 +316,13 @@
         max-height: 150px;
     }
 
+    .nav-logo-container img {
+        width: 40px;
+    }
+
+    .nav-logo-container p {
+        font-size: 25px;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -319,6 +348,16 @@
     .net-quantity {
         text-align: left;
         margin-left: 30vi
+    }
+
+    .no_products_found {
+        width: 30%;
+        margin: 5% 0 0 33%;
+        border-radius: 20px;
+        /*display: flex;*/
+        /* margin: auto; */
+        align-items: center;
+        justify-content: center;
     }
 
     .Category h1 {

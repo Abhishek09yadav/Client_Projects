@@ -36,7 +36,7 @@ const Item = ({
                                 <input
                                     type="number"
                                     value={selectedQuantity}
-                                    onChange={(e) => onQuantityChange(id, e.target.value)}
+                                    onChange={(e) => onQuantityChange(id, e.target.value, MOQ)}
                                     className="quantity-input"
                                 />
                             </div>

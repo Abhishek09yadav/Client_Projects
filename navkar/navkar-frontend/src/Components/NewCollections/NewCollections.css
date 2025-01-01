@@ -94,7 +94,7 @@
 
 @media (max-width: 800px) {
     .NewCollections {
-
+        margin-top: 0;
         gap: 6px;
     }
 
@@ -114,9 +114,9 @@
 
 @media (max-width: 500px) {
     .NewCollections {
-        width: 320px;
+        /*width: 320px;*/
         gap: 6px;
-        margin-top: 150px;
+        margin-top: 0;
     }
 
     .NewCollections h1 {

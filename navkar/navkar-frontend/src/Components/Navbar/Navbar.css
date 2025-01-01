@@ -156,12 +156,13 @@
         position: relative;
         gap: 0;
     }
-    .nav-logo {
-        transform: scale(0.6);
-    }
-    .nav-logo img {
-        padding-bottom: 33px;
-    }
+
+    /*.nav-logo {*/
+    /*    transform: scale(0.6);*/
+    /*}*/
+    /*.nav-logo img {*/
+    /*    padding-bottom: 33px;*/
+    /*}*/
     .nav-logo p {
         font-size: 22px;
     }
