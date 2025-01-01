@@ -105,7 +105,7 @@ const SubmittedForms = () => {
                                 <Accordion.Header>
                         <span className="small-header">
                             {form.name} - <span
-                            className={'header-color'}> {formatDate(form.pickup_date)} {formatTimeAmPm(form.pickup_time)}</span>
+                            className={'header-color'}> {formatDate(form.pickup_date)}</span> {formatTimeAmPm(form.pickup_time)}
                         </span>
                                 </Accordion.Header>
                                 <Accordion.Body>
