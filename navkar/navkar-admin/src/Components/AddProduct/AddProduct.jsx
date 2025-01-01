@@ -11,9 +11,10 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import cross_icon from '../../assets/cross_icon.png';
 import select_category from '../../assets/select-category.svg';
+
 const url = import.meta.env.VITE_API_URL;
 
-function AddProduct({product, onClose}) {
+function AddProduct({product}) {
     const [categories, setCategories] = useState([]);
     const [images, setImages] = useState({
         image: false,
@@ -149,7 +150,7 @@ function AddProduct({product, onClose}) {
             const data = await response.json();
             if (data.success) {
                 alert(product ? 'Product updated successfully!' : 'Product added successfully!');
-                onClose();
+
             } else {
                 alert(`Failed to ${product ? 'update' : 'add'} product: ${data.message}`);
             }

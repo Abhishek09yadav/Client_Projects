@@ -184,6 +184,10 @@
     .AddProduct-upload-grid {
         grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     }
+
+    .banner-text {
+        font-size: 24px;
+    }
 }
 
 /* Small devices (500px) */

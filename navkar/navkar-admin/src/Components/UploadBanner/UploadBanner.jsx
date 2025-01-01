@@ -155,7 +155,7 @@ function UploadBanner() {
 
     return (
         <div className="AddProduct">
-            <h1>Upload Banner Images</h1>
+            <h1 className={'banner-text'}>Upload Banner Images</h1>
             <div className="AddProduct-itemfield">
 
 

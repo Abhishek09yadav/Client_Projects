@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './Banner.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
 
 const url = process.env.REACT_APP_API_URL;
 const Banner = () => {

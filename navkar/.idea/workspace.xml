@@ -4,31 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="added toast icon if user is not logged in and tries to change the quantity">
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1735713801660.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1735714205822.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1735715281454.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1735722249279.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1735722286464.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1735722812177.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1735723467416.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1735723804164.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1735724156846.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1735724219867.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1735724373283.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1735724436480.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1735725153716.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/John Doe_quotation.pdf" afterDir="false" />
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="fixed styling in Category.jsx and added toast warning if user tries to put moq below the quantity">
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735727231279.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735727251023.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735728906532.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735729022145.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735729107114.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1735727356311.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/exclusive_image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/hero_image.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/logo.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Navbar/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Navbar/Navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/UploadBanner/UploadBanner.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/UploadBanner/UploadBanner.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/UploadBanner/UploadBanner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/UploadBanner/UploadBanner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../thedhobi-form" beforeDir="false" afterPath="$PROJECT_DIR$/../thedhobi-form" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -213,23 +203,7 @@
       <workItem from="1735624308614" duration="6406000" />
       <workItem from="1735630890343" duration="5572000" />
       <workItem from="1735711216696" duration="4355000" />
-      <workItem from="1735718294013" duration="5373000" />
-    </task>
-    <task id="LOCAL-00012" summary="created separate routes for otp">
-      <option name="closed" value="true" />
-      <created>1734274735523</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1734274735523</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Refactors product details styling and tax calculation.">
-      <option name="closed" value="true" />
-      <created>1734293621578</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1734293621578</updated>
+      <workItem from="1735718294013" duration="9183000" />
     </task>
     <task id="LOCAL-00014" summary="Styles category page for responsiveness.">
       <option name="closed" value="true" />
@@ -607,7 +581,23 @@
       <option name="project" value="LOCAL" />
       <updated>1735634352866</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="fixed styling in Category.jsx and added toast warning if user tries to put moq below the quantity">
+      <option name="closed" value="true" />
+      <created>1735726300103</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1735726300103</updated>
+    </task>
+    <task id="LOCAL-00062" summary="fixed styling in Category.jsx and added toast warning if user tries to put moq below the quantity">
+      <option name="closed" value="true" />
+      <created>1735726394571</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1735726394571</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -627,7 +617,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implements product MOQ and styles item selection." />
     <MESSAGE value="Adds nodemailer and nodemon packages." />
     <MESSAGE value="Adds nodemailer and nodemon to backend dependencies." />
     <MESSAGE value="bux fixes" />
@@ -652,7 +641,8 @@
     <MESSAGE value="Styles active category pill and adds logo to PDF." />
     <MESSAGE value="Styles item component and banner responsiveness." />
     <MESSAGE value="added toast icon if user is not logged in and tries to change the quantity" />
-    <option name="LAST_COMMIT_MESSAGE" value="added toast icon if user is not logged in and tries to change the quantity" />
+    <MESSAGE value="fixed styling in Category.jsx and added toast warning if user tries to put moq below the quantity" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed styling in Category.jsx and added toast warning if user tries to put moq below the quantity" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
