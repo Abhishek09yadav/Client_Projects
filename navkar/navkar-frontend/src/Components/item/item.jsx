@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 
 const Item = ({
                   id,
-                  image,
+                  image = "https://placehold.co/600x400",
                   name,
                   old_price,
                   new_price,

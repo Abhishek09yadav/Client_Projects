@@ -77,8 +77,9 @@
     }
 
     .footer-logo {
+        margin-left: -80px;
         gap: 10px;
-        align-items: center;
+        /* align-items: center;*/
     }
 
     .footer-logo img {

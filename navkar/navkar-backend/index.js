@@ -63,12 +63,9 @@
             id: {
                 type: Number,
                 required: true,
-                default: 123
+                default: 123,
+                unique: true
             },
-            // name: {
-            //     type: String,
-            //     required: true,
-            // },
             image: {type: String, required: false},
             image1: {type: String, required: false},
             image2: {type: String, required: false},
@@ -76,13 +73,26 @@
         });
         app.get('/banners', async (req, res) => {
             try {
+                // Check if a banner with id 123 exists
+                let banner = await Banner.findOne({id: 123});
+
+                // If it doesn't exist, create a new one with id 123
+                if (!banner) {
+                    banner = new Banner({id: 123});
+                    await banner.save();
+                    console.log('Created new banner with id 123');
+                }
+
+                // Fetch all banners
                 const banners = await Banner.find();
                 res.status(200).json(banners);
+
             } catch (error) {
                 console.error('Error fetching banners:', error);
                 res.status(500).json({error: 'Failed to fetch banners.'});
             }
         });
+
 
         app.put('/banners/:id', upload.fields([
             {name: 'image', maxCount: 1},
