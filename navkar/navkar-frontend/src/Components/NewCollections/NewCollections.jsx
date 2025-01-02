@@ -9,7 +9,7 @@ const NewCollections = () => {
         const fetchData = async () => {
             const res = await fetch(`${process.env.REACT_APP_API_URL}/newCollection`);
             const data = await res.json();
-            setNewCollections([...data.slice(0, 8)])
+            setNewCollections([...data.slice(4, 8)])
 
         };
         fetchData();

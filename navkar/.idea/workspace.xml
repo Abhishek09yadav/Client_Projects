@@ -5,11 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="fixed bugs in AddProduct.jsx while adding a product">
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735729241615.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735829461519.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735829461540.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735829461547.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735829461555.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735830156768.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735830196278.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735830203732.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1735829502044.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/John Doe_quotation (1).pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/John Doe_quotation.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/no_products_found.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/no_products_found.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../thedhobi-form" beforeDir="false" afterPath="$PROJECT_DIR$/../thedhobi-form" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -195,15 +202,7 @@
       <workItem from="1735630890343" duration="5572000" />
       <workItem from="1735711216696" duration="4355000" />
       <workItem from="1735718294013" duration="15314000" />
-      <workItem from="1735821921752" duration="988000" />
-    </task>
-    <task id="LOCAL-00015" summary="Implements quotation PDF generation and upload.">
-      <option name="closed" value="true" />
-      <created>1734340193543</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1734340193543</updated>
+      <workItem from="1735821921752" duration="2367000" />
     </task>
     <task id="LOCAL-00016" summary="Implements PDF quotation generation and upload.">
       <option name="closed" value="true" />
@@ -589,7 +588,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735731232039</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="fixed bugs in AddProduct.jsx while adding a product">
+      <option name="closed" value="true" />
+      <created>1735829176174</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1735829176176</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
