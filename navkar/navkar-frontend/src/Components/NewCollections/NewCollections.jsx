@@ -1,16 +1,15 @@
 import React, {useEffect} from 'react';
 import './NewCollections.css'
-import new_collections2 from "../Assets/new_collections";
 import Item from "../item/item";
 
 
 const NewCollections = () => {
-    const [new_collections, setNewCollections] = React.useState([...new_collections2.slice(0, 3)]);
+    const [new_collections, setNewCollections] = React.useState([]);
     useEffect(() => {
         const fetchData = async () => {
             const res = await fetch(`${process.env.REACT_APP_API_URL}/newCollection`);
             const data = await res.json();
-            setNewCollections([...data.slice(0, 4)])
+            setNewCollections([...data.slice(0, 8)])
 
         };
         fetchData();

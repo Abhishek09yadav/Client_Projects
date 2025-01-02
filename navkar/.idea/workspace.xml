@@ -4,21 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="fixed styling in Category.jsx and added toast warning if user tries to put moq below the quantity">
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735727231279.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735727251023.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735728906532.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735729022145.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735729107114.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1735727356311.pdf" afterDir="false" />
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="fixed bugs in AddProduct.jsx while adding a product">
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735729241615.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/UploadBanner/UploadBanner.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/UploadBanner/UploadBanner.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/UploadBanner/UploadBanner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/UploadBanner/UploadBanner.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../thedhobi-form" beforeDir="false" afterPath="$PROJECT_DIR$/../thedhobi-form" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,30 +53,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Node.js.backend.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "deletionFromPopupRequiresConfirmation": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/monuy/Desktop/Repos/Client_Projects/navkar",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.admin.executor": "Run",
-    "npm.backend.executor": "Run",
-    "npm.frontend.executor": "Run",
-    "settings.editor.selected.configurable": "configurable.group.build",
-    "settings.editor.splitter.proportion": "0.28614458",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Node.js.backend.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/monuy/Desktop/Repos/Client_Projects/navkar&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.admin.executor&quot;: &quot;Run&quot;,
+    &quot;npm.backend.executor&quot;: &quot;Run&quot;,
+    &quot;npm.frontend.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.28614458&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -203,15 +194,8 @@
       <workItem from="1735624308614" duration="6406000" />
       <workItem from="1735630890343" duration="5572000" />
       <workItem from="1735711216696" duration="4355000" />
-      <workItem from="1735718294013" duration="9183000" />
-    </task>
-    <task id="LOCAL-00014" summary="Styles category page for responsiveness.">
-      <option name="closed" value="true" />
-      <created>1734329932734</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1734329932734</updated>
+      <workItem from="1735718294013" duration="15314000" />
+      <workItem from="1735821921752" duration="988000" />
     </task>
     <task id="LOCAL-00015" summary="Implements quotation PDF generation and upload.">
       <option name="closed" value="true" />
@@ -597,7 +581,15 @@
       <option name="project" value="LOCAL" />
       <updated>1735726394571</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="fixed bugs in AddProduct.jsx while adding a product">
+      <option name="closed" value="true" />
+      <created>1735731232039</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1735731232039</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -617,7 +609,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Adds nodemailer and nodemon packages." />
     <MESSAGE value="Adds nodemailer and nodemon to backend dependencies." />
     <MESSAGE value="bux fixes" />
     <MESSAGE value="bux fixes for deployment" />
@@ -642,7 +633,8 @@
     <MESSAGE value="Styles item component and banner responsiveness." />
     <MESSAGE value="added toast icon if user is not logged in and tries to change the quantity" />
     <MESSAGE value="fixed styling in Category.jsx and added toast warning if user tries to put moq below the quantity" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed styling in Category.jsx and added toast warning if user tries to put moq below the quantity" />
+    <MESSAGE value="fixed bugs in AddProduct.jsx while adding a product" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bugs in AddProduct.jsx while adding a product" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
