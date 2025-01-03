@@ -1,6 +1,7 @@
         require('dotenv').config();
         const port = process.env.PORT;
         const baseUrl = process.env.BASE_URL;
+        const JWT_SECRET = process.env.JWT_SECRET;
         const express = require('express');
         const app = express();
         const mongoose = require('mongoose');
@@ -404,7 +405,7 @@
                 res.status(401).json({success: false, error: 'No token provided'});
             } else {
                 try {
-                    const data = jwt.verify(token, 'secret_ecom');
+                    const data = jwt.verify(token, JWT_SECRET);
                     req.user = data.user;
                     next();
                 } catch (e) {

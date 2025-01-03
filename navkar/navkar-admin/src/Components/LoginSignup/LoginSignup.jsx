@@ -62,36 +62,29 @@ const LoginSignup = () => {
             alert('All fields are required');
             return;
         }
-        setDisableLoginSignupButtonAfterOTP(true);
-        setTimeout(() => {
-            setDisableLoginSignupButtonAfterOTP(false);
-        }, 60000);
+
         try {
-            toast.info('Request sent ');
-            // Request OTP
-            const response = await fetch(`${url}/api/otp/request-otp`, {
+            const response = await fetch(`${url}/api/otp/signup`, {
                 method: 'POST',
                 headers: {
-                    'Accept': 'application/json',
+                    Accept: 'application/json',
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ email: formData.email })
+                body: JSON.stringify(formData),
             });
 
             const data = await response.json();
 
             if (data.success) {
-                setOtpState(true); // Show OTP input
-                toast.success('OTP sent please check your mail.');
+                toast.success('Signup successful.');
 
+                window.location.replace('/');
             } else {
                 alert(data.error);
-                setDisableLoginSignupButtonAfterOTP(false);
             }
         } catch (error) {
-            console.error('OTP Request Error:', error);
-            alert('Failed to send OTP');
-            setDisableLoginSignupButtonAfterOTP(false);
+            console.error('Signup Error:', error);
+            alert('Signup failed. Please try again.');
         }
     };
 
@@ -132,10 +125,8 @@ const LoginSignup = () => {
         }
 
         try {
-            setDisableLoginSignupButtonAfterOTP(true);
-            setTimeout(() => {
-                setDisableLoginSignupButtonAfterOTP(false);
-            }, 60000);
+
+            toast.info('OTP sent please check your mail for OTP.');
             const response = await fetch(`${url}/api/otp/forgot-password-otp`, {
                 method: 'POST',
                 headers: {
@@ -149,17 +140,16 @@ const LoginSignup = () => {
 
             if (data.success) {
                 setOtpState(true);
-                toast.info('OTP sent please check your mail for OTP.');
-                setDisableLoginSignupButtonAfterOTP(true);
+
 
             } else {
                 alert(data.error);
-                setDisableLoginSignupButtonAfterOTP(false);
+
             }
         } catch (error) {
             console.error('Forgot Password OTP Request Error:', error);
             alert('Failed to send OTP');
-            setDisableLoginSignupButtonAfterOTP(false);
+
         }
     };
 
@@ -301,7 +291,6 @@ const LoginSignup = () => {
                 </div>
 
                 <button
-                    disabled={disableLoginSignupButtonAfterOTP}
                     onClick={() => {
                         if (forgotPasswordState) {
                             if (!otpState) {

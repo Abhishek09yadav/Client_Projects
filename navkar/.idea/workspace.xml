@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="fixed bugs in AddProduct.jsx while adding a product">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Removes image fallbacks and fixes whitespace.">
+      <change afterPath="$PROJECT_DIR$/navkar-admin/snapshots/otp-verifction-during-signup/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/image1_1735834742981.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/image_1735834742963.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735829461519.png" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735829461540.jpeg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735829461547.jpeg" afterDir="false" />
@@ -12,11 +15,16 @@
       <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735830156768.jpeg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735830196278.jpeg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735830203732.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735830789891.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735891974187.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735891974254.jpeg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1735829502044.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1735891552373.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/LoginSignup/LoginSignup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/LoginSignup/LoginSignup.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/John Doe_quotation (1).pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/John Doe_quotation.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/no_products_found.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/no_products_found.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Pages/LoginSignup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Pages/LoginSignup.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../thedhobi-form" beforeDir="false" afterPath="$PROJECT_DIR$/../thedhobi-form" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,30 +68,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Node.js.backend.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/monuy/Desktop/Repos/Client_Projects/navkar&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.admin.executor&quot;: &quot;Run&quot;,
-    &quot;npm.backend.executor&quot;: &quot;Run&quot;,
-    &quot;npm.frontend.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.28614458&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Node.js.backend.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/monuy/Desktop/Repos/Client_Projects/navkar",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.admin.executor": "Run",
+    "npm.backend.executor": "Run",
+    "npm.frontend.executor": "Run",
+    "settings.editor.selected.configurable": "configurable.group.build",
+    "settings.editor.splitter.proportion": "0.28614458",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -95,21 +103,21 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\snapshots\otp-verifction-during-signup" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-frontend\src\Components\Assets" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\Components\LoginSignup" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-frontend\src\Components" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\Pages" />
-      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar" />
+      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\public" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\Components\LoginSignup" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\Components" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin" />
-      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-frontend\src\Components\item" />
-      <recent name="C:\Users\monuy\Desktop\Repos\navkar\navkar-admin\src\Components\UserList" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.admin">
+  <component name="RunManager" selected="npm.frontend">
     <configuration default="true" type="NodeJSConfigurationType" node-parameters="node index.js" working-dir="$PROJECT_DIR$/navkar-backend">
       <method v="2" />
     </configuration>
@@ -202,31 +210,8 @@
       <workItem from="1735630890343" duration="5572000" />
       <workItem from="1735711216696" duration="4355000" />
       <workItem from="1735718294013" duration="15314000" />
-      <workItem from="1735821921752" duration="2367000" />
-    </task>
-    <task id="LOCAL-00016" summary="Implements PDF quotation generation and upload.">
-      <option name="closed" value="true" />
-      <created>1734345035551</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1734345035551</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Implements PDF quotation generation and upload.">
-      <option name="closed" value="true" />
-      <created>1734365883734</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1734365883734</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Implements quotation history endpoint and admin page.">
-      <option name="closed" value="true" />
-      <created>1734367566618</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1734367566618</updated>
+      <workItem from="1735821921752" duration="13185000" />
+      <workItem from="1735891378932" duration="2237000" />
     </task>
     <task id="LOCAL-00019" summary="Implements quotation history endpoint and admin page.">
       <option name="closed" value="true" />
@@ -596,7 +581,31 @@
       <option name="project" value="LOCAL" />
       <updated>1735829176176</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Updates new collections display range.">
+      <option name="closed" value="true" />
+      <created>1735830846095</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1735830846095</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Updates footer links and adds image fallbacks.">
+      <option name="closed" value="true" />
+      <created>1735835167730</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1735835167730</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Removes image fallbacks and fixes whitespace.">
+      <option name="closed" value="true" />
+      <created>1735835369103</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1735835369103</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -616,9 +625,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Adds nodemailer and nodemon to backend dependencies." />
-    <MESSAGE value="bux fixes" />
-    <MESSAGE value="bux fixes for deployment" />
     <MESSAGE value="Fixes item display and select button positioning." />
     <MESSAGE value="Refines item and category display styling." />
     <MESSAGE value="Styles item image, price, and category font size." />
@@ -641,7 +647,10 @@
     <MESSAGE value="added toast icon if user is not logged in and tries to change the quantity" />
     <MESSAGE value="fixed styling in Category.jsx and added toast warning if user tries to put moq below the quantity" />
     <MESSAGE value="fixed bugs in AddProduct.jsx while adding a product" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed bugs in AddProduct.jsx while adding a product" />
+    <MESSAGE value="Updates new collections display range." />
+    <MESSAGE value="Updates footer links and adds image fallbacks." />
+    <MESSAGE value="Removes image fallbacks and fixes whitespace." />
+    <option name="LAST_COMMIT_MESSAGE" value="Removes image fallbacks and fixes whitespace." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
