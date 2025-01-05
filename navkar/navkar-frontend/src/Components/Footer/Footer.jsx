@@ -1,8 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './Footer.css'
 import footer_logo from '../Assets/logo_big.png'
+import {ShopContext} from '../../Context/ShopContext';
 
 const Footer = () => {
+    const {categoryRef} = useContext(ShopContext);
+    const handleClick = () => {
+        if (categoryRef.current) {
+            categoryRef.current.scrollIntoView({behavior: 'smooth'});
+        }
+    };
     return (
         <div className="footer">
             <div className={'footer-logo'}>
@@ -17,11 +24,15 @@ const Footer = () => {
                     <li><a href="http://www.shrinavkar.co.in/Default.aspx" target={"_blank"}>Company</a></li>
 
                     {/*<li>Products</li>*/}
-                    <li><a href="http://www.shrinavkar.co.in/Products.aspx" target={"_blank"}>Products</a></li>
+                    <li onClick={() => {
+                        handleClick()
+                    }}>Products
+                    </li>
+
                     {/*<li>Offices</li>*/}
                     <li><a href="http://www.shrinavkar.co.in/Aboutus.aspx" target={"_blank"}>About</a></li>
                     <li><a href="mailto:info@shrinavkar.co.in" target={"_blank"}>mail us </a></li>
-                    <li><a href="http://www.shrinavkar.co.in/Contactus.aspx" target="_blank">Contact</a></li>
+                    <li><a href="http://www.shrinavkar.co.in/Contactus.aspx" target="_blank">Contact us</a></li>
 
 
                 </ul>

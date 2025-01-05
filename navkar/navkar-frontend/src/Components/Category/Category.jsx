@@ -14,7 +14,6 @@ import no_products_found from "../Assets/no_products_found.jpeg"
 const url = process.env.REACT_APP_API_URL;
 const Category = () => {
     const [totalQuantity, setTotalQuantity] = useState(0);
-
     const [categories, setCategories] = useState([]);
     const [allProducts, setAllProducts] = useState([]); // Store all products across categories
     const [products, setProducts] = useState([]); // Products for current category
@@ -23,7 +22,7 @@ const Category = () => {
     const [totalPrice, setTotalPrice] = useState(0);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedItems, setSelectedItems] = useState([]);
-    const { userDetails } = useContext(ShopContext);
+    const {userDetails, categoryRef} = useContext(ShopContext);
     const notify = () => toast("Wow so easy!");
 
     const handleOnClick = async () => {
@@ -253,7 +252,7 @@ const Category = () => {
 
 
     return (
-        <div className={'Category'}>
+        <div ref={categoryRef} className={'Category'}>
             <ToastContainer/>
             <h1>Categories</h1>
             <div className="category-container">

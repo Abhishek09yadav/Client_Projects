@@ -1,4 +1,4 @@
-import React, {createContext, useEffect, useState} from 'react';
+import React, {createContext, useEffect, useRef, useState} from 'react';
 
 const url = process.env.REACT_APP_API_URL;
 
@@ -6,6 +6,7 @@ const url = process.env.REACT_APP_API_URL;
 export const ShopContext = createContext(null);
 
 const ShopContextProvider = (props) => {
+    const categoryRef = useRef(null);
     const authToken = localStorage.getItem("auth-token");
     const [all_product, setAll_Product] = useState([]);
     const [userDetails, setUserDetails] = useState(null);
@@ -55,7 +56,7 @@ const ShopContextProvider = (props) => {
     }, [authToken]);
 
 
-    const contextValue = {all_product, userDetails, setTriggerFetchingUserDetails}
+    const contextValue = {all_product, userDetails, setTriggerFetchingUserDetails, categoryRef}
 
     return (
         <ShopContext.Provider value={contextValue}>
