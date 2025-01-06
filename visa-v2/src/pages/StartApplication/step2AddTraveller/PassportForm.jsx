@@ -15,10 +15,10 @@ import 'react-date-range/dist/theme/default.css';
 console.log('Mindee api',VITE_API_URL);
 
 const indianStates = [
-    "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana",
-    "Himachal Pradesh", "Jharkhand", "Karnataka", "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur",
-    "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana",
-    "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal",
+    "ANDHRA PRADESH", "ARUNACHAL PRADESH", "ASSAM", "BIHAR", "CHHATTISGARH", "GOA", "GUJARAT", "HARYANA",
+    "HIMACHAL PRADESH", "JHARKHAND", "KARNATAKA", "KERALA", "MADHYA PRADESH", "MAHARASHTRA", "MANIPUR",
+    "MEGHALAYA", "MIZORAM", "NAGALAND", "ODISHA", "PUNJAB", "RAJASTHAN", "SIKKIM", "TAMIL NADU", "TELANGANA",
+    "TRIPURA", "UTTAR PRADESH", "UTTARAKHAND", "WEST BENGAL",
 ];
 
 const initialTravelerState = {
@@ -96,9 +96,12 @@ const PassportForm = () => {
         if (file) {
             const reader = new FileReader();
             reader.onload = () => {
-                setTravelers(travelers.map((traveler, i) =>
+                // Update the image in the state
+                const updatedTravelers = travelers.map((traveler, i) =>
                     i === index ? { ...traveler, [type === "front" ? "passportFront" : "passportBack"]: reader.result } : traveler
-                ));
+                );
+                setTravelers(updatedTravelers);
+                console.log("Image uploaded and state updated:", updatedTravelers[index]);
             };
             reader.readAsDataURL(file);
 
@@ -120,6 +123,40 @@ const PassportForm = () => {
                 const completeData = await pollForResult(response.data.job.id);
                 console.log("Complete Data:", completeData.data);
 
+                // Extract relevant data from the API response
+                const apiData = completeData.data.document.inference.prediction;
+
+                // Update the form fields with the extracted data
+                setTravelers((prevTravelers) =>
+                    prevTravelers.map((traveler, i) =>
+                        i === index
+                            ? {
+                                ...traveler, // Preserve existing traveler data
+                                formData: {
+                                    ...traveler.formData, // Preserve existing form data
+                                    givenName: apiData.given_names?.value || "",
+                                    surname: apiData.surname?.value || "",
+                                    sex: apiData.gender?.value || "",
+                                    dateOfBirth: apiData.birth_date?.value ? new Date(apiData.birth_date.value) : null,
+                                    placeOfBirth: apiData.birth_place?.value || "",
+                                    issueDate: apiData.issuance_date?.value ? new Date(apiData.issuance_date.value) : null,
+                                    expiryDate: apiData.expiry_date?.value ? new Date(apiData.expiry_date.value) : null,
+                                    issuePlace: apiData.issuance_place?.value || "",
+                                    addressLine1: apiData.address1?.value || "",
+                                    addressLine2: apiData.address2?.value || "",
+                                    state: apiData.address3?.value?.split(",")[1]?.trim() || "",
+                                    city: apiData.address3?.value?.split(",")[0]?.trim() || "",
+                                    pincode: apiData.address3?.value?.split(",")[2]?.trim() || "",
+                                },
+                                // Explicitly preserve the image data
+                                passportFront: traveler.passportFront,
+                                passportBack: traveler.passportBack,
+                            }
+                            : traveler
+                    )
+                );
+
+                console.log("Form data updated with API response:", travelers[index]);
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
