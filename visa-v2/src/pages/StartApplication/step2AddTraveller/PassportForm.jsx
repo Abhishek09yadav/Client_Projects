@@ -65,7 +65,31 @@ const PassportForm = () => {
         setTravelers(newTravelers);
         setTabValue(tabValue >= index ? tabValue - 1 : tabValue);
     };
+    const fetchPassportData= async(id) =>{
+        try {
 
+            return await axios.get(`https://api.mindee.net/v1/products/mindee/ind_passport/v1/documents/queue/${id}`, {
+                headers: {
+                    'Authorization': `Token ${VITE_API_URL}`,
+                }
+            });
+        } catch (error) {
+            console.error('Error fetching data:', response);
+            return error
+        }
+    }
+    const pollForResult = async (id, interval = 2000, maxAttempts = 10) => {
+        let attempts = 0;
+        while (attempts < maxAttempts) {
+            const response = await fetchPassportData(id);
+            if (response?.data?.job?.status === "completed") {
+                return response;
+            }
+            attempts++;
+            await new Promise(resolve => setTimeout(resolve, interval));
+        }
+        throw new Error("Job did not complete in time");
+    };
 
     const handleImageUpload = async (e, index, type) => {
         const file = e.target.files[0];
@@ -101,31 +125,7 @@ const PassportForm = () => {
             }
         }
     };
-    const fetchPassportData= async(id) =>{
-        try {
 
-            return await axios.get(`https://api.mindee.net/v1/products/mindee/ind_passport/v1/documents/queue/${id}`, {
-                headers: {
-                    'Authorization': `Token ${VITE_API_URL}`,
-                }
-            });
-        } catch (error) {
-            console.error('Error fetching data:', response);
-            return error
-        }
-    }
-    const pollForResult = async (id, interval = 2000, maxAttempts = 10) => {
-        let attempts = 0;
-        while (attempts < maxAttempts) {
-            const response = await fetchPassportData(id);
-            if (response?.data?.job?.status === "completed") {
-                return response;
-            }
-            attempts++;
-            await new Promise(resolve => setTimeout(resolve, interval));
-        }
-        throw new Error("Job did not complete in time");
-    };
 
 
     const handleDeleteImage = (index, type) => {
