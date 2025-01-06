@@ -1,26 +1,18 @@
-import React, { useState } from "react";
-import {
-    Box,
-    Tabs,
-    Tab,
-    IconButton,
-    Select,
-    MenuItem,
-    TextField,
-    FormControl,
-    InputLabel,
-} from "@mui/material";
+import React, {useState} from "react";
+import {Box, FormControl, IconButton, InputLabel, MenuItem, Select, Tab, Tabs, TextField,} from "@mui/material";
 import axios from 'axios';
-
-import { LocalizationProvider, DatePicker } from "@mui/x-date-pickers";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { FaRegTrashCan } from "react-icons/fa6";
+import {DatePicker, LocalizationProvider} from "@mui/x-date-pickers";
+import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
+import {FaRegTrashCan} from "react-icons/fa6";
 import AddIcon from "@mui/icons-material/Add";
 import CloseIcon from "@mui/icons-material/Close";
 import dayjs from "dayjs";
-import { DateRangePicker } from 'react-date-range';
+import {DateRangePicker} from 'react-date-range';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
+// const VITE_API_URL = import.meta.env.VITE_API_URL;
+ const VITE_API_URL ='ca0796eb7254590f944767a4a3462d33'
+console.log('Mindee api',VITE_API_URL);
 
 const indianStates = [
     "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana",
@@ -74,6 +66,7 @@ const PassportForm = () => {
         setTabValue(tabValue >= index ? tabValue - 1 : tabValue);
     };
 
+
     const handleImageUpload = async (e, index, type) => {
         const file = e.target.files[0];
         if (file) {
@@ -87,22 +80,53 @@ const PassportForm = () => {
 
             try {
                 const formData = new FormData();
-                formData.append('document', file);
-                console.log('formdata', formData);
+                formData.append("document", file);
 
-                const response = await axios.post('https://api.mindee.net/v1/products/mindee/ind_passport/v1/predict_async', formData, {
-                    headers: {
-                        'Authorization': 'Token 415307bda8d32c1e119099dd90099813',
-                        'Content-Type': 'multipart/form-data'
+                const response = await axios.post(
+                    "https://api.mindee.net/v1/products/mindee/ind_passport/v1/predict_async",
+                    formData,
+                    {
+                        headers: {
+                            Authorization: `Token ${VITE_API_URL}`,
+                        },
                     }
-                });
-                setFormid(response.data);
-                console.log('response', response.data?.job?.id);
+                );
+                console.log("Job ID:", response.data.job.id);
+
+                const completeData = await pollForResult(response.data.job.id);
+                console.log("Complete Data:", completeData.data);
+
             } catch (error) {
-                console.error('Error fetching data:', error);
+                console.error("Error fetching data:", error);
             }
         }
     };
+    const fetchPassportData= async(id) =>{
+        try {
+
+            return await axios.get(`https://api.mindee.net/v1/products/mindee/ind_passport/v1/documents/queue/${id}`, {
+                headers: {
+                    'Authorization': `Token ${VITE_API_URL}`,
+                }
+            });
+        } catch (error) {
+            console.error('Error fetching data:', response);
+            return error
+        }
+    }
+    const pollForResult = async (id, interval = 2000, maxAttempts = 10) => {
+        let attempts = 0;
+        while (attempts < maxAttempts) {
+            const response = await fetchPassportData(id);
+            if (response?.data?.job?.status === "completed") {
+                return response;
+            }
+            attempts++;
+            await new Promise(resolve => setTimeout(resolve, interval));
+        }
+        throw new Error("Job did not complete in time");
+    };
+
 
     const handleDeleteImage = (index, type) => {
         setTravelers(travelers.map((traveler, i) =>
