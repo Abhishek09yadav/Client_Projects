@@ -10,6 +10,8 @@ import {
     FormControl,
     InputLabel,
 } from "@mui/material";
+import axios from 'axios';
+
 import { LocalizationProvider, DatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { FaRegTrashCan } from "react-icons/fa6";
@@ -56,6 +58,7 @@ const PassportForm = () => {
     const [travelers, setTravelers] = useState([initialTravelerState]);
     const [tabValue, setTabValue] = useState(0);
     const [dateRange, setDateRange] = useState([{ startDate: new Date(), endDate: new Date(), key: 'selection' }]);
+    const [formid, setFormid] = useState();
 
     const handleTabChange = (_, newValue) => setTabValue(newValue);
 
@@ -71,7 +74,7 @@ const PassportForm = () => {
         setTabValue(tabValue >= index ? tabValue - 1 : tabValue);
     };
 
-    const handleImageUpload = (e, index, type) => {
+    const handleImageUpload = async (e, index, type) => {
         const file = e.target.files[0];
         if (file) {
             const reader = new FileReader();
@@ -81,7 +84,30 @@ const PassportForm = () => {
                 ));
             };
             reader.readAsDataURL(file);
+
+            try {
+                const formData = new FormData();
+                formData.append('document', file);
+                console.log('formdata', formData);
+
+                const response = await axios.post('https://api.mindee.net/v1/products/mindee/ind_passport/v1/predict_async', formData, {
+                    headers: {
+                        'Authorization': 'Token 415307bda8d32c1e119099dd90099813',
+                        'Content-Type': 'multipart/form-data'
+                    }
+                });
+                setFormid(response.data);
+                console.log('response', response.data?.job?.id);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
         }
+    };
+
+    const handleDeleteImage = (index, type) => {
+        setTravelers(travelers.map((traveler, i) =>
+            i === index ? { ...traveler, [type === "front" ? "passportFront" : "passportBack"]: null } : traveler
+        ));
     };
 
     const handleFormChange = (index, field, value) => {
@@ -94,7 +120,7 @@ const PassportForm = () => {
     tomorrow.setDate(tomorrow.getDate() + 1);
 
     return (
-        <div className="p-4" >
+        <div className="p-4">
             <Box className="flex justify-center mb-8">
                 <div className="date-range-picker-container">
                     <div className="flex justify-end mb-2.5">
@@ -123,7 +149,7 @@ const PassportForm = () => {
             </Box>
 
             <Box className="w-full bg-white">
-                <Tabs value={tabValue} onChange={handleTabChange} centered  textColor="primary" selectionFollowsFocus >
+                <Tabs value={tabValue} onChange={handleTabChange} centered textColor="primary" selectionFollowsFocus>
                     {travelers.map((_, index) => (
                         <Tab
                             key={index}
@@ -165,7 +191,7 @@ const PassportForm = () => {
                                             className="mt-4 w-3/4"
                                         />
                                         <button
-                                            onClick={() => handleImageUpload({ target: { files: [] } }, tabValue, "front")}
+                                            onClick={() => handleDeleteImage(tabValue, "front")}
                                             className="absolute top-0 left-0 text-red-600 text-3xl p-1 bg-white rounded-full border-2 border-white hover:bg-gray-200"
                                         >
                                             <FaRegTrashCan />
@@ -189,7 +215,7 @@ const PassportForm = () => {
                                             className="mt-4 w-3/4"
                                         />
                                         <button
-                                            onClick={() => handleImageUpload({ target: { files: [] } }, tabValue, "back")}
+                                            onClick={() => handleDeleteImage(tabValue, "back")}
                                             className="absolute top-0 left-0 text-red-600 text-3xl p-1 bg-white rounded-full border-2 border-white hover:bg-gray-200"
                                         >
                                             <FaRegTrashCan />

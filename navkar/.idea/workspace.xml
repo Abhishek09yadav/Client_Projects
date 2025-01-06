@@ -4,27 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Removes image fallbacks and fixes whitespace.">
-      <change afterPath="$PROJECT_DIR$/navkar-admin/snapshots/otp-verifction-during-signup/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/image1_1735834742981.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/image_1735834742963.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735829461519.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735829461540.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735829461547.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735829461555.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735830156768.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735830196278.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735830203732.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735830789891.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735891974187.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1735891974254.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1735829502044.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1735891552373.pdf" afterDir="false" />
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Implements smooth scrolling to product list.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/LoginSignup/LoginSignup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/LoginSignup/LoginSignup.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/John Doe_quotation (1).pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/John Doe_quotation.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Pages/LoginSignup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Pages/LoginSignup.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../thedhobi-form" beforeDir="false" afterPath="$PROJECT_DIR$/../thedhobi-form" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +57,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "deletionFromPopupRequiresConfirmation": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/monuy/Desktop/Repos/Client_Projects/navkar",
+    "last_opened_file_path": "C:/Users/monuy/Desktop/Repos/fullstack-learning-hub/frontend/nextjsdemoproj",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -117,7 +98,7 @@
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.frontend">
+  <component name="RunManager" selected="npm.backend">
     <configuration default="true" type="NodeJSConfigurationType" node-parameters="node index.js" working-dir="$PROJECT_DIR$/navkar-backend">
       <method v="2" />
     </configuration>
@@ -211,23 +192,10 @@
       <workItem from="1735711216696" duration="4355000" />
       <workItem from="1735718294013" duration="15314000" />
       <workItem from="1735821921752" duration="13185000" />
-      <workItem from="1735891378932" duration="2237000" />
-    </task>
-    <task id="LOCAL-00019" summary="Implements quotation history endpoint and admin page.">
-      <option name="closed" value="true" />
-      <created>1734372089081</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1734372089081</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Adds image removal functionality in Add Product.">
-      <option name="closed" value="true" />
-      <created>1734373811254</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1734373811254</updated>
+      <workItem from="1735891378932" duration="3895000" />
+      <workItem from="1736074536319" duration="3000" />
+      <workItem from="1736074638805" duration="3099000" />
+      <workItem from="1736093061193" duration="20000" />
     </task>
     <task id="LOCAL-00021" summary="created quotation history page">
       <option name="closed" value="true" />
@@ -605,7 +573,23 @@
       <option name="project" value="LOCAL" />
       <updated>1735835369103</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="Implements direct signup and removes OTP flow.">
+      <option name="closed" value="true" />
+      <created>1735895033614</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1735895033614</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Implements smooth scrolling to product list.">
+      <option name="closed" value="true" />
+      <created>1736078298733</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1736078298734</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -625,8 +609,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fixes item display and select button positioning." />
-    <MESSAGE value="Refines item and category display styling." />
     <MESSAGE value="Styles item image, price, and category font size." />
     <MESSAGE value="Styles product details and adds edit functionality to product list." />
     <MESSAGE value="Implements product editing and modal styling." />
@@ -650,7 +632,9 @@
     <MESSAGE value="Updates new collections display range." />
     <MESSAGE value="Updates footer links and adds image fallbacks." />
     <MESSAGE value="Removes image fallbacks and fixes whitespace." />
-    <option name="LAST_COMMIT_MESSAGE" value="Removes image fallbacks and fixes whitespace." />
+    <MESSAGE value="Implements direct signup and removes OTP flow." />
+    <MESSAGE value="Implements smooth scrolling to product list." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implements smooth scrolling to product list." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
