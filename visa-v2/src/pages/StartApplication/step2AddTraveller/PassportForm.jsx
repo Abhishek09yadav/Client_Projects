@@ -11,8 +11,9 @@ import {DateRangePicker} from 'react-date-range';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 // const VITE_API_URL = import.meta.env.VITE_API_URL;
+// console.log('Mindee api',VITE_API_URL);
  const VITE_API_URL ='262293793114783db81720da35841be5'
-console.log('Mindee api',VITE_API_URL);
+import './PassportForm.css'
 
 const indianStates = [
     "ANDHRA PRADESH", "ARUNACHAL PRADESH", "ASSAM", "BIHAR", "CHHATTISGARH", "GOA", "GUJARAT", "HARYANA",
@@ -137,7 +138,7 @@ const PassportForm = () => {
                                         ...traveler.formData, // Preserve existing form data
                                         givenName: apiData.given_names?.value || "",
                                         surname: apiData.surname?.value || "",
-                                        sex: apiData.gender?.value === "M" ? 'Male':'Female' || "",
+                                        sex: apiData.gender?.value === "M" ? 'Male' : "F" ? 'Female' : 'Other' || "",
                                         dateOfBirth: apiData.birth_date?.value ? new Date(apiData.birth_date.value) : null,
                                         placeOfBirth: apiData.birth_place?.value || "",
                                         issueDate: apiData.issuance_date?.value ? new Date(apiData.issuance_date.value) : null,
@@ -190,21 +191,22 @@ useEffect(() =>{
         <div className="p-4">
             <Box className="flex justify-center mb-8">
                 <div className="date-range-picker-container">
-                    <div className="flex justify-end mb-2.5">
+                    {(windowWidth > 768) && (<div className="flex justify-end mb-2.5">
                         <div className="text-right w-1/2">
                             <label className="font-bold text-lg">Tentative Departure Date</label>
                         </div>
+
                         <div className="text-center w-1/2">
                             <label className="font-bold text-lg">Tentative Return Date</label>
                         </div>
-                    </div>
+                    </div>)}
                     <DateRangePicker
                         onChange={item => setDateRange([item.selection])}
                         showSelectionPreview={true}
                         moveRangeOnFirstSelection={false}
                         months={2}
                         ranges={dateRange}
-                        direction={windowWidth<768? "vertical" :"horizontal"}
+                        direction={windowWidth < 768 ? "vertical" : "horizontal"}
                         minDate={tomorrow}
                         showDateDisplay={false}
                         rangeColors={['#3b82f6']}
@@ -212,6 +214,30 @@ useEffect(() =>{
                         staticRanges={[]}
                         inputRanges={[]}
                     />
+                    <div className="flex justify-center items-center ">
+                        <div className="mt-6 p-4 bg-blue-50 rounded-lg shadow-sm border border-blue-100 w-1/2">
+                            <p className="text-lg font-semibold text-blue-800 mb-2 text-center md:text-left">
+                                Selected Date:
+                            </p>
+                            <div
+                                className="flex flex-col md:flex-row items-center justify-center md:justify-between space-y-4 md:space-y-0 md:space-x-4">
+                                <div className="text-center">
+                                    <p className="text-sm text-gray-600">Tentative Departure Date</p>
+                                    <p className="text-lg font-bold text-blue-900">
+                                        {dateRange[0].startDate.toLocaleDateString()}
+                                    </p>
+                                </div>
+                                <span className="text-gray-400 hidden md:block">→</span>
+                                <span className="text-gray-400 md:hidden">↓</span>
+                                <div className="text-center">
+                                    <p className="text-sm text-gray-600">Tentative Return Date</p>
+                                    <p className="text-lg font-bold text-blue-900">
+                                        {dateRange[0].endDate.toLocaleDateString()}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </Box>
 
@@ -224,8 +250,9 @@ useEffect(() =>{
                                 <Box className="flex items-center">
                                     {`Traveller ${index + 1}`}
                                     {index !== 0 && (
-                                        <IconButton size="small" onClick={() => handleDeleteTab(index)} className="ml-1">
-                                            <CloseIcon fontSize="small" />
+                                        <IconButton size="small" onClick={() => handleDeleteTab(index)}
+                                                    className="ml-1">
+                                            <CloseIcon fontSize="small"/>
                                         </IconButton>
                                     )}
                                 </Box>
@@ -233,7 +260,7 @@ useEffect(() =>{
                         />
                     ))}
                     <IconButton onClick={handleAddTab} className="ml-1">
-                        <AddIcon />
+                        <AddIcon/>
                     </IconButton>
                 </Tabs>
             </Box>
