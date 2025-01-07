@@ -10,9 +10,10 @@ import dayjs from "dayjs";
 import {DateRangePicker} from 'react-date-range';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
+// const key2 = '2b5eea07848730ce50240f188d6e2d6d'
 // const VITE_API_URL = import.meta.env.VITE_API_URL;
 // console.log('Mindee api',VITE_API_URL);
- const VITE_API_URL ='262293793114783db81720da35841be5'
+const VITE_API_URL = '262293793114783db81720da35841be5'
 import './PassportForm.css'
 
 const indianStates = [
@@ -106,62 +107,60 @@ const PassportForm = () => {
             };
             reader.readAsDataURL(file);
 
-            if (type === "front") {
-                try {
-                    const formData = new FormData();
-                    formData.append("document", file);
+            try {
+                const formData = new FormData();
+                formData.append("document", file);
 
-                    const response = await axios.post(
-                        "https://api.mindee.net/v1/products/mindee/ind_passport/v1/predict_async",
-                        formData,
-                        {
-                            headers: {
-                                Authorization: `Token ${VITE_API_URL}`,
-                            },
-                        }
-                    );
-                    console.log("Job ID:", response.data.job.id);
+                const response = await axios.post(
+                    "https://api.mindee.net/v1/products/mindee/ind_passport/v1/predict_async",
+                    formData,
+                    {
+                        headers: {
+                            Authorization: `Token ${VITE_API_URL}`,
+                        },
+                    }
+                );
+                console.log("Job ID:", response.data.job.id);
 
-                    const completeData = await pollForResult(response.data.job.id);
-                    console.log("Complete Data:", completeData.data);
+                const completeData = await pollForResult(response.data.job.id);
+                console.log("Complete Data:", completeData.data);
 
-                    // Extract relevant data from the API response
-                    const apiData = completeData.data.document.inference.prediction;
+                // Extract relevant data from the API response
+                const apiData = completeData.data.document.inference.prediction;
 
-                    // Update the form fields with the extracted data
-                    setTravelers((prevTravelers) =>
-                        prevTravelers.map((traveler, i) =>
-                            i === index
-                                ? {
-                                    ...traveler, // Preserve existing traveler data
-                                    formData: {
-                                        ...traveler.formData, // Preserve existing form data
-                                        givenName: apiData.given_names?.value || "",
-                                        surname: apiData.surname?.value || "",
-                                        sex: apiData.gender?.value === "M" ? 'Male' : "F" ? 'Female' : 'Other' || "",
-                                        dateOfBirth: apiData.birth_date?.value ? new Date(apiData.birth_date.value) : null,
-                                        placeOfBirth: apiData.birth_place?.value || "",
-                                        issueDate: apiData.issuance_date?.value ? new Date(apiData.issuance_date.value) : null,
-                                        expiryDate: apiData.expiry_date?.value ? new Date(apiData.expiry_date.value) : null,
-                                        issuePlace: apiData.issuance_place?.value || "",
-                                        addressLine1: apiData.address1?.value || "",
-                                        addressLine2: apiData.address2?.value || "",
-                                        state: apiData.address3?.value?.split(",")[1]?.trim() || "",
-                                        city: apiData.address3?.value?.split(",")[0]?.trim() || "",
-                                        pincode: apiData.address3?.value?.split(",")[2]?.trim() || "",
-                                    },
-                                    // Explicitly preserve the image data
-                                    passportFront: traveler.passportFront,
-                                    passportBack: traveler.passportBack,
-                                }
-                                : traveler
-                        )
-                    );
+                // Update the form fields with the extracted data, preserving existing data if not null
+                setTravelers((prevTravelers) =>
+                    prevTravelers.map((traveler, i) =>
+                        i === index
+                            ? {
+                                ...traveler,
+                                formData: {
+                                    ...traveler.formData,
+                                    givenName: apiData.given_names?.value || traveler.formData.givenName,
+                                    surname: apiData.surname?.value || traveler.formData.surname,
+                                    sex: apiData.gender?.value === "M" ? 'Male' : "F" ? 'Female' : 'Other' || traveler.formData.sex,
+                                    dateOfBirth: apiData.birth_date?.value ? new Date(apiData.birth_date.value) : traveler.formData.dateOfBirth,
+                                    placeOfBirth: apiData.birth_place?.value || traveler.formData.placeOfBirth,
+                                    issueDate: apiData.issuance_date?.value ? new Date(apiData.issuance_date.value) : traveler.formData.issueDate,
+                                    expiryDate: apiData.expiry_date?.value ? new Date(apiData.expiry_date.value) : traveler.formData.expiryDate,
+                                    issuePlace: apiData.issuance_place?.value || traveler.formData.issuePlace,
+                                    addressLine1: apiData.address1?.value || traveler.formData.addressLine1,
+                                    addressLine2: apiData.address2?.value || traveler.formData.addressLine2,
+                                    state: apiData.address3?.value?.split(",")[1]?.trim() || traveler.formData.state,
+                                    city: apiData.address3?.value?.split(",")[0]?.trim() || traveler.formData.issuance_place,
+                                    pincode: apiData.address3?.value?.split(",")[2]?.trim() || traveler.formData.pincode,
+                                },
+                                // Explicitly preserve the image data
+                                passportFront: traveler.passportFront,
+                                passportBack: traveler.passportBack,
+                            }
+                            : traveler
+                    )
+                );
 
-                    console.log("Form data updated with API response:", travelers[index]);
-                } catch (error) {
-                    console.error("Error fetching data:", error);
-                }
+                console.log("Form data updated with API response:", travelers[index]);
+            } catch (error) {
+                console.error("Error fetching data:", error);
             }
         }
     };
