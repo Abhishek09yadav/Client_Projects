@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Box, FormControl, IconButton, InputLabel, MenuItem, Select, Tab, Tabs, TextField,} from "@mui/material";
 import axios from 'axios';
 import {DatePicker, LocalizationProvider} from "@mui/x-date-pickers";
@@ -11,7 +11,7 @@ import {DateRangePicker} from 'react-date-range';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 // const VITE_API_URL = import.meta.env.VITE_API_URL;
- const VITE_API_URL ='ca0796eb7254590f944767a4a3462d33'
+ const VITE_API_URL ='262293793114783db81720da35841be5'
 console.log('Mindee api',VITE_API_URL);
 
 const indianStates = [
@@ -51,7 +51,7 @@ const PassportForm = () => {
     const [tabValue, setTabValue] = useState(0);
     const [dateRange, setDateRange] = useState([{ startDate: new Date(), endDate: new Date(), key: 'selection' }]);
     const [formid, setFormid] = useState();
-
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const handleTabChange = (_, newValue) => setTabValue(newValue);
 
     const handleAddTab = () => {
@@ -74,7 +74,7 @@ const PassportForm = () => {
                 }
             });
         } catch (error) {
-            console.error('Error fetching data:', response);
+            console.error('Error fetching data:', error);
             return error
         }
     }
@@ -105,60 +105,62 @@ const PassportForm = () => {
             };
             reader.readAsDataURL(file);
 
-            try {
-                const formData = new FormData();
-                formData.append("document", file);
+            if (type === "front") {
+                try {
+                    const formData = new FormData();
+                    formData.append("document", file);
 
-                const response = await axios.post(
-                    "https://api.mindee.net/v1/products/mindee/ind_passport/v1/predict_async",
-                    formData,
-                    {
-                        headers: {
-                            Authorization: `Token ${VITE_API_URL}`,
-                        },
-                    }
-                );
-                console.log("Job ID:", response.data.job.id);
+                    const response = await axios.post(
+                        "https://api.mindee.net/v1/products/mindee/ind_passport/v1/predict_async",
+                        formData,
+                        {
+                            headers: {
+                                Authorization: `Token ${VITE_API_URL}`,
+                            },
+                        }
+                    );
+                    console.log("Job ID:", response.data.job.id);
 
-                const completeData = await pollForResult(response.data.job.id);
-                console.log("Complete Data:", completeData.data);
+                    const completeData = await pollForResult(response.data.job.id);
+                    console.log("Complete Data:", completeData.data);
 
-                // Extract relevant data from the API response
-                const apiData = completeData.data.document.inference.prediction;
+                    // Extract relevant data from the API response
+                    const apiData = completeData.data.document.inference.prediction;
 
-                // Update the form fields with the extracted data
-                setTravelers((prevTravelers) =>
-                    prevTravelers.map((traveler, i) =>
-                        i === index
-                            ? {
-                                ...traveler, // Preserve existing traveler data
-                                formData: {
-                                    ...traveler.formData, // Preserve existing form data
-                                    givenName: apiData.given_names?.value || "",
-                                    surname: apiData.surname?.value || "",
-                                    sex: apiData.gender?.value || "",
-                                    dateOfBirth: apiData.birth_date?.value ? new Date(apiData.birth_date.value) : null,
-                                    placeOfBirth: apiData.birth_place?.value || "",
-                                    issueDate: apiData.issuance_date?.value ? new Date(apiData.issuance_date.value) : null,
-                                    expiryDate: apiData.expiry_date?.value ? new Date(apiData.expiry_date.value) : null,
-                                    issuePlace: apiData.issuance_place?.value || "",
-                                    addressLine1: apiData.address1?.value || "",
-                                    addressLine2: apiData.address2?.value || "",
-                                    state: apiData.address3?.value?.split(",")[1]?.trim() || "",
-                                    city: apiData.address3?.value?.split(",")[0]?.trim() || "",
-                                    pincode: apiData.address3?.value?.split(",")[2]?.trim() || "",
-                                },
-                                // Explicitly preserve the image data
-                                passportFront: traveler.passportFront,
-                                passportBack: traveler.passportBack,
-                            }
-                            : traveler
-                    )
-                );
+                    // Update the form fields with the extracted data
+                    setTravelers((prevTravelers) =>
+                        prevTravelers.map((traveler, i) =>
+                            i === index
+                                ? {
+                                    ...traveler, // Preserve existing traveler data
+                                    formData: {
+                                        ...traveler.formData, // Preserve existing form data
+                                        givenName: apiData.given_names?.value || "",
+                                        surname: apiData.surname?.value || "",
+                                        sex: apiData.gender?.value === "M" ? 'Male':'Female' || "",
+                                        dateOfBirth: apiData.birth_date?.value ? new Date(apiData.birth_date.value) : null,
+                                        placeOfBirth: apiData.birth_place?.value || "",
+                                        issueDate: apiData.issuance_date?.value ? new Date(apiData.issuance_date.value) : null,
+                                        expiryDate: apiData.expiry_date?.value ? new Date(apiData.expiry_date.value) : null,
+                                        issuePlace: apiData.issuance_place?.value || "",
+                                        addressLine1: apiData.address1?.value || "",
+                                        addressLine2: apiData.address2?.value || "",
+                                        state: apiData.address3?.value?.split(",")[1]?.trim() || "",
+                                        city: apiData.address3?.value?.split(",")[0]?.trim() || "",
+                                        pincode: apiData.address3?.value?.split(",")[2]?.trim() || "",
+                                    },
+                                    // Explicitly preserve the image data
+                                    passportFront: traveler.passportFront,
+                                    passportBack: traveler.passportBack,
+                                }
+                                : traveler
+                        )
+                    );
 
-                console.log("Form data updated with API response:", travelers[index]);
-            } catch (error) {
-                console.error("Error fetching data:", error);
+                    console.log("Form data updated with API response:", travelers[index]);
+                } catch (error) {
+                    console.error("Error fetching data:", error);
+                }
             }
         }
     };
@@ -176,7 +178,11 @@ const PassportForm = () => {
             i === index ? { ...traveler, formData: { ...traveler.formData, [field]: value } } : traveler
         ));
     };
-
+useEffect(() =>{
+    const handleResize  = () =>{setWindowWidth(window.innerWidth)};
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener('resize',handleResize);
+    },[])
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
 
@@ -198,13 +204,13 @@ const PassportForm = () => {
                         moveRangeOnFirstSelection={false}
                         months={2}
                         ranges={dateRange}
-                        direction="horizontal"
+                        direction={windowWidth<768? "vertical" :"horizontal"}
                         minDate={tomorrow}
                         showDateDisplay={false}
                         rangeColors={['#3b82f6']}
                         editableDateInputs={true}
-                        staticRanges={[]} // Remove static ranges like "today", "yesterday", etc.
-                        inputRanges={[]} // Remove input ranges like "days up to today", "days starting today", etc.
+                        staticRanges={[]}
+                        inputRanges={[]}
                     />
                 </div>
             </Box>
@@ -288,7 +294,7 @@ const PassportForm = () => {
                     )}
                 </div>
 
-                <div className="w-1/2 md:w-1/2 px-4">
+                <div className="w-full md:w-1/2 md:px-4">
                     {travelers[tabValue] && (
                         <>
                             <h2 className="text-xl font-bold mb-4">Traveler&#39;s Basic Details</h2>
@@ -334,6 +340,7 @@ const PassportForm = () => {
                                     fullWidth
                                     required
                                 />
+                                <div className="flex flex-wrap md:flex-nowrap gap-5">
                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                                     <DatePicker
                                         label="Passport Issue Date"
@@ -350,6 +357,7 @@ const PassportForm = () => {
                                         slotProps={{ textField: { fullWidth: true, required: true } }}
                                     />
                                 </LocalizationProvider>
+                                </div>
                                 <TextField
                                     label="Passport Issue Place"
                                     value={travelers[tabValue].formData.issuePlace}
