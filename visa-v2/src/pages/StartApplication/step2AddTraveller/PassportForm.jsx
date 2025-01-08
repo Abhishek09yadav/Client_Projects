@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Box, FormControl, IconButton, InputLabel, MenuItem, Select, Tab, Tabs, TextField,} from "@mui/material";
+import {Alert, Box, FormControl, IconButton, InputLabel, MenuItem, Select, Tab, Tabs, TextField,} from "@mui/material";
 import axios from 'axios';
 import {DatePicker, LocalizationProvider} from "@mui/x-date-pickers";
 import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
@@ -10,11 +10,15 @@ import dayjs from "dayjs";
 import {DateRangePicker} from 'react-date-range';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
-// const key2 = '2b5eea07848730ce50240f188d6e2d6d'
+import {BsStars} from "react-icons/bs";
+import './PassportForm.css'
+import user_passport_front from '../../../../public/user_passport_front.png'
+import user_passport_back from '../../../../public/user_passport_back.png'
+import {toast, ToastContainer} from 'react-toastify';
+// const key2 = ''
 // const VITE_API_URL = import.meta.env.VITE_API_URL;
 // console.log('Mindee api',VITE_API_URL);
-const VITE_API_URL = '262293793114783db81720da35841be5'
-import './PassportForm.css'
+const VITE_API_URL = '2b5eea07848730ce50240f188d6e2d6d'
 
 const indianStates = [
     "ANDHRA PRADESH", "ARUNACHAL PRADESH", "ASSAM", "BIHAR", "CHHATTISGARH", "GOA", "GUJARAT", "HARYANA",
@@ -51,15 +55,16 @@ const initialTravelerState = {
 const PassportForm = () => {
     const [travelers, setTravelers] = useState([initialTravelerState]);
     const [tabValue, setTabValue] = useState(0);
-    const [dateRange, setDateRange] = useState([{ startDate: new Date(), endDate: new Date(), key: 'selection' }]);
+    const [dateRange, setDateRange] = useState([{startDate: new Date(), endDate: new Date(), key: 'selection'}]);
     const [formid, setFormid] = useState();
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const handleTabChange = (_, newValue) => setTabValue(newValue);
-
+    const [isImageUploaded, setIsImageUploaded] = useState(false);
     const handleAddTab = () => {
         setTravelers([...travelers, initialTravelerState]);
         setTabValue(travelers.length);
     };
+
 
     const handleDeleteTab = (index) => {
         if (index === 0) return;
@@ -67,7 +72,7 @@ const PassportForm = () => {
         setTravelers(newTravelers);
         setTabValue(tabValue >= index ? tabValue - 1 : tabValue);
     };
-    const fetchPassportData= async(id) =>{
+    const fetchPassportData = async (id) => {
         try {
 
             return await axios.get(`https://api.mindee.net/v1/products/mindee/ind_passport/v1/documents/queue/${id}`, {
@@ -94,13 +99,18 @@ const PassportForm = () => {
     };
 
     const handleImageUpload = async (e, index, type) => {
+
         const file = e.target.files[0];
         if (file) {
+            toast('please wait our AI is filling the form ')
             const reader = new FileReader();
             reader.onload = () => {
                 // Update the image in the state
                 const updatedTravelers = travelers.map((traveler, i) =>
-                    i === index ? { ...traveler, [type === "front" ? "passportFront" : "passportBack"]: reader.result } : traveler
+                    i === index ? {
+                        ...traveler,
+                        [type === "front" ? "passportFront" : "passportBack"]: reader.result
+                    } : traveler
                 );
                 setTravelers(updatedTravelers);
                 console.log("Image uploaded and state updated:", updatedTravelers[index]);
@@ -127,7 +137,7 @@ const PassportForm = () => {
 
                 // Extract relevant data from the API response
                 const apiData = completeData.data.document.inference.prediction;
-
+                setIsImageUploaded(true)
                 // Update the form fields with the extracted data, preserving existing data if not null
                 setTravelers((prevTravelers) =>
                     prevTravelers.map((traveler, i) =>
@@ -161,78 +171,87 @@ const PassportForm = () => {
                 console.log("Form data updated with API response:", travelers[index]);
             } catch (error) {
                 console.error("Error fetching data:", error);
+                setIsImageUploaded(true)
             }
         }
     };
 
 
-
     const handleDeleteImage = (index, type) => {
         setTravelers(travelers.map((traveler, i) =>
-            i === index ? { ...traveler, [type === "front" ? "passportFront" : "passportBack"]: null } : traveler
+            i === index ? {...traveler, [type === "front" ? "passportFront" : "passportBack"]: null} : traveler
         ));
     };
 
     const handleFormChange = (index, field, value) => {
         setTravelers(travelers.map((traveler, i) =>
-            i === index ? { ...traveler, formData: { ...traveler.formData, [field]: value } } : traveler
+            i === index ? {...traveler, formData: {...traveler.formData, [field]: value}} : traveler
         ));
     };
-useEffect(() =>{
-    const handleResize  = () =>{setWindowWidth(window.innerWidth)};
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener('resize',handleResize);
-    },[])
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth)
+        };
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, [])
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
 
     return (
         <div className="p-4">
+            <ToastContainer/>
             <Box className="flex justify-center mb-8">
                 <div className="date-range-picker-container">
-                    {(windowWidth > 768) && (<div className="flex justify-end mb-2.5">
-                        <div className="text-right w-1/2">
-                            <label className="font-bold text-lg">Tentative Departure Date</label>
-                        </div>
+                    <div className='flex flex-wrap flex-col md:flex-row'>
+                        <div>
+                            {(windowWidth > 768) && (
+                                <div className="flex justify-end mt-2.5 ">
+                                    <div className="text-right w-1/2">
+                                        <label className="font-bold text-lg">Tentative Departure Date</label>
+                                    </div>
 
-                        <div className="text-center w-1/2">
-                            <label className="font-bold text-lg">Tentative Return Date</label>
+                                    <div className="text-center w-1/2">
+                                        <label className="font-bold text-lg">Tentative Return Date</label>
+                                    </div>
+                                </div>)}
+
+                            <DateRangePicker
+                                onChange={item => setDateRange([item.selection])}
+                                showSelectionPreview={true}
+                                moveRangeOnFirstSelection={false}
+                                months={windowWidth < 768 ? 1 : 2}
+                                ranges={dateRange}
+                                direction={windowWidth < 768 ? "vertical" : "horizontal"}
+                                minDate={tomorrow}
+                                showDateDisplay={false}
+                                rangeColors={['#3b82f6']}
+                                editableDateInputs={true}
+                                staticRanges={[]}
+                                inputRanges={[]}
+                            />
                         </div>
-                    </div>)}
-                    <DateRangePicker
-                        onChange={item => setDateRange([item.selection])}
-                        showSelectionPreview={true}
-                        moveRangeOnFirstSelection={false}
-                        months={2}
-                        ranges={dateRange}
-                        direction={windowWidth < 768 ? "vertical" : "horizontal"}
-                        minDate={tomorrow}
-                        showDateDisplay={false}
-                        rangeColors={['#3b82f6']}
-                        editableDateInputs={true}
-                        staticRanges={[]}
-                        inputRanges={[]}
-                    />
-                    <div className="flex justify-center items-center ">
-                        <div className="mt-6 p-4 bg-blue-50 rounded-lg shadow-sm border border-blue-100 w-1/2">
-                            <p className="text-lg font-semibold text-blue-800 mb-2 text-center md:text-left">
-                                Selected Date:
-                            </p>
-                            <div
-                                className="flex flex-col md:flex-row items-center justify-center md:justify-between space-y-4 md:space-y-0 md:space-x-4">
-                                <div className="text-center">
-                                    <p className="text-sm text-gray-600">Tentative Departure Date</p>
-                                    <p className="text-lg font-bold text-blue-900">
-                                        {dateRange[0].startDate.toLocaleDateString()}
-                                    </p>
-                                </div>
-                                <span className="text-gray-400 hidden md:block">→</span>
-                                <span className="text-gray-400 md:hidden">↓</span>
-                                <div className="text-center">
-                                    <p className="text-sm text-gray-600">Tentative Return Date</p>
-                                    <p className="text-lg font-bold text-blue-900">
-                                        {dateRange[0].endDate.toLocaleDateString()}
-                                    </p>
+                        <div className="flex justify-center items-center ">
+                            <div className="mt-6 p-4 bg-blue-50 rounded-lg shadow-sm border border-blue-100 w-4/5">
+                                <p className="text-lg font-semibold text-blue-800 mb-2 text-center md:text-left">
+                                    Selected Date:
+                                </p>
+                                <div
+                                    className="flex flex-col md:flex-row items-center justify-center md:justify-between space-y-4 md:space-y-0 md:space-x-4">
+                                    <div className="text-center">
+                                        <p className="text-sm text-gray-600">Tentative Departure Date</p>
+                                        <p className="text-lg font-bold text-blue-900">
+                                            {dateRange[0].startDate.toLocaleDateString()}
+                                        </p>
+                                    </div>
+                                    <span className="text-gray-400 hidden md:block">→</span>
+                                    <span className="text-gray-400 md:hidden">↓</span>
+                                    <div className="text-center">
+                                        <p className="text-sm text-gray-600">Tentative Return Date</p>
+                                        <p className="text-lg font-bold text-blue-900">
+                                            {dateRange[0].endDate.toLocaleDateString()}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -247,7 +266,7 @@ useEffect(() =>{
                             key={index}
                             label={
                                 <Box className="flex items-center">
-                                    {`Traveller ${index + 1}`}
+                                    {`Traveler ${index + 1}`}
                                     {index !== 0 && (
                                         <IconButton size="small" onClick={() => handleDeleteTab(index)}
                                                     className="ml-1">
@@ -276,21 +295,29 @@ useEffect(() =>{
                                     onChange={(e) => handleImageUpload(e, tabValue, "front")}
                                     className="w-full border p-2"
                                 />
-                                {travelers[tabValue].passportFront && (
-                                    <div className="relative">
+                                <div className="relative">
+                                    {travelers[tabValue].passportFront ? (
+                                        <>
+                                            <img
+                                                src={travelers[tabValue].passportFront}
+                                                alt="Passport Front"
+                                                className="mt-4 w-3/4"
+                                            />
+                                            <button
+                                                onClick={() => handleDeleteImage(tabValue, "front")}
+                                                className="absolute top-0 left-0 text-red-600 text-3xl p-1 bg-white rounded-full border-2 border-white hover:bg-gray-200"
+                                            >
+                                                <FaRegTrashCan/>
+                                            </button>
+                                        </>
+                                    ) : (
                                         <img
-                                            src={travelers[tabValue].passportFront}
-                                            alt="Passport Front"
+                                            src={user_passport_front}
+                                            alt="Passport Front Placeholder"
                                             className="mt-4 w-3/4"
                                         />
-                                        <button
-                                            onClick={() => handleDeleteImage(tabValue, "front")}
-                                            className="absolute top-0 left-0 text-red-600 text-3xl p-1 bg-white rounded-full border-2 border-white hover:bg-gray-200"
-                                        >
-                                            <FaRegTrashCan />
-                                        </button>
-                                    </div>
-                                )}
+                                    )}
+                                </div>
                             </div>
                             <div className="w-full relative">
                                 <label className="block text-gray-700 font-bold mb-2">Upload Passport Back:</label>
@@ -300,7 +327,7 @@ useEffect(() =>{
                                     onChange={(e) => handleImageUpload(e, tabValue, "back")}
                                     className="w-full border p-2"
                                 />
-                                {travelers[tabValue].passportBack && (
+                                {travelers[tabValue].passportBack ? (
                                     <div className="relative">
                                         <img
                                             src={travelers[tabValue].passportBack}
@@ -311,148 +338,210 @@ useEffect(() =>{
                                             onClick={() => handleDeleteImage(tabValue, "back")}
                                             className="absolute top-0 left-0 text-red-600 text-3xl p-1 bg-white rounded-full border-2 border-white hover:bg-gray-200"
                                         >
-                                            <FaRegTrashCan />
+                                            <FaRegTrashCan/>
                                         </button>
                                     </div>
+                                ) : (
+                                    <img
+                                        src={user_passport_back}
+                                        alt="Passport Back Placeholder"
+                                        className="mt-4 w-3/4"
+                                    />
                                 )}
                             </div>
                         </>
                     )}
                 </div>
 
+                {/* Warning message above the blurred content */}
                 <div className="w-full md:w-1/2 md:px-4">
-                    {travelers[tabValue] && (
-                        <>
-                            <h2 className="text-xl font-bold mb-4">Traveler&#39;s Basic Details</h2>
-                            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-                                <TextField
-                                    label="Given Name"
-                                    value={travelers[tabValue].formData.givenName}
-                                    onChange={(e) => handleFormChange(tabValue, "givenName", e.target.value)}
-                                    fullWidth
-                                    required
-                                />
-                                <TextField
-                                    label="Surname"
-                                    value={travelers[tabValue].formData.surname}
-                                    onChange={(e) => handleFormChange(tabValue, "surname", e.target.value)}
-                                    fullWidth
-                                    required
-                                />
-                                <FormControl fullWidth required>
-                                    <InputLabel>Sex</InputLabel>
-                                    <Select
-                                        value={travelers[tabValue].formData.sex}
-                                        onChange={(e) => handleFormChange(tabValue, "sex", e.target.value)}
-                                        label="Sex"
-                                    >
-                                        <MenuItem value="Male">Male</MenuItem>
-                                        <MenuItem value="Female">Female</MenuItem>
-                                        <MenuItem value="Other">Other</MenuItem>
-                                    </Select>
-                                </FormControl>
-                                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                    <DatePicker
-                                        label="Date of Birth"
-                                        value={travelers[tabValue].formData.dateOfBirth ? dayjs(travelers[tabValue].formData.dateOfBirth) : null}
-                                        onChange={(newValue) => handleFormChange(tabValue, "dateOfBirth", newValue ? newValue.toDate() : null)}
-                                        slotProps={{ textField: { fullWidth: true, required: true } }}
-                                    />
-                                </LocalizationProvider>
-                                <TextField
-                                    label="Place of Birth"
-                                    value={travelers[tabValue].formData.placeOfBirth}
-                                    onChange={(e) => handleFormChange(tabValue, "placeOfBirth", e.target.value)}
-                                    fullWidth
-                                    required
-                                />
-                                <div className="flex flex-wrap md:flex-nowrap gap-5">
-                                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                    <DatePicker
-                                        label="Passport Issue Date"
-                                        value={travelers[tabValue].formData.issueDate ? dayjs(travelers[tabValue].formData.issueDate) : null}
-                                        onChange={(newValue) => handleFormChange(tabValue, "issueDate", newValue ? newValue.toDate() : null)}
-                                        slotProps={{ textField: { fullWidth: true, required: true } }}
-                                    />
-                                </LocalizationProvider>
-                                <LocalizationProvider dateAdapter={AdapterDayjs}>
-                                    <DatePicker
-                                        label="Passport Expiry Date"
-                                        value={travelers[tabValue].formData.expiryDate ? dayjs(travelers[tabValue].formData.expiryDate) : null}
-                                        onChange={(newValue) => handleFormChange(tabValue, "expiryDate", newValue ? newValue.toDate() : null)}
-                                        slotProps={{ textField: { fullWidth: true, required: true } }}
-                                    />
-                                </LocalizationProvider>
+                    {!isImageUploaded && (
+                        <div className="flex absolute mt-60 max-w-screen-md md:ml-20 backdrop-blur-sm">
+                            <div
+                                className="font-lexend text-sm font-medium bg-yellow-200 text-neutral-light-n800 p-4 rounded-lg border border-yellow-200">
+                                <div className="font-bold text-yellow-800"><BsStars className={'inline mr-2'}/>Autofill
+                                    basic details
                                 </div>
-                                <TextField
-                                    label="Passport Issue Place"
-                                    value={travelers[tabValue].formData.issuePlace}
-                                    onChange={(e) => handleFormChange(tabValue, "issuePlace", e.target.value)}
-                                    fullWidth
-                                    required
-                                />
-                                <TextField
-                                    label="Current Address Line 1"
-                                    value={travelers[tabValue].formData.addressLine1}
-                                    onChange={(e) => handleFormChange(tabValue, "addressLine1", e.target.value)}
-                                    fullWidth
-                                    required
-                                />
-                                <TextField
-                                    label="Current Address Line 2"
-                                    value={travelers[tabValue].formData.addressLine2}
-                                    onChange={(e) => handleFormChange(tabValue, "addressLine2", e.target.value)}
-                                    fullWidth
-                                    required
-                                />
-                                <FormControl fullWidth required>
-                                    <InputLabel>State</InputLabel>
-                                    <Select
-                                        value={travelers[tabValue].formData.state}
-                                        onChange={(e) => handleFormChange(tabValue, "state", e.target.value)}
-                                        label="State"
-                                    >
-                                        {indianStates.map((state) => (
-                                            <MenuItem key={state} value={state}>
-                                                {state}
-                                            </MenuItem>
-                                        ))}
-                                    </Select>
-                                </FormControl>
-                                <TextField
-                                    label="City"
-                                    value={travelers[tabValue].formData.city}
-                                    onChange={(e) => handleFormChange(tabValue, "city", e.target.value)}
-                                    fullWidth
-                                    required
-                                />
-                                <TextField
-                                    label="Pincode"
-                                    value={travelers[tabValue].formData.pincode}
-                                    onChange={(e) => handleFormChange(tabValue, "pincode", e.target.value)}
-                                    fullWidth
-                                    required
-                                />
-                                <TextField
-                                    label="Mobile Number"
-                                    value={travelers[tabValue].formData.mobile}
-                                    onChange={(e) => handleFormChange(tabValue, "mobile", e.target.value)}
-                                    fullWidth
-                                    required
-                                />
-                                <TextField
-                                    label="Email Address"
-                                    value={travelers[tabValue].formData.email}
-                                    onChange={(e) => handleFormChange(tabValue, "email", e.target.value)}
-                                    fullWidth
-                                    required
-                                />
-                                <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded">
-                                    Submit
-                                </button>
-                            </form>
-                        </>
+                                <p className="mt-2 text-white-800">Upload passport to autofill your basic details and
+                                    start your application</p>
+                            </div>
+                        </div>
                     )}
+
+
+                    {/* Blurred traveller-form */}
+                    <div className={`traveller-form ${!isImageUploaded ? 'blur-sm' : ''}`}>
+                        <Alert className='m-2' severity="warning">
+                            Please note that the auto-filled information may be incorrect. Kindly review and make any
+                            necessary corrections.
+                        </Alert>
+                        {travelers[tabValue] && (
+                            <>
+                                <h2 className="text-xl font-bold mb-4">Traveler&#39;s Basic Details</h2>
+                                <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+                                    <TextField
+                                        label="Given Name"
+                                        value={travelers[tabValue].formData.givenName}
+                                        onChange={(e) => handleFormChange(tabValue, "givenName", e.target.value)}
+                                        fullWidth
+                                        required
+                                        disabled={!isImageUploaded} // Disable if no image is uploaded
+                                    />
+                                    <TextField
+                                        label="Surname"
+                                        value={travelers[tabValue].formData.surname}
+                                        onChange={(e) => handleFormChange(tabValue, "surname", e.target.value)}
+                                        fullWidth
+                                        required
+                                        disabled={!isImageUploaded} // Disable if no image is uploaded
+                                    />
+                                    <FormControl fullWidth required>
+                                        <InputLabel>Sex</InputLabel>
+                                        <Select
+                                            value={travelers[tabValue].formData.sex}
+                                            onChange={(e) => handleFormChange(tabValue, "sex", e.target.value)}
+                                            label="Sex"
+                                            disabled={!isImageUploaded} // Disable if no image is uploaded
+                                        >
+                                            <MenuItem value="Male">Male</MenuItem>
+                                            <MenuItem value="Female">Female</MenuItem>
+                                            <MenuItem value="Other">Other</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                        <DatePicker
+                                            label="Date of Birth"
+                                            value={travelers[tabValue].formData.dateOfBirth ? dayjs(travelers[tabValue].formData.dateOfBirth) : null}
+                                            onChange={(newValue) => handleFormChange(tabValue, "dateOfBirth", newValue ? newValue.toDate() : null)}
+                                            slotProps={{
+                                                textField: {
+                                                    fullWidth: true,
+                                                    required: true,
+                                                    disabled: !isImageUploaded
+                                                }
+                                            }} // Disable if no image is uploaded
+                                        />
+                                    </LocalizationProvider>
+                                    <TextField
+                                        label="Place of Birth"
+                                        value={travelers[tabValue].formData.placeOfBirth}
+                                        onChange={(e) => handleFormChange(tabValue, "placeOfBirth", e.target.value)}
+                                        fullWidth
+                                        required
+                                        disabled={!isImageUploaded} // Disable if no image is uploaded
+                                    />
+                                    <div className="flex flex-wrap md:flex-nowrap gap-5">
+                                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                            <DatePicker
+                                                label="Passport Issue Date"
+                                                value={travelers[tabValue].formData.issueDate ? dayjs(travelers[tabValue].formData.issueDate) : null}
+                                                onChange={(newValue) => handleFormChange(tabValue, "issueDate", newValue ? newValue.toDate() : null)}
+                                                slotProps={{
+                                                    textField: {
+                                                        fullWidth: true,
+                                                        required: true,
+                                                        disabled: !isImageUploaded
+                                                    }
+                                                }} // Disable if no image is uploaded
+                                            />
+                                        </LocalizationProvider>
+                                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                            <DatePicker
+                                                label="Passport Expiry Date"
+                                                value={travelers[tabValue].formData.expiryDate ? dayjs(travelers[tabValue].formData.expiryDate) : null}
+                                                onChange={(newValue) => handleFormChange(tabValue, "expiryDate", newValue ? newValue.toDate() : null)}
+                                                slotProps={{
+                                                    textField: {
+                                                        fullWidth: true,
+                                                        required: true,
+                                                        disabled: !isImageUploaded
+                                                    }
+                                                }} // Disable if no image is uploaded
+                                            />
+                                        </LocalizationProvider>
+                                    </div>
+                                    <TextField
+                                        label="Passport Issue Place"
+                                        value={travelers[tabValue].formData.issuePlace}
+                                        onChange={(e) => handleFormChange(tabValue, "issuePlace", e.target.value)}
+                                        fullWidth
+                                        required
+                                        disabled={!isImageUploaded} // Disable if no image is uploaded
+                                    />
+                                    <TextField
+                                        label="Current Address Line 1"
+                                        value={travelers[tabValue].formData.addressLine1}
+                                        onChange={(e) => handleFormChange(tabValue, "addressLine1", e.target.value)}
+                                        fullWidth
+                                        required
+                                        disabled={!isImageUploaded} // Disable if no image is uploaded
+                                    />
+                                    <TextField
+                                        label="Current Address Line 2"
+                                        value={travelers[tabValue].formData.addressLine2}
+                                        onChange={(e) => handleFormChange(tabValue, "addressLine2", e.target.value)}
+                                        fullWidth
+                                        required
+                                        disabled={!isImageUploaded} // Disable if no image is uploaded
+                                    />
+                                    <FormControl fullWidth required>
+                                        <InputLabel>State</InputLabel>
+                                        <Select
+                                            value={travelers[tabValue].formData.state}
+                                            onChange={(e) => handleFormChange(tabValue, "state", e.target.value)}
+                                            label="State"
+                                            disabled={!isImageUploaded} // Disable if no image is uploaded
+                                        >
+                                            {indianStates.map((state) => (
+                                                <MenuItem key={state} value={state}>
+                                                    {state}
+                                                </MenuItem>
+                                            ))}
+                                        </Select>
+                                    </FormControl>
+                                    <TextField
+                                        label="City"
+                                        value={travelers[tabValue].formData.city}
+                                        onChange={(e) => handleFormChange(tabValue, "city", e.target.value)}
+                                        fullWidth
+                                        required
+                                        disabled={!isImageUploaded} // Disable if no image is uploaded
+                                    />
+                                    <TextField
+                                        label="Pincode"
+                                        value={travelers[tabValue].formData.pincode}
+                                        onChange={(e) => handleFormChange(tabValue, "pincode", e.target.value)}
+                                        fullWidth
+                                        required
+                                        disabled={!isImageUploaded} // Disable if no image is uploaded
+                                    />
+                                    <TextField
+                                        label="Mobile Number"
+                                        value={travelers[tabValue].formData.mobile}
+                                        onChange={(e) => handleFormChange(tabValue, "mobile", e.target.value)}
+                                        fullWidth
+                                        required
+                                        disabled={!isImageUploaded} // Disable if no image is uploaded
+                                    />
+                                    <TextField
+                                        label="Email Address"
+                                        value={travelers[tabValue].formData.email}
+                                        onChange={(e) => handleFormChange(tabValue, "email", e.target.value)}
+                                        fullWidth
+                                        required
+                                        disabled={!isImageUploaded} // Disable if no image is uploaded
+                                    />
+                                    <button
+                                        type="submit"
+                                        className="w-full bg-blue-500 text-white p-2 rounded"
+                                        disabled={!isImageUploaded} // Disable if no image is uploaded
+                                    >
+                                        Submit
+                                    </button>
+                                </form>
+                            </>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>
