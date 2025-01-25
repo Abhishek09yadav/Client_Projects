@@ -16,6 +16,7 @@ const ShopContextProvider = (props) => {
 
     useEffect(() => {
         const fetchUserDetails = async () => {
+            console.log("auth-token", authToken);
             if (authToken) {
                 try {
                     const response = await fetch(`${url}/getUserDetails`, {

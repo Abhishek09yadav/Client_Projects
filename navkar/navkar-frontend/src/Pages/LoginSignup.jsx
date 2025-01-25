@@ -46,10 +46,11 @@ const LoginSignup = () => {
 
             if (responseData.success) {
                 localStorage.setItem('auth-token', responseData.token);
+                console.log('Token stored in localStorage:', responseData.token); // Log the token
                 window.location.replace('/');
             } else {
                 alert(responseData.error);
-                console.log('responseData', responseData);
+                console.log('Login failed. Response data:', responseData);
             }
         } catch (error) {
             console.error('Login Error:', error);

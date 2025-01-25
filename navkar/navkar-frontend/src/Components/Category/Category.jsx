@@ -109,7 +109,9 @@ const Category = () => {
 
     const onQuantityChange = (productId, quantity, MOQ) => {
         const parsedQuantity = Math.max(0, parseInt(quantity, 10) || 0);
+        console.log("userDetails:", userDetails);
         if (!userDetails) {
+
             toast.warn("please login to continue");
         }
         if (quantity < MOQ) {
