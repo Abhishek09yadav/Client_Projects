@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Implements smooth scrolling to product list.">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="fixed login issue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Context/ShopContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Context/ShopContext.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Pages/LoginSignup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Pages/LoginSignup.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../thedhobi-form" beforeDir="false" afterPath="$PROJECT_DIR$/../thedhobi-form" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -201,15 +197,7 @@
       <workItem from="1736074638805" duration="3099000" />
       <workItem from="1736093061193" duration="20000" />
       <workItem from="1737810539379" duration="61000" />
-      <workItem from="1737818623039" duration="6225000" />
-    </task>
-    <task id="LOCAL-00021" summary="created quotation history page">
-      <option name="closed" value="true" />
-      <created>1734427780384</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1734427780384</updated>
+      <workItem from="1737818623039" duration="6913000" />
     </task>
     <task id="LOCAL-00022" summary="created quotation history page">
       <option name="closed" value="true" />
@@ -595,7 +583,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736078298734</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="fixed login issue">
+      <option name="closed" value="true" />
+      <created>1737828485807</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1737828485808</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -615,7 +611,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Styles item image, price, and category font size." />
     <MESSAGE value="Styles product details and adds edit functionality to product list." />
     <MESSAGE value="Implements product editing and modal styling." />
     <MESSAGE value="Implements product editing and modal validation." />
@@ -640,7 +635,8 @@
     <MESSAGE value="Removes image fallbacks and fixes whitespace." />
     <MESSAGE value="Implements direct signup and removes OTP flow." />
     <MESSAGE value="Implements smooth scrolling to product list." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implements smooth scrolling to product list." />
+    <MESSAGE value="fixed login issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed login issue" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
