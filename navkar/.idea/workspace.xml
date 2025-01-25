@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="remove pdfs">
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1737829608303.jpg" afterDir="false" />
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="removed all uploads">
+      <change afterPath="$PROJECT_DIR$/../output.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../thedhobi-form" beforeDir="false" afterPath="$PROJECT_DIR$/../thedhobi-form" afterDir="false" />
     </list>
@@ -50,30 +50,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Node.js.backend.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "deletionFromPopupRequiresConfirmation": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/monuy/Desktop/Repos/Client_Projects/navkar",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.admin.executor": "Run",
-    "npm.backend.executor": "Run",
-    "npm.frontend.executor": "Run",
-    "settings.editor.selected.configurable": "configurable.group.build",
-    "settings.editor.splitter.proportion": "0.28614458",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Node.js.backend.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/monuy/Desktop/Repos/Client_Projects/navkar&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.admin.executor&quot;: &quot;Run&quot;,
+    &quot;npm.backend.executor&quot;: &quot;Run&quot;,
+    &quot;npm.frontend.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.28614458&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -99,7 +99,7 @@
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.backend">
+  <component name="RunManager" selected="npm.admin">
     <configuration default="true" type="NodeJSConfigurationType" node-parameters="node index.js" working-dir="$PROJECT_DIR$/navkar-backend">
       <method v="2" />
     </configuration>
@@ -198,15 +198,8 @@
       <workItem from="1736074638805" duration="3099000" />
       <workItem from="1736093061193" duration="20000" />
       <workItem from="1737810539379" duration="61000" />
-      <workItem from="1737818623039" duration="7858000" />
-    </task>
-    <task id="LOCAL-00023" summary="Refactors CSS comments and uses Bootstrap Buttons in QuotationHistory.">
-      <option name="closed" value="true" />
-      <created>1734441701569</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1734441701569</updated>
+      <workItem from="1737818623039" duration="9388000" />
+      <workItem from="1737833149003" duration="2142000" />
     </task>
     <task id="LOCAL-00024" summary="Refactors CSS and uses Bootstrap buttons in QuotationHistory.">
       <option name="closed" value="true" />
@@ -592,7 +585,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737829039712</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="removed all uploads">
+      <option name="closed" value="true" />
+      <created>1737832208112</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1737832208112</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -612,7 +613,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implements product editing and modal styling." />
     <MESSAGE value="Implements product editing and modal validation." />
     <MESSAGE value="Implements user details accordion and download functionality." />
     <MESSAGE value="added Quotation history in userlist" />
@@ -637,7 +637,8 @@
     <MESSAGE value="Implements smooth scrolling to product list." />
     <MESSAGE value="fixed login issue" />
     <MESSAGE value="remove pdfs" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove pdfs" />
+    <MESSAGE value="removed all uploads" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed all uploads" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

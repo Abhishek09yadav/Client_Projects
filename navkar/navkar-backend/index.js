@@ -397,8 +397,6 @@ app.put('/editProduct/:id', async (req, res) => {
         res.status(500).json({success: false, message: "Internal server error", error: error.message});
     }
 });
-
-
 //creating middleware to fetch user
 const fetchUser = async (req, res, next) => {
     const token = req.header('auth-token');
