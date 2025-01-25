@@ -15,6 +15,13 @@
         app.use('/api/otp', otpRoutes);
         // Database Connection with mongodb
         mongoose.connect('mongodb+srv://Ecommerce:Z1*6$5*7A4$qC&@cluster0.dwmcu.mongodb.net/e-commerce')
+        // Configure Persistent Disk Directory
+        const PERSISTENT_DISK_DIR = '/persistent/upload';
+        const IMAGES_DIR = `${PERSISTENT_DISK_DIR}/images`;
+        const PDF_DIR = `${PERSISTENT_DISK_DIR}/pdf`;
+        const fs = require('fs');
+        fs.mkdirSync(IMAGES_DIR, { recursive: true });
+        fs.mkdirSync(PDF_DIR, { recursive: true });
 
         app.get("/", (req, res) => {
             res.send("Welcome to Ecommerce!");
@@ -24,7 +31,7 @@
 
         // Image storage Engine
         const imagesStorage = multer.diskStorage({
-            destination: './upload/images',
+            destination: IMAGES_DIR,
             filename: (req, file, cb) => {
                 return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`);
 
@@ -33,7 +40,7 @@
         const upload = multer({storage: imagesStorage});
 
         // creating upload
-        app.use('/images', express.static('upload/images'));
+        app.use('/images', express.static(IMAGES_DIR));
         app.post("/upload", upload.single("product"), (req, res) => {
             res.json({
                 success: 1,

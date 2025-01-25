@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Implements smooth scrolling to product list.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../visa-v2/src/pages/PreviousApplications/PreviousApplicatoins.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../visa-v2/src/pages/StartApplication/step3UploadDocuments/UploadDocument.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../visa-v2/src/pages/StartApplication/step4MakeVisaPayment/MakeVisaPayment.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../thedhobi-form" beforeDir="false" afterPath="$PROJECT_DIR$/../thedhobi-form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../visa-v2/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../visa-v2/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../visa-v2/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../visa-v2/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../visa-v2/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../visa-v2/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../visa-v2/src/pages/StartApplication/step2AddTraveller/AddTraveller.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../visa-v2/src/pages/StartApplication/step2AddTraveller/PassportForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../visa-v2/src/pages/StartApplication/step2AddTraveller/PassportForm.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,12 +38,12 @@
     &quot;assignee&quot;: &quot;Abhishek09yadav&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Abhishek09yadav/Client_Projects&quot;,
-    &quot;accountId&quot;: &quot;f5b87d88-0e51-4154-97fc-152ec9673239&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Abhishek09yadav/Client_Projects",
+    "accountId": "6432fdc2-ad43-4b6a-a902-a95496b41777"
   }
-}</component>
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
@@ -57,7 +64,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "deletionFromPopupRequiresConfirmation": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/monuy/Desktop/Repos/fullstack-learning-hub/frontend/nextjsdemoproj",
+    "last_opened_file_path": "C:/Users/monuy/Desktop/Repos/Client_Projects/navkar/navkar-frontend",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -196,6 +203,7 @@
       <workItem from="1736074536319" duration="3000" />
       <workItem from="1736074638805" duration="3099000" />
       <workItem from="1736093061193" duration="20000" />
+      <workItem from="1737810539379" duration="61000" />
     </task>
     <task id="LOCAL-00021" summary="created quotation history page">
       <option name="closed" value="true" />
