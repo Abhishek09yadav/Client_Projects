@@ -5,9 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="removed all uploads">
-      <change afterPath="$PROJECT_DIR$/../output.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1737894512551.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-frontend/backup/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-frontend/backup/Banner.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-frontend/backup/Navbar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-frontend/backup/item.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../thedhobi-form" beforeDir="false" afterPath="$PROJECT_DIR$/../thedhobi-form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +103,7 @@
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.admin">
+  <component name="RunManager" selected="npm.frontend">
     <configuration default="true" type="NodeJSConfigurationType" node-parameters="node index.js" working-dir="$PROJECT_DIR$/navkar-backend">
       <method v="2" />
     </configuration>
