@@ -3,7 +3,7 @@ import ReactPaginate from 'react-paginate';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faDownload, faEye} from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
-import './QuotationHistory.css'; // Import the CSS file
+import './QuotationHistory.css';
 import {FaSearch} from "react-icons/fa";
 
 const url = import.meta.env.VITE_API_URL;
@@ -11,8 +11,8 @@ const url = import.meta.env.VITE_API_URL;
 const QuotationHistory = () => {
     const [quotations, setQuotations] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
-    const [filteredQuotations, setFilteredQuotations] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
+    const [totalPages, setTotalPages] = useState(0);
     const itemsPerPage = 10; // Adjust the number of items per page as needed
 
     // Format date to dd/mm/yy
@@ -24,36 +24,38 @@ const QuotationHistory = () => {
         return `${day}/${month}/${year}`;
     };
 
-    // Fetch quotations from the server
-    useEffect(() => {
-        const fetchQuotations = async () => {
-            try {
-                const response = await axios.get(`${url}/api/quotations`);
-                const sortedQuotations = response.data.sort(
-                    (a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt)
-                );
-                const formattedQuotations = sortedQuotations.map((quotation) => ({
-                    ...quotation,
-                    formattedDate: formatDate(quotation.uploadedAt),
-                }));
-                setQuotations(formattedQuotations);
-                setFilteredQuotations(formattedQuotations);
-            } catch (error) {
-                console.error('Error fetching quotations:', error);
-            }
-        };
-        fetchQuotations();
-    }, []);
+    // Fetch quotations from the server with pagination and search
+    const fetchQuotations = async (page, search = '') => {
+        try {
+            const response = await axios.get(`${url}/api/quotations`, {
+                params: {
+                    page: page + 1, // ReactPaginate starts from 0
+                    limit: itemsPerPage,
+                    search: search
+                }
+            });
 
-    // Filter quotations based on search term
+            const formattedQuotations = response.data.quotations.map((quotation) => ({
+                ...quotation,
+                formattedDate: formatDate(quotation.uploadedAt),
+            }));
+
+            setQuotations(formattedQuotations);
+            setTotalPages(response.data.totalPages);
+        } catch (error) {
+            console.error('Error fetching quotations:', error);
+        }
+    };
+
+    // Fetch quotations on component mount and when page changes
+    useEffect(() => {
+        fetchQuotations(currentPage);
+    }, [currentPage]);
+
+    // Handle search when the search button is clicked
     const handleSearch = () => {
-        const filtered = quotations.filter((quotation) =>
-            quotation.userName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            quotation.phoneNo.includes(searchTerm) ||
-            quotation.formattedDate.includes(searchTerm)
-        );
-        setFilteredQuotations(filtered);
         setCurrentPage(0); // Reset to the first page after search
+        fetchQuotations(0, searchTerm); // Perform search with the current search term
     };
 
     // Handle pagination
@@ -61,9 +63,7 @@ const QuotationHistory = () => {
         setCurrentPage(data.selected);
     };
 
-    const startIndex = currentPage * itemsPerPage;
-    const currentItems = filteredQuotations.slice(startIndex, startIndex + itemsPerPage);
-
+    // Handle PDF download
     const handlePdfDownload = async (quotation) => {
         try {
             const response = await fetch(quotation.link);
@@ -93,7 +93,7 @@ const QuotationHistory = () => {
             <div className="search-container">
                 <input
                     type="text"
-                    placeholder="Search by date (dd/mm/yy), user name, or phone number"
+                    placeholder="Search by user name or phone number"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="search-bar"
@@ -114,7 +114,7 @@ const QuotationHistory = () => {
                 </tr>
                 </thead>
                 <tbody>
-                {currentItems.map((quotation, index) => (
+                {quotations.map((quotation, index) => (
                     <tr key={index}>
                         <td>{quotation.userName}</td>
                         <td>{quotation.phoneNo}</td>
@@ -142,12 +142,13 @@ const QuotationHistory = () => {
                 previousLabel={'Previous'}
                 nextLabel={'Next'}
                 breakLabel={'...'}
-                pageCount={Math.ceil(filteredQuotations.length / itemsPerPage)}
+                pageCount={totalPages}
                 marginPagesDisplayed={2}
                 pageRangeDisplayed={5}
                 onPageChange={handlePageClick}
                 containerClassName={'pagination'}
                 activeClassName={'active'}
+                forcePage={currentPage}
             />
         </div>
     );

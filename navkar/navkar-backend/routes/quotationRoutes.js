@@ -65,11 +65,24 @@ router.post('/uploadQuotation', uploadPdf.single('quotation'), async (req, res) 
     }
 });
 
-// Route to fetch all quotations
+// Route to fetch all quotations with pagination and search
 router.get('/quotations', async (req, res) => {
     try {
-        // Find all users and populate quotations
-        const users = await Users.find({}, 'name phoneNo QuotationPages');
+        const {page = 1, limit = 10, search = ''} = req.query;
+        const skip = (page - 1) * limit;
+
+        // Build the search query
+        const searchQuery = search ? {
+            $or: [
+                {name: {$regex: search, $options: 'i'}},
+                {phoneNo: {$regex: search, $options: 'i'}}
+            ]
+        } : {};
+
+        // Find all users and populate quotations with search and pagination
+        const users = await Users.find(searchQuery, 'name phoneNo QuotationPages')
+            .skip(skip)
+            .limit(parseInt(limit));
 
         // Flatten and map the quotations with user details
         const quotations = users.flatMap(user => {
@@ -81,9 +94,17 @@ router.get('/quotations', async (req, res) => {
             }));
         });
 
-        // Send sorted quotations (newest first)
+        // Sort quotations by date (newest first)
         quotations.sort((a, b) => b.uploadedAt - a.uploadedAt);
-        res.status(200).json(quotations);
+
+        // Get the total count of users for pagination
+        const totalUsers = await Users.countDocuments(searchQuery);
+
+        res.status(200).json({
+            quotations,
+            totalPages: Math.ceil(totalUsers / limit),
+            currentPage: parseInt(page)
+        });
     } catch (error) {
         console.error('Error fetching quotations:', error);
         res.status(500).json({error: 'Internal server error.'});

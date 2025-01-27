@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="moved quotations to different route">
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1737996927579.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/routes/quotationRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/routes/quotationRoutes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,30 +50,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Node.js.backend.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "deletionFromPopupRequiresConfirmation": "false",
-    "git-widget-placeholder": "pagination",
-    "last_opened_file_path": "C:/Users/monuy/Desktop/Repos/Client_Projects/navkar",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.admin.executor": "Run",
-    "npm.backend.executor": "Run",
-    "npm.frontend.executor": "Run",
-    "settings.editor.selected.configurable": "preferences.editor",
-    "settings.editor.splitter.proportion": "0.28614458",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Node.js.backend.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;pagination&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/monuy/Desktop/Repos/Client_Projects/navkar&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.admin.executor&quot;: &quot;Run&quot;,
+    &quot;npm.backend.executor&quot;: &quot;Run&quot;,
+    &quot;npm.frontend.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.28614458&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -102,7 +99,7 @@
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.backend">
+  <component name="RunManager" selected="npm.frontend">
     <configuration default="true" type="NodeJSConfigurationType" node-parameters="node index.js" working-dir="$PROJECT_DIR$/navkar-backend">
       <method v="2" />
     </configuration>
