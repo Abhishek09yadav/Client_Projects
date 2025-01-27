@@ -76,7 +76,7 @@
 .QuotationHistory {
     width: auto;
     font-size: 12px;
-    padding: 8px 20px;
+    /*padding: 8px 20px;*/
     white-space: nowrap;
     /*overflow: hidden;*/
     text-overflow: ellipsis;

@@ -4,11 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="changed Navbar.jsx">
-      <change afterPath="$PROJECT_DIR$/navkar-admin/src/Components/AddCategory/ConfirmationModal.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-admin/src/Components/AddCategory/ConfirmationModal.jsx" afterDir="false" />
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="added confirmation before deletion">
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1737983192254.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/AddCategory/AddCategory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/AddCategory/AddCategory.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/LoginSignup/LoginSignup.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/LoginSignup/LoginSignup.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/LoginSignup/LoginSignup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/LoginSignup/LoginSignup.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Footer/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Footer/Footer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Navbar/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Navbar/Navbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Navbar/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Navbar/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Pages/CSS/LoginSignup.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Pages/CSS/LoginSignup.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Pages/LoginSignup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Pages/LoginSignup.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,30 +61,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Node.js.backend.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "deletionFromPopupRequiresConfirmation": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/monuy/Desktop/Repos/Client_Projects/navkar",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.admin.executor": "Run",
-    "npm.backend.executor": "Run",
-    "npm.frontend.executor": "Run",
-    "settings.editor.selected.configurable": "configurable.group.build",
-    "settings.editor.splitter.proportion": "0.28614458",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Node.js.backend.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/monuy/Desktop/Repos/Client_Projects/navkar&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.admin.executor&quot;: &quot;Run&quot;,
+    &quot;npm.backend.executor&quot;: &quot;Run&quot;,
+    &quot;npm.frontend.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.28614458&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -100,7 +110,7 @@
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.frontend">
+  <component name="RunManager" selected="npm.admin">
     <configuration default="true" type="NodeJSConfigurationType" node-parameters="node index.js" working-dir="$PROJECT_DIR$/navkar-backend">
       <method v="2" />
     </configuration>
@@ -203,15 +213,7 @@
       <workItem from="1737833149003" duration="2142000" />
       <workItem from="1737959539382" duration="71000" />
       <workItem from="1737976882791" duration="1600000" />
-      <workItem from="1737979486588" duration="1783000" />
-    </task>
-    <task id="LOCAL-00025" summary="Refetches user details on Quotation History click.">
-      <option name="closed" value="true" />
-      <created>1734510584090</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1734510584090</updated>
+      <workItem from="1737979486588" duration="7876000" />
     </task>
     <task id="LOCAL-00026" summary="Refactors user details fetching in `ShopContext`.">
       <option name="closed" value="true" />
@@ -597,7 +599,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737978431526</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="added confirmation before deletion">
+      <option name="closed" value="true" />
+      <created>1737981344036</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1737981344036</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -617,7 +627,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implements user details accordion and download functionality." />
     <MESSAGE value="added Quotation history in userlist" />
     <MESSAGE value="Implements quotation search and date formatting." />
     <MESSAGE value="Implements product sorting by date and updates product schema." />
@@ -642,7 +651,8 @@
     <MESSAGE value="remove pdfs" />
     <MESSAGE value="removed all uploads" />
     <MESSAGE value="changed Navbar.jsx" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed Navbar.jsx" />
+    <MESSAGE value="added confirmation before deletion" />
+    <option name="LAST_COMMIT_MESSAGE" value="added confirmation before deletion" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

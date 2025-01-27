@@ -5,7 +5,6 @@ import {HashRouter, Route, Routes} from "react-router-dom"; // Import HashRouter
 import Shop from "./Pages/Shop";
 // import 'bootstrap/dist/js/bootstrap.min.js';
 import Product from "./Pages/Product";
-import Footer from "./Components/Footer/Footer";
 import LoginSignup from "./Pages/LoginSignup";
 import QuotationHistory from "./Components/QuotationHistory/QuotationHistory";
 
@@ -23,7 +22,7 @@ function App() {
                     <Route path='/login' element={<LoginSignup/>}/>
                     <Route path='/quotationhistory' element={<QuotationHistory/>}/>
                 </Routes>
-                <Footer/>
+                {/*<Footer/>*/}
             </HashRouter> {/* Replace BrowserRouter with HashRouter */}
             {/*</AlertProvider>*/}
         </div>

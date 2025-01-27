@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './LoginSignup.css';
 import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import "bootstrap/dist/css/bootstrap.min.css"
 
 const LoginSignup = () => {
     const url = import.meta.env.VITE_API_URL;
@@ -190,7 +191,7 @@ const LoginSignup = () => {
     };
 
     return (
-        <div className="login-signup">
+        <div className="login-signup container-md bg-dark">
             <ToastContainer/>
             <div className="login-signup-container">
                 <h1>

@@ -14,25 +14,29 @@ const Footer = () => {
         <div className="footer">
             <div className={'footer-logo'}>
                 <img src={footer_logo} alt={''}/>
-                <p>Navkar</p>
+                <p className={`m-0 p-0 text-white`}>Navkar</p>
             </div>
 
 
             <div>
                 <ul className="footer-links">
 
-                    <li><a href="http://www.shrinavkar.co.in/Default.aspx" target={"_blank"}>Company</a></li>
+                    <li><a className={`text-white text-decoration-none`} href="http://www.shrinavkar.co.in/Default.aspx"
+                           target={"_blank"}>Company</a></li>
 
                     {/*<li>Products</li>*/}
-                    <li onClick={() => {
+                    <li className={`text-white text-decoration-none`} onClick={() => {
                         handleClick()
                     }}>Products
                     </li>
 
                     {/*<li>Offices</li>*/}
-                    <li><a href="http://www.shrinavkar.co.in/Aboutus.aspx" target={"_blank"}>About</a></li>
-                    <li><a href="mailto:info@shrinavkar.co.in" target={"_blank"}>mail us </a></li>
-                    <li><a href="http://www.shrinavkar.co.in/Contactus.aspx" target="_blank">Contact us</a></li>
+                    <li><a className={`text-white text-decoration-none`} href="http://www.shrinavkar.co.in/Aboutus.aspx"
+                           target={"_blank"}>About</a></li>
+                    <li><a className={`text-white text-decoration-none`} href="mailto:info@shrinavkar.co.in"
+                           target={"_blank"}>mail us </a></li>
+                    <li><a className={`text-white text-decoration-none`}
+                           href="http://www.shrinavkar.co.in/Contactus.aspx" target="_blank">Contact us</a></li>
 
 
                 </ul>

@@ -254,14 +254,14 @@ const Category = () => {
 
 
     return (
-        <div ref={categoryRef} className={'Category'}>
+        <div ref={categoryRef} className={'Category container-md p-0'}>
             <ToastContainer/>
-            <h1 className={`text-white`}>Categories</h1>
-            <div className="category-container">
+            <h1 className={`text-white text-start my-4 fs-3`}>Categories</h1>
+            <div className="category-container p-0">
                 {categories.map((category, index) => (
                     <div
                         key={index}
-                        className={`category-pill ${selectedCategory === category.category ? "active" : ""}`}
+                        className={`category-pill w-fit ${selectedCategory === category.category ? "active" : ""}`}
                         onClick={() => fetchProductsByCategory(category.category)}
                     >
                         <span className={'pill-text'}>  {category.category}    </span>

@@ -17,8 +17,8 @@ const NewCollections = () => {
     // console.log('data from newcollections', new_collections);
 
     return (
-        <div className={'NewCollections'}>
-            <h1>Recent Products</h1>
+        <div className={'NewCollections '}>
+            <h1 className={`text-white`}>Recent Products</h1>
             <hr/>
             <div className="collections">
                 {new_collections.map((item, i) => {

@@ -190,7 +190,7 @@ const LoginSignup = () => {
     };
 
     return (
-        <div className="login-signup">
+        <div className="login-signup container-md">
             <ToastContainer/>
             <div className="login-signup-container">
                 <h1>
