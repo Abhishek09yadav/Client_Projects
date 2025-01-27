@@ -27,7 +27,7 @@ const QuotationHistory = () => {
     useEffect(() => {
         const fetchQuotations = async () => {
             try {
-                const response = await axios.get(`${url}/quotations`);
+                const response = await axios.get(`${url}/api/quotations`);
                 const sortedQuotations = response.data.sort(
                     (a, b) => new Date(b.uploadedAt) - new Date(a.uploadedAt)
                 );
