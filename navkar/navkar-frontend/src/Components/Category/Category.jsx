@@ -256,7 +256,7 @@ const Category = () => {
     return (
         <div ref={categoryRef} className={'Category'}>
             <ToastContainer/>
-            <h1>Categories</h1>
+            <h1 className={`text-white`}>Categories</h1>
             <div className="category-container">
                 {categories.map((category, index) => (
                     <div

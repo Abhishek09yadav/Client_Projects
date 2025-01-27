@@ -21,10 +21,10 @@ function Navbar(props) {
     //     menuRef.current.classList.toggle('nav-menu-visible');
     //     e.target.classList.toggle('open');
     // }
-    return <div className="navbar">
+    return <div className="navbar container-md">
         <Link to={'/'} className="nav-logo" style={{textDecoration: 'none', maxWidth: '90px'}}>
             <img src={logo} alt="logo"/>
-            <p>NAVKAR</p>
+            <p className={`m-0 p-0 text-white`}>NAVKAR</p>
         </Link>
         {/*<img onClick={dropdown_toggle} className={'nav-dropdown'} src={Hamburger_Menu} alt={''}/>*/}
 

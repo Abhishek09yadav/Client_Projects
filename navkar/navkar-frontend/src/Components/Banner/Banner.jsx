@@ -26,20 +26,25 @@ const Banner = () => {
 
 
     return (
-        <div className={'carousel-main-container'}>
-            <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel">
-                <div className="carousel-inner">
+        <div className={'carousel-main-container container-md mx-auto'} style={{height: '600px'}}>
+            <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel"
+                 style={{height: '600px'}}>
+                <div className="carousel-inner" style={{height: '600px'}}>
                     {images.image ? (<div className="carousel-item active">
-                        <img src={images.image} className="d-block w-100  images" alt="..."/>
+                        <img src={images.image} className="d-block w-100 images" alt="..."
+                             style={{width: '100%', height: 'auto', maxHeight: '500px'}}/>
                     </div>) : ''}
                     {images.image1 ? (<div className="carousel-item">
-                        <img src={images.image1} className="d-block w-100 images" alt="..."/>
+                        <img src={images.image1} className="d-block w-100 images" alt="..."
+                             style={{width: '100%', height: 'auto', maxHeight: '500px'}}/>
                     </div>) : ''}
                     {images.image2 ? (<div className="carousel-item">
-                        <img src={images.image2} className="d-block w-100 images" alt="..."/>
+                        <img src={images.image2} className="d-block w-100 images" alt="..."
+                             style={{width: '100%', height: 'auto', maxHeight: '500px'}}/>
                     </div>) : ''}
                     {images.image3 ? (<div className="carousel-item">
-                        <img src={images.image3} className="d-block w-100 images" alt="..."/>
+                        <img src={images.image3} className="d-block w-100 images" alt="..."
+                             style={{width: '100%', height: 'auto', maxHeight: '500px'}}/>
                     </div>) : ''}
 
                 </div>

@@ -11,7 +11,7 @@ import QuotationHistory from "./Components/QuotationHistory/QuotationHistory";
 
 function App() {
     return (
-        <div>
+        <div className={`bg-dark`}>
             {/*<AlertProvider template={AlertTemplate} {...options}>*/}
             <HashRouter> {/* Replace BrowserRouter with HashRouter */}
                 <Navbar/>
