@@ -12,7 +12,7 @@ const baseUrl = process.env.BASE_URL;
 const pdfStorage = multer.diskStorage({
     destination: './upload/pdf', // Save PDFs in the pdf folder
     filename: (req, file, cb) => {
-        const timestamp = Date.now(); // Use only the timestamp for simplicity
+
         cb(null, `${file.fieldname}_${Date.now()}.pdf`);
     }
 });
@@ -79,13 +79,11 @@ router.get('/quotations', async (req, res) => {
             ]
         } : {};
 
-        // Find all users and populate quotations with search and pagination
-        const users = await Users.find(searchQuery, 'name phoneNo QuotationPages')
-            .skip(skip)
-            .limit(parseInt(limit));
+        // Find all users matching the search query
+        const users = await Users.find(searchQuery, 'name phoneNo QuotationPages');
 
         // Flatten and map the quotations with user details
-        const quotations = users.flatMap(user => {
+        let allQuotations = users.flatMap(user => {
             return user.QuotationPages.map(quotation => ({
                 userName: user.name,
                 phoneNo: user.phoneNo,
@@ -95,14 +93,17 @@ router.get('/quotations', async (req, res) => {
         });
 
         // Sort quotations by date (newest first)
-        quotations.sort((a, b) => b.uploadedAt - a.uploadedAt);
+        allQuotations.sort((a, b) => b.uploadedAt - a.uploadedAt);
 
-        // Get the total count of users for pagination
-        const totalUsers = await Users.countDocuments(searchQuery);
+        // Apply pagination to the flattened quotations
+        const quotations = allQuotations.slice(skip, skip + parseInt(limit));
+
+        // Get the total count of quotations for pagination
+        const totalQuotations = allQuotations.length;
 
         res.status(200).json({
             quotations,
-            totalPages: Math.ceil(totalUsers / limit),
+            totalPages: Math.ceil(totalQuotations / limit),
             currentPage: parseInt(page)
         });
     } catch (error) {

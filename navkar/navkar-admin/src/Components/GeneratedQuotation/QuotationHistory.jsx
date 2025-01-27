@@ -47,10 +47,10 @@ const QuotationHistory = () => {
         }
     };
 
-    // Fetch quotations on component mount and when page changes
+    // Fetch quotations on component mount and when page or search term changes
     useEffect(() => {
-        fetchQuotations(currentPage);
-    }, [currentPage]);
+        fetchQuotations(currentPage, searchTerm);
+    }, [currentPage]); // Fetch data when the page changes
 
     // Handle search when the search button is clicked
     const handleSearch = () => {
@@ -60,7 +60,8 @@ const QuotationHistory = () => {
 
     // Handle pagination
     const handlePageClick = (data) => {
-        setCurrentPage(data.selected);
+        setCurrentPage(data.selected); // Update the current page
+        fetchQuotations(data.selected, searchTerm); // Fetch data for the new page with the current search term
     };
 
     // Handle PDF download
