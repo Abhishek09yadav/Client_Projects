@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import cross_icon from '../../assets/cross_icon.png';
+// AddCategory.js
+import React, {useEffect, useState} from 'react';
 import add_icon from '../../assets/plus1.png';
 import './AddCategory.css';
+import ConfirmationModal from './ConfirmationModal.jsx';
+import {FaTrashAlt} from "react-icons/fa";
 
 const url = import.meta.env.VITE_API_URL; // Backend URL
 
 const AddCategory = () => {
     const [categories, setCategories] = useState([]);
     const [newCategory, setNewCategory] = useState('');
+    const [categoryToDelete, setCategoryToDelete] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     // Fetch categories on load
     useEffect(() => {
@@ -46,7 +50,7 @@ const AddCategory = () => {
 
     const deleteCategory = async (categoryId) => {
         try {
-            const response = await fetch(`${url}/categories/${categoryId}`, { // Send category id instead of category name
+            const response = await fetch(`${url}/categories/${categoryId}`, {
                 method: 'DELETE',
             });
             const data = await response.json();
@@ -58,6 +62,24 @@ const AddCategory = () => {
         } catch (error) {
             console.error('Error deleting category:', error);
         }
+    };
+
+    const handleDelete = (categoryId) => {
+        setCategoryToDelete(categoryId);
+        setIsModalOpen(true);
+    };
+
+    const confirmDelete = () => {
+        if (categoryToDelete) {
+            deleteCategory(categoryToDelete);
+            setCategoryToDelete(null);
+            setIsModalOpen(false);
+        }
+    };
+
+    const closeModal = () => {
+        setCategoryToDelete(null);
+        setIsModalOpen(false);
     };
 
     return (
@@ -77,12 +99,18 @@ const AddCategory = () => {
                 {categories.map((category) => (
                     <div key={category.id} className="category-item">
                         <span>{category.category}</span>
-                        <button onClick={() => deleteCategory(category.id)}> {/* Send category id here */}
-                            <img src={cross_icon} alt="Delete" />
+                        <button onClick={() => handleDelete(category.id)}>
+                            <FaTrashAlt style={{color: "red"}}/>
                         </button>
                     </div>
                 ))}
             </div>
+            <ConfirmationModal
+                isOpen={isModalOpen}
+                onClose={closeModal}
+                onConfirm={confirmDelete}
+                message="Are you sure you want to delete this category?"
+            />
         </div>
     );
 };

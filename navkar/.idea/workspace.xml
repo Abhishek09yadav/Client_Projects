@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="configuring deployment">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="changed Navbar.jsx">
+      <change afterPath="$PROJECT_DIR$/navkar-admin/src/Components/AddCategory/ConfirmationModal.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-admin/src/Components/AddCategory/ConfirmationModal.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/Navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Navbar/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Navbar/Navbar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Navbar/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Navbar/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/AddCategory/AddCategory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/AddCategory/AddCategory.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,15 +202,8 @@
       <workItem from="1737818623039" duration="9388000" />
       <workItem from="1737833149003" duration="2142000" />
       <workItem from="1737959539382" duration="71000" />
-      <workItem from="1737976882791" duration="1218000" />
-    </task>
-    <task id="LOCAL-00024" summary="Refactors CSS and uses Bootstrap buttons in QuotationHistory.">
-      <option name="closed" value="true" />
-      <created>1734503509697</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1734503509697</updated>
+      <workItem from="1737976882791" duration="1600000" />
+      <workItem from="1737979486588" duration="1783000" />
     </task>
     <task id="LOCAL-00025" summary="Refetches user details on Quotation History click.">
       <option name="closed" value="true" />
@@ -598,7 +589,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737832208112</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="changed Navbar.jsx">
+      <option name="closed" value="true" />
+      <created>1737978431525</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1737978431526</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -618,7 +617,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implements product editing and modal validation." />
     <MESSAGE value="Implements user details accordion and download functionality." />
     <MESSAGE value="added Quotation history in userlist" />
     <MESSAGE value="Implements quotation search and date formatting." />
@@ -643,7 +641,8 @@
     <MESSAGE value="fixed login issue" />
     <MESSAGE value="remove pdfs" />
     <MESSAGE value="removed all uploads" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed all uploads" />
+    <MESSAGE value="changed Navbar.jsx" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed Navbar.jsx" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
