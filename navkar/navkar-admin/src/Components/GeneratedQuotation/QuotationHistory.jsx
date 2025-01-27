@@ -4,6 +4,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faDownload, faEye} from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
 import './QuotationHistory.css'; // Import the CSS file
+import {FaSearch} from "react-icons/fa";
 
 const url = import.meta.env.VITE_API_URL;
 
@@ -45,14 +46,15 @@ const QuotationHistory = () => {
     }, []);
 
     // Filter quotations based on search term
-    useEffect(() => {
+    const handleSearch = () => {
         const filtered = quotations.filter((quotation) =>
             quotation.userName.toLowerCase().includes(searchTerm.toLowerCase()) ||
             quotation.phoneNo.includes(searchTerm) ||
             quotation.formattedDate.includes(searchTerm)
         );
         setFilteredQuotations(filtered);
-    }, [searchTerm, quotations]);
+        setCurrentPage(0); // Reset to the first page after search
+    };
 
     // Handle pagination
     const handlePageClick = (data) => {
@@ -88,13 +90,18 @@ const QuotationHistory = () => {
             <h1>Quotation History</h1>
 
             {/* Search Bar */}
-            <input
-                type="text"
-                placeholder="Search by date (dd/mm/yy), user name, or phone number"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="search-bar"
-            />
+            <div className="search-container">
+                <input
+                    type="text"
+                    placeholder="Search by date (dd/mm/yy), user name, or phone number"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="search-bar"
+                />
+                <button onClick={handleSearch} className="search-button">
+                    <FaSearch/>
+                </button>
+            </div>
 
             {/* Quotation Table */}
             <table className="quotation-table">
