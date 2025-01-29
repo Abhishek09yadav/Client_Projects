@@ -5,12 +5,16 @@ import {faDownload, faEye} from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
 import './QuotationHistory.css';
 import {FaSearch} from "react-icons/fa";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const url = import.meta.env.VITE_API_URL;
 
 const QuotationHistory = () => {
     const [quotations, setQuotations] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null);
     const [currentPage, setCurrentPage] = useState(0);
     const [totalPages, setTotalPages] = useState(0);
     const itemsPerPage = 10; // Adjust the number of items per page as needed
@@ -24,14 +28,16 @@ const QuotationHistory = () => {
         return `${day}/${month}/${year}`;
     };
 
-    // Fetch quotations from the server with pagination and search
-    const fetchQuotations = async (page, search = '') => {
+    // Fetch quotations from the server with pagination, search, and date range
+    const fetchQuotations = async (page, search = '', startDate = null, endDate = null) => {
         try {
             const response = await axios.get(`${url}/api/quotations`, {
                 params: {
                     page: page + 1, // ReactPaginate starts from 0
                     limit: itemsPerPage,
-                    search: search
+                    search: search,
+                    startDate: startDate ? startDate.getTime() : null,
+                    endDate: endDate ? endDate.getTime() : null
                 }
             });
 
@@ -47,21 +53,21 @@ const QuotationHistory = () => {
         }
     };
 
-    // Fetch quotations on component mount and when page or search term changes
+    // Fetch quotations on component mount and when page, search term, or date range changes
     useEffect(() => {
-        fetchQuotations(currentPage, searchTerm);
+        fetchQuotations(currentPage, searchTerm, startDate, endDate);
     }, [currentPage]); // Fetch data when the page changes
 
     // Handle search when the search button is clicked
     const handleSearch = () => {
         setCurrentPage(0); // Reset to the first page after search
-        fetchQuotations(0, searchTerm); // Perform search with the current search term
+        fetchQuotations(0, searchTerm, startDate, endDate); // Perform search with the current search term and date range
     };
 
     // Handle pagination
     const handlePageClick = (data) => {
         setCurrentPage(data.selected); // Update the current page
-        fetchQuotations(data.selected, searchTerm); // Fetch data for the new page with the current search term
+        fetchQuotations(data.selected, searchTerm, startDate, endDate); // Fetch data for the new page with the current search term and date range
     };
 
     // Handle PDF download
@@ -97,6 +103,25 @@ const QuotationHistory = () => {
                     placeholder="Search by user name or phone number"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
+                    className="search-bar"
+                />
+                <DatePicker
+                    selected={startDate}
+                    onChange={(date) => setStartDate(date)}
+                    selectsStart
+                    startDate={startDate}
+                    endDate={endDate}
+                    placeholderText="Start Date"
+                    className="search-bar"
+                />
+                <DatePicker
+                    selected={endDate}
+                    onChange={(date) => setEndDate(date)}
+                    selectsEnd
+                    startDate={startDate}
+                    endDate={endDate}
+                    minDate={startDate}
+                    placeholderText="End Date"
                     className="search-bar"
                 />
                 <button onClick={handleSearch} className="search-button">

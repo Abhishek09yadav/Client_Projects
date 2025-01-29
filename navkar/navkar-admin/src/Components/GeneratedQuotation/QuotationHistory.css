@@ -6,6 +6,24 @@
     min-height: 100vh;
 }
 
+/* QuotationHistory.css */
+.react-datepicker-wrapper {
+    display: inline-block;
+    padding: 0;
+    border: 0;
+    width: auto;
+}
+
+.react-datepicker__input-container {
+    display: inline-block;
+}
+
+.react-datepicker__input-container input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
 /* Search container */
 .search-container {
     display: flex;

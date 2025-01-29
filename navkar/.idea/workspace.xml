@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="moved quotations to different route">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-backend/routes/quotationRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/routes/quotationRoutes.js" afterDir="false" />
     </list>
@@ -204,6 +205,7 @@
       <workItem from="1737976882791" duration="1600000" />
       <workItem from="1737979486588" duration="7876000" />
       <workItem from="1737994318471" duration="6261000" />
+      <workItem from="1738130424898" duration="888000" />
     </task>
     <task id="LOCAL-00028" summary="Implements product MOQ and styles item selection.">
       <option name="closed" value="true" />

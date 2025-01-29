@@ -12,7 +12,6 @@ const baseUrl = process.env.BASE_URL;
 const pdfStorage = multer.diskStorage({
     destination: './upload/pdf', // Save PDFs in the pdf folder
     filename: (req, file, cb) => {
-
         cb(null, `${file.fieldname}_${Date.now()}.pdf`);
     }
 });
@@ -65,10 +64,10 @@ router.post('/uploadQuotation', uploadPdf.single('quotation'), async (req, res) 
     }
 });
 
-// Route to fetch all quotations with pagination and search
+// Route to fetch all quotations with pagination, search, and date range
 router.get('/quotations', async (req, res) => {
     try {
-        const {page = 1, limit = 10, search = ''} = req.query;
+        const {page = 1, limit = 10, search = '', startDate, endDate} = req.query;
         const skip = (page - 1) * limit;
 
         // Build the search query
@@ -91,6 +90,13 @@ router.get('/quotations', async (req, res) => {
                 link: quotation.link
             }));
         });
+
+        // Filter by date range if provided
+        if (startDate && endDate) {
+            allQuotations = allQuotations.filter(quotation => {
+                return quotation.uploadedAt >= parseInt(startDate) && quotation.uploadedAt <= parseInt(endDate);
+            });
+        }
 
         // Sort quotations by date (newest first)
         allQuotations.sort((a, b) => b.uploadedAt - a.uploadedAt);
