@@ -62,7 +62,7 @@
     display: flex;
     align-items: center;
     gap: 45px;
-    padding-right: 50px;
+    /*padding-right: 50px;*/
 }
 
 .nav-login-cart button {
@@ -75,7 +75,7 @@
 
 .QuotationHistory {
     width: auto;
-    font-size: 12px;
+    font-size: clamp(2vh, 2vh, 4vh);
     /*padding: 8px 20px;*/
     white-space: nowrap;
     /*overflow: hidden;*/
