@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled Navbar.jsx, including login/logout functionality.&#10;Updated Navbar to display Quotation History link&#10;conditionally based on login status. Added a toast&#10;notification for login prompt.  Improved styling for&#10;several components, including item selection and&#10;category display.  Refactored file structure for&#10;modals and updated import paths accordingly.  Adjusted&#10;CSS for various elements to enhance visual appeal.">
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738319684732.pdf" afterDir="false" />
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display Quotation&#10;History link conditionally based on login status.&#10;Added a toast notification for login prompt. Improved&#10;styling for several components, including item&#10;selection and category display. Refactored file&#10;structure for modals and updated import paths&#10;accordingly. Adjusted CSS for various elements to&#10;enhance visual appeal.">
       <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738321972301.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Navbar/Navbar2.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Navbar/Navbar2.jsx" afterDir="false" />
@@ -205,15 +204,7 @@
       <workItem from="1737959539382" duration="71000" />
       <workItem from="1737976882791" duration="1600000" />
       <workItem from="1737979486588" duration="7876000" />
-      <workItem from="1738303476503" duration="17152000" />
-    </task>
-    <task id="LOCAL-00028" summary="Implements product MOQ and styles item selection.">
-      <option name="closed" value="true" />
-      <created>1734547416979</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1734547416979</updated>
+      <workItem from="1738303476503" duration="20009000" />
     </task>
     <task id="LOCAL-00029" summary="Adds nodemailer and nodemon packages.">
       <option name="closed" value="true" />
@@ -599,7 +590,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738319576603</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display Quotation&#10;History link conditionally based on login status.&#10;Added a toast notification for login prompt. Improved&#10;styling for several components, including item&#10;selection and category display. Refactored file&#10;structure for modals and updated import paths&#10;accordingly. Adjusted CSS for various elements to&#10;enhance visual appeal.">
+      <option name="closed" value="true" />
+      <created>1738322852986</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1738322852986</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -619,7 +618,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implements product sorting by date and updates product schema." />
     <MESSAGE value="fixed bugs in add product" />
     <MESSAGE value="Implements pagination for product list and quotation history." />
     <MESSAGE value="Refactors environment variables and adds logout functionality." />
@@ -644,7 +642,8 @@
     <MESSAGE value="added confirmation before deletion" />
     <MESSAGE value="styled Navbar.jsx" />
     <MESSAGE value="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled Navbar.jsx, including login/logout functionality.&#10;Updated Navbar to display Quotation History link&#10;conditionally based on login status. Added a toast&#10;notification for login prompt.  Improved styling for&#10;several components, including item selection and&#10;category display.  Refactored file structure for&#10;modals and updated import paths accordingly.  Adjusted&#10;CSS for various elements to enhance visual appeal." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled Navbar.jsx, including login/logout functionality.&#10;Updated Navbar to display Quotation History link&#10;conditionally based on login status. Added a toast&#10;notification for login prompt.  Improved styling for&#10;several components, including item selection and&#10;category display.  Refactored file structure for&#10;modals and updated import paths accordingly.  Adjusted&#10;CSS for various elements to enhance visual appeal." />
+    <MESSAGE value="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display Quotation&#10;History link conditionally based on login status.&#10;Added a toast notification for login prompt. Improved&#10;styling for several components, including item&#10;selection and category display. Refactored file&#10;structure for modals and updated import paths&#10;accordingly. Adjusted CSS for various elements to&#10;enhance visual appeal." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display Quotation&#10;History link conditionally based on login status.&#10;Added a toast notification for login prompt. Improved&#10;styling for several components, including item&#10;selection and category display. Refactored file&#10;structure for modals and updated import paths&#10;accordingly. Adjusted CSS for various elements to&#10;enhance visual appeal." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

@@ -88,6 +88,10 @@ const Category = () => {
     };
 
     const onProductSelect = (productId, initialQuantity, isChecked) => {
+        if (!userDetails) {
+            toast.warn("Please login to continue");
+            return;
+        }
 
         setSelectedProducts((prevSelectedProducts) => {
             const newSelectedProducts = { ...prevSelectedProducts };
@@ -98,10 +102,13 @@ const Category = () => {
                 delete newSelectedProducts[productId];
             }
 
-            // Calculate totalQuantity based on the updated state
-            const updatedQuantity = Object.values(newSelectedProducts).reduce((acc, product) => acc + product.quantity, 0);
-            setTotalQuantity(updatedQuantity);
+            // Correctly calculate totalQuantity
+            const updatedQuantity = Object.values(newSelectedProducts).reduce(
+                (acc, product) => acc + (product.quantity || 0),
+                0
+            );
 
+            setTotalQuantity(updatedQuantity);
             return newSelectedProducts;
         });
     };
@@ -109,14 +116,9 @@ const Category = () => {
 
     const onQuantityChange = (productId, quantity, MOQ) => {
         const parsedQuantity = Math.max(0, parseInt(quantity, 10) || 0);
-        console.log("userDetails:", userDetails);
-        if (!userDetails) {
 
-            toast.warn("please login to continue");
-        }
-        if (quantity < MOQ) {
-            toast.warn(`Current Quantity: ${quantity} is below the Minimum Order Quantity of ${MOQ}`, {
-                // position: "top-center",
+        if (parsedQuantity < MOQ) {
+            toast.warn(`Quantity: ${parsedQuantity} is below the Minimum Order Quantity of ${MOQ}`, {
                 autoClose: 2500,
                 hideProgressBar: false,
                 closeOnClick: true,
@@ -124,6 +126,7 @@ const Category = () => {
                 draggable: true,
             });
         }
+
         setSelectedProducts((prevSelectedProducts) => {
             const newSelectedProducts = { ...prevSelectedProducts };
 
@@ -131,10 +134,13 @@ const Category = () => {
                 newSelectedProducts[productId].quantity = parsedQuantity;
             }
 
-            // Recalculate totalQuantity directly
-            const updatedQuantity = Object.values(newSelectedProducts).reduce((acc, product) => acc + product.quantity, 0);
-            setTotalQuantity(updatedQuantity);
+            // Recalculate totalQuantity properly
+            const updatedQuantity = Object.values(newSelectedProducts).reduce(
+                (acc, product) => acc + (product.quantity || 0),
+                0
+            );
 
+            setTotalQuantity(updatedQuantity);
             return newSelectedProducts;
         });
     };

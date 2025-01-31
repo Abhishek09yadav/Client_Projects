@@ -16,7 +16,7 @@ const Item = ({
                   showCheckbox = true,
               }) => {
     return (
-        <div className="item-main-container bg-white position-relative rounded-3 "
+        <div className="item-main-container bg-white position-relative rounded-3"
              style={{width: '300px', border: "2px solid #008000"}}>
             {/*<div className="left">*/}
             <img src={image} alt="prod image" style={{width: "50%"}}/>
@@ -37,7 +37,7 @@ const Item = ({
                     <div className="quantity-input-wrapper gap-3">
                         <input
                             type="number"
-                            value={selectedQuantity}
+                            value={selectedQuantity || 0}
                             onChange={(e) => onQuantityChange(id, e.target.value, MOQ)}
                             className="quantity-input"
                         />
