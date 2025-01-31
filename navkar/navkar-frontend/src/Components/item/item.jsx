@@ -1,5 +1,6 @@
 import React from 'react';
 import './item.css';
+import {Link} from "react-router-dom";
 
 const Item = ({
                   id,
@@ -15,7 +16,7 @@ const Item = ({
                   showCheckbox = true,
               }) => {
     return (
-        <div className="item-main-container bg-white position-relative rounded-3"
+        <div className="item-main-container bg-white position-relative rounded-3 "
              style={{width: '300px', border: "2px solid #008000"}}>
             {/*<div className="left">*/}
             <img src={image} alt="prod image" style={{width: "50%"}}/>
@@ -55,9 +56,9 @@ const Item = ({
                     </div>
                 </div>
             </div>
-            <div className="bottom view-details text-center position-absolute  ">
+            <Link className="bottom view-details text-center position-absolute  " to={`/product/${id}`}>
                 View Details
-            </div>
+            </Link>
             {/*<div className={`item ${isSelected ? 'item-selected' : ''}`}>*/}
             {/*    <Link to={`/product/${id}`} className="item-image-container">*/}
             {/*        <img className="item-img" src={image} alt={name}/>*/}

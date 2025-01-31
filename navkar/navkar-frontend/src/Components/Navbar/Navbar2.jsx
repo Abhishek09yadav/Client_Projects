@@ -12,7 +12,7 @@ const Navbar2 = () => {
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-md">
-                <a className="navbar-brand text-white" href="#">Navkar E-Store</a>
+                <Link className="navbar-brand text-white" to={'/'}>Navkar E-Store</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -54,9 +54,9 @@ const Navbar2 = () => {
                                     Logout
                                 </a>
                             ) : (
-                                <a className="btn btn-dark rounded-3 text-white" href="#/login">
+                                <Link className="btn btn-dark rounded-3 text-white" to="/login">
                                     Login
-                                </a>
+                                </Link>
                             )}
 
                         </li>
