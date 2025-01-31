@@ -2,7 +2,7 @@
 import React, {useEffect, useState} from 'react';
 import add_icon from '../../assets/plus1.png';
 import './AddCategory.css';
-import ConfirmationModal from './ConfirmationModal.jsx';
+import ConfirmationModal from '../modal/ConfirmationModal.jsx';
 import {FaTrashAlt} from "react-icons/fa";
 
 const url = import.meta.env.VITE_API_URL; // Backend URL
@@ -109,7 +109,7 @@ const AddCategory = () => {
                 isOpen={isModalOpen}
                 onClose={closeModal}
                 onConfirm={confirmDelete}
-                message="Are you sure you want to delete this category?"
+                message="Are you sure you want to delete this category? "
             />
         </div>
     );

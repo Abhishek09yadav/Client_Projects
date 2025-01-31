@@ -1,7 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import "./mavbar.css"
+import "./Navbar.css"
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {Link} from "react-router-dom";
+import {ShopContext} from "../../Context/ShopContext";
 
 const Navbar2 = () => {
+    const {userDetails, setTriggerFetchingUserDetails} = useContext(ShopContext);
+    console.log('token ->', localStorage.getItem('auth-token'));
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-md">
@@ -12,12 +19,46 @@ const Navbar2 = () => {
                 </button>
                 <div className="collapse navbar-collapse justify-content-end gap-5" id="navbarNav">
                     <ul className="navbar-nav gap-5">
-                        <li className="nav-item ">
-                            <a className="nav-link text-white vb-qtn-history" aria-current="page" href="#">Quotation
-                                History</a>
+                        <li className="nav-item nav-link text-white vb-qtn-history">
+                            {userDetails ? (< Link to={'/quotationhistory'}>
+                <span className="fw-bold text-white QuotationHistory" onClick={
+                    () => {
+                        setTriggerFetchingUserDetails((prev) => !prev);
+                    }
+                }>Quotation History
+                </span>
+                            </Link>) : (<li className=" text-white  " onClick={
+                                () => {
+                                    toast.warn("Please log in to continue.", {
+                                        position: "top-center",
+                                        autoClose: 3000,
+                                        hideProgressBar: false,
+                                        closeOnClick: true,
+                                        pauseOnHover: true,
+                                        draggable: true,
+                                    });
+                                }
+                            }>Quotation History
+                            </li>)}
                         </li>
                         <li className="nav-item">
-                            <button className="btn btn-dark rounded-3 text-white" href="#">Logout</button>
+                            {localStorage.getItem('auth-token') ? (
+                                <a
+                                    className="btn btn-dark rounded-3 text-white"
+
+                                    onClick={() => {
+                                        localStorage.removeItem('auth-token');
+                                        window.location.replace('/');
+                                    }}
+                                >
+                                    Logout
+                                </a>
+                            ) : (
+                                <a className="btn btn-dark rounded-3 text-white" href="#/login">
+                                    Login
+                                </a>
+                            )}
+
                         </li>
                     </ul>
                 </div>
