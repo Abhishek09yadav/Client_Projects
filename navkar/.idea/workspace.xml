@@ -5,19 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display &quot;Quotation&#10;History&quot; link conditionally based on login status.&#10;Added a toast notification for login prompt. Improved&#10;styling for item selection and category display.&#10;Refactored modals and updated import paths. Adjusted&#10;CSS for various elements to enhance visual appeal.&#10;Fixed quantity input handling to prevent values below&#10;MOQ and correctly calculate total quantity.">
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738392078044.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738392786003.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738393274415.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738393757180.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738393878717.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738393899693.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738393918450.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738394104976.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738394520384.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738394648291.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738394670818.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738394693358.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738396646644.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738396678135.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738396860612.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738396896280.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/QuotationModal.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/QuotationModal.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +29,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="JSX File" />
         <option value="CSS File" />
+        <option value="JSX File" />
       </list>
     </option>
   </component>
@@ -214,15 +215,7 @@
       <workItem from="1737976882791" duration="1600000" />
       <workItem from="1737979486588" duration="7876000" />
       <workItem from="1738303476503" duration="22954000" />
-      <workItem from="1738390128115" duration="4158000" />
-    </task>
-    <task id="LOCAL-00031" summary="bux fixes">
-      <option name="closed" value="true" />
-      <created>1734551741103</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1734551741103</updated>
+      <workItem from="1738390128115" duration="6402000" />
     </task>
     <task id="LOCAL-00032" summary="bux fixes for deployment">
       <option name="closed" value="true" />
@@ -608,7 +601,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738390810057</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display &quot;Quotation&#10;History&quot; link conditionally based on login status.&#10;Added a toast notification for login prompt. Improved&#10;styling for item selection and category display.&#10;Refactored modals and updated import paths. Adjusted&#10;CSS for various elements to enhance visual appeal.&#10;Fixed quantity input handling to prevent values below&#10;MOQ and correctly calculate total quantity.">
+      <option name="closed" value="true" />
+      <created>1738394400644</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1738394400644</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
