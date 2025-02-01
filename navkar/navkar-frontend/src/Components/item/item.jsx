@@ -17,10 +17,9 @@ const Item = ({
               }) => {
     return (
         <div
-            className={`item-main-container bg-white position-relative rounded-3 item ${isSelected ? 'item-selected' : ''}`}
-             style={{width: '300px', border: "2px solid #008000"}}>
+            className={` item-main-container bg-white position-relative rounded-3 item ${isSelected ? 'item-selected' : ''}`}>
             {/*<div className="left">*/}
-            <img src={image} alt="prod image" style={{width: "50%"}}/>
+            <img src={image} className={'item-img'} alt="prod image"/>
             {/*</div>*/}
             <div className="d-flex justify-content-center align-items-center flex-column" style={{width: '50%'}}>
                 <div className="item-price d-flex justify-content-center flex-column">

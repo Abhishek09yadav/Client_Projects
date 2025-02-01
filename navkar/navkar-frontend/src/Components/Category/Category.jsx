@@ -238,21 +238,25 @@ const Category = () => {
                     {products.length > 0 ? (
                         <>
                             <span className={'products-in text-white'}>Products in {selectedCategory}</span>
-                            <div className="products-grid">
-                                {products.map((item) => (
-                                    <Item
+                            <div className="products-grid d-flex flex-wrap justify-content-center gap-5">
+                                {products.map((item, index) => (
+                                    <div
                                         key={item.id}
-                                        id={item.id}
-                                        name={item.name}
-                                        image={item.image}
-                                        new_price={item.new_price}
-                                        old_price={item.old_price}
-                                        MOQ={item.MOQ}
-                                        isSelected={!!selectedProducts[item.id]}
-                                        onProductSelect={onProductSelect}
-                                        onQuantityChange={onQuantityChange}
-                                        selectedQuantity={selectedProducts[item.id]?.quantity || item.MOQ}
-                                    />
+                                        className={index === products.length - 1 ? 'last-item' : ''}
+                                    >
+                                        <Item
+                                            id={item.id}
+                                            name={item.name}
+                                            image={item.image}
+                                            new_price={item.new_price}
+                                            old_price={item.old_price}
+                                            MOQ={item.MOQ}
+                                            isSelected={!!selectedProducts[item.id]}
+                                            onProductSelect={onProductSelect}
+                                            onQuantityChange={onQuantityChange}
+                                            selectedQuantity={selectedProducts[item.id]?.quantity || item.MOQ}
+                                        />
+                                    </div>
                                 ))}
                             </div>
                         </>
@@ -260,9 +264,10 @@ const Category = () => {
                         <img className={'no_products_found'} src={no_products_found} alt={''}/>
                     )}
                 </div>
+
             )}
 
-            <div className="net-quantity-container">
+            <div className="net-quantity-container ">
                 <span className="net-quantity">Net Quantity: {totalQuantity}</span>
                 <button
                     className="query-generator-button"

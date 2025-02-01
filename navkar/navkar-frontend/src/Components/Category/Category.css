@@ -17,7 +17,7 @@
 
 .products-in {
     display: block;
-    color: #171717;
+    color: #212529;
     font-size: 30px;
     font-weight: 600;
     margin: 40px;
@@ -32,13 +32,24 @@
     margin-bottom: 70px;
 }
 
-.products-grid {
-    margin: 40px 40px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    align-items: center;
-    gap: 40px;
+.last-item-wrapper {
+    flex-grow: 1; /* Allow the wrapper to grow and fill available space */
+    display: flex;
+    justify-content: flex-start; /* Align the last item to the left */
+    max-width: calc(33.33% - 20px); /* Adjust based on your grid layout (3 columns) */
 }
+
+/*.products-grid {*/
+/*    margin-left:  70px;*/
+
+/*}*/
+/*.products-grid {*/
+
+/*    display: flex;*/
+/*fle*/
+/*    align-items: center;*/
+/*    gap: 40px;*/
+/*}*/
 
 .no_products_found {
     width: 30%;
@@ -165,10 +176,10 @@
         max-height: 100px;
     }
 
-    .products-grid {
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 10px;
-    }
+    /*.products-grid {*/
+    /*    grid-template-columns: 1fr 1fr 1fr;*/
+    /*    gap: 10px;*/
+    /*}*/
 
     .category-pill span {
         font-size: 15px;
@@ -199,12 +210,12 @@
 
     .products-in {
         font-size: 18px;
-
     }
 
     .query-generator-button {
         width: 200px;
     }
+
 }
 
 @media (max-width: 500px) {
@@ -217,10 +228,10 @@
         font-size: 12px;
     }
 
-    .products-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-    }
+    /*.products-grid {*/
+    /*    grid-template-columns: 1fr 1fr;*/
+    /*    gap: 10px;*/
+    /*}*/
 
     .products-in {
         font-size: 15px;
