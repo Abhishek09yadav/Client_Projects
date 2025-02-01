@@ -56,7 +56,8 @@ const Item = ({
                     </div>
                 </div>
             </div>
-            <Link className="bottom view-details text-center position-absolute  " to={`/product/${id}`}>
+            <Link className="bottom view-details text-center position-absolute text-decoration-none text-amber-100"
+                  to={`/product/${id}`}>
                 View Details
             </Link>
             {/*<div className={`item ${isSelected ? 'item-selected' : ''}`}>*/}

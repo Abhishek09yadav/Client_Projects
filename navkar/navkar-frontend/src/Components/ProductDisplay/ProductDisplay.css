@@ -1,10 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 .productdisplay {
     display: flex;
     margin: 0 15px;
+    color: white;
 }
 
 .productdisplay-left {
@@ -40,7 +37,7 @@
 }
 
 .productdisplay-right h1 {
-    color: #3d3d3d;
+    color: white;
     font-size: 40px;
     font-weight: 600;
 }
@@ -68,7 +65,7 @@
 }
 
 .productdisplay-right-prices-old {
-    color: #818181;
+    color: white;
     text-decoration: line-through;
 }
 
@@ -79,7 +76,6 @@
 
 .productdisplay-right-prices h1 {
     margin-top: 55px;
-    color: #656565;
     font-size: 20px;
     font-weight: 600;
 }
@@ -90,7 +86,7 @@
 
 .productdisplay-right-size h1 {
     margin-top: 55px;
-    color: #656565;
+
     font-size: 20px;
     font-weight: 600;
 }
