@@ -1,60 +1,132 @@
 .DescriptionBox {
-    padding: 120px 170px;
-    color: white; /* Set default text color to white */
+    padding: 80px 0;
+    color: white;
 }
 
 .DescriptionBox-navigator {
     display: flex;
-    flex-direction: row;
-    /*gap: 16px;*/
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap; /* Allow items to wrap */
 }
 
-.DescriptionBox-nav-box {
+.DescriptionBox-nav-box, .DescriptionBox-nav-box-fade {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 16px;
+    font-size: clamp(14px, 2vw, 16px); /* Adaptive font size */
     font-weight: 600;
-    width: 171px;
+    width: 100%; /* Responsive width */
+    max-width: 200px; /* Limit max width */
     height: 71px;
     border: 1px solid #d0d0d0;
-    color: white; /* Set text color to white */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .DescriptionBox-nav-box-fade {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: 600;
-    width: 171px;
-    height: 71px;
-    border: 1px solid #d0d0d0;
     background-color: #FBFBFB;
-    color: #555; /* Keep this color for contrast */
+    color: #555;
+}
+
+.DescriptionBox-nav-box:hover, .DescriptionBox-nav-box-fade:hover {
+    background-color: #007bff;
+    color: white;
 }
 
 .DescriptionBox-Description {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
     border: 1px solid #d0d0d0;
-    padding: 48px;
-    color: white; /* Set text color to white */
+    padding: 24px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
 }
 
-@media (max-width: 1280px) {
+/* MEDIA QUERIES */
+
+/* Tablets and small laptops (1024px) */
+@media (max-width: 1024px) {
     .DescriptionBox {
-        margin: 160px;
+        padding: 60px 0;
     }
-}
 
-@media (max-width: 800px) {
-    .DescriptionBox {
-        margin: 60px 20px;
+    .DescriptionBox-nav-box, .DescriptionBox-nav-box-fade {
+        max-width: 180px;
+        height: 65px;
     }
 
     .DescriptionBox-Description {
+        padding: 20px;
+    }
+}
+
+/* Tablets (768px) */
+@media (max-width: 768px) {
+    .DescriptionBox {
+        padding: 50px 0;
+    }
+
+    .DescriptionBox-navigator {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .DescriptionBox-nav-box, .DescriptionBox-nav-box-fade {
+        max-width: 100%;
+        height: 60px;
+    }
+
+    .DescriptionBox-Description {
+        padding: 18px;
+    }
+}
+
+/* Large phones (500px) */
+@media (max-width: 500px) {
+    .DescriptionBox {
+        padding: 40px 0;
+    }
+
+    .DescriptionBox-nav-box, .DescriptionBox-nav-box-fade {
         font-size: 14px;
+        height: 55px;
+    }
+
+    .DescriptionBox-Description {
+        padding: 16px;
+    }
+}
+
+/* Medium phones (425px) */
+@media (max-width: 425px) {
+    .DescriptionBox {
+        padding: 30px 0;
+    }
+
+    .DescriptionBox-nav-box, .DescriptionBox-nav-box-fade {
+        height: 50px;
+    }
+
+    .DescriptionBox-Description {
+        padding: 14px;
+        font-size: 14px;
+    }
+}
+
+/* Small phones (325px, 320px) */
+@media (max-width: 325px) {
+    .DescriptionBox {
+        padding: 20px 0;
+    }
+
+    .DescriptionBox-nav-box, .DescriptionBox-nav-box-fade {
+        font-size: 13px;
+        height: 45px;
+    }
+
+    .DescriptionBox-Description {
+        padding: 12px;
+        font-size: 13px;
     }
 }
