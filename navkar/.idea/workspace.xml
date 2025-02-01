@@ -4,19 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display Quotation&#10;History link conditionally based on login status.&#10;Added a toast notification for login prompt.&#10;Improved styling for item selection and category&#10;display. Refactored file structure for modals and&#10;updated import paths accordingly. Adjusted CSS for&#10;various elements to enhance visual appeal.  Fixed&#10;quantity input handling to prevent values below MOQ&#10;and correctly calculate total quantity.">
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738390200420.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738328514819.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738328890618.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738329141038.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738329328760.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738329367156.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738329404107.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738329475970.pdf" afterDir="false" />
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display &quot;Quotation&#10;History&quot; link conditionally based on login status.&#10;Added a toast notification for login prompt. Improved&#10;styling for item selection and category display.&#10;Refactored modals and updated import paths. Adjusted&#10;CSS for various elements to enhance visual appeal.&#10;Fixed quantity input handling to prevent values below&#10;MOQ and correctly calculate total quantity.">
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738392078044.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738392786003.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738393274415.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738393757180.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738393878717.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738393899693.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738393918450.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738394104976.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,30 +60,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Node.js.backend.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/monuy/Desktop/Repos/Client_Projects/navkar&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.admin.executor&quot;: &quot;Run&quot;,
-    &quot;npm.backend.executor&quot;: &quot;Run&quot;,
-    &quot;npm.frontend.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.28614458&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Node.js.backend.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/monuy/Desktop/Repos/Client_Projects/navkar",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.admin.executor": "Run",
+    "npm.backend.executor": "Run",
+    "npm.frontend.executor": "Run",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui",
+    "settings.editor.splitter.proportion": "0.28614458",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -213,15 +214,7 @@
       <workItem from="1737976882791" duration="1600000" />
       <workItem from="1737979486588" duration="7876000" />
       <workItem from="1738303476503" duration="22954000" />
-      <workItem from="1738390128115" duration="392000" />
-    </task>
-    <task id="LOCAL-00030" summary="Adds nodemailer and nodemon to backend dependencies.">
-      <option name="closed" value="true" />
-      <created>1734550817580</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1734550817580</updated>
+      <workItem from="1738390128115" duration="4158000" />
     </task>
     <task id="LOCAL-00031" summary="bux fixes">
       <option name="closed" value="true" />
@@ -607,7 +600,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738327297826</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display &quot;Quotation&#10;History&quot; link conditionally based on login status.&#10;Added a toast notification for login prompt. Improved&#10;styling for item selection and category display.&#10;Refactored modals and updated import paths. Adjusted&#10;CSS for various elements to enhance visual appeal.&#10;Fixed quantity input handling to prevent values below&#10;MOQ and correctly calculate total quantity.">
+      <option name="closed" value="true" />
+      <created>1738390810057</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1738390810057</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -627,7 +628,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implements pagination for product list and quotation history." />
     <MESSAGE value="Refactors environment variables and adds logout functionality." />
     <MESSAGE value="making admin panel device responsive" />
     <MESSAGE value="adding banner in app.js" />
@@ -652,7 +652,8 @@
     <MESSAGE value="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled Navbar.jsx, including login/logout functionality.&#10;Updated Navbar to display Quotation History link&#10;conditionally based on login status. Added a toast&#10;notification for login prompt.  Improved styling for&#10;several components, including item selection and&#10;category display.  Refactored file structure for&#10;modals and updated import paths accordingly.  Adjusted&#10;CSS for various elements to enhance visual appeal." />
     <MESSAGE value="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display Quotation&#10;History link conditionally based on login status.&#10;Added a toast notification for login prompt. Improved&#10;styling for several components, including item&#10;selection and category display. Refactored file&#10;structure for modals and updated import paths&#10;accordingly. Adjusted CSS for various elements to&#10;enhance visual appeal." />
     <MESSAGE value="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display Quotation&#10;History link conditionally based on login status.&#10;Added a toast notification for login prompt.&#10;Improved styling for item selection and category&#10;display. Refactored file structure for modals and&#10;updated import paths accordingly. Adjusted CSS for&#10;various elements to enhance visual appeal.  Fixed&#10;quantity input handling to prevent values below MOQ&#10;and correctly calculate total quantity." />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display Quotation&#10;History link conditionally based on login status.&#10;Added a toast notification for login prompt.&#10;Improved styling for item selection and category&#10;display. Refactored file structure for modals and&#10;updated import paths accordingly. Adjusted CSS for&#10;various elements to enhance visual appeal.  Fixed&#10;quantity input handling to prevent values below MOQ&#10;and correctly calculate total quantity." />
+    <MESSAGE value="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display &quot;Quotation&#10;History&quot; link conditionally based on login status.&#10;Added a toast notification for login prompt. Improved&#10;styling for item selection and category display.&#10;Refactored modals and updated import paths. Adjusted&#10;CSS for various elements to enhance visual appeal.&#10;Fixed quantity input handling to prevent values below&#10;MOQ and correctly calculate total quantity." />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display &quot;Quotation&#10;History&quot; link conditionally based on login status.&#10;Added a toast notification for login prompt. Improved&#10;styling for item selection and category display.&#10;Refactored modals and updated import paths. Adjusted&#10;CSS for various elements to enhance visual appeal.&#10;Fixed quantity input handling to prevent values below&#10;MOQ and correctly calculate total quantity." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

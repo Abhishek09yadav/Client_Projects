@@ -1,24 +1,19 @@
 .item-main-container {
     display: flex;
-    /*justify-content: center;*/
 }
 
 .quantity-input-wrapper {
     display: flex;
     flex-direction: row;
 }
+
 .item {
     display: flex;
-    /*align-items: center;*/
     justify-content: space-between;
-
-    /*max-width: 600px;*/
     background: linear-gradient(145deg, #ffffff, #f5f5f5);
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    /*padding: 15px;*/
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    /*border: 2px solid transparent;*/
 }
 
 .item:hover {
@@ -31,27 +26,15 @@
     background: linear-gradient(145deg, #f0fdf4, #ecfdf5);
 }
 
-.item-image-container {
-    flex-shrink: 0;
-}
-
 .item-img {
     width: 120px;
     height: 120px;
     object-fit: cover;
-    /*border-radius: 8px;*/
     transition: transform 0.3s ease-in-out;
 }
 
 .item-img:hover {
     transform: scale(1.05);
-}
-
-.item-details {
-    flex-grow: 1;
-    margin-left: 20px;
-    display: flex;
-    flex-direction: column;
 }
 
 .product-name {
@@ -62,7 +45,6 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    /*max-width: 100px !important;*/
 }
 
 .item-price {
@@ -106,20 +88,6 @@
     text-align: center;
 }
 
-/*.item-select-wrapper {*/
-/*    margin-top: auto;*/
-/*}*/
-
-.item-checkbox-container {
-    display: flex;
-    align-items: center;
-    position: relative;
-    cursor: pointer;
-    padding-left: 30px;
-    font-size: 14px;
-    color: #4b5563;
-}
-
 .view-details {
     bottom: -26px;
     color: white;
@@ -128,74 +96,29 @@
     right: 0;
 }
 
-.item-checkbox {
-    /*position: absolute;*/
-    /*opacity: 0;*/
-    /*cursor: pointer;*/
-}
-
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    background-color: #eee;
-    border-radius: 4px;
-    border: 1px solid #10b981;
-}
-
-.item-checkbox:checked ~ .checkmark {
-    background-color: #10b981;
-}
-
-.checkmark:after {
-    content: '';
-    position: absolute;
-    display: none;
-}
-
-.item-checkbox:checked ~ .checkmark:after {
-    display: block;
-    left: 7px;
-    top: 3px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-}
-
-/* Media Queries */
-
-/* Large tablets and small laptops */
+/* Responsive Design */
 @media (max-width: 1024px) {
     .item {
         width: 95%;
         max-width: 550px;
         padding: 12px;
     }
-
     .item-img {
         width: 110px;
         height: 110px;
     }
-
     .product-name {
         font-size: 16px;
         max-width: 250px;
     }
-
     .item-price-old {
         font-size: 14px;
     }
-
     .item-price-new {
         font-size: 18px;
     }
 }
 
-/* Tablets */
 @media (max-width: 768px) {
     .item {
         flex-direction: column;
@@ -203,139 +126,50 @@
         width: 90%;
         max-width: 500px;
     }
-
     .item-details {
         margin-left: 0;
         margin-top: 15px;
         align-items: center;
         text-align: center;
     }
-
     .item-img {
         width: 100px;
         height: 100px;
     }
-
-    .product-name {
-        max-width: 200px;
-    }
-
-    .item-price {
-        justify-content: center;
-    }
 }
 
-/* Large phones */
 @media (max-width: 500px) {
     .item {
         width: 95%;
         padding: 10px;
     }
-
     .item-img {
         width: 90px;
         height: 90px;
     }
-
     .product-name {
         font-size: 15px;
         max-width: 180px;
     }
-
-    .item-price-old {
-        font-size: 13px;
-    }
-
-    .item-price-new {
-        font-size: 16px;
-    }
-
-    .MOQ {
-        font-size: 12px;
-    }
 }
 
-/* Medium phones */
 @media (max-width: 425px) {
     .item {
         width: 98%;
         padding: 8px;
     }
-
     .item-img {
         width: 80px;
         height: 80px;
     }
-
-    .product-name {
-        font-size: 14px;
-        max-width: 160px;
-    }
-
-    .item-quantity {
-        gap: 5px;
-    }
-
-    .quantity-input {
-        width: 60px;
-        padding: 4px;
-    }
 }
 
-/* Small phones */
-@media (max-width: 325px) {
-    .item {
-        padding: 6px;
-    }
-
-    .item-img {
-        width: 70px;
-        height: 70px;
-    }
-
-    .product-name {
-        font-size: 13px;
-        max-width: 140px;
-    }
-
-    .item-price {
-        gap: 6px;
-    }
-
-    .item-price-old {
-        font-size: 12px;
-    }
-
-    .item-price-new {
-        font-size: 14px;
-    }
-}
-
-/* Extra small phones */
 @media (max-width: 320px) {
     .item-img {
         width: 65px;
         height: 65px;
     }
-
     .product-name {
         max-width: 130px;
-    }
-
-    .item-checkbox-container {
-        font-size: 12px;
-        padding-left: 25px;
-    }
-
-    .checkmark {
-        width: 16px;
-        height: 16px;
-    }
-
-    .item-checkbox:checked ~ .checkmark:after {
-        left: 5px;
-        top: 2px;
-        width: 4px;
-        height: 8px;
     }
 }

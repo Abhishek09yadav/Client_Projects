@@ -16,7 +16,8 @@ const Item = ({
                   showCheckbox = true,
               }) => {
     return (
-        <div className="item-main-container bg-white position-relative rounded-3"
+        <div
+            className={`item-main-container bg-white position-relative rounded-3 item ${isSelected ? 'item-selected' : ''}`}
              style={{width: '300px', border: "2px solid #008000"}}>
             {/*<div className="left">*/}
             <img src={image} alt="prod image" style={{width: "50%"}}/>

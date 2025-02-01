@@ -319,8 +319,8 @@ const Category = () => {
                 <div className="modal-overlay">
                     <div className="modal-content">
 
-                        <div id={"generate-pdf"}>
-                            <div className="nav-logo-container" style={{color: '#ff5733'}}>
+                        <div id="generate-pdf" className="pdf-content">
+                            <div className="nav-logo-container">
                                 <img src={logo} style={{maxWidth: "90px"}} alt="logo"/>
                                 <p>NAVKAR</p>
                             </div>
@@ -360,7 +360,7 @@ const Category = () => {
                                 </thead>
                                 <tbody>
                                 {selectedItems.map((item, index) => (
-                                    <tr style={{color: "white"}} key={index}>
+                                    <tr key={index}>
                                         <td>{item.name}</td>
                                         <td>{item.quantity}</td>
                                         <td>{item.category}</td>
@@ -376,10 +376,9 @@ const Category = () => {
                             </div>
                             {totalQuantity > 0 && (
                                 <div className="total-quantity">
-                                    <p style={{color: "white"}}>Total Quantity: {totalQuantity}</p>
+                                    <p>Total Quantity: {totalQuantity}</p>
                                 </div>
                             )}
-
                             <h3 className={'signature'}>Sign: <img src={signanureimg} className={'signature'}/></h3>
                         </div>
                         <button onClick={handleOnClick}>Download PDF</button>
