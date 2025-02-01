@@ -104,7 +104,7 @@ const Category = () => {
 
             // Correctly calculate totalQuantity
             const updatedQuantity = Object.values(newSelectedProducts).reduce(
-                (acc, product) => acc + (product.quantity || 0),
+                (acc, product) => acc + (Number(product.quantity) || 0),
                 0
             );
 
@@ -320,7 +320,7 @@ const Category = () => {
                     <div className="modal-content">
 
                         <div id={"generate-pdf"}>
-                            <div className="nav-logo-container" style={{textDecoration: 'none'}}>
+                            <div className="nav-logo-container" style={{color: '#ff5733'}}>
                                 <img src={logo} style={{maxWidth: "90px"}} alt="logo"/>
                                 <p>NAVKAR</p>
                             </div>
@@ -360,7 +360,7 @@ const Category = () => {
                                 </thead>
                                 <tbody>
                                 {selectedItems.map((item, index) => (
-                                    <tr key={index}>
+                                    <tr style={{color: "white"}} key={index}>
                                         <td>{item.name}</td>
                                         <td>{item.quantity}</td>
                                         <td>{item.category}</td>
@@ -376,7 +376,7 @@ const Category = () => {
                             </div>
                             {totalQuantity > 0 && (
                                 <div className="total-quantity">
-                                    <p>Total Quantity: {totalQuantity}</p>
+                                    <p style={{color: "white"}}>Total Quantity: {totalQuantity}</p>
                                 </div>
                             )}
 
