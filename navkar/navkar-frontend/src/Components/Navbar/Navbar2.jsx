@@ -18,7 +18,11 @@ const Navbar2 = () => {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse justify-content-end gap-5" id="navbarNav">
-                    <ul className="navbar-nav gap-5">
+                    <ul className="navbar-nav gap-2">
+                        <Link to={"https://urgent-nu.vercel.app/"} target={`_blank`}
+                              className={`className="nav-item nav-link text-white vb-qtn-history`}>
+                            Navkar Home
+                        </Link>
                         <li className="nav-item nav-link text-white vb-qtn-history">
                             {userDetails ? (< Link to={'/quotationhistory'}>
                 <span className="fw-bold text-white QuotationHistory" onClick={
@@ -60,6 +64,7 @@ const Navbar2 = () => {
                             )}
 
                         </li>
+
                     </ul>
                 </div>
             </div>

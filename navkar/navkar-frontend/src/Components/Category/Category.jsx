@@ -221,7 +221,7 @@ const Category = () => {
     return (
         <div ref={categoryRef} className={'Category container-md p-0'}>
             <ToastContainer/>
-            <h1 className={`text-white text-start my-4 fs-3`}>Categories</h1>
+            <h1 className={`text-white text-lg-start my-4 fs-3`}>Categories</h1>
             <div className="category-container p-0">
                 {categories.map((category, index) => (
                     <div
@@ -238,7 +238,8 @@ const Category = () => {
                     {products.length > 0 ? (
                         <>
                             <span className={'products-in text-white'}>Products in {selectedCategory}</span>
-                            <div className="products-grid d-flex flex-wrap justify-content-between gap-5">
+                            <div
+                                className="products-grid d-flex flex-wrap justify-content-md-between justify-content-center gap-5">
                                 {products.map((item, index) => (
                                     <div
                                         key={item.id}

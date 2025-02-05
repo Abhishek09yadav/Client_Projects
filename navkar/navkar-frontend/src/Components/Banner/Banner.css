@@ -4,9 +4,23 @@
 
 .carousel-main-container {
     margin: 20px 0 10px 0;
-
+    height: 18.75rem;
 }
 
+.carousel-container {
+    height: 300px;
+    max-height: 300px;
+}
+
+.carousel-inner-container {
+    height: 300px;
+}
+
+.carousel-image {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+}
 
 /* Media Queries */
 @media (max-width: 1024px) {
@@ -28,7 +42,6 @@
 
     .carousel-main-container {
         margin: 5px 0 5px 0;
-
     }
 }
 

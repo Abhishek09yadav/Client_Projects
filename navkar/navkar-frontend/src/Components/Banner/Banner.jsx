@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import './Banner.css'
+import './Banner.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 
 const url = process.env.REACT_APP_API_URL;
+
 const Banner = () => {
     const [images, setImages] = useState('');
 
@@ -22,31 +23,30 @@ const Banner = () => {
         fetchBanners();
     }, []);
 
-
-
-
     return (
-        <div className={'carousel-main-container container-md mx-auto position-relative p-0'} style={{height: '300px'}}>
-            <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel"
-                 style={{height: '300px'}}>
-                <div className="carousel-inner" style={{height: '300px'}}>
-                    {images.image ? (<div className="carousel-item active">
-                        <img src={images.image} className="d-block w-100 images" alt="..."
-                             style={{width: '100%', height: 'auto', maxHeight: '300px'}}/>
-                    </div>) : ''}
-                    {images.image1 ? (<div className="carousel-item">
-                        <img src={images.image1} className="d-block w-100 images" alt="..."
-                             style={{width: '100%', height: 'auto', maxHeight: '300px'}}/>
-                    </div>) : ''}
-                    {images.image2 ? (<div className="carousel-item">
-                        <img src={images.image2} className="d-block w-100 images" alt="..."
-                             style={{width: '100%', height: 'auto', maxHeight: '300px'}}/>
-                    </div>) : ''}
-                    {images.image3 ? (<div className="carousel-item">
-                        <img src={images.image3} className="d-block w-100 images" alt="..."
-                             style={{width: '100%', height: 'auto', maxHeight: '300px'}}/>
-                    </div>) : ''}
-
+        <div className="carousel-main-container container-md mx-auto position-relative p-0">
+            <div id="carouselExampleSlidesOnly" className="carousel slide carousel-container" data-bs-ride="carousel">
+                <div className="carousel-inner carousel-inner-container">
+                    {images.image ? (
+                        <div className="carousel-item active">
+                            <img src={images.image} className="d-block w-100 images carousel-image" alt="..."/>
+                        </div>
+                    ) : ''}
+                    {images.image1 ? (
+                        <div className="carousel-item">
+                            <img src={images.image1} className="d-block w-100 images carousel-image" alt="..."/>
+                        </div>
+                    ) : ''}
+                    {images.image2 ? (
+                        <div className="carousel-item">
+                            <img src={images.image2} className="d-block w-100 images carousel-image" alt="..."/>
+                        </div>
+                    ) : ''}
+                    {images.image3 ? (
+                        <div className="carousel-item">
+                            <img src={images.image3} className="d-block w-100 images carousel-image" alt="..."/>
+                        </div>
+                    ) : ''}
                 </div>
             </div>
         </div>
