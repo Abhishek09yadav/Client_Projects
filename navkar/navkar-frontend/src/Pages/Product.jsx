@@ -15,7 +15,7 @@ function Product(props) {
     const product = all_product.find((e) => e.id === Number(productId))
     return (
 
-        <div className={'Product'}>
+        <div className={'Product container-md'} style={{padding: '0px'}}>
             <Breadcrum product={product}/>
             <ProductDisplay product={product}/>
             <DescriptionBox product={product}/>

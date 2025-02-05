@@ -33,7 +33,7 @@
 
 @media (max-width: 500px) {
     .Breadcrum {
-      
+        margin: 0;
         font-size: 10px;
     }
 

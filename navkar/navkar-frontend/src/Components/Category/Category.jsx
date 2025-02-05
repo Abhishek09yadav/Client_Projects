@@ -238,7 +238,7 @@ const Category = () => {
                     {products.length > 0 ? (
                         <>
                             <span className={'products-in text-white'}>Products in {selectedCategory}</span>
-                            <div className="products-grid d-flex flex-wrap justify-content-center gap-5">
+                            <div className="products-grid d-flex flex-wrap justify-content-between gap-5">
                                 {products.map((item, index) => (
                                     <div
                                         key={item.id}

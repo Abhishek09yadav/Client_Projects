@@ -7,7 +7,7 @@ import arrow_icon from '../Assets/breadcrum_arrow.png';
 const Breadcrum = (props) => {
     const {product} = props;
     return (
-        <div className={'Breadcrum'}>
+        <div className={'Breadcrum w-100'}>
             HOME <img src={arrow_icon} alt=""/>
 
             SHOP <img src={arrow_icon} alt=""/> {product?.category} <img

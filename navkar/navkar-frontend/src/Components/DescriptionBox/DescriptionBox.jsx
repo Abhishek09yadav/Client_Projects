@@ -4,7 +4,7 @@ import {Col, Container, Row} from 'react-bootstrap';
 
 const DescriptionBox = ({ product }) => {
     return (
-        <Container className="DescriptionBox">
+        <Container className="DescriptionBox ">
             <Row>
                 <Col>
                     <div className="DescriptionBox-navigator">
@@ -16,7 +16,7 @@ const DescriptionBox = ({ product }) => {
             </Row>
             <Row>
                 <Col>
-                    <div className="DescriptionBox-Description">
+                    <div className="DescriptionBox-Description ">
                         <div
                             dangerouslySetInnerHTML={{
                                 __html: product?.Description || '<p>No description available.</p>',

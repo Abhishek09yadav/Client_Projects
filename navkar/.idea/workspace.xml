@@ -4,30 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="setting up dark theme">
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738413448566.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738413448573.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738413448590.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738413448606.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738413492390.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738413492395.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738413492416.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738413492429.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738413572678.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738413572684.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738413572710.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738413572725.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738413584596.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738413584604.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738413584629.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738413584647.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738413593885.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738413593891.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738413593914.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738413593934.webp" afterDir="false" />
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="setting up dark theme for description box">
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738416468768.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Breadcrums/Breadcrum.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Breadcrums/Breadcrum.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Breadcrums/Breadcrum.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Breadcrums/Breadcrum.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/DescriptionBox/DescriptionBox.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/DescriptionBox/DescriptionBox.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/DescriptionBox/DescriptionBox.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/DescriptionBox/DescriptionBox.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/ProductDisplay/ProductDisplay.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/ProductDisplay/ProductDisplay.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/ProductDisplay/ProductDisplay.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/ProductDisplay/ProductDisplay.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Pages/Product.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Pages/Product.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Pages/Shop.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Pages/Shop.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +107,7 @@
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\Components\LoginSignup" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.admin">
+  <component name="RunManager" selected="npm.frontend">
     <configuration default="true" type="NodeJSConfigurationType" node-parameters="node index.js" working-dir="$PROJECT_DIR$/navkar-backend">
       <method v="2" />
     </configuration>
@@ -224,15 +212,10 @@
       <workItem from="1737976882791" duration="1600000" />
       <workItem from="1737979486588" duration="7876000" />
       <workItem from="1738303476503" duration="22954000" />
-      <workItem from="1738390128115" duration="19830000" />
-    </task>
-    <task id="LOCAL-00035" summary="Refines item and category display styling.">
-      <option name="closed" value="true" />
-      <created>1734594352426</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1734594352426</updated>
+      <workItem from="1738390128115" duration="21676000" />
+      <workItem from="1738508527536" duration="18000" />
+      <workItem from="1738565614555" duration="24000" />
+      <workItem from="1738743598690" duration="6868000" />
     </task>
     <task id="LOCAL-00036" summary="Styles item image, price, and category font size.">
       <option name="closed" value="true" />
@@ -618,7 +601,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738412738404</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="setting up dark theme for description box">
+      <option name="closed" value="true" />
+      <created>1738414538894</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1738414538894</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -638,7 +629,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="adding banner upload in admin panel" />
     <MESSAGE value="banner upload and banner display is now completed" />
     <MESSAGE value="Styles active category pill and adds logo to PDF." />
     <MESSAGE value="Styles item component and banner responsiveness." />
@@ -663,7 +653,8 @@
     <MESSAGE value="feat: Implement QuotationModal and refine styling (main)&#10;&#10;- Created `QuotationModal` component to display selected&#10;  items, total price, and user details for quotation&#10;  generation.&#10;- Implemented PDF generation and download&#10;  functionality within `QuotationModal`.&#10;- Updated `Category` component to handle `QuotationModal`&#10;  display and PDF generation logic.&#10;- Improved styling for `Navbar`, item selection, and&#10;  category display.&#10;- Refactored CSS and moved modal-related styles to&#10;  `QuotationModal.css`.&#10;- Adjusted quantity input handling to prevent values&#10;  below MOQ and ensure accurate total quantity&#10;  calculation." />
     <MESSAGE value="Implements quotation modal, refines styling, and adjusts quantity input." />
     <MESSAGE value="setting up dark theme" />
-    <option name="LAST_COMMIT_MESSAGE" value="setting up dark theme" />
+    <MESSAGE value="setting up dark theme for description box" />
+    <option name="LAST_COMMIT_MESSAGE" value="setting up dark theme for description box" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
