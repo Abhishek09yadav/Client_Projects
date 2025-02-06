@@ -171,17 +171,11 @@
         width: 98%;
         padding: 8px;
     }
-    .item-img {
-        width: 80px;
-        height: 80px;
-    }
+
 }
 
 @media (max-width: 320px) {
-    .item-img {
-        width: 65px;
-        height: 65px;
-    }
+
     .product-name {
         max-width: 130px;
     }

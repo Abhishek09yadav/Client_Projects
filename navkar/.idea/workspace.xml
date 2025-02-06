@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Replaces date search bar with a calendar and paginates results.">
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738835142098.pdf" afterDir="false" />
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Implements NewCollections component with recent products.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Pages/Shop.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Pages/Shop.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/QuotationHistory/QuotationHistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/QuotationHistory/QuotationHistory.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/QuotationHistory/QuotationHistory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/QuotationHistory/QuotationHistory.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Context/ShopContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Context/ShopContext.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,15 +213,7 @@
       <workItem from="1738565614555" duration="24000" />
       <workItem from="1738743598690" duration="13149000" />
       <workItem from="1738775845309" duration="832000" />
-      <workItem from="1738818508834" duration="14765000" />
-    </task>
-    <task id="LOCAL-00040" summary="Implements product editing and modal validation.">
-      <option name="closed" value="true" />
-      <created>1734692947638</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1734692947638</updated>
+      <workItem from="1738818508834" duration="20323000" />
     </task>
     <task id="LOCAL-00041" summary="Implements user details accordion and download functionality.">
       <option name="closed" value="true" />
@@ -604,7 +599,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738833825187</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="Implements NewCollections component with recent products.">
+      <option name="closed" value="true" />
+      <created>1738836762063</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1738836762063</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,7 +627,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fixed styling in Category.jsx and added toast warning if user tries to put moq below the quantity" />
     <MESSAGE value="fixed bugs in AddProduct.jsx while adding a product" />
     <MESSAGE value="Updates new collections display range." />
     <MESSAGE value="Updates footer links and adds image fallbacks." />
@@ -649,7 +651,8 @@
     <MESSAGE value="Styles query generator button and makes category title responsive." />
     <MESSAGE value="Styles carousel and item container height and width." />
     <MESSAGE value="Replaces date search bar with a calendar and paginates results." />
-    <option name="LAST_COMMIT_MESSAGE" value="Replaces date search bar with a calendar and paginates results." />
+    <MESSAGE value="Implements NewCollections component with recent products." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implements NewCollections component with recent products." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

@@ -1,22 +1,73 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import {ShopContext} from "../../Context/ShopContext";
 import './QuotationHistory.css';
 import {Button, Modal} from 'react-bootstrap';
 import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css'; // Default styling for the calendar
+import 'react-calendar/dist/Calendar.css';
 import ReactPaginate from 'react-paginate';
 import no_quotations_found from "../Assets/no_quotatoins_found.svg";
+import {FaCalendarAlt} from 'react-icons/fa'; // Import the calendar icon
+
+const CalendarInput = ({value, onChange}) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const inputRef = useRef(null);
+
+    const handleInputClick = () => {
+        setIsOpen(true);
+    };
+
+    const handleCalendarChange = (date) => {
+        onChange(date);
+        setIsOpen(false);
+    };
+
+    const handleClickOutside = (event) => {
+        if (inputRef.current && !inputRef.current.contains(event.target)) {
+            setIsOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
+    return (
+        <div className="calendar-input-container" ref={inputRef}>
+            <div className="calendar-input-wrapper">
+                <input
+                    type="text"
+                    value={value ? new Date(value).toDateString() : ''}
+                    onClick={handleInputClick}
+                    readOnly
+                    className="calendar-input"
+                    placeholder="Select a date"
+                />
+                <FaCalendarAlt className="calendar-icon" onClick={handleInputClick}/>
+            </div>
+            {isOpen && (
+                <Calendar
+                    onChange={handleCalendarChange}
+                    value={value}
+                    className="react-calendar"
+                />
+            )}
+        </div>
+    );
+};
 
 const QuotationHistory = () => {
     const [quotations, setQuotations] = useState([]);
-    const [selectedDate, setSelectedDate] = useState(null); // State for selected date
+    const [selectedDate, setSelectedDate] = useState(null);
     const [filteredQuotations, setFilteredQuotations] = useState([]);
     const {userDetails} = useContext(ShopContext);
     const [loading, setLoading] = useState(true);
     const [showPdfModal, setShowPdfModal] = useState(false);
     const [selectedPdf, setSelectedPdf] = useState(null);
     const [currentPage, setCurrentPage] = useState(0);
-    const itemsPerPage = 5; // Number of items per page
+    const itemsPerPage = 5;
 
     useEffect(() => {
         const handleDataChange = async () => {
@@ -84,13 +135,8 @@ const QuotationHistory = () => {
         <div className="quotation-history-container">
             <h1 className="quotation-history-title">Quotation History</h1>
 
-            {/* Replace search bar with Calendar */}
             <div className="calendar-container">
-                <Calendar
-                    onChange={setSelectedDate} // Set selected date
-                    value={selectedDate} // Controlled value
-                    className="react-calendar"
-                />
+                <CalendarInput value={selectedDate} onChange={setSelectedDate}/>
             </div>
 
             {loading ? (

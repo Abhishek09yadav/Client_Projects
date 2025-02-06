@@ -24,6 +24,7 @@ const ShopContextProvider = (props) => {
                         headers: {
                             Accept: "application/json",
                             'auth-token': authToken,
+                            // 'Authorization': `Bearer ${authToken}`,
                             'Content-Type': "application/json",
                         },
                         body: "",
