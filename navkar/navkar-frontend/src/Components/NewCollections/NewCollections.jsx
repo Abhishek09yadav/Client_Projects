@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-// import './NewCollections.css'
+import './NewCollections.css'
 import '../Category/Category.css'
 import Item from "../item/item";
 

@@ -1,6 +1,7 @@
 .NewCollections {
 
     padding-bottom: 150px;
+    margin-bottom: 150px;
     margin-top: 50px;
 
 }
@@ -88,6 +89,7 @@
         /*width: 320px;*/
         gap: 6px;
         margin-top: 0;
+
     }
 
     .NewCollections h1 {

@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="fix deployment bug">
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738850849511.pdf" afterDir="false" />
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Fixes styling and layout for NewCollections component.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -214,15 +211,7 @@
       <workItem from="1738565614555" duration="24000" />
       <workItem from="1738743598690" duration="13149000" />
       <workItem from="1738775845309" duration="832000" />
-      <workItem from="1738818508834" duration="25349000" />
-    </task>
-    <task id="LOCAL-00045" summary="Implements product sorting by date and updates product schema.">
-      <option name="closed" value="true" />
-      <created>1734853635989</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1734853635989</updated>
+      <workItem from="1738818508834" duration="26608000" />
     </task>
     <task id="LOCAL-00046" summary="fixed bugs in add product">
       <option name="closed" value="true" />
@@ -608,7 +597,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738844166037</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="Fixes styling and layout for NewCollections component.">
+      <option name="closed" value="true" />
+      <created>1738853496008</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1738853496008</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -628,7 +625,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Removes image fallbacks and fixes whitespace." />
     <MESSAGE value="Implements direct signup and removes OTP flow." />
     <MESSAGE value="Implements smooth scrolling to product list." />
     <MESSAGE value="fixed login issue" />
@@ -653,7 +649,8 @@
     <MESSAGE value="Refactors NewCollections and QuotationHistory components." />
     <MESSAGE value="Refactors QuotationHistory components." />
     <MESSAGE value="fix deployment bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix deployment bug" />
+    <MESSAGE value="Fixes styling and layout for NewCollections component." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes styling and layout for NewCollections component." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
