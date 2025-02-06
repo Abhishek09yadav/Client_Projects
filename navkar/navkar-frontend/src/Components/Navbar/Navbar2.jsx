@@ -6,6 +6,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import {Link} from "react-router-dom";
 import {ShopContext} from "../../Context/ShopContext";
 
+const homepageurl = process.env.REACT_APP_HOME_PAGE_URL;
+
 const Navbar2 = () => {
     const {userDetails, setTriggerFetchingUserDetails} = useContext(ShopContext);
     console.log('token ->', localStorage.getItem('auth-token'));
@@ -17,19 +19,20 @@ const Navbar2 = () => {
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse justify-content-end gap-5" id="navbarNav">
+                <div className="collapse navbar-collapse justify-content-end gap-5  " id="navbarNav">
                     <ul className="navbar-nav gap-2">
-                        <Link to={"https://urgent-nu.vercel.app/"} target={`_blank`}
-                              className={`className="nav-item nav-link text-white vb-qtn-history`}>
+                        <Link to={homepageurl}
+                              className={`nav-item nav-link text-white vb-qtn-history`}>
                             Navkar Home
                         </Link>
+
                         <li className="nav-item nav-link text-white vb-qtn-history">
                             {userDetails ? (< Link to={'/quotationhistory'}>
-                <span className="fw-bold text-white QuotationHistory" onClick={
-                    () => {
-                        setTriggerFetchingUserDetails((prev) => !prev);
-                    }
-                }>Quotation History
+                        <span className="fw-bold text-white QuotationHistory" onClick={
+                            () => {
+                                setTriggerFetchingUserDetails((prev) => !prev);
+                            }
+                        }>Quotation History
                 </span>
                             </Link>) : (<li className=" text-white  " onClick={
                                 () => {
@@ -45,6 +48,21 @@ const Navbar2 = () => {
                             }>Quotation History
                             </li>)}
                         </li>
+                        <li className="nav-item">
+                            <Link to={`${homepageurl}/about`} className="nav-link text-white">About Us</Link>
+                        </li>
+
+                        <li className="nav-item">
+                            <Link to={`${homepageurl}/contact`} className="nav-link text-white">Contact Us</Link>
+                        </li>
+
+                        <li className="nav-item">
+                            <Link to={`${homepageurl}/service`} className="nav-link text-white">Service</Link>
+                        </li>
+
+                        {/*<li className="nav-item">*/}
+                        {/*    <Link to={`${homepageurl}/about`}  className="nav-link text-white">Support</Link>*/}
+                        {/*</li>*/}
                         <li className="nav-item">
                             {localStorage.getItem('auth-token') ? (
                                 <a
@@ -64,6 +82,7 @@ const Navbar2 = () => {
                             )}
 
                         </li>
+
 
                     </ul>
                 </div>

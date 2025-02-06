@@ -32,7 +32,7 @@ const Item = ({
                 </div>
                 <p title="Minimum order Quantity "
                    className="MOQ d-flex justify-content-center text-center">MOQ: {MOQ}</p>
-                <div className="item-quantity">
+                {showCheckbox && (<div className="item-quantity">
                     <label>Quantity:</label>
                     <div className="quantity-input-wrapper gap-3">
                         <input
@@ -54,7 +54,7 @@ const Item = ({
                         {/*</label>*/}
 
                     </div>
-                </div>
+                </div>)}
             </div>
             <Link className="bottom view-details text-center position-absolute text-decoration-none text-amber-100"
                   to={`/product/${id}`}>
