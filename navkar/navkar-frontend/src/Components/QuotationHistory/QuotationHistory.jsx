@@ -6,7 +6,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import ReactPaginate from 'react-paginate';
 import no_quotations_found from "../Assets/no_quotatoins_found.svg";
-import {FaCalendarAlt} from 'react-icons/fa'; // Import the calendar icon
+import {FaCalendarAlt} from "react-icons/fa"; // Import the calendar icon
 
 const CalendarInput = ({value, onChange}) => {
     const [isOpen, setIsOpen] = useState(false);
