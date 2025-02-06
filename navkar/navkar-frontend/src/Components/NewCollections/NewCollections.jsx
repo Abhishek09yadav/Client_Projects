@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import './NewCollections.css'
+// import './NewCollections.css'
 import '../Category/Category.css'
 import Item from "../item/item";
 
@@ -18,7 +18,7 @@ const NewCollections = () => {
     // console.log('data from newcollections', new_collections);
 
     return (
-        <div className={'mb-5 container-md '}>
+        <div className={'NewCollections mb-5 container-md '}>
             <h1 className={`text-white text-center mt-5`}>Recent Products</h1>
             <hr/>
             <div className="products-grid d-flex flex-wrap justify-content-md-between justify-content-center gap-5 ">

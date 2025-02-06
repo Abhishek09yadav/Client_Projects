@@ -94,6 +94,7 @@
     font-weight: bold;
     color: #333;
     transition: all 0.3s ease-in-out;
+    z-index: 100;
 }
 
 .category-pill:hover {
@@ -224,6 +225,10 @@
         margin-left: 0;
     }
 
+    .no_products_found {
+        width: 40%;
+
+    }
     .category-pill span {
         font-size: 12px;
     }

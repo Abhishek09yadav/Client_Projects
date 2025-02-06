@@ -165,7 +165,7 @@
 
 @media (max-width: 425px) {
     .item-main-container {
-        width: 11.75rem !important;
+        width: 8.75rem !important;
     }
     .item {
         width: 98%;

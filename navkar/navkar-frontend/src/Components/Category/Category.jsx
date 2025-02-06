@@ -228,6 +228,7 @@ const Category = () => {
                         key={index}
                         className={`category-pill w-fit ${selectedCategory === category.category ? "active" : ""}`}
                         onClick={() => fetchProductsByCategory(category.category)}
+
                     >
                         <span className={'pill-text'}>  {category.category}    </span>
                     </div>

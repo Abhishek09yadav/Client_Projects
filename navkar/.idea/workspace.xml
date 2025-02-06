@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Refactors NewCollections and QuotationHistory components.">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="fix deployment bug">
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738850849511.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/QuotationHistory/QuotationHistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/QuotationHistory/QuotationHistory.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/QuotationHistory/QuotationHistory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/QuotationHistory/QuotationHistory.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,31 +214,7 @@
       <workItem from="1738565614555" duration="24000" />
       <workItem from="1738743598690" duration="13149000" />
       <workItem from="1738775845309" duration="832000" />
-      <workItem from="1738818508834" duration="21960000" />
-    </task>
-    <task id="LOCAL-00042" summary="added Quotation history in userlist">
-      <option name="closed" value="true" />
-      <created>1734778779008</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1734778779008</updated>
-    </task>
-    <task id="LOCAL-00043" summary="added Quotation history in userlist">
-      <option name="closed" value="true" />
-      <created>1734778870511</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1734778870511</updated>
-    </task>
-    <task id="LOCAL-00044" summary="Implements quotation search and date formatting.">
-      <option name="closed" value="true" />
-      <created>1734782056172</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1734782056172</updated>
+      <workItem from="1738818508834" duration="25349000" />
     </task>
     <task id="LOCAL-00045" summary="Implements product sorting by date and updates product schema.">
       <option name="closed" value="true" />
@@ -603,7 +584,31 @@
       <option name="project" value="LOCAL" />
       <updated>1738842265070</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="Refactors QuotationHistory components.">
+      <option name="closed" value="true" />
+      <created>1738843914433</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1738843914433</updated>
+    </task>
+    <task id="LOCAL-00092" summary="fix deployment bug">
+      <option name="closed" value="true" />
+      <created>1738844040637</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1738844040637</updated>
+    </task>
+    <task id="LOCAL-00093" summary="fix deployment bug">
+      <option name="closed" value="true" />
+      <created>1738844166037</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1738844166037</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -623,8 +628,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Updates new collections display range." />
-    <MESSAGE value="Updates footer links and adds image fallbacks." />
     <MESSAGE value="Removes image fallbacks and fixes whitespace." />
     <MESSAGE value="Implements direct signup and removes OTP flow." />
     <MESSAGE value="Implements smooth scrolling to product list." />
@@ -648,7 +651,9 @@
     <MESSAGE value="Replaces date search bar with a calendar and paginates results." />
     <MESSAGE value="Implements NewCollections component with recent products." />
     <MESSAGE value="Refactors NewCollections and QuotationHistory components." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactors NewCollections and QuotationHistory components." />
+    <MESSAGE value="Refactors QuotationHistory components." />
+    <MESSAGE value="fix deployment bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix deployment bug" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
