@@ -36,14 +36,14 @@ const CalendarInput = ({value, onChange}) => {
 
     return (
         <div className="calendar-input-container" ref={inputRef}>
-            <div className="calendar-input-wrapper">
+            <div className="calendar-input-wrapper border border-primary ">
                 <input
                     type="text"
                     value={value ? new Date(value).toDateString() : ''}
                     onClick={handleInputClick}
                     readOnly
                     className="calendar-input"
-                    placeholder="Select a date"
+                    placeholder="Search By Date..."
                 />
                 <FaCalendarAlt className="calendar-icon" onClick={handleInputClick}/>
             </div>

@@ -38,6 +38,7 @@
 }
 
 .calendar-input-wrapper {
+    width: 25rem;
     position: relative;
     display: flex;
     align-items: center;
@@ -94,6 +95,7 @@
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Darker shadow */
     color: #e0e0e0; /* Light text color */
+    min-height: 100vh;
 }
 
 /* Title */
@@ -273,5 +275,12 @@
     .btn-secondary {
         width: 100%;
         margin-bottom: 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .calendar-input-wrapper {
+        width: 12rem;
+
     }
 }

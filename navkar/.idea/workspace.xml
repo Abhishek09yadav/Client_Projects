@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Implements NewCollections component with recent products.">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Refactors NewCollections and QuotationHistory components.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/QuotationHistory/QuotationHistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/QuotationHistory/QuotationHistory.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/QuotationHistory/QuotationHistory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/QuotationHistory/QuotationHistory.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Context/ShopContext.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Context/ShopContext.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,15 +209,7 @@
       <workItem from="1738565614555" duration="24000" />
       <workItem from="1738743598690" duration="13149000" />
       <workItem from="1738775845309" duration="832000" />
-      <workItem from="1738818508834" duration="20323000" />
-    </task>
-    <task id="LOCAL-00041" summary="Implements user details accordion and download functionality.">
-      <option name="closed" value="true" />
-      <created>1734763860395</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1734763860395</updated>
+      <workItem from="1738818508834" duration="21960000" />
     </task>
     <task id="LOCAL-00042" summary="added Quotation history in userlist">
       <option name="closed" value="true" />
@@ -607,7 +595,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738836762063</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="Refactors NewCollections and QuotationHistory components.">
+      <option name="closed" value="true" />
+      <created>1738842265070</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1738842265070</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -627,7 +623,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fixed bugs in AddProduct.jsx while adding a product" />
     <MESSAGE value="Updates new collections display range." />
     <MESSAGE value="Updates footer links and adds image fallbacks." />
     <MESSAGE value="Removes image fallbacks and fixes whitespace." />
@@ -652,7 +647,8 @@
     <MESSAGE value="Styles carousel and item container height and width." />
     <MESSAGE value="Replaces date search bar with a calendar and paginates results." />
     <MESSAGE value="Implements NewCollections component with recent products." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implements NewCollections component with recent products." />
+    <MESSAGE value="Refactors NewCollections and QuotationHistory components." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactors NewCollections and QuotationHistory components." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
