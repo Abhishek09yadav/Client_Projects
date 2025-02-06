@@ -146,7 +146,9 @@
 }
 
 @media (max-width: 500px) {
-
+    .item-main-container {
+        width: 11.75rem !important;
+    }
     /*.item {*/
     /*    width: 90%;*/
     /*    max-width: 500px;*/
@@ -162,6 +164,9 @@
 }
 
 @media (max-width: 425px) {
+    .item-main-container {
+        width: 11.75rem !important;
+    }
     .item {
         width: 98%;
         padding: 8px;

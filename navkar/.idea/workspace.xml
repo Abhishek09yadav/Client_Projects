@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="made Product.jsx device responsive">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Styles query generator button and makes category title responsive.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Navbar/Navbar2.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Navbar/Navbar2.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,15 +207,8 @@
       <workItem from="1738508527536" duration="18000" />
       <workItem from="1738565614555" duration="24000" />
       <workItem from="1738743598690" duration="13149000" />
-      <workItem from="1738775845309" duration="313000" />
-    </task>
-    <task id="LOCAL-00037" summary="Styles product details and adds edit functionality to product list.">
-      <option name="closed" value="true" />
-      <created>1734604570196</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1734604570196</updated>
+      <workItem from="1738775845309" duration="832000" />
+      <workItem from="1738818508834" duration="4023000" />
     </task>
     <task id="LOCAL-00038" summary="Implements product editing and modal styling.">
       <option name="closed" value="true" />
@@ -607,7 +594,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738752510668</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="Styles query generator button and makes category title responsive.">
+      <option name="closed" value="true" />
+      <created>1738776676591</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1738776676591</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -627,7 +622,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Styles active category pill and adds logo to PDF." />
     <MESSAGE value="Styles item component and banner responsiveness." />
     <MESSAGE value="added toast icon if user is not logged in and tries to change the quantity" />
     <MESSAGE value="fixed styling in Category.jsx and added toast warning if user tries to put moq below the quantity" />
@@ -652,7 +646,8 @@
     <MESSAGE value="setting up dark theme" />
     <MESSAGE value="setting up dark theme for description box" />
     <MESSAGE value="made Product.jsx device responsive" />
-    <option name="LAST_COMMIT_MESSAGE" value="made Product.jsx device responsive" />
+    <MESSAGE value="Styles query generator button and makes category title responsive." />
+    <option name="LAST_COMMIT_MESSAGE" value="Styles query generator button and makes category title responsive." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

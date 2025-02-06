@@ -33,6 +33,10 @@
     .images {
         height: 160px;
     }
+
+    .carousel-main-container {
+        height: 12.75rem !important;
+    }
 }
 
 @media (max-width: 500px) {
@@ -42,12 +46,18 @@
 
     .carousel-main-container {
         margin: 5px 0 5px 0;
+        height: 9.75rem !important;
     }
 }
 
 @media (max-width: 425px) {
     .images {
         height: 120px;
+    }
+
+    .carousel-main-container {
+
+        height: 7.75rem !important;
     }
 }
 
