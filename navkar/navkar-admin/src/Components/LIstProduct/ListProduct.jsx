@@ -5,6 +5,8 @@ import './ListProduct.css';
 import cross_icon from '../../assets/cross_icon.png';
 import edit_icon from '../../assets/edit_icon.svg';
 import AddProduct from '../AddProduct/AddProduct';
+import {confirmAlert} from "react-confirm-alert";
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 Modal.setAppElement('#root'); // Adjust if your app's root element has a different id
 
@@ -28,6 +30,41 @@ function ListProduct() {
         fetchInfo();
     }, []);
 
+    const removeProductModal = async (id, name) => {
+        confirmAlert({
+            title: 'Delete Product Confirmation',
+            message: `Are you certain you wish to permanently delete Product 123? Please note that this action is irreversible.`,
+            buttons: [
+                {
+                    label: 'Confirm',
+                    onClick: () => removeProduct(id),
+                    style: {
+                        backgroundColor: '#ff0000', // Change to your desired color
+                        color: '#ffffff' // Change text color if needed
+                    }
+                },
+                {
+                    label: 'Cancel',
+                    onClick: () => close()
+                }
+            ],
+            closeOnEscape: true,
+            closeOnClickOutside: true,
+            keyCodeForClose: [8, 32],
+            willUnmount: () => {
+            },
+            afterClose: () => {
+            },
+            onClickOutside: () => {
+            },
+            onKeypress: () => {
+            },
+            onKeypressEscape: () => {
+            },
+            overlayClassName: "overlay-custom-class-name"
+        });
+
+    };
     const removeProduct = async (id) => {
         await fetch(`${url}/removeProduct`, {
             method: 'POST',
@@ -38,7 +75,8 @@ function ListProduct() {
             body: JSON.stringify({id}),
         });
         await fetchInfo();
-    };
+    }
+
 
     const handleEdit = (product) => {
         setSelectedProduct(product);
@@ -117,7 +155,7 @@ function ListProduct() {
                             <img
                                 className="ListProduct-remove-icon"
                                 src={cross_icon}
-                                onClick={() => removeProduct(product.id)}
+                                onClick={() => removeProductModal(product.id, product.name)}
                                 alt="Remove"
                             />
                         </div>

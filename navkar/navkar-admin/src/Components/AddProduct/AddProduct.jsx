@@ -150,7 +150,9 @@ function AddProduct({product}) {
             const data = await response.json();
             if (data.success) {
                 alert(product ? 'Product updated successfully!' : 'Product added successfully!');
-
+                if (!product) {
+                    window.location.reload();
+                }
             } else {
                 alert(`Failed to ${product ? 'update' : 'add'} product: ${data.message}`);
             }
