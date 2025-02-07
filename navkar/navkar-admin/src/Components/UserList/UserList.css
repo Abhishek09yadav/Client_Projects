@@ -1,11 +1,31 @@
 /* Accordion styling */
 .accordion {
     margin: 20px auto;
-    width: 90%;
+    width: 100%;
     max-width: 800px;
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #fff;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination {
+    margin: 0;
+}
+
+.page-link {
+    color: #007bff;
+}
+
+.page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
 }
 
 .table {
@@ -67,7 +87,7 @@
 }
 
 .search-bar {
-    width: 90%;
+    width: 100%;
     max-width: 800px;
     margin: 20px auto;
 }
@@ -142,11 +162,3 @@
     filter: brightness(0) saturate(100%) invert(34%) sepia(68%) saturate(358%) hue-rotate(188deg) brightness(97%) contrast(100%);
     transform: scale(1.1);
 }
-
-/*.modal-backdrop {*/
-/*    background-color: rgba(0, 0, 0, 0.5) !important;*/
-/*}*/
-
-/*.modal.show {*/
-/*    display: block !important;*/
-/*}*/

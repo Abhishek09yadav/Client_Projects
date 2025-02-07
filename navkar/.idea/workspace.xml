@@ -4,37 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Adds homepage URL and navigation links to navbar.">
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738914740176.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738914809361.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738914815905.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738914818952.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738914831761.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738914840447.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738914867023.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738914872961.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738915448392.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738915472031.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738915794846.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738915794854.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738915794859.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738915794866.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738915960718.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738916015373.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738916317916.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738917417784.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738917444480.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738919473809.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738919533914.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738919615731.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738919631699.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738919676138.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738919699906.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738919759026.jpg" afterDir="false" />
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Refactors delete modals for products and categories.">
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738919780626.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/AddCategory/AddCategory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/AddCategory/AddCategory.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/LIstProduct/ListProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/LIstProduct/ListProduct.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/Modal.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/Modal.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,15 +213,7 @@
       <workItem from="1738743598690" duration="13149000" />
       <workItem from="1738775845309" duration="832000" />
       <workItem from="1738818508834" duration="29739000" />
-      <workItem from="1738910069139" duration="7900000" />
-    </task>
-    <task id="LOCAL-00049" summary="Implements pagination for product list and quotation history.">
-      <option name="closed" value="true" />
-      <created>1735024488421</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1735024488421</updated>
+      <workItem from="1738910069139" duration="10325000" />
     </task>
     <task id="LOCAL-00050" summary="Refactors environment variables and adds logout functionality.">
       <option name="closed" value="true" />
@@ -631,7 +599,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738857870086</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="Refactors delete modals for products and categories.">
+      <option name="closed" value="true" />
+      <created>1738919919950</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1738919919951</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -651,7 +627,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fixed login issue" />
     <MESSAGE value="remove pdfs" />
     <MESSAGE value="removed all uploads" />
     <MESSAGE value="changed Navbar.jsx" />
@@ -676,7 +651,8 @@
     <MESSAGE value="Fixes styling and layout for NewCollections component." />
     <MESSAGE value="added productUtils.js" />
     <MESSAGE value="Adds homepage URL and navigation links to navbar." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds homepage URL and navigation links to navbar." />
+    <MESSAGE value="Refactors delete modals for products and categories." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactors delete modals for products and categories." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
