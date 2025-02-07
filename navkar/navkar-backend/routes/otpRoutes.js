@@ -9,6 +9,7 @@ const jwt = require("jsonwebtoken");
 router.use(express.json())
 router.use(cors());
 const bcrypt = require("bcrypt");
+const {log} = require('console');
 // OTP storage
 const otpStore = {};
 
@@ -205,7 +206,8 @@ router.post('/reset-password', async (req, res) => {
 router.post('/login', async (req, res) => {
     let user = await Users.findOne({email: req.body.email});
     if (user) {
-        const passCompare = bcrypt.compare(req.body.password, user.password);
+        const passCompare = await bcrypt.compare(req.body.password, user.password);
+        console.log('pass', passCompare);
       
         if (passCompare) {
             const data = {user: {id: user.id}}
@@ -249,7 +251,7 @@ router.post('/adminlogin', async (req, res) => {
         }
 
         // Check if the password matches
-        const passCompare = bcrypt.compare(req.body.password, user.password);
+        const passCompare = await bcrypt.compare(req.body.password, user.password);
         if (!passCompare) {
             return res.json({ success: false, error: 'Wrong password' });
         }
