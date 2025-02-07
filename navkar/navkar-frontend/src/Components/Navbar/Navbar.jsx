@@ -16,45 +16,24 @@ function Navbar(props) {
     const scrollDown = () => {
         window.scrollBy(0, 110);
     }
-    // const dropdown_toggle = (e) => {
-    //     menuRef.current.classList.toggle('nav-menu-visible');
-    //     e.target.classList.toggle('open');
-    // }
-    return <div className="navbar p-0">
+
+    return <div className={`navbar`}>
+        <div className="container-md p-0">
         <Link to={'/'} className="nav-logo " style={{textDecoration: 'none'}}>
             {/*<div className="ms">*/}
 
             {/*<img src={logo} alt="logo"/>*/}
-            <p className={`m-0 p-0 text-white ms-5`} style={{
-                maxWidth: "0px 0px 0px 130px !important"
-            }}>Navkar E-Store</p>
+            <p className={`m-0 p-0 text-white`}>Navkar E-Store</p>
             {/*</div>*/}
         </Link>
-        {/*<img onClick={dropdown_toggle} className={'nav-dropdown'} src={Hamburger_Menu} alt={''}/>*/}
-
-        <ul ref={menuRef} className="nav-menu">
-            {/*<li onClick={() => {*/}
-            {/*    setmenu("shop")*/}
-            {/*}}><Link to={'/'}>Shop</Link> {menu === 'shop' ? <hr/> : <></>}</li>*/}
-            {/*<li onClick={() => setmenu('mens')}><Link to='/mens'>Men</Link> {menu === 'mens' ? <hr></hr> : <></>}*/}
-            {/*</li>*/}
-            {/*<li onClick={() => {*/}
-            {/*    setmenu("womens")*/}
-            {/*}}><Link to={'/womens'}>Women</Link> {menu === 'womens' ? <hr/> : <></>}*/}
-            {/*</li>*/}
-            {/*<li onClick={() => {*/}
-            {/*    setmenu("kids")*/}
-            {/*}}><Link to={'/kids'}>Kids</Link> {menu === 'kids' ? <hr/> : <></>}*/}
-            {/*</li>*/}
-        </ul>
-        <ul className="nav-login-cart" style={{margin: "0px 86px 0px 0px !important"}}>
+            <ul className="nav-login-cart">
             {userDetails ? (< Link to={'/quotationhistory'}>
-                <button type="button" className="btn  btn-secondary rounded-pill QuotationHistory" onClick={
+                <span className="fw-bold text-white QuotationHistory" onClick={
                     () => {
                         setTriggerFetchingUserDetails((prev) => !prev);
                     }
                 }>Quotation History
-                </button>
+                </span>
             </Link>) : (<p className="QuotationHistory fw-bold text-white" onClick={
                 () => {
                     toast.warn("Please log in to continue.", {
@@ -69,21 +48,15 @@ function Navbar(props) {
             }>Quotation History
             </p>)}
             {
-                localStorage.getItem('auth-token') ? <button onClick={() => {
+                localStorage.getItem('auth-token') ? <span onClick={() => {
                     localStorage.removeItem('auth-token');
                     window.location.replace('/');
-                }} type="button" className="btn btn-secondary rounded-pill">Logout</button> : < Link to={'/login'}>
+                }} className="btn btn-secondary rounded-pill">Logout</span> : < Link to={'/login'}>
                     <p className=" fw-bold text-white" onClick={scrollDown}>Login</p>
                 </Link>
             }
-
-            {/*<Link to='/cart'> <img src={cart_icon} alt="" className=""/>*/}
-
-            {/*</Link>*/}
-            {/*<div className="nav-cart-count">{getTotalCartItems()}</div>*/}
         </ul>
-
-
+        </div>
     </div>;
 }
 

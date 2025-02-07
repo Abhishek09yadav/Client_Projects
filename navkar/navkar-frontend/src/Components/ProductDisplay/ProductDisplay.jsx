@@ -3,7 +3,6 @@ import './ProductDisplay.css';
 
 const ProductDisplay = (props) => {
     const { product } = props;
-    // const { addToCart } = useContext(ShopContext);
 
     // State to manage the currently displayed main image
     const [mainImage, setMainImage] = useState('');
@@ -18,14 +17,13 @@ const ProductDisplay = (props) => {
 
     // UseEffect to set initial main image when product changes
     useEffect(() => {
-
         if (productImages.length > 0) {
             setMainImage(productImages[0]);
         }
     }, [product]);
 
     return (
-        <div className='productdisplay'>
+        <div className='productdisplay' style={{padding: "0px"}}>
             <div className="productdisplay-left">
                 <div className="productdisplay-img-list">
                     {productImages.map((img, index) => (
@@ -38,41 +36,30 @@ const ProductDisplay = (props) => {
                         />
                     ))}
                 </div>
-                <div className="productdisplay-img">
+                <div className="productdisplay-img text-center ">
                     <img
-                        className='productdisplay-main-img'
+                        className='productdisplay-main-img '
                         src={mainImage}
                         alt="Main product view"
                     />
                 </div>
             </div>
-            <div className="productdisplay-right">
-                <h1>{product?.name}</h1>
-                {/*<div className="productdisplay-right-star">*/}
-                {/*    <img src={star_icon} alt="star"/>*/}
-                {/*    <img src={star_icon} alt="star"/>*/}
-                {/*    <img src={star_icon} alt="star"/>*/}
-                {/*    <img src={star_icon} alt="star"/>*/}
-                {/*    <img src={star_dull_icon} alt="star"/>*/}
-                {/*    <p>(119)</p>*/}
-                {/*</div>*/}
-                <div className="productdisplay-right-prices">
-                    <span className="productdisplay-right-prices-old">
-                        ₹{product?.old_price}
-                    </span>
-                    <span className="productdisplay-right-prices-new">
-                        ₹{product?.new_price}
-                    </span>
-                </div>
-                {/*<div className="productdisplay-right-description">*/}
-                {/*    A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and*/}
-                {/*    short sleeves, worn as an undershirt or outer garment.*/}
-                {/*</div>*/}
+            <div className="productdisplay-right text-center">
 
-                <p className={'productdisplay-right-category'}>
+                <h1>{product?.name}</h1>
+                <div className="productdisplay-right-prices align-self-center m-1">
+                <span className="productdisplay-right-prices-old">
+                  ₹{product?.old_price}
+                </span>
+                    <span className="productdisplay-right-prices-new">
+                  ₹{product?.new_price}
+                </span>
+                </div>
+                <p className="productdisplay-right-category">
                     <span>Category : </span> {product?.category}
                 </p>
             </div>
+
         </div>
     );
 }

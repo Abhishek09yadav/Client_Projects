@@ -5,7 +5,7 @@
     box-shadow: 0 1px 3px -2px black;
     align-items: center;
     position: relative;
-    background: linear-gradient(90deg, #00394f 0%, #14b2f1 100%);
+    background: linear-gradient(90deg, #00394f 0%, #14b2f1 100%) !important;
 }
 
 .nav-dropdown {
@@ -62,7 +62,7 @@
     display: flex;
     align-items: center;
     gap: 45px;
-    padding-right: 50px;
+    /*padding-right: 50px;*/
 }
 
 .nav-login-cart button {
@@ -75,7 +75,7 @@
 
 .QuotationHistory {
     width: auto;
-    font-size: 12px;
+    font-size: clamp(2.3vh, 2vh, 4vh);
     /*padding: 8px 20px;*/
     white-space: nowrap;
     /*overflow: hidden;*/

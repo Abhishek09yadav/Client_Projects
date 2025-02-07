@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import './NewCollections.css'
+import '../Category/Category.css'
 import Item from "../item/item";
 
 
@@ -17,10 +18,10 @@ const NewCollections = () => {
     // console.log('data from newcollections', new_collections);
 
     return (
-        <div className={'NewCollections '}>
-            <h1 className={`text-white`}>Recent Products</h1>
+        <div className={'NewCollections mb-5 container-md '}>
+            <h1 className={`text-white text-center mt-5`}>Recent Products</h1>
             <hr/>
-            <div className="collections">
+            <div className="products-grid d-flex flex-wrap justify-content-md-between justify-content-center gap-5 ">
                 {new_collections.map((item, i) => {
                     return <Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price}
                                  old_price={item.old_price} MOQ={item.MOQ} showCheckbox={false}/>

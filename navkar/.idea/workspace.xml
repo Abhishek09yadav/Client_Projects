@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="moved quotations to different route">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Refactors delete modals for products and categories.">
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738919780626.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/routes/quotationRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/routes/quotationRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/Modal.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/Modal.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JSX File" />
         <option value="CSS File" />
+        <option value="JSX File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -51,30 +53,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Node.js.backend.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;pagination&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/monuy/Desktop/Repos/Client_Projects/navkar&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.admin.executor&quot;: &quot;Run&quot;,
-    &quot;npm.backend.executor&quot;: &quot;Run&quot;,
-    &quot;npm.frontend.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.28614458&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Node.js.backend.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/monuy/Desktop/Repos/Client_Projects/navkar",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.admin.executor": "Run",
+    "npm.backend.executor": "Run",
+    "npm.frontend.executor": "Run",
+    "settings.editor.selected.configurable": "configurable.group.appearance",
+    "settings.editor.splitter.proportion": "0.28614458",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -93,11 +95,11 @@
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\Pages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-frontend\src\Components\Utils" />
+      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\Components\modal" />
+      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\Components" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\public" />
-      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\Components\LoginSignup" />
-      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\Components" />
-      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin" />
     </key>
   </component>
   <component name="RunManager" selected="npm.frontend">
@@ -204,184 +206,14 @@
       <workItem from="1737959539382" duration="71000" />
       <workItem from="1737976882791" duration="1600000" />
       <workItem from="1737979486588" duration="7876000" />
-      <workItem from="1737994318471" duration="6261000" />
-      <workItem from="1738130424898" duration="888000" />
-    </task>
-    <task id="LOCAL-00028" summary="Implements product MOQ and styles item selection.">
-      <option name="closed" value="true" />
-      <created>1734547416979</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1734547416979</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Adds nodemailer and nodemon packages.">
-      <option name="closed" value="true" />
-      <created>1734550705603</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1734550705603</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Adds nodemailer and nodemon to backend dependencies.">
-      <option name="closed" value="true" />
-      <created>1734550817580</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1734550817580</updated>
-    </task>
-    <task id="LOCAL-00031" summary="bux fixes">
-      <option name="closed" value="true" />
-      <created>1734551741103</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1734551741103</updated>
-    </task>
-    <task id="LOCAL-00032" summary="bux fixes for deployment">
-      <option name="closed" value="true" />
-      <created>1734552456695</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1734552456695</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Fixes item display and select button positioning.">
-      <option name="closed" value="true" />
-      <created>1734590960711</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1734590960711</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Fixes item display and select button positioning.">
-      <option name="closed" value="true" />
-      <created>1734591527631</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1734591527631</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Refines item and category display styling.">
-      <option name="closed" value="true" />
-      <created>1734594352426</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1734594352426</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Styles item image, price, and category font size.">
-      <option name="closed" value="true" />
-      <created>1734596131456</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1734596131456</updated>
-    </task>
-    <task id="LOCAL-00037" summary="Styles product details and adds edit functionality to product list.">
-      <option name="closed" value="true" />
-      <created>1734604570196</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1734604570196</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Implements product editing and modal styling.">
-      <option name="closed" value="true" />
-      <created>1734684151775</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1734684151775</updated>
-    </task>
-    <task id="LOCAL-00039" summary="Implements product editing and modal styling.">
-      <option name="closed" value="true" />
-      <created>1734684157742</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1734684157742</updated>
-    </task>
-    <task id="LOCAL-00040" summary="Implements product editing and modal validation.">
-      <option name="closed" value="true" />
-      <created>1734692947638</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1734692947638</updated>
-    </task>
-    <task id="LOCAL-00041" summary="Implements user details accordion and download functionality.">
-      <option name="closed" value="true" />
-      <created>1734763860395</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1734763860395</updated>
-    </task>
-    <task id="LOCAL-00042" summary="added Quotation history in userlist">
-      <option name="closed" value="true" />
-      <created>1734778779008</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1734778779008</updated>
-    </task>
-    <task id="LOCAL-00043" summary="added Quotation history in userlist">
-      <option name="closed" value="true" />
-      <created>1734778870511</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1734778870511</updated>
-    </task>
-    <task id="LOCAL-00044" summary="Implements quotation search and date formatting.">
-      <option name="closed" value="true" />
-      <created>1734782056172</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1734782056172</updated>
-    </task>
-    <task id="LOCAL-00045" summary="Implements product sorting by date and updates product schema.">
-      <option name="closed" value="true" />
-      <created>1734853635989</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1734853635989</updated>
-    </task>
-    <task id="LOCAL-00046" summary="fixed bugs in add product">
-      <option name="closed" value="true" />
-      <created>1734939541866</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1734939541866</updated>
-    </task>
-    <task id="LOCAL-00047" summary="fixed bugs in add product">
-      <option name="closed" value="true" />
-      <created>1734944057441</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1734944057441</updated>
-    </task>
-    <task id="LOCAL-00048" summary="Implements pagination for product list and quotation history.">
-      <option name="closed" value="true" />
-      <created>1734948157843</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1734948157843</updated>
-    </task>
-    <task id="LOCAL-00049" summary="Implements pagination for product list and quotation history.">
-      <option name="closed" value="true" />
-      <created>1735024488421</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1735024488421</updated>
+      <workItem from="1738303476503" duration="22954000" />
+      <workItem from="1738390128115" duration="21676000" />
+      <workItem from="1738508527536" duration="18000" />
+      <workItem from="1738565614555" duration="24000" />
+      <workItem from="1738743598690" duration="13149000" />
+      <workItem from="1738775845309" duration="832000" />
+      <workItem from="1738818508834" duration="29739000" />
+      <workItem from="1738910069139" duration="10325000" />
     </task>
     <task id="LOCAL-00050" summary="Refactors environment variables and adds logout functionality.">
       <option name="closed" value="true" />
@@ -583,23 +415,199 @@
       <option name="project" value="LOCAL" />
       <updated>1737981344036</updated>
     </task>
-    <task id="LOCAL-00075" summary="changed layout to dark theme">
+    <task id="LOCAL-00075" summary="styled Navbar.jsx">
       <option name="closed" value="true" />
-      <created>1737994622604</created>
+      <created>1738135155919</created>
       <option name="number" value="00075" />
       <option name="presentableId" value="LOCAL-00075" />
       <option name="project" value="LOCAL" />
-      <updated>1737994622604</updated>
+      <updated>1738135155920</updated>
     </task>
-    <task id="LOCAL-00076" summary="moved quotations to different route">
+    <task id="LOCAL-00076" summary="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled Navbar.jsx, including login/logout functionality.&#10;Updated Navbar to display Quotation History link&#10;conditionally based on login status. Added a toast&#10;notification for login prompt.  Improved styling for&#10;several components, including item selection and&#10;category display.  Refactored file structure for&#10;modals and updated import paths accordingly.  Adjusted&#10;CSS for various elements to enhance visual appeal.">
       <option name="closed" value="true" />
-      <created>1737997075947</created>
+      <created>1738319576603</created>
       <option name="number" value="00076" />
       <option name="presentableId" value="LOCAL-00076" />
       <option name="project" value="LOCAL" />
-      <updated>1737997075947</updated>
+      <updated>1738319576603</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display Quotation&#10;History link conditionally based on login status.&#10;Added a toast notification for login prompt. Improved&#10;styling for several components, including item&#10;selection and category display. Refactored file&#10;structure for modals and updated import paths&#10;accordingly. Adjusted CSS for various elements to&#10;enhance visual appeal.">
+      <option name="closed" value="true" />
+      <created>1738322852986</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1738322852986</updated>
+    </task>
+    <task id="LOCAL-00078" summary="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display Quotation&#10;History link conditionally based on login status.&#10;Added a toast notification for login prompt.&#10;Improved styling for item selection and category&#10;display. Refactored file structure for modals and&#10;updated import paths accordingly. Adjusted CSS for&#10;various elements to enhance visual appeal.  Fixed&#10;quantity input handling to prevent values below MOQ&#10;and correctly calculate total quantity.">
+      <option name="closed" value="true" />
+      <created>1738327297826</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1738327297826</updated>
+    </task>
+    <task id="LOCAL-00079" summary="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display &quot;Quotation&#10;History&quot; link conditionally based on login status.&#10;Added a toast notification for login prompt. Improved&#10;styling for item selection and category display.&#10;Refactored modals and updated import paths. Adjusted&#10;CSS for various elements to enhance visual appeal.&#10;Fixed quantity input handling to prevent values below&#10;MOQ and correctly calculate total quantity.">
+      <option name="closed" value="true" />
+      <created>1738390810057</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1738390810057</updated>
+    </task>
+    <task id="LOCAL-00080" summary="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display &quot;Quotation&#10;History&quot; link conditionally based on login status.&#10;Added a toast notification for login prompt. Improved&#10;styling for item selection and category display.&#10;Refactored modals and updated import paths. Adjusted&#10;CSS for various elements to enhance visual appeal.&#10;Fixed quantity input handling to prevent values below&#10;MOQ and correctly calculate total quantity.">
+      <option name="closed" value="true" />
+      <created>1738394400644</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1738394400644</updated>
+    </task>
+    <task id="LOCAL-00081" summary="feat: Implement QuotationModal and refine styling (main)&#10;&#10;- Created `QuotationModal` component to display selected&#10;  items, total price, and user details for quotation&#10;  generation.&#10;- Implemented PDF generation and download&#10;  functionality within `QuotationModal`.&#10;- Updated `Category` component to handle `QuotationModal`&#10;  display and PDF generation logic.&#10;- Improved styling for `Navbar`, item selection, and&#10;  category display.&#10;- Refactored CSS and moved modal-related styles to&#10;  `QuotationModal.css`.&#10;- Adjusted quantity input handling to prevent values&#10;  below MOQ and ensure accurate total quantity&#10;  calculation.">
+      <option name="closed" value="true" />
+      <created>1738397532277</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1738397532277</updated>
+    </task>
+    <task id="LOCAL-00082" summary="Implements quotation modal, refines styling, and adjusts quantity input.">
+      <option name="closed" value="true" />
+      <created>1738411874661</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1738411874661</updated>
+    </task>
+    <task id="LOCAL-00083" summary="setting up dark theme">
+      <option name="closed" value="true" />
+      <created>1738412738404</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1738412738404</updated>
+    </task>
+    <task id="LOCAL-00084" summary="setting up dark theme for description box">
+      <option name="closed" value="true" />
+      <created>1738414538894</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1738414538894</updated>
+    </task>
+    <task id="LOCAL-00085" summary="made Product.jsx device responsive">
+      <option name="closed" value="true" />
+      <created>1738752510668</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1738752510668</updated>
+    </task>
+    <task id="LOCAL-00086" summary="Styles query generator button and makes category title responsive.">
+      <option name="closed" value="true" />
+      <created>1738776676591</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1738776676591</updated>
+    </task>
+    <task id="LOCAL-00087" summary="Styles carousel and item container height and width.">
+      <option name="closed" value="true" />
+      <created>1738823917443</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1738823917444</updated>
+    </task>
+    <task id="LOCAL-00088" summary="Replaces date search bar with a calendar and paginates results.">
+      <option name="closed" value="true" />
+      <created>1738833825187</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1738833825187</updated>
+    </task>
+    <task id="LOCAL-00089" summary="Implements NewCollections component with recent products.">
+      <option name="closed" value="true" />
+      <created>1738836762063</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1738836762063</updated>
+    </task>
+    <task id="LOCAL-00090" summary="Refactors NewCollections and QuotationHistory components.">
+      <option name="closed" value="true" />
+      <created>1738842265070</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1738842265070</updated>
+    </task>
+    <task id="LOCAL-00091" summary="Refactors QuotationHistory components.">
+      <option name="closed" value="true" />
+      <created>1738843914433</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1738843914433</updated>
+    </task>
+    <task id="LOCAL-00092" summary="fix deployment bug">
+      <option name="closed" value="true" />
+      <created>1738844040637</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1738844040637</updated>
+    </task>
+    <task id="LOCAL-00093" summary="fix deployment bug">
+      <option name="closed" value="true" />
+      <created>1738844166037</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1738844166037</updated>
+    </task>
+    <task id="LOCAL-00094" summary="Fixes styling and layout for NewCollections component.">
+      <option name="closed" value="true" />
+      <created>1738853496008</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1738853496008</updated>
+    </task>
+    <task id="LOCAL-00095" summary="Fixes styling and layout for NewCollections component.">
+      <option name="closed" value="true" />
+      <created>1738854912426</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1738854912426</updated>
+    </task>
+    <task id="LOCAL-00096" summary="added productUtils.js">
+      <option name="closed" value="true" />
+      <created>1738856580994</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1738856580994</updated>
+    </task>
+    <task id="LOCAL-00097" summary="Adds homepage URL and navigation links to navbar.">
+      <option name="closed" value="true" />
+      <created>1738857870086</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1738857870086</updated>
+    </task>
+    <task id="LOCAL-00098" summary="Refactors delete modals for products and categories.">
+      <option name="closed" value="true" />
+      <created>1738919919950</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1738919919951</updated>
+    </task>
+    <option name="localTasksCounter" value="99" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -619,32 +627,32 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implements product sorting by date and updates product schema." />
-    <MESSAGE value="fixed bugs in add product" />
-    <MESSAGE value="Implements pagination for product list and quotation history." />
-    <MESSAGE value="Refactors environment variables and adds logout functionality." />
-    <MESSAGE value="making admin panel device responsive" />
-    <MESSAGE value="adding banner in app.js" />
-    <MESSAGE value="adding banner upload in admin panel" />
-    <MESSAGE value="banner upload and banner display is now completed" />
-    <MESSAGE value="Styles active category pill and adds logo to PDF." />
-    <MESSAGE value="Styles item component and banner responsiveness." />
-    <MESSAGE value="added toast icon if user is not logged in and tries to change the quantity" />
-    <MESSAGE value="fixed styling in Category.jsx and added toast warning if user tries to put moq below the quantity" />
-    <MESSAGE value="fixed bugs in AddProduct.jsx while adding a product" />
-    <MESSAGE value="Updates new collections display range." />
-    <MESSAGE value="Updates footer links and adds image fallbacks." />
-    <MESSAGE value="Removes image fallbacks and fixes whitespace." />
-    <MESSAGE value="Implements direct signup and removes OTP flow." />
-    <MESSAGE value="Implements smooth scrolling to product list." />
-    <MESSAGE value="fixed login issue" />
     <MESSAGE value="remove pdfs" />
     <MESSAGE value="removed all uploads" />
     <MESSAGE value="changed Navbar.jsx" />
     <MESSAGE value="added confirmation before deletion" />
-    <MESSAGE value="changed layout to dark theme" />
-    <MESSAGE value="moved quotations to different route" />
-    <option name="LAST_COMMIT_MESSAGE" value="moved quotations to different route" />
+    <MESSAGE value="styled Navbar.jsx" />
+    <MESSAGE value="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled Navbar.jsx, including login/logout functionality.&#10;Updated Navbar to display Quotation History link&#10;conditionally based on login status. Added a toast&#10;notification for login prompt.  Improved styling for&#10;several components, including item selection and&#10;category display.  Refactored file structure for&#10;modals and updated import paths accordingly.  Adjusted&#10;CSS for various elements to enhance visual appeal." />
+    <MESSAGE value="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display Quotation&#10;History link conditionally based on login status.&#10;Added a toast notification for login prompt. Improved&#10;styling for several components, including item&#10;selection and category display. Refactored file&#10;structure for modals and updated import paths&#10;accordingly. Adjusted CSS for various elements to&#10;enhance visual appeal." />
+    <MESSAGE value="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display Quotation&#10;History link conditionally based on login status.&#10;Added a toast notification for login prompt.&#10;Improved styling for item selection and category&#10;display. Refactored file structure for modals and&#10;updated import paths accordingly. Adjusted CSS for&#10;various elements to enhance visual appeal.  Fixed&#10;quantity input handling to prevent values below MOQ&#10;and correctly calculate total quantity." />
+    <MESSAGE value="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display &quot;Quotation&#10;History&quot; link conditionally based on login status.&#10;Added a toast notification for login prompt. Improved&#10;styling for item selection and category display.&#10;Refactored modals and updated import paths. Adjusted&#10;CSS for various elements to enhance visual appeal.&#10;Fixed quantity input handling to prevent values below&#10;MOQ and correctly calculate total quantity." />
+    <MESSAGE value="feat: Implement QuotationModal and refine styling (main)&#10;&#10;- Created `QuotationModal` component to display selected&#10;  items, total price, and user details for quotation&#10;  generation.&#10;- Implemented PDF generation and download&#10;  functionality within `QuotationModal`.&#10;- Updated `Category` component to handle `QuotationModal`&#10;  display and PDF generation logic.&#10;- Improved styling for `Navbar`, item selection, and&#10;  category display.&#10;- Refactored CSS and moved modal-related styles to&#10;  `QuotationModal.css`.&#10;- Adjusted quantity input handling to prevent values&#10;  below MOQ and ensure accurate total quantity&#10;  calculation." />
+    <MESSAGE value="Implements quotation modal, refines styling, and adjusts quantity input." />
+    <MESSAGE value="setting up dark theme" />
+    <MESSAGE value="setting up dark theme for description box" />
+    <MESSAGE value="made Product.jsx device responsive" />
+    <MESSAGE value="Styles query generator button and makes category title responsive." />
+    <MESSAGE value="Styles carousel and item container height and width." />
+    <MESSAGE value="Replaces date search bar with a calendar and paginates results." />
+    <MESSAGE value="Implements NewCollections component with recent products." />
+    <MESSAGE value="Refactors NewCollections and QuotationHistory components." />
+    <MESSAGE value="Refactors QuotationHistory components." />
+    <MESSAGE value="fix deployment bug" />
+    <MESSAGE value="Fixes styling and layout for NewCollections component." />
+    <MESSAGE value="added productUtils.js" />
+    <MESSAGE value="Adds homepage URL and navigation links to navbar." />
+    <MESSAGE value="Refactors delete modals for products and categories." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactors delete modals for products and categories." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

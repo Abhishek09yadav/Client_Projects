@@ -2,16 +2,14 @@
 import React, {useEffect, useState} from 'react';
 import add_icon from '../../assets/plus1.png';
 import './AddCategory.css';
-import ConfirmationModal from './ConfirmationModal.jsx';
 import {FaTrashAlt} from "react-icons/fa";
+import {confirmAlert} from "react-confirm-alert";
 
 const url = import.meta.env.VITE_API_URL; // Backend URL
 
 const AddCategory = () => {
     const [categories, setCategories] = useState([]);
     const [newCategory, setNewCategory] = useState('');
-    const [categoryToDelete, setCategoryToDelete] = useState(null);
-    const [isModalOpen, setIsModalOpen] = useState(false);
 
     // Fetch categories on load
     useEffect(() => {
@@ -65,22 +63,33 @@ const AddCategory = () => {
     };
 
     const handleDelete = (categoryId) => {
-        setCategoryToDelete(categoryId);
-        setIsModalOpen(true);
+        confirmAlert({
+            title: 'Delete Category Confirmation',
+            message: `Are you certain you want to delete this category? Please note that deleting a category will also permanently remove all products associated with it.
+Proceed with caution⚠️`,
+            buttons: [
+                {
+                    label: 'Confirm',
+                    onClick: () => deleteCategory(categoryId),
+                    style: {
+                        backgroundColor: '#ff0000', // Change to your desired color
+                        color: '#ffffff' // Change text color if needed
+                    }
+                },
+                {
+                    label: 'Cancel',
+                    onClick: () => close()
+                }
+            ],
+            closeOnEscape: true,
+            closeOnClickOutside: true,
+            keyCodeForClose: [8, 32],
+
+        });
+
+
     };
 
-    const confirmDelete = () => {
-        if (categoryToDelete) {
-            deleteCategory(categoryToDelete);
-            setCategoryToDelete(null);
-            setIsModalOpen(false);
-        }
-    };
-
-    const closeModal = () => {
-        setCategoryToDelete(null);
-        setIsModalOpen(false);
-    };
 
     return (
         <div className="add-category-container">
@@ -105,12 +114,7 @@ const AddCategory = () => {
                     </div>
                 ))}
             </div>
-            <ConfirmationModal
-                isOpen={isModalOpen}
-                onClose={closeModal}
-                onConfirm={confirmDelete}
-                message="Are you sure you want to delete this category?"
-            />
+
         </div>
     );
 };
