@@ -8,6 +8,7 @@ const cors = require('cors');
 const jwt = require("jsonwebtoken");
 router.use(express.json())
 router.use(cors());
+const bcrypt = require("bcrypt");
 // OTP storage
 const otpStore = {};
 
@@ -180,9 +181,10 @@ router.post('/reset-password', async (req, res) => {
                 error: 'User not found'
             });
         }
+        const hashedpassword = await bcrypt.hash(newPassword, 10);
 
         // Update user's password
-        user.password = newPassword;
+        user.password = hashedpassword;
         await user.save();
 
         // Remove OTP from store
@@ -203,7 +205,8 @@ router.post('/reset-password', async (req, res) => {
 router.post('/login', async (req, res) => {
     let user = await Users.findOne({email: req.body.email});
     if (user) {
-        const passCompare = req.body.password === user.password;
+        const passCompare = bcrypt.compare(req.body.password, user.password);
+      
         if (passCompare) {
             const data = {user: {id: user.id}}
             const token = jwt.sign(data, 'secret_ecom');
@@ -220,15 +223,14 @@ router.post('/signup', async (req, res) => {
     if (check) {
         return res.status(400).json({success: false, error: 'Email already exists'});
     }
-
+    const hashedpassword =  await bcrypt.hash(req.body.password, 10);
     const user = new Users({
-        name: req.body.username,
-        email: req.body.email,
-        password: req.body.password,
-        state: req.body.state,
-        city: req.body.city,
-        phoneNo: req.body.phoneNo,
-
+      name: req.body.username,
+      email: req.body.email,
+      password: hashedpassword,
+      state: req.body.state,
+      city: req.body.city,
+      phoneNo: req.body.phoneNo,
     });
 
     await user.save();
@@ -247,7 +249,7 @@ router.post('/adminlogin', async (req, res) => {
         }
 
         // Check if the password matches
-        const passCompare = req.body.password === user.password;
+        const passCompare = bcrypt.compare(req.body.password, user.password);
         if (!passCompare) {
             return res.json({ success: false, error: 'Wrong password' });
         }

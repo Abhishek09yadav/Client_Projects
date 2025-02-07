@@ -427,7 +427,7 @@ app.get('/listUser', async (req, res) => {
 
         // Exclude the password from each user data
         const usersDetailsToSend = usersData.map(user => {
-            const {password, cartData, ...userDetails} = user.toObject(); // Exclude password
+            const {password, ...userDetails} = user.toObject(); // Exclude password
             return userDetails;
         });
 
