@@ -8,9 +8,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import no_products_found from "../Assets/no_products_found.jpeg";
 import QuotationModal from './QuotationModal'; // Import the new QuotationModal component
 import html2pdf from 'html2pdf.js';
+import SelectedItemsModal from './SelectedItemsModal';
+import {FaEye} from 'react-icons/fa';
 
 const url = process.env.REACT_APP_API_URL;
 const Category = () => {
+    const [isSelectedItemsModalOpen, setIsSelectedItemsModalOpen] = useState(false);
+
     const [totalQuantity, setTotalQuantity] = useState(0);
     const [categories, setCategories] = useState([]);
     const [allProducts, setAllProducts] = useState([]);
@@ -270,7 +274,13 @@ const Category = () => {
             )}
 
             <div className="net-quantity-container d-flex justify-content-end gap-5 align-items-center">
-                <div className={''}>View Selected Items</div>
+                <button
+                    className="btn btn-light d-flex align-items-center gap-2 "
+                    onClick={() => setIsSelectedItemsModalOpen(true)}
+                >
+                    <FaEye/> {/* Add the eye icon here */}
+                    View Selected Items
+                </button>
                 <div className={'d-flex flex-row align-items-center gap-5 '}>
                     <div className="net-quantity ">Net Quantity: {totalQuantity}</div>
                     <button
@@ -289,6 +299,12 @@ const Category = () => {
                 totalPrice={totalPrice}
                 totalQuantity={totalQuantity}
                 userDetails={userDetails}
+            />
+            <SelectedItemsModal
+                isModalOpen={isSelectedItemsModalOpen}
+                setIsModalOpen={setIsSelectedItemsModalOpen}
+                selectedProducts={selectedProducts}
+                allProducts={allProducts}
             />
         </div>
     );
