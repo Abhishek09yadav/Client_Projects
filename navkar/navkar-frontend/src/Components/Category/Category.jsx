@@ -269,14 +269,17 @@ const Category = () => {
 
             )}
 
-            <div className="net-quantity-container ">
-                <span className="net-quantity">Net Quantity: {totalQuantity}</span>
-                <button
-                    className="query-generator-button"
-                    onClick={generateQuery}
-                >
-                    Generate Quotation
-                </button>
+            <div className="net-quantity-container d-flex justify-content-end gap-5 align-items-center">
+                <div className={''}>View Selected Items</div>
+                <div className={'d-flex flex-row align-items-center gap-5 '}>
+                    <div className="net-quantity ">Net Quantity: {totalQuantity}</div>
+                    <button
+                        className="query-generator-button p-3 h-100"
+                        onClick={generateQuery}
+                    >
+                        Generate Quotation
+                    </button>
+                </div>
             </div>
 
             <QuotationModal
