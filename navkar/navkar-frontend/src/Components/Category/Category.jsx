@@ -276,7 +276,12 @@ const Category = () => {
             <div className="net-quantity-container d-flex justify-content-end gap-5 align-items-center">
                 <button
                     className="btn btn-light d-flex align-items-center gap-2 "
-                    onClick={() => setIsSelectedItemsModalOpen(true)}
+                    onClick={() => {
+                        if (totalQuantity < 1) toast.warning('No products Selected');
+                        else if (userDetails) setIsSelectedItemsModalOpen(true);
+                        // else if(!userDetails || userDetails.length === 0) toast.warning('please login first');
+
+                    }}
                 >
                     <FaEye/> {/* Add the eye icon here */}
                     View Selected Items

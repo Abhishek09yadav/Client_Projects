@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Refactors category delete modal and net quantity display.">
-      <change afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/SelectedItemsModal.jsx" afterDir="false" />
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Refactors category delete modal and selected items display.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" afterDir="false" />
     </list>
@@ -212,15 +211,7 @@
       <workItem from="1738818508834" duration="29739000" />
       <workItem from="1738910069139" duration="10325000" />
       <workItem from="1738946302299" duration="446000" />
-      <workItem from="1738991784059" duration="14894000" />
-    </task>
-    <task id="LOCAL-00051" summary="making admin panel device responsive">
-      <option name="closed" value="true" />
-      <created>1735033275939</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1735033275939</updated>
+      <workItem from="1738991784059" duration="16404000" />
     </task>
     <task id="LOCAL-00052" summary="making admin panel device responsive">
       <option name="closed" value="true" />
@@ -606,7 +597,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739008738761</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="Refactors category delete modal and selected items display.">
+      <option name="closed" value="true" />
+      <created>1739011884188</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1739011884188</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -626,7 +625,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="removed all uploads" />
     <MESSAGE value="changed Navbar.jsx" />
     <MESSAGE value="added confirmation before deletion" />
     <MESSAGE value="styled Navbar.jsx" />
@@ -651,7 +649,8 @@
     <MESSAGE value="Adds homepage URL and navigation links to navbar." />
     <MESSAGE value="Refactors delete modals for products and categories." />
     <MESSAGE value="Refactors category delete modal and net quantity display." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactors category delete modal and net quantity display." />
+    <MESSAGE value="Refactors category delete modal and selected items display." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactors category delete modal and selected items display." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
