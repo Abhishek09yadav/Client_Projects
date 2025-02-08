@@ -39,6 +39,7 @@ const Item = ({
                             type="number"
                             value={selectedQuantity || 0}
                             onChange={(e) => onQuantityChange(id, e.target.value, MOQ)}
+                            onFocus={(e) => e.target.select()}
                             className="quantity-input"
                         />
 

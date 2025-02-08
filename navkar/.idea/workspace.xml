@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Refactors category delete modal and selected items display.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +98,7 @@
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\public" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.admin">
+  <component name="RunManager" selected="npm.frontend">
     <configuration default="true" type="NodeJSConfigurationType" node-parameters="node index.js" working-dir="$PROJECT_DIR$/navkar-backend">
       <method v="2" />
     </configuration>
@@ -211,15 +211,7 @@
       <workItem from="1738818508834" duration="29739000" />
       <workItem from="1738910069139" duration="10325000" />
       <workItem from="1738946302299" duration="446000" />
-      <workItem from="1738991784059" duration="16404000" />
-    </task>
-    <task id="LOCAL-00052" summary="making admin panel device responsive">
-      <option name="closed" value="true" />
-      <created>1735034034699</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1735034034700</updated>
+      <workItem from="1738991784059" duration="19418000" />
     </task>
     <task id="LOCAL-00053" summary="making admin panel device responsive">
       <option name="closed" value="true" />
@@ -605,7 +597,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739011884188</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="Refactors category delete modal and selected items display.">
+      <option name="closed" value="true" />
+      <created>1739013284372</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1739013284372</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
