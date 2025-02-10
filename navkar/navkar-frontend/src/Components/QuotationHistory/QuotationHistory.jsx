@@ -6,8 +6,10 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import ReactPaginate from 'react-paginate';
 import no_quotations_found from "../Assets/no_quotatoins_found.svg";
-import {FaCalendarAlt} from "react-icons/fa"; // Import the calendar icon
+import {FaCalendarAlt} from "react-icons/fa";
+import handlePdfDownload from "../DownloadPdf/handlePdfDownload";
 
+const url = process.env.REACT_APP_API_URL
 const CalendarInput = ({value, onChange}) => {
     const [isOpen, setIsOpen] = useState(false);
     const inputRef = useRef(null);
@@ -99,31 +101,10 @@ const QuotationHistory = () => {
     }, [selectedDate, quotations]);
 
     const handlePdfClick = (quotation) => {
-        setSelectedPdf(quotation.link);
+        setSelectedPdf(`${url}${quotation.link}`);
         setShowPdfModal(true);
     };
 
-    const handlePdfDownload = async (quotation) => {
-        try {
-            const response = await fetch(quotation.link);
-            if (response.ok) {
-                const blob = await response.blob();
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.style.display = 'none';
-                a.href = url;
-                a.download = `Quotation_${quotation.uploadedAt}`;
-                document.body.appendChild(a);
-                a.click();
-                window.URL.revokeObjectURL(url);
-                document.body.removeChild(a);
-            } else {
-                throw new Error(`Failed to download PDF: ${response.statusText}`);
-            }
-        } catch (error) {
-            console.error('Error downloading the PDF:', error);
-        }
-    };
 
     const handlePageClick = ({selected}) => {
         setCurrentPage(selected);

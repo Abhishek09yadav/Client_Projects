@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import './UploadBanner.css';
 import upload_area from '../../assets/upload_area.svg';
 import plus_icon from '../../assets/plus.png';
-import 'react-quill/dist/quill.snow.css';
 import cross_icon from '../../assets/cross_icon.png';
 
 const url = import.meta.env.VITE_API_URL;
@@ -148,7 +147,7 @@ function UploadBanner() {
         if (images[imageKey]) {
             return URL.createObjectURL(images[imageKey]);
         } else if (existingImages[imageKey]) {
-            return existingImages[imageKey];
+            return `${url}${existingImages[imageKey]}`;
         }
         return upload_area;
     };

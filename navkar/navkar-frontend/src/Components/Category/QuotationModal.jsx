@@ -73,7 +73,7 @@ const QuotationModal = ({isModalOpen, setIsModalOpen, selectedItems, totalPrice,
                                     <th>Quantity</th>
                                     <th>Category</th>
                                     <th>Price</th>
-                                    <th>Tax</th>
+                                    <th>Tax(%)</th>
                                     <th>Total Price</th>
                                 </tr>
                                 </thead>

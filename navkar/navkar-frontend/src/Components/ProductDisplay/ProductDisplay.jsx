@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import './ProductDisplay.css';
 
+const url = process.env.REACT_APP_API_URL
+
 const ProductDisplay = (props) => {
     const { product } = props;
 
@@ -29,7 +31,7 @@ const ProductDisplay = (props) => {
                     {productImages.map((img, index) => (
                         <img
                             key={index}
-                            src={img}
+                            src={`${url}${img}`}
                             alt={`Product view ${index + 1}`}
                             onClick={() => setMainImage(img)}
                             className={mainImage === img ? 'selected-image' : ''}
@@ -39,7 +41,7 @@ const ProductDisplay = (props) => {
                 <div className="productdisplay-img text-center ">
                     <img
                         className='productdisplay-main-img '
-                        src={mainImage}
+                        src={`${url}${mainImage}`}
                         alt="Main product view"
                     />
                 </div>

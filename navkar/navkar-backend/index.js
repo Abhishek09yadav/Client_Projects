@@ -38,7 +38,7 @@ app.use('/images', express.static('upload/images'));
 app.post("/upload", upload.single("product"), (req, res) => {
     res.json({
         success: 1,
-        image_url: `${baseUrl}/images/${req.file.filename}`,
+        image_url: `/images/${req.file.filename}`,
     });
 });
 // PDF storage engine
@@ -117,7 +117,7 @@ app.put('/banners/:id', upload.fields([
                 banner[key] = '';
             } else if (req.files[key]) {
                 // Update the field with the new file
-                banner[key] = `${baseUrl}/images/${req.files[key][0].filename}`;
+                banner[key] = `/images/${req.files[key][0].filename}`;
             }
             // If neither an empty string nor a file is provided, retain the existing value
         });
@@ -147,7 +147,7 @@ app.post('/uploadQuotation', uploadPdf.single('quotation'), async (req, res) => 
         }
 
         // Create a public link for the uploaded PDF
-        const pdfLink = `${baseUrl}/uploads/pdf/${req.file.filename}`;
+        const pdfLink = `/uploads/pdf/${req.file.filename}`;
         const timestamp = Date.now();
 
         // Save the link and timestamp in the user's QuotationPages array

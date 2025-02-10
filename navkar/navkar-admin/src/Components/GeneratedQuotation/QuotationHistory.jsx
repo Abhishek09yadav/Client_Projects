@@ -4,6 +4,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faDownload, faEye} from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
 import './QuotationHistory.css'; // Import the CSS file
+import handlePdfDownload from "../DownloadPdf/handlePdfDownload.js";
 
 const url = import.meta.env.VITE_API_URL;
 
@@ -62,26 +63,6 @@ const QuotationHistory = () => {
     const startIndex = currentPage * itemsPerPage;
     const currentItems = filteredQuotations.slice(startIndex, startIndex + itemsPerPage);
 
-    const handlePdfDownload = async (quotation) => {
-        try {
-            const response = await fetch(quotation.link);
-            if (!response.ok) {
-                throw new Error(`Failed to download PDF: ${response.statusText}`);
-            }
-            const blob = await response.blob();
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.style.display = 'none';
-            a.href = url;
-            a.download = `Quotation_${quotation.uploadedAt}`;
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(url);
-            document.body.removeChild(a);
-        } catch (error) {
-            console.error('Error downloading the PDF:', error);
-        }
-    };
 
     return (
         <div className="quotation-history-container">
@@ -113,7 +94,8 @@ const QuotationHistory = () => {
                         <td>{quotation.phoneNo}</td>
                         <td>{quotation.formattedDate}</td>
                         <td>
-                            <a className="pdf" href={quotation.link} target="_blank" rel="noopener noreferrer"
+                            <a className="pdf" href={`${url}${quotation.link}`} target="_blank"
+                               rel="noopener noreferrer"
                                title="View PDF">
                                 <FontAwesomeIcon icon={faEye}/>
                             </a>
