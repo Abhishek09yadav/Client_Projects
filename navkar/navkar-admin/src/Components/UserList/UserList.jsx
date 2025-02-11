@@ -15,31 +15,36 @@ const url = import.meta.env.VITE_API_URL;
 
 const UserList = () => {
     const [users, setUsers] = useState([]);
-    const [filteredUsers, setFilteredUsers] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [error, setError] = useState('');
     const [expandedUser, setExpandedUser] = useState(null);
     const [currentPage, setCurrentPage] = useState(0);
+    const [totalPages, setTotalPages] = useState(0);
     const itemsPerPage = 5; // Number of items to display per page
 
+    // Fetch users when the component mounts or when the page changes
     useEffect(() => {
-        const fetchUsers = async () => {
-            try {
-                const response = await fetch(`${url}/api/listUser`, {method: 'GET'});
-                const data = await response.json();
-                if (data.success) {
-                    setUsers(data.usersDetails);
-                    setFilteredUsers(data.usersDetails);
-                } else {
-                    setError(data.error || 'No users found');
-                }
-            } catch (err) {
-                setError('Failed to fetch users');
-                console.error(err);
-            }
-        };
         fetchUsers();
-    }, []);
+    }, [currentPage]);
+
+    const fetchUsers = async () => {
+        try {
+            const response = await fetch(
+                `${url}/api/listUser?search=${searchQuery}&page=${currentPage + 1}&limit=${itemsPerPage}`,
+                {method: 'GET'}
+            );
+            const data = await response.json();
+            if (data.success) {
+                setUsers(data.usersDetails);
+                setTotalPages(data.totalPages);
+            } else {
+                setError(data.error || 'No users found');
+            }
+        } catch (err) {
+            setError('Failed to fetch users');
+            console.error(err);
+        }
+    };
 
     const toggleAccordion = (email) => {
         setExpandedUser(expandedUser === email ? null : email);
@@ -50,15 +55,8 @@ const UserList = () => {
     };
 
     const handleSearch = () => {
-        const query = searchQuery.toLowerCase();
-        const filtered = users.filter((user) => {
-            return user.name.toLowerCase().includes(query) ||
-                user.email.toLowerCase().includes(query) ||
-                user.phoneNo?.toLowerCase().includes(query);
-        });
-
-        setFilteredUsers(filtered);
-        setCurrentPage(0); // Reset to the first page on search
+        setCurrentPage(0); // Reset to the first page when searching
+        fetchUsers(); // Trigger API call with the search query
     };
 
     const openDeleteModal = (user) => {
@@ -92,8 +90,7 @@ const UserList = () => {
             });
             const data = await response.json();
             if (data.success) {
-                setUsers(users.filter((user) => user.email !== userToDelete.email));
-                setFilteredUsers(filteredUsers.filter((user) => user.email !== userToDelete.email));
+                fetchUsers(); // Refetch users after deletion
                 toast.success('User Deleted successfully!');
             } else {
                 setError(data.error);
@@ -109,12 +106,6 @@ const UserList = () => {
         setCurrentPage(data.selected);
     };
 
-    const pageCount = Math.ceil(filteredUsers.length / itemsPerPage);
-    const displayUsers = filteredUsers.slice(
-        currentPage * itemsPerPage,
-        (currentPage + 1) * itemsPerPage
-    );
-
     return (
         <>
             <ToastContainer/>
@@ -127,11 +118,13 @@ const UserList = () => {
                                 type="text"
                                 placeholder="Search by name, email or phone"
                                 value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
+                                onChange={(e) => setSearchQuery(e.target.value)} // Update search query state
                                 className="form-control me-2 flex-grow-1"
                             />
-                            <button onClick={handleSearch}
-                                    className="btn btn-primary justify-content-center search-bar w-25  ">
+                            <button
+                                onClick={handleSearch} // Trigger search on button click
+                                className="btn btn-primary justify-content-center search-bar w-25"
+                            >
                                 <FaSearch/>
                             </button>
                         </div>
@@ -140,8 +133,8 @@ const UserList = () => {
                 <Row>
                     <Col md={12}>
                         <div className="accordion">
-                            {displayUsers.length > 0 ? (
-                                displayUsers.map((user) => (
+                            {users.length > 0 ? (
+                                users.map((user) => (
                                     <div key={user.email}>
                                         <div className="accordion-item">
                                             <div
@@ -218,7 +211,7 @@ const UserList = () => {
                                 previousLabel={'Previous'}
                                 nextLabel={'Next'}
                                 breakLabel={'...'}
-                                pageCount={pageCount}
+                                pageCount={totalPages}
                                 marginPagesDisplayed={2}
                                 pageRangeDisplayed={5}
                                 onPageChange={handlePageClick}
