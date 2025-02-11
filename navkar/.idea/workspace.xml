@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="fixed extra api call when user switch pages in QuotationHistory.jsx">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Fixes redundant API call on page change. and changed styling of search bar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/AddCategory/AddCategory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/AddCategory/AddCategory.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,8 +66,8 @@
     "nodejs_package_manager_path": "npm",
     "npm.admin.executor": "Run",
     "npm.backend.executor": "Run",
-    "npm.frontend.executor": "Run",
-    "settings.editor.selected.configurable": "com.github.blarc.ai.commits.intellij.plugin.settings.AppSettingsConfigurable",
+    "npm.frontend.executor": "Debug",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "settings.editor.splitter.proportion": "0.28614458",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
@@ -100,7 +98,7 @@
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.admin">
+  <component name="RunManager" selected="npm.frontend">
     <configuration default="true" type="NodeJSConfigurationType" node-parameters="node index.js" working-dir="$PROJECT_DIR$/navkar-backend">
       <method v="2" />
     </configuration>
@@ -219,15 +217,8 @@
       <workItem from="1739170570181" duration="6567000" />
       <workItem from="1739206648119" duration="42000" />
       <workItem from="1739249642467" duration="642000" />
-      <workItem from="1739252149391" duration="7283000" />
-    </task>
-    <task id="LOCAL-00056" summary="banner upload and banner display is now completed">
-      <option name="closed" value="true" />
-      <created>1735564644607</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1735564644608</updated>
+      <workItem from="1739252149391" duration="9716000" />
+      <workItem from="1739264735143" duration="4909000" />
     </task>
     <task id="LOCAL-00057" summary="Styles active category pill and adds logo to PDF.">
       <option name="closed" value="true" />
@@ -613,7 +604,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739251636735</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="Fixes redundant API call on page change. and changed styling of search bar">
+      <option name="closed" value="true" />
+      <created>1739259634403</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1739259634405</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -633,7 +632,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display Quotation&#10;History link conditionally based on login status.&#10;Added a toast notification for login prompt. Improved&#10;styling for several components, including item&#10;selection and category display. Refactored file&#10;structure for modals and updated import paths&#10;accordingly. Adjusted CSS for various elements to&#10;enhance visual appeal." />
     <MESSAGE value="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display Quotation&#10;History link conditionally based on login status.&#10;Added a toast notification for login prompt.&#10;Improved styling for item selection and category&#10;display. Refactored file structure for modals and&#10;updated import paths accordingly. Adjusted CSS for&#10;various elements to enhance visual appeal.  Fixed&#10;quantity input handling to prevent values below MOQ&#10;and correctly calculate total quantity." />
     <MESSAGE value="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display &quot;Quotation&#10;History&quot; link conditionally based on login status.&#10;Added a toast notification for login prompt. Improved&#10;styling for item selection and category display.&#10;Refactored modals and updated import paths. Adjusted&#10;CSS for various elements to enhance visual appeal.&#10;Fixed quantity input handling to prevent values below&#10;MOQ and correctly calculate total quantity." />
     <MESSAGE value="feat: Implement QuotationModal and refine styling (main)&#10;&#10;- Created `QuotationModal` component to display selected&#10;  items, total price, and user details for quotation&#10;  generation.&#10;- Implemented PDF generation and download&#10;  functionality within `QuotationModal`.&#10;- Updated `Category` component to handle `QuotationModal`&#10;  display and PDF generation logic.&#10;- Improved styling for `Navbar`, item selection, and&#10;  category display.&#10;- Refactored CSS and moved modal-related styles to&#10;  `QuotationModal.css`.&#10;- Adjusted quantity input handling to prevent values&#10;  below MOQ and ensure accurate total quantity&#10;  calculation." />
@@ -658,7 +656,8 @@
     <MESSAGE value="Uses environment variable for PDF download URL." />
     <MESSAGE value="123" />
     <MESSAGE value="fixed extra api call when user switch pages in QuotationHistory.jsx" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed extra api call when user switch pages in QuotationHistory.jsx" />
+    <MESSAGE value="Fixes redundant API call on page change. and changed styling of search bar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixes redundant API call on page change. and changed styling of search bar" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

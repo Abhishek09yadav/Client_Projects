@@ -9,6 +9,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 import {toast, ToastContainer} from "react-toastify";
 import ReactPaginate from 'react-paginate';
 import handlePdfDownload from "../DownloadPdf/handlePdfDownload.js";
+import {FaSearch} from "react-icons/fa";
 
 const url = import.meta.env.VITE_API_URL;
 
@@ -44,16 +45,12 @@ const UserList = () => {
         setExpandedUser(expandedUser === email ? null : email);
     };
 
-
-
     const handlePdfView = (link) => {
         window.open(link, '_blank');
     };
 
-    const handleSearch = (event) => {
-        const query = event.target.value.toLowerCase();
-        setSearchQuery(query);
-
+    const handleSearch = () => {
+        const query = searchQuery.toLowerCase();
         const filtered = users.filter((user) => {
             return user.name.toLowerCase().includes(query) ||
                 user.email.toLowerCase().includes(query) ||
@@ -125,14 +122,18 @@ const UserList = () => {
             <Container>
                 <Row>
                     <Col md={12}>
-                        <div className="search-bar mb-3">
+                        <div className="search-bar mb-3 d-flex align-items-center">
                             <input
                                 type="text"
-                                placeholder="Search by name, email or phone "
+                                placeholder="Search by name, email or phone"
                                 value={searchQuery}
-                                onChange={handleSearch}
-                                className="form-control"
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                className="form-control me-2 flex-grow-1"
                             />
+                            <button onClick={handleSearch}
+                                    className="btn btn-primary justify-content-center search-bar w-25  ">
+                                <FaSearch/>
+                            </button>
                         </div>
                     </Col>
                 </Row>
