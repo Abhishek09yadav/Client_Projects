@@ -6,6 +6,58 @@
     min-height: 100vh;
 }
 
+/* QuotationHistory.css */
+.react-datepicker-wrapper {
+    display: inline-block;
+    padding: 0;
+    border: 0;
+    width: auto;
+}
+
+.react-datepicker__input-container {
+    display: inline-block;
+}
+
+.react-datepicker__input-container input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+/* Search container */
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Search bar */
+.search-bar {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Search button */
+.search-button {
+    margin-bottom: 15px;
+    padding: 10px;
+    margin-left: 10px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
 /* Page title */
 .quotation-history-container h1 {
     text-align: center;

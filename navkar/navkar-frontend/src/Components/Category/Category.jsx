@@ -205,7 +205,7 @@ const Category = () => {
                 formData.append('quotation', pdfFile);
                 formData.append('userId', userDetails._id);
 
-                const response = await axios.post(`${url}/uploadQuotation`, formData, {
+                const response = await axios.post(`${url}/api/uploadQuotation`, formData, {
                     headers: {'Content-Type': 'multipart/form-data'}
                 });
 
