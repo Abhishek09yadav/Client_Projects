@@ -57,7 +57,7 @@ const QuotationHistory = () => {
     // Fetch quotations on component mount and when page, search term, or date range changes
     useEffect(() => {
         fetchQuotations(currentPage, searchTerm, startDate, endDate);
-    }, [currentPage]); // Fetch data when the page changes
+    }, []); // Fetch data when the page changes
 
     // Handle search when the search button is clicked
     const handleSearch = () => {
