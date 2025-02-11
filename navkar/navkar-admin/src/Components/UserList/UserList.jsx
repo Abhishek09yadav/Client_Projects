@@ -25,7 +25,7 @@ const UserList = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await fetch(`${url}/listUser`, { method: 'GET' });
+                const response = await fetch(`${url}/api/listUser`, {method: 'GET'});
                 const data = await response.json();
                 if (data.success) {
                     setUsers(data.usersDetails);

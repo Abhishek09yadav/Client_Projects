@@ -15,6 +15,8 @@ const quotationRoutes = require('./routes/quotationRoutes');
 app.use('/api', quotationRoutes);
 const otpRoutes = require('./routes/otpRoutes');
 app.use('/api/otp', otpRoutes);
+const listUser = require('./routes/listUser');
+app.use('/api', listUser);
 // Database Connection with mongodb
 mongoose.connect('mongodb+srv://Ecommerce:Z1*6$5*7A4$qC&@cluster0.dwmcu.mongodb.net/e-commerce')
 
@@ -340,28 +342,9 @@ const fetchUser = async (req, res, next) => {
         }
     }
 };
-// Endpoint to get user details
 
-app.get('/listUser', async (req, res) => {
-    try {
-        // Find all users
-        const usersData = await Users.find({});
-        if (usersData.length === 0) {
-            return res.status(404).json({success: false, error: "No users found"});
-        }
 
-        // Exclude the password from each user data
-        const usersDetailsToSend = usersData.map(user => {
-            const {password, ...userDetails} = user.toObject(); // Exclude password
-            return userDetails;
-        });
 
-        res.json({success: true, usersDetails: usersDetailsToSend});
-    } catch (error) {
-        console.error("Error fetching users details:", error);
-        res.status(500).json({success: false, error: "Internal server error"});
-    }
-});
 
 app.delete('/removeUser', async (req, res) => {
     try {
