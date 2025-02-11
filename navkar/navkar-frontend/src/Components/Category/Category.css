@@ -108,10 +108,7 @@
 
 .net-quantity-container {
     z-index: 10;
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    padding: 0 10px;
+
     background-color: #ffffff;
     height: 50px;
     position: fixed;
@@ -120,35 +117,29 @@
     right: 0;
 }
 
-.net-quantity {
-    flex: 1;
-    color: rgba(0, 0, 0, 0.92);
-    font-size: 14px;
-    background-color: #ffffff;
-    text-align: center;
-    font-weight: bold;
-    margin-left: 50vi;
-}
-
 .query-generator-button {
-    width: 250px;
+
     background-color: green;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
     font-size: 14px;
     color: white;
     border: none;
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s;
-    margin-right: 0;
-    padding-right: 0;
+
 }
+
+.net-quantity {
+
+    color: rgba(0, 0, 0, 0.92);
+    font-size: 14px;
+    background-color: #ffffff;
+
+    font-weight: bold;
+
+}
+
 
 .query-generator-button:hover {
     background-color: darkgreen;

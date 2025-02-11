@@ -182,7 +182,7 @@ function AddProduct({product}) {
         if (images[imageKey]) {
             return URL.createObjectURL(images[imageKey]);
         } else if (existingImages[imageKey]) {
-            return existingImages[imageKey];
+            return `${url}${existingImages[imageKey]}`;
         }
         return upload_area;
     };

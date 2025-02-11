@@ -8,6 +8,7 @@ import {confirmAlert} from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import {toast, ToastContainer} from "react-toastify";
 import ReactPaginate from 'react-paginate';
+import handlePdfDownload from "../DownloadPdf/handlePdfDownload.js";
 
 const url = import.meta.env.VITE_API_URL;
 
@@ -43,27 +44,7 @@ const UserList = () => {
         setExpandedUser(expandedUser === email ? null : email);
     };
 
-    const handlePdfDownload = async (quotation) => {
-        try {
-            const response = await fetch(quotation.link);
-            if (response.ok) {
-                const blob = await response.blob();
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.style.display = 'none';
-                a.href = url;
-                a.download = `Quotation_${quotation.uploadedAt}`;
-                document.body.appendChild(a);
-                a.click();
-                window.URL.revokeObjectURL(url);
-                document.body.removeChild(a);
-            } else {
-                throw new Error(`Failed to download PDF: ${response.statusText}`);
-            }
-        } catch (error) {
-            console.error('Error downloading the PDF:', error);
-        }
-    };
+
 
     const handlePdfView = (link) => {
         window.open(link, '_blank');
@@ -200,7 +181,7 @@ const UserList = () => {
                                                                         <td>
                                                                             <Button
                                                                                 variant="info"
-                                                                                onClick={() => handlePdfView(quotation.link)}
+                                                                                onClick={() => handlePdfView(`${url}${quotation.link}`)}
                                                                             >
                                                                                 <FontAwesomeIcon icon={faEye}/> View
                                                                             </Button>

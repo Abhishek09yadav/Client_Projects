@@ -1,4 +1,5 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useCallback, useContext, useEffect, useState} from 'react';
+import {debounce} from "lodash";
 import axios from 'axios';
 import './Category.css';
 import Item from '../item/item';
@@ -8,9 +9,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import no_products_found from "../Assets/no_products_found.jpeg";
 import QuotationModal from './QuotationModal'; // Import the new QuotationModal component
 import html2pdf from 'html2pdf.js';
+import SelectedItemsModal from './SelectedItemsModal';
+import {FaEye} from 'react-icons/fa';
 
 const url = process.env.REACT_APP_API_URL;
 const Category = () => {
+    const [isSelectedItemsModalOpen, setIsSelectedItemsModalOpen] = useState(false);
+
     const [totalQuantity, setTotalQuantity] = useState(0);
     const [categories, setCategories] = useState([]);
     const [allProducts, setAllProducts] = useState([]);
@@ -81,18 +86,21 @@ const Category = () => {
             return newSelectedProducts;
         });
     };
-
+    const debouncedToast = useCallback(
+        debounce((quantity, MOQ) => {
+            toast.warn(`Quantity: ${quantity} is below the Minimum Order Quantity of ${MOQ}`, {
+                autoClose: 2000,
+            });
+        }, 500),
+        []
+    );
     const onQuantityChange = (productId, quantity, MOQ) => {
         const parsedQuantity = Math.max(0, parseInt(quantity, 10) || 0);
 
         if (parsedQuantity < MOQ) {
-            toast.warn(`Quantity: ${parsedQuantity} is below the Minimum Order Quantity of ${MOQ}`, {
-                autoClose: 2500,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-            });
+            debouncedToast(parsedQuantity, MOQ);
+        } else {
+            debouncedToast.cancel();
         }
 
         setSelectedProducts((prevSelectedProducts) => {
@@ -197,7 +205,7 @@ const Category = () => {
                 formData.append('quotation', pdfFile);
                 formData.append('userId', userDetails._id);
 
-                const response = await axios.post(`${url}/uploadQuotation`, formData, {
+                const response = await axios.post(`${url}/api/uploadQuotation`, formData, {
                     headers: {'Content-Type': 'multipart/form-data'}
                 });
 
@@ -269,14 +277,28 @@ const Category = () => {
 
             )}
 
-            <div className="net-quantity-container ">
-                <span className="net-quantity">Net Quantity: {totalQuantity}</span>
+            <div className="net-quantity-container d-flex justify-content-end gap-5 align-items-center">
                 <button
-                    className="query-generator-button"
-                    onClick={generateQuery}
+                    className="btn btn-light d-flex align-items-center gap-2 "
+                    onClick={() => {
+                        if (totalQuantity < 1) toast.warning('No products Selected');
+                        else if (userDetails) setIsSelectedItemsModalOpen(true);
+                        // else if(!userDetails || userDetails.length === 0) toast.warning('please login first');
+
+                    }}
                 >
-                    Generate Quotation
+                    <FaEye/> {/* Add the eye icon here */}
+                    View Selected Items
                 </button>
+                <div className={'d-flex flex-row align-items-center gap-5 '}>
+                    <div className="net-quantity ">Net Quantity: {totalQuantity}</div>
+                    <button
+                        className="query-generator-button p-3 h-100"
+                        onClick={generateQuery}
+                    >
+                        Generate Quotation
+                    </button>
+                </div>
             </div>
 
             <QuotationModal
@@ -286,6 +308,12 @@ const Category = () => {
                 totalPrice={totalPrice}
                 totalQuantity={totalQuantity}
                 userDetails={userDetails}
+            />
+            <SelectedItemsModal
+                isModalOpen={isSelectedItemsModalOpen}
+                setIsModalOpen={setIsSelectedItemsModalOpen}
+                selectedProducts={selectedProducts}
+                allProducts={allProducts}
             />
         </div>
     );

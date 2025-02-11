@@ -141,7 +141,7 @@ function ListProduct() {
                     <hr/>
                     {paginatedProducts.map((product, index) => (
                         <div key={index} className="ListProduct-format-main ListProduct-format">
-                            <img src={product.image} alt="" className="ListProduct-product-icon"/>
+                            <img src={`${url}${product.image}`} alt="" className="ListProduct-product-icon"/>
                             <p>{product.name}</p>
                             <p>₹{product.old_price}</p>
                             <p>₹{product.new_price}</p>

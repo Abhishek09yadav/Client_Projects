@@ -4,13 +4,108 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Refactors delete modals for products and categories.">
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738919780626.jpg" afterDir="false" />
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Uses environment variable for PDF download URL.">
+      <change afterPath="$PROJECT_DIR$/navkar-admin/src/Components/DownloadPdf/handlePdfDownload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/image1_1739168888481.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/image_1739168888473.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738924907884.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1738924914877.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1739166279768.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1739166393967.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1739169766119.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1739172127865.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1739172127892.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1739172127903.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1739172127919.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1739249786141.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738925204842.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738929334791.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1738946689804.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1739166972105.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1739173088340.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1739173186421.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1739249721025.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1739250147140.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1739250151118.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1739250156650.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1739250162361.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1739250168342.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1739250172116.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1739250186831.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1739250193015.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1739250205815.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/SelectedItemsModal.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/DownloadPdf/handlePdfDownload.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/Modal.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/Modal.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/AddProduct/AddProduct.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/LIstProduct/ListProduct.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/LIstProduct/ListProduct.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/UploadBanner/UploadBanner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/UploadBanner/UploadBanner.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/routes/otpRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/routes/otpRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/routes/quotationRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/routes/quotationRoutes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/Quotation_1735725414520.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/all_product.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/cart_product_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/new_collections.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/p1_product.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/p1_product_i1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/p1_product_i2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/p1_product_i3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/p1_product_i4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_21.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_23.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_24.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_25.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_26.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_27.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_28.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_29.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_30.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_31.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_33.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_34.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_35.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_36.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Assets/product_9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/QuotationModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/QuotationModal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/ProductDisplay/ProductDisplay.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/ProductDisplay/ProductDisplay.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/QuotationHistory/QuotationHistory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/QuotationHistory/QuotationHistory.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +116,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="JSX File" />
         <option value="JavaScript File" />
+        <option value="JSX File" />
       </list>
     </option>
   </component>
@@ -60,7 +155,7 @@
     "Node.js.backend.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "deletionFromPopupRequiresConfirmation": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Merging pagination",
     "last_opened_file_path": "C:/Users/monuy/Desktop/Repos/Client_Projects/navkar",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
@@ -88,18 +183,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-frontend" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\snapshots\otp-verifction-during-signup" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-frontend\src\Components\Assets" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\Components\LoginSignup" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-frontend\src\Components" />
-      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\Pages" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-frontend\src\Components" />
+      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\Components" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-frontend\src\Components\Utils" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\Components\modal" />
-      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\Components" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar" />
-      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\public" />
     </key>
   </component>
   <component name="RunManager" selected="npm.frontend">
@@ -214,46 +309,13 @@
       <workItem from="1738775845309" duration="832000" />
       <workItem from="1738818508834" duration="29739000" />
       <workItem from="1738910069139" duration="10325000" />
-    </task>
-    <task id="LOCAL-00050" summary="Refactors environment variables and adds logout functionality.">
-      <option name="closed" value="true" />
-      <created>1735032858886</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1735032858887</updated>
-    </task>
-    <task id="LOCAL-00051" summary="making admin panel device responsive">
-      <option name="closed" value="true" />
-      <created>1735033275939</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1735033275939</updated>
-    </task>
-    <task id="LOCAL-00052" summary="making admin panel device responsive">
-      <option name="closed" value="true" />
-      <created>1735034034699</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1735034034700</updated>
-    </task>
-    <task id="LOCAL-00053" summary="making admin panel device responsive">
-      <option name="closed" value="true" />
-      <created>1735034659516</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1735034659516</updated>
-    </task>
-    <task id="LOCAL-00054" summary="adding banner in app.js">
-      <option name="closed" value="true" />
-      <created>1735544589037</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1735544589038</updated>
+      <workItem from="1738946302299" duration="446000" />
+      <workItem from="1738991784059" duration="21766000" />
+      <workItem from="1739031419582" duration="34000" />
+      <workItem from="1739164252332" duration="6072000" />
+      <workItem from="1739170570181" duration="6567000" />
+      <workItem from="1739206648119" duration="42000" />
+      <workItem from="1739249642467" duration="642000" />
     </task>
     <task id="LOCAL-00055" summary="adding banner upload in admin panel">
       <option name="closed" value="true" />
@@ -607,7 +669,47 @@
       <option name="project" value="LOCAL" />
       <updated>1738919919951</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="Refactors category delete modal and net quantity display.">
+      <option name="closed" value="true" />
+      <created>1739008738760</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1739008738761</updated>
+    </task>
+    <task id="LOCAL-00100" summary="Refactors category delete modal and selected items display.">
+      <option name="closed" value="true" />
+      <created>1739011884188</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1739011884188</updated>
+    </task>
+    <task id="LOCAL-00101" summary="Refactors category delete modal and selected items display.">
+      <option name="closed" value="true" />
+      <created>1739013284372</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1739013284372</updated>
+    </task>
+    <task id="LOCAL-00102" summary="fix not able change field">
+      <option name="closed" value="true" />
+      <created>1739016332580</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1739016332581</updated>
+    </task>
+    <task id="LOCAL-00103" summary="Uses environment variable for PDF download URL.">
+      <option name="closed" value="true" />
+      <created>1739173250056</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1739173250056</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -627,10 +729,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="remove pdfs" />
-    <MESSAGE value="removed all uploads" />
-    <MESSAGE value="changed Navbar.jsx" />
-    <MESSAGE value="added confirmation before deletion" />
     <MESSAGE value="styled Navbar.jsx" />
     <MESSAGE value="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled Navbar.jsx, including login/logout functionality.&#10;Updated Navbar to display Quotation History link&#10;conditionally based on login status. Added a toast&#10;notification for login prompt.  Improved styling for&#10;several components, including item selection and&#10;category display.  Refactored file structure for&#10;modals and updated import paths accordingly.  Adjusted&#10;CSS for various elements to enhance visual appeal." />
     <MESSAGE value="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display Quotation&#10;History link conditionally based on login status.&#10;Added a toast notification for login prompt. Improved&#10;styling for several components, including item&#10;selection and category display. Refactored file&#10;structure for modals and updated import paths&#10;accordingly. Adjusted CSS for various elements to&#10;enhance visual appeal." />
@@ -652,7 +750,11 @@
     <MESSAGE value="added productUtils.js" />
     <MESSAGE value="Adds homepage URL and navigation links to navbar." />
     <MESSAGE value="Refactors delete modals for products and categories." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactors delete modals for products and categories." />
+    <MESSAGE value="Refactors category delete modal and net quantity display." />
+    <MESSAGE value="Refactors category delete modal and selected items display." />
+    <MESSAGE value="fix not able change field" />
+    <MESSAGE value="Uses environment variable for PDF download URL." />
+    <option name="LAST_COMMIT_MESSAGE" value="Uses environment variable for PDF download URL." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

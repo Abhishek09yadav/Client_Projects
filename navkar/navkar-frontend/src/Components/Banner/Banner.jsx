@@ -29,22 +29,26 @@ const Banner = () => {
                 <div className="carousel-inner carousel-inner-container">
                     {images.image ? (
                         <div className="carousel-item active">
-                            <img src={images.image} className="d-block w-100 images carousel-image" alt="..."/>
+                            <img src={`${url}${images.image}`} className="d-block w-100 images carousel-image"
+                                 alt="..."/>
                         </div>
                     ) : ''}
                     {images.image1 ? (
                         <div className="carousel-item">
-                            <img src={images.image1} className="d-block w-100 images carousel-image" alt="..."/>
+                            <img src={`${url}${images.image1}`} className="d-block w-100 images carousel-image"
+                                 alt="..."/>
                         </div>
                     ) : ''}
                     {images.image2 ? (
                         <div className="carousel-item">
-                            <img src={images.image2} className="d-block w-100 images carousel-image" alt="..."/>
+                            <img src={`${url}${images.image2}`} className="d-block w-100 images carousel-image"
+                                 alt="..."/>
                         </div>
                     ) : ''}
                     {images.image3 ? (
                         <div className="carousel-item">
-                            <img src={images.image3} className="d-block w-100 images carousel-image" alt="..."/>
+                            <img src={`${url}${images.image3}`} className="d-block w-100 images carousel-image"
+                                 alt="..."/>
                         </div>
                     ) : ''}
                 </div>

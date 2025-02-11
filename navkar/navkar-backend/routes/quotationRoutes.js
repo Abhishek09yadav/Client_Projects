@@ -45,7 +45,7 @@ router.post('/uploadQuotation', uploadPdf.single('quotation'), async (req, res) 
         }
 
         // Create a public link for the uploaded PDF
-        const pdfLink = `${baseUrl}/uploads/pdf/${req.file.filename}`;
+        const pdfLink = `/uploads/pdf/${req.file.filename}`;
         const timestamp = Date.now();
 
         // Save the link and timestamp in the user's QuotationPages array

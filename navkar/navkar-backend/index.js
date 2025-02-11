@@ -39,7 +39,7 @@ app.use('/images', express.static('upload/images'));
 app.post("/upload", upload.single("product"), (req, res) => {
     res.json({
         success: 1,
-        image_url: `${baseUrl}/images/${req.file.filename}`,
+        image_url: `/images/${req.file.filename}`,
     });
 });
 
@@ -99,7 +99,7 @@ app.put('/banners/:id', upload.fields([
                 banner[key] = '';
             } else if (req.files[key]) {
                 // Update the field with the new file
-                banner[key] = `${baseUrl}/images/${req.files[key][0].filename}`;
+                banner[key] = `/images/${req.files[key][0].filename}`;
             }
             // If neither an empty string nor a file is provided, retain the existing value
         });
@@ -352,7 +352,7 @@ app.get('/listUser', async (req, res) => {
 
         // Exclude the password from each user data
         const usersDetailsToSend = usersData.map(user => {
-            const {password, cartData, ...userDetails} = user.toObject(); // Exclude password
+            const {password, ...userDetails} = user.toObject(); // Exclude password
             return userDetails;
         });
 
