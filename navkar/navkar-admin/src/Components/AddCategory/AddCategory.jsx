@@ -65,6 +65,7 @@ const AddCategory = () => {
     const handleDelete = (categoryId) => {
         confirmAlert({
             title: 'Delete Category Confirmation',
+
             message: `Are you certain you want to delete this category? Please note that deleting a category will also permanently remove all products associated with it.
 Proceed with caution⚠️`,
             buttons: [

@@ -8,6 +8,7 @@ import {FaSearch} from "react-icons/fa";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import handlePdfDownload from "../DownloadPdf/handlePdfDownload.js";
+import {toast, ToastContainer} from "react-toastify";
 
 const url = import.meta.env.VITE_API_URL;
 
@@ -61,6 +62,10 @@ const QuotationHistory = () => {
 
     // Handle search when the search button is clicked
     const handleSearch = () => {
+        if ((startDate && !endDate) || (!startDate && endDate)) {
+            toast.warn("Please select both start and end dates.");
+            return;
+        }
         setCurrentPage(0); // Reset to the first page after search
         fetchQuotations(0, searchTerm, startDate, endDate); // Perform search with the current search term and date range
     };
@@ -76,18 +81,19 @@ const QuotationHistory = () => {
 
 
     return (
-        <div className="quotation-history-container">
+        <div className="quotation-history-container  w-100 w-lg-75 ">
             <h1>Quotation History</h1>
 
             {/* Search Bar */}
-            <div className="search-container">
+            <div className="d-flex align-items-center justify-content-center gap-1 flex-sm-row flex-column ">
                 <input
                     type="text"
                     placeholder="Search by user name or phone number"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="search-bar"
+                    className="search-bar  "
                 />
+                {/*<div className={'d-flex flex-row gap-1 align-items-center'}>*/}
                 <DatePicker
                     selected={startDate}
                     onChange={(date) => setStartDate(date)}
@@ -95,8 +101,9 @@ const QuotationHistory = () => {
                     startDate={startDate}
                     endDate={endDate}
                     placeholderText="Start Date"
-                    className="search-bar"
+                    className=""
                 />
+
                 <DatePicker
                     selected={endDate}
                     onChange={(date) => setEndDate(date)}
@@ -105,11 +112,12 @@ const QuotationHistory = () => {
                     endDate={endDate}
                     minDate={startDate}
                     placeholderText="End Date"
-                    className="search-bar"
+                    className=""
                 />
-                <button onClick={handleSearch} className="search-button">
+                <button onClick={handleSearch} className="btn btn-primary justify-content-center search-bar w-25  ">
                     <FaSearch/>
                 </button>
+                {/*</div>*/}
             </div>
 
             {/* Quotation Table */}
@@ -156,10 +164,11 @@ const QuotationHistory = () => {
                 marginPagesDisplayed={2}
                 pageRangeDisplayed={5}
                 onPageChange={handlePageClick}
-                containerClassName={'pagination'}
+                containerClassName={'pagination d-flex justify-content-center mt-3'}
                 activeClassName={'active'}
                 forcePage={currentPage}
             />
+            <ToastContainer/>
         </div>
     );
 };
