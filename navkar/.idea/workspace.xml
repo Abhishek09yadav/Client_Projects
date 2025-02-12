@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Fixes UserList search and refactors API route.">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Implements pagination and search functionality for the user list.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/routes/listUser.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/routes/listUser.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +66,7 @@
     "nodejs_package_manager_path": "npm",
     "npm.admin.executor": "Run",
     "npm.backend.executor": "Run",
-    "npm.frontend.executor": "Debug",
+    "npm.frontend.executor": "Run",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "settings.editor.splitter.proportion": "0.28614458",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
@@ -99,7 +98,7 @@
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.backend">
+  <component name="RunManager" selected="npm.frontend">
     <configuration default="true" type="NodeJSConfigurationType" node-parameters="node index.js" working-dir="$PROJECT_DIR$/navkar-backend">
       <method v="2" />
     </configuration>
@@ -219,15 +218,8 @@
       <workItem from="1739206648119" duration="42000" />
       <workItem from="1739249642467" duration="642000" />
       <workItem from="1739252149391" duration="9716000" />
-      <workItem from="1739264735143" duration="9736000" />
-    </task>
-    <task id="LOCAL-00059" summary="Styles item component and banner responsiveness.">
-      <option name="closed" value="true" />
-      <created>1735579306880</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1735579306880</updated>
+      <workItem from="1739264735143" duration="9812000" />
+      <workItem from="1739335929466" duration="995000" />
     </task>
     <task id="LOCAL-00060" summary="added toast icon if user is not logged in and tries to change the quantity">
       <option name="closed" value="true" />
@@ -613,7 +605,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739274933787</updated>
     </task>
-    <option name="localTasksCounter" value="108" />
+    <task id="LOCAL-00108" summary="Implements pagination and search functionality for the user list.">
+      <option name="closed" value="true" />
+      <created>1739293547052</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1739293547052</updated>
+    </task>
+    <option name="localTasksCounter" value="109" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -633,7 +633,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: Implement QuotationModal and refine styling (main)&#10;&#10;- Created `QuotationModal` component to display selected&#10;  items, total price, and user details for quotation&#10;  generation.&#10;- Implemented PDF generation and download&#10;  functionality within `QuotationModal`.&#10;- Updated `Category` component to handle `QuotationModal`&#10;  display and PDF generation logic.&#10;- Improved styling for `Navbar`, item selection, and&#10;  category display.&#10;- Refactored CSS and moved modal-related styles to&#10;  `QuotationModal.css`.&#10;- Adjusted quantity input handling to prevent values&#10;  below MOQ and ensure accurate total quantity&#10;  calculation." />
     <MESSAGE value="Implements quotation modal, refines styling, and adjusts quantity input." />
     <MESSAGE value="setting up dark theme" />
     <MESSAGE value="setting up dark theme for description box" />
@@ -658,7 +657,8 @@
     <MESSAGE value="Fixes redundant API call on page change. and changed styling of search bar" />
     <MESSAGE value="Fixes search functionality and improves styling of the search bar in UserList component" />
     <MESSAGE value="Fixes UserList search and refactors API route." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixes UserList search and refactors API route." />
+    <MESSAGE value="Implements pagination and search functionality for the user list." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implements pagination and search functionality for the user list." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

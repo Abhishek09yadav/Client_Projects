@@ -119,7 +119,7 @@ const UserList = () => {
                                 placeholder="Search by name, email or phone"
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)} // Update search query state
-                                className="form-control me-2 flex-grow-1"
+                                className=" me-2 flex-grow-1"
                             />
                             <button
                                 onClick={handleSearch} // Trigger search on button click
