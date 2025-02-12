@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {Link} from "react-router-dom";
 import {ShopContext} from "../../Context/ShopContext";
 
-const homepageurl = process.env.REACT_APP_HOME_PAGE_URL;
+const homepageUrl = process.env.REACT_APP_HOME_PAGE_URL;
 
 const Navbar2 = () => {
     const {userDetails, setTriggerFetchingUserDetails} = useContext(ShopContext);
@@ -21,7 +21,7 @@ const Navbar2 = () => {
                 </button>
                 <div className="collapse navbar-collapse justify-content-end gap-5  " id="navbarNav">
                     <ul className="navbar-nav gap-2">
-                        <Link to={homepageurl}
+                        <Link to={homepageUrl}
                               className={`nav-item nav-link text-white vb-qtn-history`}>
                             Navkar Home
                         </Link>
@@ -33,7 +33,7 @@ const Navbar2 = () => {
                                 setTriggerFetchingUserDetails((prev) => !prev);
                             }
                         }>Quotation History
-                </span>
+                          </span>
                             </Link>) : (<li className=" text-white  " onClick={
                                 () => {
                                     toast.warn("Please log in to continue.", {
@@ -49,19 +49,22 @@ const Navbar2 = () => {
                             </li>)}
                         </li>
                         <li className="nav-item">
-                            <Link to={`${homepageurl}/about`} className="nav-link text-white">About Us</Link>
+                            <Link to={`${homepageUrl}/about`} className="nav-link vb-qtn-history text-white">About
+                                Us</Link>
                         </li>
 
                         <li className="nav-item">
-                            <Link to={`${homepageurl}/contact`} className="nav-link text-white">Contact Us</Link>
+                            <Link to={`${homepageUrl}/contact`} className="nav-link vb-qtn-history text-white">Contact
+                                Us</Link>
                         </li>
 
                         <li className="nav-item">
-                            <Link to={`${homepageurl}/service`} className="nav-link text-white">Service</Link>
+                            <Link to={`${homepageUrl}/service`}
+                                  className="nav-link vb-qtn-history text-white">Service</Link>
                         </li>
 
                         {/*<li className="nav-item">*/}
-                        {/*    <Link to={`${homepageurl}/about`}  className="nav-link text-white">Support</Link>*/}
+                        {/*    <Link to={`${homepageUrl}/about`}  className="nav-link text-white">Support</Link>*/}
                         {/*</li>*/}
                         <li className="nav-item">
                             {localStorage.getItem('auth-token') ? (

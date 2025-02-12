@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Implements pagination and search functionality for the user list.">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Adds pagination to user quotation list display.">
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1739338400808.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Navbar/Navbar2.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Navbar/Navbar2.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,30 +50,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Node.js.backend.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "deletionFromPopupRequiresConfirmation": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/monuy/Desktop/Repos/Client_Projects/navkar",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.admin.executor": "Run",
-    "npm.backend.executor": "Run",
-    "npm.frontend.executor": "Run",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "settings.editor.splitter.proportion": "0.28614458",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Node.js.backend.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/monuy/Desktop/Repos/Client_Projects/navkar&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.admin.executor&quot;: &quot;Run&quot;,
+    &quot;npm.backend.executor&quot;: &quot;Run&quot;,
+    &quot;npm.frontend.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.splitter.proportion&quot;: &quot;0.28614458&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -219,47 +220,8 @@
       <workItem from="1739249642467" duration="642000" />
       <workItem from="1739252149391" duration="9716000" />
       <workItem from="1739264735143" duration="9812000" />
-      <workItem from="1739335929466" duration="995000" />
-    </task>
-    <task id="LOCAL-00060" summary="added toast icon if user is not logged in and tries to change the quantity">
-      <option name="closed" value="true" />
-      <created>1735634352866</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1735634352866</updated>
-    </task>
-    <task id="LOCAL-00061" summary="fixed styling in Category.jsx and added toast warning if user tries to put moq below the quantity">
-      <option name="closed" value="true" />
-      <created>1735726300103</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1735726300103</updated>
-    </task>
-    <task id="LOCAL-00062" summary="fixed styling in Category.jsx and added toast warning if user tries to put moq below the quantity">
-      <option name="closed" value="true" />
-      <created>1735726394571</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1735726394571</updated>
-    </task>
-    <task id="LOCAL-00063" summary="fixed bugs in AddProduct.jsx while adding a product">
-      <option name="closed" value="true" />
-      <created>1735731232039</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1735731232039</updated>
-    </task>
-    <task id="LOCAL-00064" summary="fixed bugs in AddProduct.jsx while adding a product">
-      <option name="closed" value="true" />
-      <created>1735829176174</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1735829176176</updated>
+      <workItem from="1739335929466" duration="1866000" />
+      <workItem from="1739337857769" duration="13707000" />
     </task>
     <task id="LOCAL-00065" summary="Updates new collections display range.">
       <option name="closed" value="true" />
@@ -613,7 +575,47 @@
       <option name="project" value="LOCAL" />
       <updated>1739293547052</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="Implements pagination and search in UserList.">
+      <option name="closed" value="true" />
+      <created>1739337504350</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1739337504350</updated>
+    </task>
+    <task id="LOCAL-00110" summary="Implements pagination and search in UserList.">
+      <option name="closed" value="true" />
+      <created>1739340003778</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1739340003778</updated>
+    </task>
+    <task id="LOCAL-00111" summary="Adds pagination and search to UserList and fixes styling.">
+      <option name="closed" value="true" />
+      <created>1739342484484</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1739342484484</updated>
+    </task>
+    <task id="LOCAL-00112" summary="Implements user list pagination, search, and error display.">
+      <option name="closed" value="true" />
+      <created>1739346714348</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1739346714348</updated>
+    </task>
+    <task id="LOCAL-00113" summary="Adds pagination to user quotation list display.">
+      <option name="closed" value="true" />
+      <created>1739348497634</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1739348497634</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -633,10 +635,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implements quotation modal, refines styling, and adjusts quantity input." />
-    <MESSAGE value="setting up dark theme" />
-    <MESSAGE value="setting up dark theme for description box" />
-    <MESSAGE value="made Product.jsx device responsive" />
     <MESSAGE value="Styles query generator button and makes category title responsive." />
     <MESSAGE value="Styles carousel and item container height and width." />
     <MESSAGE value="Replaces date search bar with a calendar and paginates results." />
@@ -658,7 +656,11 @@
     <MESSAGE value="Fixes search functionality and improves styling of the search bar in UserList component" />
     <MESSAGE value="Fixes UserList search and refactors API route." />
     <MESSAGE value="Implements pagination and search functionality for the user list." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implements pagination and search functionality for the user list." />
+    <MESSAGE value="Implements pagination and search in UserList." />
+    <MESSAGE value="Adds pagination and search to UserList and fixes styling." />
+    <MESSAGE value="Implements user list pagination, search, and error display." />
+    <MESSAGE value="Adds pagination to user quotation list display." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adds pagination to user quotation list display." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
