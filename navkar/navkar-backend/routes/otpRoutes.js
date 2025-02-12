@@ -5,7 +5,9 @@ const nodemailer = require('nodemailer');
 const crypto = require('crypto');
 const Users = require('../models/models');
 const cors = require('cors');
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken');
+const JWT_SECRET = process.env.JWT_SECRET;
+const dotenv = require('dotenv');
 router.use(express.json())
 router.use(cors());
 const bcrypt = require("bcrypt");
@@ -98,7 +100,7 @@ router.post('/verify-otp', async (req, res) => {
 
         // Generate JWT token
         const payload = {user: {id: user._id}};
-        const token = jwt.sign(payload, 'secret_ecom');
+        const token = jwt.sign(payload, JWT_SECRET);
 
         // Clean up OTP storage
         delete otpStore[email];
@@ -211,7 +213,7 @@ router.post('/login', async (req, res) => {
       
         if (passCompare) {
             const data = {user: {id: user.id}}
-            const token = jwt.sign(data, 'secret_ecom');
+            const token = jwt.sign(data, JWT_SECRET);
             res.json({success: true, token})
         } else {
             res.json({success: false, error: 'Wrong password'})
@@ -238,7 +240,7 @@ router.post('/signup', async (req, res) => {
     await user.save();
 
     const data = {user: {id: user._id}};
-    const token = jwt.sign(data, 'secret_ecom');
+    const token = jwt.sign(data, JWT_SECRET);
     res.json({success: true, token});
 });
 
@@ -263,7 +265,7 @@ router.post('/adminlogin', async (req, res) => {
 
         // Generate token for the admin
         const data = { user: { id: user.id, role: user.role } };
-        const token = jwt.sign(data, 'secret_ecom');
+        const token = jwt.sign(data, JWT_SECRET);
         res.json({ success: true, token });
     } catch (error) {
         console.error(error.message);

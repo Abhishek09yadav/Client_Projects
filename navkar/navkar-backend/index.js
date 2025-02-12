@@ -6,6 +6,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
+const JWT_SECRET = process.env.JWT_SECRET;
 const multer = require('multer');
 const path = require('path');
 const cors = require('cors');
@@ -332,7 +333,7 @@ const fetchUser = async (req, res, next) => {
     } else {
         try {
             console.log("Token received:", token); // Log the token
-            const data = jwt.verify(token, 'secret_ecom');
+            const data = jwt.verify(token, JWT_SECRET);
             console.log("Decoded token data:", data); // Log the decoded token
             req.user = data.user;
             next();
