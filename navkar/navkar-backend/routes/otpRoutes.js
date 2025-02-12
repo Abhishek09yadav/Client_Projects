@@ -11,7 +11,7 @@ const dotenv = require('dotenv');
 router.use(express.json())
 router.use(cors());
 const bcrypt = require("bcrypt");
-const {log} = require('console');
+
 // OTP storage
 const otpStore = {};
 

@@ -19,7 +19,7 @@ app.use('/api/otp', otpRoutes);
 const listUser = require('./routes/listUser');
 app.use('/api', listUser);
 // Database Connection with mongodb
-mongoose.connect('mongodb+srv://Ecommerce:Z1*6$5*7A4$qC&@cluster0.dwmcu.mongodb.net/e-commerce')
+mongoose.connect(process.env.MONGODB_URI).then(r => console.log('mongodb connected successfully')).catch(e => console.log('mongoDb error ', e))
 
 app.get("/", (req, res) => {
     res.send("Welcome to Ecommerce!");
