@@ -4,9 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Fixes homepage URL variable name casing inconsistency.">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="simplified the logic of Navbar2.jsx">
+      <change afterPath="$PROJECT_DIR$/navkar-admin/public/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-admin/src/assets/logo_big.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1739366578063.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1739367029292.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-frontend/public/logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Navbar/Navbar2.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Navbar/Navbar2.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/logo.svg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,30 +60,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Node.js.backend.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/monuy/Desktop/Repos/Client_Projects/navkar&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.admin.executor&quot;: &quot;Run&quot;,
-    &quot;npm.backend.executor&quot;: &quot;Run&quot;,
-    &quot;npm.frontend.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;settings.editor.splitter.proportion&quot;: &quot;0.28614458&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Node.js.backend.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/monuy/Desktop/Repos/Client_Projects/navkar/navkar-frontend/public",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.admin.executor": "Run",
+    "npm.backend.executor": "Run",
+    "npm.frontend.executor": "Run",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "settings.editor.splitter.proportion": "0.28614458",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -84,11 +95,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-frontend\public" />
+      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\public" />
+      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\assets" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-frontend" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\snapshots\otp-verifction-during-signup" />
-      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-frontend\src\Components\Assets" />
-      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\Components\LoginSignup" />
-      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-frontend\src\Components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-frontend\src\Components" />
@@ -220,15 +231,7 @@
       <workItem from="1739252149391" duration="9716000" />
       <workItem from="1739264735143" duration="9812000" />
       <workItem from="1739335929466" duration="1866000" />
-      <workItem from="1739337857769" duration="14365000" />
-    </task>
-    <task id="LOCAL-00066" summary="Updates footer links and adds image fallbacks.">
-      <option name="closed" value="true" />
-      <created>1735835167730</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1735835167730</updated>
+      <workItem from="1739337857769" duration="19758000" />
     </task>
     <task id="LOCAL-00067" summary="Removes image fallbacks and fixes whitespace.">
       <option name="closed" value="true" />
@@ -614,7 +617,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739357697124</updated>
     </task>
-    <option name="localTasksCounter" value="115" />
+    <task id="LOCAL-00115" summary="simplified the logic of Navbar2.jsx">
+      <option name="closed" value="true" />
+      <created>1739358241378</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1739358241378</updated>
+    </task>
+    <option name="localTasksCounter" value="116" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -634,7 +645,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Styles carousel and item container height and width." />
     <MESSAGE value="Replaces date search bar with a calendar and paginates results." />
     <MESSAGE value="Implements NewCollections component with recent products." />
     <MESSAGE value="Refactors NewCollections and QuotationHistory components." />
@@ -659,7 +669,8 @@
     <MESSAGE value="Implements user list pagination, search, and error display." />
     <MESSAGE value="Adds pagination to user quotation list display." />
     <MESSAGE value="Fixes homepage URL variable name casing inconsistency." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixes homepage URL variable name casing inconsistency." />
+    <MESSAGE value="simplified the logic of Navbar2.jsx" />
+    <option name="LAST_COMMIT_MESSAGE" value="simplified the logic of Navbar2.jsx" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
