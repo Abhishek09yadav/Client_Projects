@@ -21,7 +21,13 @@ const UserList = () => {
     const [currentPage, setCurrentPage] = useState(0);
     const [totalPages, setTotalPages] = useState(0);
     const itemsPerPage = 5; // Number of items to display per page
+    // State to manage the number of visible items
+    const [visibleItems, setVisibleItems] = useState(5);
 
+    // Function to handle "Load More" button click
+    const handleLoadMore = () => {
+        setVisibleItems((prevVisibleItems) => prevVisibleItems + 5);
+    };
     // Fetch users when the component mounts or when the page changes
     useEffect(() => {
         fetchUsers();
@@ -161,41 +167,52 @@ const UserList = () => {
                                                             Delete User
                                                         </Button>
                                                         {user.QuotationPages.length > 0 ? (
-                                                            <table className="table table-bordered mt-3">
-                                                                <thead>
-                                                                <tr>
-                                                                    <th>Date</th>
-                                                                    <th>View</th>
-                                                                    <th>Download</th>
-                                                                </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                {user.QuotationPages.map((quotation, index) => (
-                                                                    <tr key={index}>
-                                                                        <td>
-                                                                            {new Date(quotation.uploadedAt).toLocaleDateString('en-GB')}
-                                                                        </td>
-                                                                        <td>
-                                                                            <Button
-                                                                                variant="info"
-                                                                                onClick={() => handlePdfView(`${url}${quotation.link}`)}
-                                                                            >
-                                                                                <FontAwesomeIcon icon={faEye}/> View
-                                                                            </Button>
-                                                                        </td>
-                                                                        <td>
-                                                                            <Button
-                                                                                variant="secondary"
-                                                                                onClick={() => handlePdfDownload(quotation)}
-                                                                            >
-                                                                                <FontAwesomeIcon
-                                                                                    icon={faDownload}/> Download
-                                                                            </Button>
-                                                                        </td>
+                                                            <div>
+                                                                {/* Table */}
+                                                                <table className="table table-bordered mt-3">
+                                                                    <thead>
+                                                                    <tr>
+                                                                        <th>Date</th>
+                                                                        <th>View</th>
+                                                                        <th>Download</th>
                                                                     </tr>
-                                                                ))}
-                                                                </tbody>
-                                                            </table>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                    {user.QuotationPages.slice(0, visibleItems).map((quotation, index) => (
+                                                                        <tr key={index}>
+                                                                            <td>{new Date(quotation.uploadedAt).toLocaleDateString('en-GB')}</td>
+                                                                            <td>
+                                                                                <Button
+                                                                                    variant="info"
+                                                                                    onClick={() => handlePdfView(`${url}${quotation.link}`)}
+                                                                                >
+                                                                                    <FontAwesomeIcon icon={faEye}/> View
+                                                                                </Button>
+                                                                            </td>
+                                                                            <td>
+                                                                                <Button
+                                                                                    variant="secondary"
+                                                                                    onClick={() => handlePdfDownload(quotation)}
+                                                                                >
+                                                                                    <FontAwesomeIcon
+                                                                                        icon={faDownload}/> Download
+                                                                                </Button>
+                                                                            </td>
+                                                                        </tr>
+                                                                    ))}
+                                                                    </tbody>
+                                                                </table>
+
+                                                                {/* Load More Button */}
+                                                                {visibleItems < user.QuotationPages.length && (
+                                                                    <div className="text-center">
+                                                                        <Button variant="primary"
+                                                                                onClick={handleLoadMore}>
+                                                                            Load More
+                                                                        </Button>
+                                                                    </div>
+                                                                )}
+                                                            </div>
                                                         ) : (
                                                             <p>No quotations available.</p>
                                                         )}
