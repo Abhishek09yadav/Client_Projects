@@ -29,12 +29,14 @@ const UserList = () => {
 
     const fetchUsers = async () => {
         try {
+            setError(null)
             const response = await fetch(
                 `${url}/api/listUser?search=${searchQuery}&page=${currentPage + 1}&limit=${itemsPerPage}`,
                 {method: 'GET'}
             );
             const data = await response.json();
             if (data.success) {
+
                 setUsers(data.usersDetails);
                 setTotalPages(data.totalPages);
             } else {
@@ -109,7 +111,7 @@ const UserList = () => {
     return (
         <>
             <ToastContainer/>
-            {error && <div className="error-message">{error}</div>}
+
             <Container>
                 <Row>
                     <Col md={12}>
@@ -130,7 +132,8 @@ const UserList = () => {
                         </div>
                     </Col>
                 </Row>
-                <Row>
+                {error ? <div className="error-message">{error}</div>
+                    : <Row>
                     <Col md={12}>
                         <div className="accordion">
                             {users.length > 0 ? (
@@ -229,6 +232,7 @@ const UserList = () => {
                         </div>
                     </Col>
                 </Row>
+                }
             </Container>
         </>
     );
