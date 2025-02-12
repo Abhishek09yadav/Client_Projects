@@ -1,92 +1,55 @@
 import React, {useContext} from 'react';
-import "./mavbar.css"
-import "./Navbar.css"
+import {Link} from 'react-router-dom';
 import {toast} from 'react-toastify';
+import {ShopContext} from '../../Context/ShopContext';
 import 'react-toastify/dist/ReactToastify.css';
-import {Link} from "react-router-dom";
-import {ShopContext} from "../../Context/ShopContext";
+import './Navbar.css';
+import './mavbar.css';
 
 const homepageUrl = process.env.REACT_APP_HOME_PAGE_URL;
 
 const Navbar2 = () => {
     const {userDetails, setTriggerFetchingUserDetails} = useContext(ShopContext);
-    console.log('token ->', localStorage.getItem('auth-token'));
+    const isLoggedIn = !!localStorage.getItem('auth-token');
+
+    const handleLogout = () => {
+        localStorage.removeItem('auth-token');
+        window.location.replace('/');
+    };
+
+    const handleQuotationClick = () => {
+        if (userDetails) {
+            setTriggerFetchingUserDetails(prev => !prev);
+        } else {
+            toast.warn('Please log in to continue.', {position: 'top-center', autoClose: 3000});
+        }
+    };
+
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="container-md">
                 <Link className="navbar-brand text-white" to={'/'}>Navkar E-Store</Link>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse justify-content-end gap-5  " id="navbarNav">
+                <div className="collapse navbar-collapse justify-content-end gap-5" id="navbarNav">
                     <ul className="navbar-nav gap-2">
-                        <Link to={homepageUrl}
-                              className={`nav-item nav-link text-white vb-qtn-history`}>
-                            Navkar Home
-                        </Link>
-
-                        <li className="nav-item nav-link text-white vb-qtn-history">
-                            {userDetails ? (< Link to={'/quotationhistory'}>
-                        <span className="fw-bold text-white QuotationHistory" onClick={
-                            () => {
-                                setTriggerFetchingUserDetails((prev) => !prev);
-                            }
-                        }>Quotation History
-                          </span>
-                            </Link>) : (<li className=" text-white  " onClick={
-                                () => {
-                                    toast.warn("Please log in to continue.", {
-                                        position: "top-center",
-                                        autoClose: 3000,
-                                        hideProgressBar: false,
-                                        closeOnClick: true,
-                                        pauseOnHover: true,
-                                        draggable: true,
-                                    });
-                                }
-                            }>Quotation History
-                            </li>)}
-                        </li>
-                        <li className="nav-item">
-                            <Link to={`${homepageUrl}/about`} className="nav-link vb-qtn-history text-white">About
-                                Us</Link>
-                        </li>
-
-                        <li className="nav-item">
-                            <Link to={`${homepageUrl}/contact`} className="nav-link vb-qtn-history text-white">Contact
-                                Us</Link>
-                        </li>
-
-                        <li className="nav-item">
-                            <Link to={`${homepageUrl}/service`}
-                                  className="nav-link vb-qtn-history text-white">Service</Link>
-                        </li>
-
-                        {/*<li className="nav-item">*/}
-                        {/*    <Link to={`${homepageUrl}/about`}  className="nav-link text-white">Support</Link>*/}
-                        {/*</li>*/}
-                        <li className="nav-item">
-                            {localStorage.getItem('auth-token') ? (
-                                <a
-                                    className="btn btn-dark rounded-3 text-white"
-
-                                    onClick={() => {
-                                        localStorage.removeItem('auth-token');
-                                        window.location.replace('/');
-                                    }}
-                                >
-                                    Logout
-                                </a>
-                            ) : (
-                                <Link className="btn btn-dark rounded-3 text-white" to="/login">
-                                    Login
-                                </Link>
-                            )}
-
-                        </li>
-
-
+                        <Link className="nav-item nav-link text-white vb-qtn-history" to={homepageUrl}>Navkar
+                            Home</Link>
+                        <Link className="nav-item nav-link text-white   vb-qtn-history"
+                              to={userDetails ? '/quotationhistory' : '#'} onClick={handleQuotationClick}>Quotation
+                            History</Link>
+                        <Link className="nav-item nav-link text-white   vb-qtn-history" to={`${homepageUrl}/about`}>About
+                            Us</Link>
+                        <Link className="nav-item nav-link text-white   vb-qtn-history" to={`${homepageUrl}/contact`}>Contact
+                            Us</Link>
+                        <Link className="nav-item nav-link text-white   vb-qtn-history"
+                              to={`${homepageUrl}/service`}>Service</Link>
+                        {isLoggedIn ? (
+                            <button className="btn btn-dark rounded-3 text-white" onClick={handleLogout}>Logout</button>
+                        ) : (
+                            <Link className="btn btn-dark rounded-3 text-white" to="/login">Login</Link>
+                        )}
                     </ul>
                 </div>
             </div>
