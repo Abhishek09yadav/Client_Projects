@@ -147,7 +147,7 @@
 
 @media (max-width: 500px) {
     .item-main-container {
-        width: 11.75rem !important;
+        width: 9.75rem !important;
     }
     /*.item {*/
     /*    width: 90%;*/
@@ -160,6 +160,10 @@
     .product-name {
         font-size: 15px;
         max-width: 180px;
+    }
+
+    .view-details {
+        width: auto;
     }
 }
 

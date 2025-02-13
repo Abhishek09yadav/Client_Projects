@@ -97,7 +97,7 @@ const Category = () => {
     const onQuantityChange = (productId, quantity, MOQ) => {
         const parsedQuantity = Math.max(0, parseInt(quantity, 10) || 0);
 
-        if (parsedQuantity < MOQ) {
+        if (selectedProducts[productId] && parsedQuantity < MOQ) {
             debouncedToast(parsedQuantity, MOQ);
         } else {
             debouncedToast.cancel();
