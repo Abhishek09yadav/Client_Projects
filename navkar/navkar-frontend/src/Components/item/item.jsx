@@ -34,7 +34,7 @@ const Item = ({
                 <p title="Minimum order Quantity "
                    className="MOQ d-flex justify-content-center text-center">MOQ: {MOQ}</p>
                 {showCheckbox && (<div className="item-quantity">
-                    <label>Quantity:</label>
+                    {/*<label>Quantity:</label>*/}
                     <div className="quantity-input-wrapper gap-3">
                         <input
                             type="number"

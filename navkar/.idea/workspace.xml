@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Updates favicons and titles to use new logo.">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Adjusts item width and view details button on smaller screens.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,15 +223,7 @@
       <workItem from="1739264735143" duration="9812000" />
       <workItem from="1739335929466" duration="1866000" />
       <workItem from="1739337857769" duration="20174000" />
-      <workItem from="1739423290582" duration="2660000" />
-    </task>
-    <task id="LOCAL-00068" summary="Implements direct signup and removes OTP flow.">
-      <option name="closed" value="true" />
-      <created>1735895033614</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1735895033614</updated>
+      <workItem from="1739423290582" duration="11576000" />
     </task>
     <task id="LOCAL-00069" summary="Implements smooth scrolling to product list.">
       <option name="closed" value="true" />
@@ -616,7 +609,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739367562317</updated>
     </task>
-    <option name="localTasksCounter" value="117" />
+    <task id="LOCAL-00117" summary="Adjusts item width and view details button on smaller screens.">
+      <option name="closed" value="true" />
+      <created>1739426952217</created>
+      <option name="number" value="00117" />
+      <option name="presentableId" value="LOCAL-00117" />
+      <option name="project" value="LOCAL" />
+      <updated>1739426952217</updated>
+    </task>
+    <option name="localTasksCounter" value="118" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -636,7 +637,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implements NewCollections component with recent products." />
     <MESSAGE value="Refactors NewCollections and QuotationHistory components." />
     <MESSAGE value="Refactors QuotationHistory components." />
     <MESSAGE value="fix deployment bug" />
@@ -661,7 +661,8 @@
     <MESSAGE value="Fixes homepage URL variable name casing inconsistency." />
     <MESSAGE value="simplified the logic of Navbar2.jsx" />
     <MESSAGE value="Updates favicons and titles to use new logo." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updates favicons and titles to use new logo." />
+    <MESSAGE value="Adjusts item width and view details button on smaller screens." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusts item width and view details button on smaller screens." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
