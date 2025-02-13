@@ -91,13 +91,22 @@
 }
 
 .quantity-input {
-    width: 50px;
+    width: 80px;
     text-align: center;
     border: 1px solid #10b981;
     border-radius: 4px;
     padding: 5px;
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+    appearance: textfield;
 }
 
+/* Additional styling to remove the spinner buttons */
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 .view-details {
     bottom: -26px;
     color: white;

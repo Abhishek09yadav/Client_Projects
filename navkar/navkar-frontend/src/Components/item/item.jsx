@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './item.css';
 import {Link} from "react-router-dom";
 import {FaMinusCircle, FaPlusCircle} from "react-icons/fa";
@@ -18,15 +18,26 @@ const Item = ({
                   selectedQuantity,
                   showCheckbox = true,
               }) => {
-    const handleIncrement = () => {
-        const newQuantity = (selectedQuantity || 0) + 1;
-        onQuantityChange(id, newQuantity, MOQ);
-    };
+    const [isIncreasing, setIsIncreasing] = useState(false);
+    const [isDecreasing, setIsDecreasing] = useState(false);
 
-    const handleDecrement = () => {
-        const newQuantity = Math.max((selectedQuantity || 0) - 1, 0);
-        onQuantityChange(id, newQuantity, MOQ);
-    };
+    useEffect(() => {
+        let interval;
+        if (isIncreasing) {
+            interval = setInterval(() => {
+                const newQuantity = (selectedQuantity || 0) + 1;
+                onQuantityChange(id, newQuantity, MOQ);
+            }, 100); // Adjust the interval duration as needed
+        } else if (isDecreasing) {
+            interval = setInterval(() => {
+                const newQuantity = Math.max((selectedQuantity || 0) - 1, 0);
+                onQuantityChange(id, newQuantity, MOQ);
+            }, 100); // Adjust the interval duration as needed
+        }
+        return () => clearInterval(interval);
+    }, [isIncreasing, isDecreasing, selectedQuantity, onQuantityChange, id, MOQ]);
+
+
 
     return (
         <div
@@ -55,7 +66,11 @@ const Item = ({
                         <div className="quantity-input-wrapper gap-0.5 d-flex align-items-center">
                             <FaMinusCircle
                                 className="quantity-icon"
-                                onClick={handleDecrement}
+                                onMouseDown={() => setIsDecreasing(true)}
+                                onMouseUp={() => setIsDecreasing(false)}
+                                onMouseLeave={() => setIsDecreasing(false)}
+                                onTouchStart={() => setIsDecreasing(true)}
+                                onTouchEnd={() => setIsDecreasing(false)}
                                 style={{cursor: 'pointer', color: selectedQuantity > 0 ? '#10b981' : '#ccc'}}
                             />
                             <input
@@ -67,10 +82,13 @@ const Item = ({
                             />
                             <FaPlusCircle
                                 className="quantity-icon"
-                                onClick={handleIncrement}
+                                onMouseDown={() => setIsIncreasing(true)}
+                                onMouseUp={() => setIsIncreasing(false)}
+                                onMouseLeave={() => setIsIncreasing(false)}
+                                onTouchStart={() => setIsIncreasing(true)}
+                                onTouchEnd={() => setIsIncreasing(false)}
                                 style={{cursor: 'pointer', color: '#10b981'}}
                             />
-
                         </div>
                     </div>
                 )}
