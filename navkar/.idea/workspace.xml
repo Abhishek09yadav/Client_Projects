@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Adjusts item width and view details button on smaller screens.">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Refactors item width and view details button styles.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" afterDir="false" />
     </list>
@@ -223,15 +222,7 @@
       <workItem from="1739264735143" duration="9812000" />
       <workItem from="1739335929466" duration="1866000" />
       <workItem from="1739337857769" duration="20174000" />
-      <workItem from="1739423290582" duration="11576000" />
-    </task>
-    <task id="LOCAL-00069" summary="Implements smooth scrolling to product list.">
-      <option name="closed" value="true" />
-      <created>1736078298733</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1736078298734</updated>
+      <workItem from="1739423290582" duration="17733000" />
     </task>
     <task id="LOCAL-00070" summary="fixed login issue">
       <option name="closed" value="true" />
@@ -617,7 +608,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739426952217</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="Refactors item width and view details button styles.">
+      <option name="closed" value="true" />
+      <created>1739439115884</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1739439115884</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -637,7 +636,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Refactors NewCollections and QuotationHistory components." />
     <MESSAGE value="Refactors QuotationHistory components." />
     <MESSAGE value="fix deployment bug" />
     <MESSAGE value="Fixes styling and layout for NewCollections component." />
@@ -662,7 +660,8 @@
     <MESSAGE value="simplified the logic of Navbar2.jsx" />
     <MESSAGE value="Updates favicons and titles to use new logo." />
     <MESSAGE value="Adjusts item width and view details button on smaller screens." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjusts item width and view details button on smaller screens." />
+    <MESSAGE value="Refactors item width and view details button styles." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactors item width and view details button styles." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

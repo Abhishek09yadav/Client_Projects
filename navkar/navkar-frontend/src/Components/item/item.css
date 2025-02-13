@@ -33,7 +33,10 @@
     object-fit: cover;
 }
 
+.item-checkbox {
 
+    transform: scale(1.5);
+}
 
 .product-name {
     font-size: 18px;
@@ -48,7 +51,7 @@
 .item-price {
     display: flex;
     /*gap: 10px;*/
-    margin-bottom: 10px;
+    margin-bottom: 7px;
 }
 
 .item-price-old {
@@ -77,6 +80,23 @@
     margin-bottom: 15px;
 }
 
+.quantity-icon {
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+
+}
+
+.quantity-icon:hover {
+    color: #10b981;
+}
+
+.quantity-input {
+    width: 50px;
+    text-align: center;
+    border: 1px solid #10b981;
+    border-radius: 4px;
+    padding: 5px;
+}
 
 .view-details {
     bottom: -26px;
