@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Refactors item quantity and view details button.">
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/pdf/quotation_1739458553870.pdf" afterDir="false" />
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="added plus and minus button to increase or decrease the quantity">
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1739459556086.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1739459556094.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1739460790360.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +101,7 @@
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.backend">
+  <component name="RunManager" selected="npm.admin">
     <configuration default="true" type="NodeJSConfigurationType" node-parameters="node index.js" working-dir="$PROJECT_DIR$/navkar-backend">
       <method v="2" />
     </configuration>
@@ -223,15 +224,7 @@
       <workItem from="1739264735143" duration="9812000" />
       <workItem from="1739335929466" duration="1866000" />
       <workItem from="1739337857769" duration="20174000" />
-      <workItem from="1739423290582" duration="22624000" />
-    </task>
-    <task id="LOCAL-00071" summary="remove pdfs">
-      <option name="closed" value="true" />
-      <created>1737829039712</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1737829039712</updated>
+      <workItem from="1739423290582" duration="24838000" />
     </task>
     <task id="LOCAL-00072" summary="removed all uploads">
       <option name="closed" value="true" />
@@ -617,7 +610,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739448168383</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="added plus and minus button to increase or decrease the quantity">
+      <option name="closed" value="true" />
+      <created>1739458936226</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1739458936226</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -637,7 +638,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fix deployment bug" />
     <MESSAGE value="Fixes styling and layout for NewCollections component." />
     <MESSAGE value="added productUtils.js" />
     <MESSAGE value="Adds homepage URL and navigation links to navbar." />
@@ -662,7 +662,8 @@
     <MESSAGE value="Adjusts item width and view details button on smaller screens." />
     <MESSAGE value="Refactors item width and view details button styles." />
     <MESSAGE value="Refactors item quantity and view details button." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactors item quantity and view details button." />
+    <MESSAGE value="added plus and minus button to increase or decrease the quantity" />
+    <option name="LAST_COMMIT_MESSAGE" value="added plus and minus button to increase or decrease the quantity" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
