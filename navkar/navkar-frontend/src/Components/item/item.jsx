@@ -54,12 +54,12 @@ const Item = ({
                 <div className={'d-flex flex-row gap-4 mb-2 '}>
                     <p title="Minimum order Quantity"
                        className="MOQ d-flex justify-content-center text-center mb-0">MOQ: {MOQ}</p>
-                    <input
+                    {showCheckbox && (<input
                         type="checkbox"
                         checked={isSelected}
                         onChange={(e) => onProductSelect(id, MOQ, e.target.checked)}
                         className="item-checkbox"
-                    />
+                    />)}
                 </div>
                 {showCheckbox && (
                     <div className="item-quantity">

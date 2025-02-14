@@ -183,10 +183,10 @@
 }
 
 @media (max-width: 800px) {
-    .net-quantity {
-        text-align: left;
-        margin-left: 30vi;
-    }
+    /*.net-quantity {*/
+    /*    text-align: left;*/
+    /*    margin-left: 30vi;*/
+    /*}*/
 
     .no_products_found {
         width: 30%;
@@ -211,10 +211,10 @@
 }
 
 @media (max-width: 500px) {
-    .net-quantity {
-        text-align: left;
-        margin-left: 0;
-    }
+    /*.net-quantity {*/
+    /*    text-align: left;*/
+    /*    margin-left: 0;*/
+    /*}*/
 
     .no_products_found {
         width: 40%;

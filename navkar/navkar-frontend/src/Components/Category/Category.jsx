@@ -279,7 +279,7 @@ const Category = () => {
 
             <div className="net-quantity-container d-flex justify-content-end gap-5 align-items-center">
                 <button
-                    className="btn btn-light d-flex align-items-center gap-2 "
+                    className="btn d-none d-sm-block  btn-light d-flex align-items-center gap-2"
                     onClick={() => {
                         if (totalQuantity < 1) toast.warning('No products Selected');
                         else if (userDetails) setIsSelectedItemsModalOpen(true);
