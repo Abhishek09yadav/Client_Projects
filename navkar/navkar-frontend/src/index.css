@@ -18,3 +18,8 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* custom bootstrap*/
+.mt-8 {
+    margin-top: 8rem;
+}

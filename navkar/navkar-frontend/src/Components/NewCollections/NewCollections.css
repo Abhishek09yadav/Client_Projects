@@ -1,8 +1,9 @@
 .NewCollections {
 
     padding-bottom: 150px;
-    margin-bottom: 150px;
-    margin-top: 50px;
+    padding-top: 100px;
+    /*margin-bottom: 150px;*/
+    /*margin-top: 50px !important;*/
 
 }
 .collections img {
@@ -15,7 +16,7 @@
     transition: transform 0.3s ease-in-out;
 }
 .NewCollections h1 {
-    margin-top: 50px;
+    /*margin-top: 50px;*/
     color: #171717;
     font-size: 45px;
     font-weight: 600;

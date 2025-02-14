@@ -11,7 +11,7 @@
 
 .item {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     background: linear-gradient(145deg, #ffffff, #f5f5f5);
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);

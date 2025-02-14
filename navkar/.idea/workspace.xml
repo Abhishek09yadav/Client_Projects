@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="added plus and minus button to increase or decrease the quantity">
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1739459556086.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1739459556094.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-backend/upload/images/product_1739460790360.jpg" afterDir="false" />
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Improves product grid responsiveness and styling.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/item/item.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,22 +226,9 @@
       <workItem from="1739335929466" duration="1866000" />
       <workItem from="1739337857769" duration="20174000" />
       <workItem from="1739423290582" duration="24838000" />
-    </task>
-    <task id="LOCAL-00072" summary="removed all uploads">
-      <option name="closed" value="true" />
-      <created>1737832208112</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1737832208112</updated>
-    </task>
-    <task id="LOCAL-00073" summary="changed Navbar.jsx">
-      <option name="closed" value="true" />
-      <created>1737978431525</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1737978431526</updated>
+      <workItem from="1739462547987" duration="627000" />
+      <workItem from="1739463351196" duration="291000" />
+      <workItem from="1739510375817" duration="9765000" />
     </task>
     <task id="LOCAL-00074" summary="added confirmation before deletion">
       <option name="closed" value="true" />
@@ -618,7 +606,23 @@
       <option name="project" value="LOCAL" />
       <updated>1739458936226</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="Adjusts product name max-width for responsiveness.">
+      <option name="closed" value="true" />
+      <created>1739463313201</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1739463313202</updated>
+    </task>
+    <task id="LOCAL-00122" summary="Adjusts product name max-width for responsiveness.">
+      <option name="closed" value="true" />
+      <created>1739463324229</created>
+      <option name="number" value="00122" />
+      <option name="presentableId" value="LOCAL-00122" />
+      <option name="project" value="LOCAL" />
+      <updated>1739463324229</updated>
+    </task>
+    <option name="localTasksCounter" value="123" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -638,8 +642,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fixes styling and layout for NewCollections component." />
-    <MESSAGE value="added productUtils.js" />
     <MESSAGE value="Adds homepage URL and navigation links to navbar." />
     <MESSAGE value="Refactors delete modals for products and categories." />
     <MESSAGE value="Refactors category delete modal and net quantity display." />
@@ -663,7 +665,9 @@
     <MESSAGE value="Refactors item width and view details button styles." />
     <MESSAGE value="Refactors item quantity and view details button." />
     <MESSAGE value="added plus and minus button to increase or decrease the quantity" />
-    <option name="LAST_COMMIT_MESSAGE" value="added plus and minus button to increase or decrease the quantity" />
+    <MESSAGE value="Adjusts product name max-width for responsiveness." />
+    <MESSAGE value="Improves product grid responsiveness and styling." />
+    <option name="LAST_COMMIT_MESSAGE" value="Improves product grid responsiveness and styling." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
