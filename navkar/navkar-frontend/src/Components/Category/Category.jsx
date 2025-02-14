@@ -96,7 +96,9 @@ const Category = () => {
     );
     const onQuantityChange = (productId, quantity, MOQ) => {
         const parsedQuantity = Math.max(0, parseInt(quantity, 10) || 0);
-
+        if (!selectedProducts[productId]) {
+            toast.warn('please select product first')
+        }
         if (selectedProducts[productId] && parsedQuantity < MOQ) {
             debouncedToast(parsedQuantity, MOQ);
         } else {
@@ -277,27 +279,30 @@ const Category = () => {
 
             )}
 
-            <div className="net-quantity-container d-flex justify-content-end gap-5 align-items-center">
-                <button
-                    className="btn d-none d-sm-block  btn-light d-flex align-items-center gap-2"
-                    onClick={() => {
-                        if (totalQuantity < 1) toast.warning('No products Selected');
-                        else if (userDetails) setIsSelectedItemsModalOpen(true);
-                        // else if(!userDetails || userDetails.length === 0) toast.warning('please login first');
 
-                    }}
-                >
-                    <FaEye/> {/* Add the eye icon here */}
-                    View Selected Items
-                </button>
-                <div className={'d-flex flex-row align-items-center gap-5 '}>
-                    <div className="net-quantity ">Net Quantity: {totalQuantity}</div>
+            <div className="net-quantity-container ">
+                <div className={`container-md  d-flex justify-content-end gap-5 align-items-center`}>
                     <button
-                        className="query-generator-button p-3 h-100"
-                        onClick={generateQuery}
+                        className="btn d-none d-sm-block  btn-light d-flex align-items-center gap-2"
+                        onClick={() => {
+                            if (totalQuantity < 1) toast.warning('No products Selected');
+                            else if (userDetails) setIsSelectedItemsModalOpen(true);
+                            // else if(!userDetails || userDetails.length === 0) toast.warning('please login first');
+
+                        }}
                     >
-                        Generate Quotation
+                        <FaEye/> {/* Add the eye icon here */}
+                        View Selected Items
                     </button>
+                    <div className={'d-flex flex-row align-items-center gap-5 '}>
+                        <div className="net-quantity ">Net Quantity: {totalQuantity}</div>
+                        <button
+                            className="query-generator-button p-3 h-100 "
+                            onClick={generateQuery}
+                        >
+                            Generate Quotation
+                        </button>
+                    </div>
                 </div>
             </div>
 
