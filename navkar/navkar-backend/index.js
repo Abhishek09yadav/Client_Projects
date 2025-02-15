@@ -216,6 +216,30 @@ const validateAndConvertProduct = (data) => {
         throw new Error(`Data validation failed: ${error.message}`);
     }
 };
+// schema for creating product
+const Product = mongoose.model("Product", {
+    id: {
+        type: Number,
+        required: true,
+    },
+    name: {
+        type: String,
+        required: true,
+    },
+
+    image: {type: String, required: true},
+    image1: {type: String, required: false},
+    image2: {type: String, required: false},
+    image3: {type: String, required: false},
+    category: {type: String, required: true},
+    new_price: {type: Number, required: true},
+    old_price: {type: Number, required: true},
+    Tax: {type: Number, required: true},
+    Description: {type: String, required: true},
+    date: {type: Date, default: Date.now},
+    available: {type: Boolean, default: true},
+    MOQ: {type: Number, required: true},
+})
 
 // Replace your existing addProduct endpoint with this updated version
 app.post('/addProduct', async (req, res) => {
