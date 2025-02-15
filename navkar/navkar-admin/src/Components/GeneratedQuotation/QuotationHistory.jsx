@@ -118,7 +118,7 @@ const QuotationHistory = () => {
             <div className="d-flex align-items-center justify-content-center gap-1 flex-sm-row flex-column">
                 <input
                     type="text"
-                    placeholder="Search by user name or phone number"
+                    placeholder="Search by name, phone number or mail"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="search-bar"
@@ -166,7 +166,7 @@ const QuotationHistory = () => {
                 </div>
 
                 <button onClick={handleSearch} className="btn btn-primary justify-content-center search-bar w-25">
-                    Search... <FaSearch/>
+                    <FaSearch/>
                 </button>
             </div>
 
@@ -175,6 +175,7 @@ const QuotationHistory = () => {
                 <tr>
                     <th>User Name</th>
                     <th>Phone Number</th>
+                    <th>Email</th>
                     <th>Date</th>
                     <th>PDF</th>
                 </tr>
@@ -184,19 +185,21 @@ const QuotationHistory = () => {
                     <tr key={index}>
                         <td>{quotation.userName}</td>
                         <td>{quotation.phoneNo}</td>
+                        <td>{quotation.email}</td>
                         <td>{quotation.formattedDate}</td>
-                        <td>
-                            <a className="pdf" href={`${url}${quotation.link}`} target="_blank"
+                        <td className={'d-flex flex-row flex-nowrap'}>
+                            <a className="pdf d-flex flex-row flex-nowrap gap-2" href={`${url}${quotation.link}`}
+                               target="_blank"
                                rel="noopener noreferrer"
                                title="View PDF">
-                                <FontAwesomeIcon icon={faEye}/>
+                                View <FontAwesomeIcon icon={faEye}/>
                             </a>
                             <a
                                 onClick={() => handlePdfDownload(quotation)}
                                 title="Download PDF"
-                                className="pdf"
+                                className="pdf d-flex flex-row flex-nowrap gap-2"
                             >
-                                <FontAwesomeIcon icon={faDownload}/>
+                                Download <FontAwesomeIcon icon={faDownload}/>
                             </a>
                         </td>
                     </tr>

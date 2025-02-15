@@ -74,18 +74,20 @@ router.get('/quotations', async (req, res) => {
         const searchQuery = search ? {
             $or: [
                 {name: {$regex: search, $options: 'i'}},
-                {phoneNo: {$regex: search, $options: 'i'}}
+                {phoneNo: {$regex: search, $options: 'i'}},
+                {email: {$regex: search, $options: 'i'}}
             ]
         } : {};
 
         // Find all users matching the search query
-        const users = await Users.find(searchQuery, 'name phoneNo QuotationPages');
+        const users = await Users.find(searchQuery, 'name email phoneNo QuotationPages');
 
         // Flatten and map the quotations with user details
         let allQuotations = users.flatMap(user => {
             return user.QuotationPages.map(quotation => ({
                 userName: user.name,
                 phoneNo: user.phoneNo,
+                email: user.email,
                 uploadedAt: quotation.uploadedAt,
                 link: quotation.link
             }));

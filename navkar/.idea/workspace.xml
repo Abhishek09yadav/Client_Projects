@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Replaces date pickers with calendars and updates styling.">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Implements calendar toggle and click-outside handling.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/models/models.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/models/models.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-backend/routes/quotationRoutes.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/routes/quotationRoutes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +101,7 @@
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.admin">
+  <component name="RunManager" selected="npm.backend">
     <configuration default="true" type="NodeJSConfigurationType" node-parameters="node index.js" working-dir="$PROJECT_DIR$/navkar-backend">
       <method v="2" />
     </configuration>
@@ -225,14 +228,6 @@
       <workItem from="1739462547987" duration="627000" />
       <workItem from="1739463351196" duration="291000" />
       <workItem from="1739510375817" duration="9765000" />
-    </task>
-    <task id="LOCAL-00075" summary="styled Navbar.jsx">
-      <option name="closed" value="true" />
-      <created>1738135155919</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1738135155920</updated>
     </task>
     <task id="LOCAL-00076" summary="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled Navbar.jsx, including login/logout functionality.&#10;Updated Navbar to display Quotation History link&#10;conditionally based on login status. Added a toast&#10;notification for login prompt.  Improved styling for&#10;several components, including item selection and&#10;category display.  Refactored file structure for&#10;modals and updated import paths accordingly.  Adjusted&#10;CSS for various elements to enhance visual appeal.">
       <option name="closed" value="true" />
@@ -618,7 +613,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739603472694</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="Implements calendar toggle and click-outside handling.">
+      <option name="closed" value="true" />
+      <created>1739605224911</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1739605224911</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -638,7 +641,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Refactors delete modals for products and categories." />
     <MESSAGE value="Refactors category delete modal and net quantity display." />
     <MESSAGE value="Refactors category delete modal and selected items display." />
     <MESSAGE value="fix not able change field" />
@@ -663,7 +665,8 @@
     <MESSAGE value="Adjusts product name max-width for responsiveness." />
     <MESSAGE value="Improves product grid responsiveness and styling." />
     <MESSAGE value="Replaces date pickers with calendars and updates styling." />
-    <option name="LAST_COMMIT_MESSAGE" value="Replaces date pickers with calendars and updates styling." />
+    <MESSAGE value="Implements calendar toggle and click-outside handling." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implements calendar toggle and click-outside handling." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

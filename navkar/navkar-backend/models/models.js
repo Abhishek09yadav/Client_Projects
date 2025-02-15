@@ -7,9 +7,9 @@ const Users = new mongoose.Schema({
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
     role: {type: String, default: 'user'},
-    state: {type: String},
-    city: {type: String},
-    phoneNo: {type: String},
+    state: {type: String, required: true},
+    city: {type: String, required: true},
+    phoneNo: {type: String, required: true},
     date: {type: Date, default: Date.now},
     QuotationPages: {
         type: [{link: String, uploadedAt: Number}],
