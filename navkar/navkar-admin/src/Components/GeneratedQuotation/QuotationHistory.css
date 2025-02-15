@@ -1,91 +1,162 @@
-/* Main container */
+/* Main container styles */
 .quotation-history-container {
-
     padding: 20px;
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     min-height: 100vh;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* QuotationHistory.css */
-.react-datepicker-wrapper {
-    display: inline-block;
-    padding: 0;
-    border: 0;
-    width: auto;
+/* Calendar styles */
+.calendar-container {
+    position: relative;
+    width: 100%;
+    max-width: 200px;
 }
 
-.react-datepicker__input-container {
-    display: inline-block;
-}
-
-.react-datepicker__input-container input {
+.date-input {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
+    cursor: pointer;
+    background-color: white;
+    width: 100%;
+    transition: border-color 0.3s ease;
 }
 
-/* Search button */
-.search-button {
+.date-input:hover {
+    border-color: #007BFF;
+}
 
+.date-input:focus {
+    outline: none;
+    border-color: #0056b3;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.calendar-popup {
+    position: absolute;
+    z-index: 1000;
+    background: white;
     border: 1px solid #ccc;
     border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 5px;
+}
+
+/* Override react-calendar default styles */
+.react-calendar {
+    border: none !important;
+    font-family: Arial, sans-serif !important;
+    width: 350px !important;
+}
+
+.react-calendar__tile--active {
+    background: #007BFF !important;
+    color: white !important;
+}
+
+.react-calendar__tile--active:hover {
+    background: #0056b3 !important;
+}
+
+.react-calendar__tile:hover {
+    background-color: #e6f2ff !important;
+}
+
+.react-calendar__navigation button:hover {
+    background-color: #e6f2ff !important;
+}
+
+/* Search button styles */
+.search-button {
+    padding: 10px 20px;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
     font-size: 16px;
-    width: 100%;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .search-button:hover {
     background-color: #0056b3;
 }
+
 /* Page title */
 .quotation-history-container h1 {
     text-align: center;
     color: #333;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    font-weight: bold;
 }
 
+/* PDF icon styles */
 .pdf {
-
     padding: 10px;
-    /*margin:20px ;*/
+    cursor: pointer;
+    color: #007BFF;
+    transition: color 0.3s ease;
 }
+
+.pdf:hover {
+    color: #0056b3;
+}
+
 /* Search bar */
 .search-bar {
-
-    padding: 10px;
-    /*margin: 0 auto 20px;*/
-    display: block;
+    padding: 12px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
+    width: 100%;
+    max-width: 300px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Table styling */
+.search-bar:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+/* Table styles */
 .quotation-table {
     width: 100%;
-    margin: 0 auto;
-    border-collapse: collapse;
+    margin: 20px 0;
+    border-collapse: separate;
+    border-spacing: 0;
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .quotation-table th,
 .quotation-table td {
     text-align: left;
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    font-size: 16px;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
 }
 
-/* Table header */
 .quotation-table th {
     background-color: #007BFF;
     color: white;
-    font-weight: bold;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
 }
 
-/* Table row styling */
+.quotation-table tr:last-child td {
+    border-bottom: none;
+}
+
 .quotation-table tr:nth-child(even) {
     background-color: #f9f9f9;
 }
@@ -94,13 +165,166 @@
     background-color: #f1f1f1;
 }
 
-/* Link styling */
+/* Link styles */
 .quotation-table a {
     color: #007BFF;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
 .quotation-table a:hover {
-    text-decoration: underline;
+    color: #0056b3;
+    text-decoration: none;
+}
+
+/* Pagination styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    gap: 5px;
+}
+
+.pagination li {
+    display: inline-block;
+}
+
+.pagination li a {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #007BFF;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination li.active a {
+    background-color: #007BFF;
+    color: white;
+    border-color: #007BFF;
+}
+
+.pagination li a:hover:not(.active) {
+    background-color: #e6f2ff;
+    border-color: #007BFF;
+}
+
+.pagination li.disabled a {
+    color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .quotation-history-container {
+        padding: 10px;
+    }
+
+    .search-bar,
+    .calendar-container {
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .quotation-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .quotation-table th,
+    .quotation-table td {
+        padding: 10px;
+    }
+
+    .pagination li a {
+        padding: 6px 10px;
+    }
+}
+
+/* Toast container styles */
+.Toastify__toast-container {
+    z-index: 9999;
+}
+
+.Toastify__toast {
+    border-radius: 4px;
+    padding: 16px;
+}
+
+.Toastify__toast--success {
+    background-color: #4caf50;
+}
+
+.Toastify__toast--error {
+    background-color: #f44336;
+}
+
+.Toastify__toast--warning {
+    background-color: #ff9800;
+}
+
+/* Flex container for search elements */
+.search-flex-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 768px) {
+    .search-flex-container {
+        flex-wrap: nowrap;
+    }
+}
+
+/* Button loading state */
+.search-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Error state styles */
+.error-state {
+    color: #f44336;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Empty state styles */
+.empty-state {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+}
+
+.empty-state-icon {
+    font-size: 48px;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+/* Loading spinner */
+.loading-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007BFF;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }

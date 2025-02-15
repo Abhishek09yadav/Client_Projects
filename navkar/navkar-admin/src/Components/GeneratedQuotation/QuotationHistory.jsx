@@ -5,8 +5,8 @@ import {faDownload, faEye} from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
 import './QuotationHistory.css';
 import {FaSearch} from "react-icons/fa";
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 import handlePdfDownload from "../DownloadPdf/handlePdfDownload.js";
 import {toast, ToastContainer} from "react-toastify";
 
@@ -17,11 +17,12 @@ const QuotationHistory = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
+    const [showStartCalendar, setShowStartCalendar] = useState(false);
+    const [showEndCalendar, setShowEndCalendar] = useState(false);
     const [currentPage, setCurrentPage] = useState(0);
     const [totalPages, setTotalPages] = useState(0);
-    const itemsPerPage = 10; // Adjust the number of items per page as needed
+    const itemsPerPage = 10;
 
-    // Format date to dd/mm/yy
     const formatDate = (timestamp) => {
         const date = new Date(timestamp);
         const day = String(date.getDate()).padStart(2, '0');
@@ -30,12 +31,11 @@ const QuotationHistory = () => {
         return `${day}/${month}/${year}`;
     };
 
-    // Fetch quotations from the server with pagination, search, and date range
     const fetchQuotations = async (page, search = '', startDate = null, endDate = null) => {
         try {
             const response = await axios.get(`${url}/api/quotations`, {
                 params: {
-                    page: page + 1, // ReactPaginate starts from 0
+                    page: page + 1,
                     limit: itemsPerPage,
                     search: search,
                     startDate: startDate ? startDate.getTime() : null,
@@ -55,72 +55,93 @@ const QuotationHistory = () => {
         }
     };
 
-    // Fetch quotations on component mount and when page, search term, or date range changes
     useEffect(() => {
         fetchQuotations(currentPage, searchTerm, startDate, endDate);
-    }, []); // Fetch data when the page changes
+    }, []);
 
-    // Handle search when the search button is clicked
     const handleSearch = () => {
         if ((startDate && !endDate) || (!startDate && endDate)) {
             toast.warn("Please select both start and end dates.");
             return;
         }
-        setCurrentPage(0); // Reset to the first page after search
-        fetchQuotations(0, searchTerm, startDate, endDate); // Perform search with the current search term and date range
+        setCurrentPage(0);
+        fetchQuotations(0, searchTerm, startDate, endDate);
     };
 
-    // Handle pagination
     const handlePageClick = (data) => {
-        setCurrentPage(data.selected); // Update the current page
-        fetchQuotations(data.selected, searchTerm, startDate, endDate); // Fetch data for the new page with the current search term and date range
+        setCurrentPage(data.selected);
+        fetchQuotations(data.selected, searchTerm, startDate, endDate);
     };
 
-    // const startIndex = currentPage * itemsPerPage;
-    // const currentItems = filteredQuotations.slice(startIndex, startIndex + itemsPerPage);
+    const handleStartDateSelect = (date) => {
+        setStartDate(date);
+        setShowStartCalendar(false);
+    };
 
+    const handleEndDateSelect = (date) => {
+        setEndDate(date);
+        setShowEndCalendar(false);
+    };
 
     return (
-        <div className="quotation-history-container  w-100 w-lg-75 ">
+        <div className="quotation-history-container w-100 w-lg-75">
             <h1>Quotation History</h1>
 
-            {/* Search Bar */}
-            <div className="d-flex align-items-center justify-content-center gap-1 flex-sm-row flex-column ">
+            <div className="d-flex align-items-center justify-content-center gap-1 flex-sm-row flex-column">
                 <input
                     type="text"
                     placeholder="Search by user name or phone number"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="search-bar  "
-                />
-                {/*<div className={'d-flex flex-row gap-1 align-items-center'}>*/}
-                <DatePicker
-                    selected={startDate}
-                    onChange={(date) => setStartDate(date)}
-                    selectsStart
-                    startDate={startDate}
-                    endDate={endDate}
-                    placeholderText="Start Date"
-                    className=""
+                    className="search-bar"
                 />
 
-                <DatePicker
-                    selected={endDate}
-                    onChange={(date) => setEndDate(date)}
-                    selectsEnd
-                    startDate={startDate}
-                    endDate={endDate}
-                    minDate={startDate}
-                    placeholderText="End Date"
-                    className=""
-                />
-                <button onClick={handleSearch} className="btn btn-primary justify-content-center search-bar w-25  ">
+                <div className="calendar-container">
+                    <input
+                        type="text"
+                        placeholder="Start Date"
+                        value={startDate ? formatDate(startDate) : ''}
+                        onClick={() => setShowStartCalendar(!showStartCalendar)}
+                        readOnly
+                        className="date-input"
+                    />
+                    {showStartCalendar && (
+                        <div className="calendar-popup">
+                            <Calendar
+                                onChange={handleStartDateSelect}
+                                value={startDate}
+                                maxDate={endDate || new Date()}
+                            />
+                        </div>
+                    )}
+                </div>
+
+                <div className="calendar-container">
+                    <input
+                        type="text"
+                        placeholder="End Date"
+                        value={endDate ? formatDate(endDate) : ''}
+                        onClick={() => setShowEndCalendar(!showEndCalendar)}
+                        readOnly
+                        className="date-input"
+                    />
+                    {showEndCalendar && (
+                        <div className="calendar-popup">
+                            <Calendar
+                                onChange={handleEndDateSelect}
+                                value={endDate}
+                                minDate={startDate}
+                                maxDate={new Date()}
+                            />
+                        </div>
+                    )}
+                </div>
+
+                <button onClick={handleSearch} className="btn btn-primary justify-content-center search-bar w-25">
                     <FaSearch/>
                 </button>
-                {/*</div>*/}
             </div>
 
-            {/* Quotation Table */}
             <table className="quotation-table">
                 <thead>
                 <tr>
@@ -155,7 +176,6 @@ const QuotationHistory = () => {
                 </tbody>
             </table>
 
-            {/* Pagination */}
             <ReactPaginate
                 previousLabel={'Previous'}
                 nextLabel={'Next'}
