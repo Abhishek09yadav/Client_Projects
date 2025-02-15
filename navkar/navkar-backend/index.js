@@ -20,7 +20,7 @@ const listUser = require('./routes/listUser');
 app.use('/api', listUser);
 // Database Connection with mongodb
 mongoose.connect(process.env.MONGODB_URI).then(r => console.log('mongodb connected successfully')).catch(e => console.log('mongoDb error ', e))
-
+const fs = require('fs');
 app.get("/", (req, res) => {
     res.send("Welcome to Ecommerce!");
 })
@@ -129,6 +129,7 @@ const ProductCategory = mongoose.model("Category", {
     category: {
         type: String,
         required: true,
+        unique: true,
     },
 
     date: {type: Date, default: Date.now},
@@ -194,30 +195,6 @@ app.get('/products/:category', async (req, res) => {
     res.json(products);
 });
 
-// schema for creating product
-const Product = mongoose.model("Product", {
-    id: {
-        type: Number,
-        required: true,
-    },
-    name: {
-        type: String,
-        required: true,
-    },
-
-    image: {type: String, required: true},
-    image1: {type: String, required: false},
-    image2: {type: String, required: false},
-    image3: {type: String, required: false},
-    category: {type: String, required: true},
-    new_price: {type: Number, required: true},
-    old_price: {type: Number, required: true},
-    Tax: {type: Number, required: true},
-    Description: {type: String, required: true},
-    date: {type: Date, default: Date.now},
-    available: {type: Boolean, default: true},
-    MOQ: {type: Number, required: true},
-})
 
 
 const validateAndConvertProduct = (data) => {
@@ -291,10 +268,39 @@ app.post('/addProduct', async (req, res) => {
 });
 // Creating api for deleting product
 app.post('/removeProduct', async (req, res) => {
-    await Product.findOneAndDelete({id: req.body.id,});
-    // console.log('removed')
-    res.json({success: true, name: req.body.name, message: 'Product removed'});
-})
+    try {
+        const product = await Product.findOne({id: req.body.id});
+
+        if (!product) {
+            return res.status(404).json({success: false, message: 'Product not found'});
+        }
+
+        // Delete images from the file system
+        const deleteImage = (imagePath) => {
+            if (imagePath) {
+                const fullPath = path.join(__dirname, 'upload', 'images', path.basename(imagePath));
+                fs.unlink(fullPath, (err) => {
+                    if (err && err.code !== 'ENOENT') {
+                        console.error(`Error deleting image: ${fullPath}`, err);
+                    }
+                });
+            }
+        };
+
+        deleteImage(product.image);
+        deleteImage(product.image1);
+        deleteImage(product.image2);
+        deleteImage(product.image3);
+
+        // Delete product from database
+        await Product.findOneAndDelete({id: req.body.id});
+
+        res.json({success: true, message: 'Product removed successfully'});
+    } catch (error) {
+        console.error('Error removing product:', error);
+        res.status(500).json({success: false, message: 'Error removing product'});
+    }
+});
 // Creating api for getting all products
 app.get('/allproducts', async (req, res) => {
     try {

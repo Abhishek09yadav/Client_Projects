@@ -115,10 +115,10 @@ const QuotationHistory = () => {
         <div className="quotation-history-container w-100 w-lg-75">
             <h1>Quotation History</h1>
 
-            <div className="d-flex align-items-center justify-content-center gap-1 flex-sm-row flex-column">
+            <div className="d-flex align-items-center justify-content-center gap-1 flex-md-row flex-column">
                 <input
                     type="text"
-                    placeholder="Search by name, phone number or mail"
+                    placeholder="Type name, phone or mail"
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="search-bar"
@@ -165,8 +165,8 @@ const QuotationHistory = () => {
                     )}
                 </div>
 
-                <button onClick={handleSearch} className="btn btn-primary justify-content-center search-bar w-25">
-                    <FaSearch/>
+                <button onClick={handleSearch} className="btn btn-primary justify-content-center  search-bar w-25">
+                    Search... <FaSearch/>
                 </button>
             </div>
 
