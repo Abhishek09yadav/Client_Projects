@@ -96,16 +96,16 @@
     font-weight: bold;
 }
 
-/* PDF icon styles */
-.pdf {
-    padding: 10px;
-    cursor: pointer;
-    color: #007BFF;
-    transition: color 0.3s ease;
-}
+/*!* PDF icon styles *!*/
+/*.pdf {*/
+/*    padding: 10px;*/
+/*    cursor: pointer;*/
+/*    color: #007BFF;*/
+/*    transition: color 0.3s ease;*/
+/*}*/
 
 .pdf:hover {
-    color: #0056b3;
+    color: #f1d461;
 }
 
 /* Search bar */

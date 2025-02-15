@@ -187,20 +187,21 @@ const QuotationHistory = () => {
                         <td>{quotation.phoneNo}</td>
                         <td>{quotation.email}</td>
                         <td>{quotation.formattedDate}</td>
-                        <td className={'d-flex flex-row flex-nowrap'}>
-                            <a className="pdf d-flex flex-row flex-nowrap gap-2" href={`${url}${quotation.link}`}
-                               target="_blank"
-                               rel="noopener noreferrer"
-                               title="View PDF">
+                        <td className={'d-flex flex-row flex-nowrap gap-2'}>
+                            <button className="btn btn-outline-primary "
+                                    onClick={() => window.open(`${url}${quotation.link}`, '_blank')}
+                                    rel="noopener noreferrer"
+                                    title="View PDF"
+                            >
                                 View <FontAwesomeIcon icon={faEye}/>
-                            </a>
-                            <a
+                            </button>
+                            <button
                                 onClick={() => handlePdfDownload(quotation)}
                                 title="Download PDF"
-                                className="pdf d-flex flex-row flex-nowrap gap-2"
+                                className="btn "
                             >
                                 Download <FontAwesomeIcon icon={faDownload}/>
-                            </a>
+                            </button>
                         </td>
                     </tr>
                 ))}
