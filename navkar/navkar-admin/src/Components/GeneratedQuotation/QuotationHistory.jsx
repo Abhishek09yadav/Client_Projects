@@ -59,6 +59,22 @@ const QuotationHistory = () => {
         fetchQuotations(currentPage, searchTerm, startDate, endDate);
     }, []);
 
+    // Add click outside handler to close calendars
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            const isCalendarClick = event.target.closest('.calendar-container');
+            if (!isCalendarClick) {
+                setShowStartCalendar(false);
+                setShowEndCalendar(false);
+            }
+        };
+
+        document.addEventListener('click', handleClickOutside);
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
+
     const handleSearch = () => {
         if ((startDate && !endDate) || (!startDate && endDate)) {
             toast.warn("Please select both start and end dates.");
@@ -83,6 +99,18 @@ const QuotationHistory = () => {
         setShowEndCalendar(false);
     };
 
+    const toggleStartCalendar = (e) => {
+        e.stopPropagation(); // Prevent event from bubbling up
+        setShowEndCalendar(false); // Close end calendar
+        setShowStartCalendar(!showStartCalendar);
+    };
+
+    const toggleEndCalendar = (e) => {
+        e.stopPropagation(); // Prevent event from bubbling up
+        setShowStartCalendar(false); // Close start calendar
+        setShowEndCalendar(!showEndCalendar);
+    };
+
     return (
         <div className="quotation-history-container w-100 w-lg-75">
             <h1>Quotation History</h1>
@@ -101,12 +129,12 @@ const QuotationHistory = () => {
                         type="text"
                         placeholder="Start Date"
                         value={startDate ? formatDate(startDate) : ''}
-                        onClick={() => setShowStartCalendar(!showStartCalendar)}
+                        onClick={toggleStartCalendar}
                         readOnly
                         className="date-input"
                     />
                     {showStartCalendar && (
-                        <div className="calendar-popup">
+                        <div className="calendar-popup" onClick={e => e.stopPropagation()}>
                             <Calendar
                                 onChange={handleStartDateSelect}
                                 value={startDate}
@@ -121,12 +149,12 @@ const QuotationHistory = () => {
                         type="text"
                         placeholder="End Date"
                         value={endDate ? formatDate(endDate) : ''}
-                        onClick={() => setShowEndCalendar(!showEndCalendar)}
+                        onClick={toggleEndCalendar}
                         readOnly
                         className="date-input"
                     />
                     {showEndCalendar && (
-                        <div className="calendar-popup">
+                        <div className="calendar-popup" onClick={e => e.stopPropagation()}>
                             <Calendar
                                 onChange={handleEndDateSelect}
                                 value={endDate}
@@ -138,7 +166,7 @@ const QuotationHistory = () => {
                 </div>
 
                 <button onClick={handleSearch} className="btn btn-primary justify-content-center search-bar w-25">
-                    <FaSearch/>
+                    Search... <FaSearch/>
                 </button>
             </div>
 
