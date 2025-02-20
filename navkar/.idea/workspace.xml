@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Adds product schema to the database.">
-      <change afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/spinner/Spinner.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11-02-25_10_39_am_[Changes]/quotation_1739250218470.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11-02-25_10_39_am_[Changes]/quotation_1739250221674.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11-02-25_10_39_am_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11-02-25_10_39_am__Changes_.xml" beforeDir="false" />
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Adds loading state and spinner to category page.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/NewCollections/NewCollections.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/spinner/Spinner.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/spinner/Spinner.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,15 +232,8 @@
       <workItem from="1739705243214" duration="1274000" />
       <workItem from="1739713529166" duration="37000" />
       <workItem from="1739713577668" duration="595000" />
-      <workItem from="1740027463824" duration="2367000" />
-    </task>
-    <task id="LOCAL-00080" summary="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display &quot;Quotation&#10;History&quot; link conditionally based on login status.&#10;Added a toast notification for login prompt. Improved&#10;styling for item selection and category display.&#10;Refactored modals and updated import paths. Adjusted&#10;CSS for various elements to enhance visual appeal.&#10;Fixed quantity input handling to prevent values below&#10;MOQ and correctly calculate total quantity.">
-      <option name="closed" value="true" />
-      <created>1738394400644</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1738394400644</updated>
+      <workItem from="1740027463824" duration="3169000" />
+      <workItem from="1740054363492" duration="2500000" />
     </task>
     <task id="LOCAL-00081" summary="feat: Implement QuotationModal and refine styling (main)&#10;&#10;- Created `QuotationModal` component to display selected&#10;  items, total price, and user details for quotation&#10;  generation.&#10;- Implemented PDF generation and download&#10;  functionality within `QuotationModal`.&#10;- Updated `Category` component to handle `QuotationModal`&#10;  display and PDF generation logic.&#10;- Improved styling for `Navbar`, item selection, and&#10;  category display.&#10;- Refactored CSS and moved modal-related styles to&#10;  `QuotationModal.css`.&#10;- Adjusted quantity input handling to prevent values&#10;  below MOQ and ensure accurate total quantity&#10;  calculation.">
       <option name="closed" value="true" />
@@ -631,7 +619,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739630000083</updated>
     </task>
-    <option name="localTasksCounter" value="129" />
+    <task id="LOCAL-00129" summary="Adds loading state and spinner to category page.">
+      <option name="closed" value="true" />
+      <created>1740030093287</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1740030093287</updated>
+    </task>
+    <option name="localTasksCounter" value="130" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -651,7 +647,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="123" />
     <MESSAGE value="fixed extra api call when user switch pages in QuotationHistory.jsx" />
     <MESSAGE value="Fixes redundant API call on page change. and changed styling of search bar" />
     <MESSAGE value="Fixes search functionality and improves styling of the search bar in UserList component" />
@@ -676,7 +671,8 @@
     <MESSAGE value="Adds email search and requires contact info for quotations." />
     <MESSAGE value="Refactors search bar placeholder and button text." />
     <MESSAGE value="Adds product schema to the database." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds product schema to the database." />
+    <MESSAGE value="Adds loading state and spinner to category page." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adds loading state and spinner to category page." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

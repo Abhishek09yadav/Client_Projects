@@ -1,5 +1,5 @@
 import {useState} from "react";
-import FadeLoader from "react-spinners/ClipLoader";
+import {FadeLoader} from "react-spinners";
 
 // const override: CSSProperties = {
 //     display: "block",
@@ -9,12 +9,10 @@ import FadeLoader from "react-spinners/ClipLoader";
 
 function Spinner() {
     let [loading, setLoading] = useState(true);
-    let [color, setColor] = useState("#ffffff");
+    let [color, setColor] = useState("rgba(214,214,248,0.94)");
 
     return (
-        <div className="sweet-loading">
-            <button onClick={() => setLoading(!loading)}>Toggle Loader</button>
-            <input value={color} onChange={(input) => setColor(input.target.value)} placeholder="Color of the loader"/>
+        <div className="sweet-loading d-flex flex-column justify-content-center align-items-center">
 
             <FadeLoader
                 color={color}
@@ -24,6 +22,7 @@ function Spinner() {
                 aria-label="Loading Spinner"
                 data-testid="loader"
             />
+            <div className={'text-center text-white mt-2'}>Loading...</div>
         </div>
     );
 }

@@ -11,6 +11,7 @@ import QuotationModal from './QuotationModal'; // Import the new QuotationModal 
 import html2pdf from 'html2pdf.js';
 import SelectedItemsModal from './SelectedItemsModal';
 import {FaEye} from 'react-icons/fa';
+import Spinner from "../spinner/Spinner"
 
 const url = process.env.REACT_APP_API_URL;
 const Category = () => {
@@ -29,8 +30,8 @@ const Category = () => {
     const [loading, setLoading] = useState(true);
     useEffect(() => {
         const fetchCategories = async () => {
+            setLoading(true)
             try {
-                setLoading(true)
                 const response = await axios.get(`${url}/categories`);
                 const productsResponse = await axios.get(`${url}/allproducts`);
 
@@ -247,7 +248,7 @@ const Category = () => {
                     </div>
                 ))}
             </div>
-            {selectedCategory && (
+            {loading ? <Spinner/> : selectedCategory && (
                 <div>
                     {products.length > 0 ? (
                         <>
@@ -294,7 +295,7 @@ const Category = () => {
 
                         }}
                     >
-                        <FaEye/> {/* Add the eye icon here */}
+                        <FaEye/>
                         View Selected Items
                     </button>
                     <div className={'d-flex flex-row align-items-center gap-5 '}>
