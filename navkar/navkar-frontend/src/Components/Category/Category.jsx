@@ -26,10 +26,11 @@ const Category = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedItems, setSelectedItems] = useState([]);
     const {userDetails, categoryRef} = useContext(ShopContext);
-
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         const fetchCategories = async () => {
             try {
+                setLoading(true)
                 const response = await axios.get(`${url}/categories`);
                 const productsResponse = await axios.get(`${url}/allproducts`);
 
@@ -50,6 +51,8 @@ const Category = () => {
                 }
             } catch (error) {
                 console.error("Error fetching categories or products:", error);
+            } finally {
+                setLoading(false);
             }
         };
 

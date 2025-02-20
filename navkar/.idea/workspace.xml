@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Refactors search bar placeholder and button.">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Adds product schema to the database.">
+      <change afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/spinner/Spinner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11-02-25_10_39_am_[Changes]/quotation_1739250218470.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11-02-25_10_39_am_[Changes]/quotation_1739250221674.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11-02-25_10_39_am_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11-02-25_10_39_am__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/GeneratedQuotation/QuotationHistory.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.css" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-backend/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-backend/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Category/Category.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +62,7 @@
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;Node.js.backend.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
     &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/monuy/Desktop/Repos/Client_Projects/navkar/navkar-frontend/public&quot;,
@@ -100,7 +106,7 @@
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.admin">
+  <component name="RunManager" selected="npm.frontend">
     <configuration default="true" type="NodeJSConfigurationType" node-parameters="node index.js" working-dir="$PROJECT_DIR$/navkar-backend">
       <method v="2" />
     </configuration>
@@ -227,23 +233,11 @@
       <workItem from="1739462547987" duration="627000" />
       <workItem from="1739463351196" duration="291000" />
       <workItem from="1739510375817" duration="9765000" />
-      <workItem from="1739627490666" duration="1122000" />
-    </task>
-    <task id="LOCAL-00078" summary="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display Quotation&#10;History link conditionally based on login status.&#10;Added a toast notification for login prompt.&#10;Improved styling for item selection and category&#10;display. Refactored file structure for modals and&#10;updated import paths accordingly. Adjusted CSS for&#10;various elements to enhance visual appeal.  Fixed&#10;quantity input handling to prevent values below MOQ&#10;and correctly calculate total quantity.">
-      <option name="closed" value="true" />
-      <created>1738327297826</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1738327297826</updated>
-    </task>
-    <task id="LOCAL-00079" summary="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display &quot;Quotation&#10;History&quot; link conditionally based on login status.&#10;Added a toast notification for login prompt. Improved&#10;styling for item selection and category display.&#10;Refactored modals and updated import paths. Adjusted&#10;CSS for various elements to enhance visual appeal.&#10;Fixed quantity input handling to prevent values below&#10;MOQ and correctly calculate total quantity.">
-      <option name="closed" value="true" />
-      <created>1738390810057</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1738390810057</updated>
+      <workItem from="1739627490666" duration="4533000" />
+      <workItem from="1739705243214" duration="1274000" />
+      <workItem from="1739713529166" duration="37000" />
+      <workItem from="1739713577668" duration="595000" />
+      <workItem from="1740027463824" duration="2367000" />
     </task>
     <task id="LOCAL-00080" summary="feat: Style Navbar and implement login/logout (main)&#10;&#10;Styled `Navbar.jsx`, including login/logout&#10;functionality. Updated Navbar to display &quot;Quotation&#10;History&quot; link conditionally based on login status.&#10;Added a toast notification for login prompt. Improved&#10;styling for item selection and category display.&#10;Refactored modals and updated import paths. Adjusted&#10;CSS for various elements to enhance visual appeal.&#10;Fixed quantity input handling to prevent values below&#10;MOQ and correctly calculate total quantity.">
       <option name="closed" value="true" />
@@ -621,7 +615,23 @@
       <option name="project" value="LOCAL" />
       <updated>1739613551703</updated>
     </task>
-    <option name="localTasksCounter" value="127" />
+    <task id="LOCAL-00127" summary="Refactors search bar placeholder and button text.">
+      <option name="closed" value="true" />
+      <created>1739629415392</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1739629415393</updated>
+    </task>
+    <task id="LOCAL-00128" summary="Adds product schema to the database.">
+      <option name="closed" value="true" />
+      <created>1739630000083</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1739630000083</updated>
+    </task>
+    <option name="localTasksCounter" value="129" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -641,8 +651,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fix not able change field" />
-    <MESSAGE value="Uses environment variable for PDF download URL." />
     <MESSAGE value="123" />
     <MESSAGE value="fixed extra api call when user switch pages in QuotationHistory.jsx" />
     <MESSAGE value="Fixes redundant API call on page change. and changed styling of search bar" />
@@ -666,7 +674,9 @@
     <MESSAGE value="Implements calendar toggle and click-outside handling." />
     <MESSAGE value="Adds email search to quotation history and makes contact fields required." />
     <MESSAGE value="Adds email search and requires contact info for quotations." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds email search and requires contact info for quotations." />
+    <MESSAGE value="Refactors search bar placeholder and button text." />
+    <MESSAGE value="Adds product schema to the database." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adds product schema to the database." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
