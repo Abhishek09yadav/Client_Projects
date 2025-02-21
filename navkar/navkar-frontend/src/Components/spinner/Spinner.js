@@ -7,12 +7,12 @@ import {FadeLoader} from "react-spinners";
 //     borderColor: "red",
 // };
 
-function Spinner() {
+function Spinner({paragraph}) {
     let [loading, setLoading] = useState(true);
     let [color, setColor] = useState("rgba(214,214,248,0.94)");
 
     return (
-        <div className="sweet-loading d-flex flex-column justify-content-center align-items-center">
+        <div className=" d-flex flex-column justify-content-center align-items-center">
 
             <FadeLoader
                 color={color}
@@ -22,7 +22,7 @@ function Spinner() {
                 aria-label="Loading Spinner"
                 data-testid="loader"
             />
-            <div className={'text-center text-white mt-2'}>Loading...</div>
+            <div className={'text-center fs-5 text-white mt-2'}>{paragraph}</div>
         </div>
     );
 }

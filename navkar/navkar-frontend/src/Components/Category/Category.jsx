@@ -248,7 +248,7 @@ const Category = () => {
                     </div>
                 ))}
             </div>
-            {loading ? <Spinner/> : selectedCategory && (
+            {loading ? <Spinner paragraph={'Loading Products...'}/> : selectedCategory && (
                 <div>
                     {products.length > 0 ? (
                         <>

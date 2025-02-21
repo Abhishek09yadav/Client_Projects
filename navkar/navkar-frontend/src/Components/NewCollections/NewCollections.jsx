@@ -30,7 +30,7 @@ const NewCollections = () => {
         <div className={'NewCollections  mb-5 container-md '}>
             <h1 className={`text-white  text-center mb-3`}>Recent Products</h1>
             <hr/>
-            {loading ? <Spinner/> : <div
+            {loading ? <Spinner paragraph={'Loading Recent Products'}/> : <div
                 className="products-grid d-flex flex-wrap justify-content-xl-between justify-content-center gap-5 ">
                 {new_collections.map((item, i) => {
                     return <Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price}
