@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Customizes Spinner component to accept custom paragraph.">
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Adds loading state and spinner to Banner component.">
+      <change afterPath="$PROJECT_DIR$/navkar-admin/src/Components/spinner/FullPageSpinner.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-admin/src/Components/spinner/Spinner.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/navkar-admin/vite.config.js.timestamp-1740120744160-568d18e05870d.mjs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/Banner/Banner.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/spinner/Spinner.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/spinner/Spinner.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +23,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="JSX File" />
         <option value="JavaScript File" />
+        <option value="JSX File" />
       </list>
     </option>
   </component>
@@ -58,7 +64,7 @@
     &quot;com.codeium.enabled&quot;: &quot;true&quot;,
     &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/monuy/Desktop/Repos/Client_Projects/navkar/navkar-frontend/public&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/monuy/Desktop/Repos/Client_Projects/navkar/navkar-admin/src/Components&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -85,18 +91,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\Components" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-frontend\public" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\public" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\assets" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-frontend" />
-      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\snapshots\otp-verifction-during-signup" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\Components\spinner" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-frontend\src\Components" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\Components" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-frontend\src\Components\Utils" />
       <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar\navkar-admin\src\Components\modal" />
-      <recent name="C:\Users\monuy\Desktop\Repos\Client_Projects\navkar" />
     </key>
   </component>
   <component name="RunManager" selected="npm.frontend">
@@ -232,14 +238,7 @@
       <workItem from="1739713577668" duration="595000" />
       <workItem from="1740027463824" duration="3169000" />
       <workItem from="1740054363492" duration="2500000" />
-    </task>
-    <task id="LOCAL-00082" summary="Implements quotation modal, refines styling, and adjusts quantity input.">
-      <option name="closed" value="true" />
-      <created>1738411874661</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1738411874661</updated>
+      <workItem from="1740120732133" duration="2557000" />
     </task>
     <task id="LOCAL-00083" summary="setting up dark theme">
       <option name="closed" value="true" />
@@ -625,7 +624,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740115182367</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="Adds loading state and spinner to Banner component.">
+      <option name="closed" value="true" />
+      <created>1740117245015</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1740117245015</updated>
+    </task>
+    <option name="localTasksCounter" value="132" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -645,7 +652,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fixes redundant API call on page change. and changed styling of search bar" />
     <MESSAGE value="Fixes search functionality and improves styling of the search bar in UserList component" />
     <MESSAGE value="Fixes UserList search and refactors API route." />
     <MESSAGE value="Implements pagination and search functionality for the user list." />
@@ -670,7 +676,8 @@
     <MESSAGE value="Adds product schema to the database." />
     <MESSAGE value="Adds loading state and spinner to category page." />
     <MESSAGE value="Customizes Spinner component to accept custom paragraph." />
-    <option name="LAST_COMMIT_MESSAGE" value="Customizes Spinner component to accept custom paragraph." />
+    <MESSAGE value="Adds loading state and spinner to Banner component." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adds loading state and spinner to Banner component." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

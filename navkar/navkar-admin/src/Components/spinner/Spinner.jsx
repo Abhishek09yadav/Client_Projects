@@ -1,0 +1,20 @@
+import React from "react";
+import {GridLoader} from "react-spinners";
+
+const override = {
+    display: "block",
+    margin: "0 auto",
+
+
+};
+
+const Spinner = () => (
+    <GridLoader
+        color="#01a0e2"
+        loading={true}
+        cssOverride={override}
+        size={50}
+    />
+);
+
+export default Spinner;

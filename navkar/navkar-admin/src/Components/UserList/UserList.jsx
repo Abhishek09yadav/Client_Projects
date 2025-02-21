@@ -10,6 +10,7 @@ import {toast, ToastContainer} from "react-toastify";
 import ReactPaginate from 'react-paginate';
 import handlePdfDownload from "../DownloadPdf/handlePdfDownload.js";
 import {FaSearch} from "react-icons/fa";
+import Spinner from "../spinner/Spinner.jsx";
 
 const url = import.meta.env.VITE_API_URL;
 
@@ -20,6 +21,7 @@ const UserList = () => {
     const [expandedUser, setExpandedUser] = useState(null);
     const [currentPage, setCurrentPage] = useState(0);
     const [totalPages, setTotalPages] = useState(0);
+    const [loading, setLoading] = useState(true);
     const itemsPerPage = 5; // Number of items to display per page
     // State to manage the number of visible items
     const [visibleItems, setVisibleItems] = useState(5);
@@ -35,6 +37,7 @@ const UserList = () => {
 
     const fetchUsers = async () => {
         try {
+            setLoading(true)
             setError(null)
             const response = await fetch(
                 `${url}/api/listUser?search=${searchQuery}&page=${currentPage + 1}&limit=${itemsPerPage}`,
@@ -51,6 +54,8 @@ const UserList = () => {
         } catch (err) {
             setError('Failed to fetch users');
             console.error(err);
+        } finally {
+            setLoading(false)
         }
     };
 
@@ -91,6 +96,7 @@ const UserList = () => {
 
     const handleDeleteUser = async (userToDelete) => {
         try {
+            setLoading(true)
             const response = await fetch(`${url}/removeUser`, {
                 method: 'DELETE',
                 headers: {'Content-Type': 'application/json'},
@@ -107,6 +113,8 @@ const UserList = () => {
             setError('Failed to delete user');
             toast.error('Failed to delete user');
             console.error(err);
+        } finally {
+            setLoading(false)
         }
     };
 
@@ -138,7 +146,7 @@ const UserList = () => {
                         </div>
                     </Col>
                 </Row>
-                {error ? <div className="error-message">{error}</div>
+                {loading ? <Spinner paragraph={'Loading Users'}/> : error ? <div className="error-message">{error}</div>
                     : <Row>
                     <Col md={12}>
                         <div className="accordion">

@@ -9,13 +9,13 @@ import {FadeLoader} from "react-spinners";
 
 function Spinner({paragraph}) {
     let [loading, setLoading] = useState(true);
-    let [color, setColor] = useState("rgba(214,214,248,0.94)");
+
 
     return (
         <div className=" d-flex flex-column justify-content-center align-items-center">
 
             <FadeLoader
-                color={color}
+                color={'#01a0e2'}
                 loading={loading}
                 // cssOverride={override}
                 size={150}
