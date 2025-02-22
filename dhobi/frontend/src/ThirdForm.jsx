@@ -1,11 +1,12 @@
-import React from 'react';
-import style from "./first.module.css";
-import logo from "../public/images/thedb.png";
+// import React from 'react';
+import PropTypes from 'prop-types';
+// import style from "./first.module.css";
+// import logo from "../public/images/thedb.png";
 import "./common.css";
 import "./ThirdForm.css"
-import ContactForm from "./ContactForm";
-import { useState } from "react";
-import SecondForm from "./SecondForm";
+// import ContactForm from "./ContactForm";
+// import { useState } from "react";
+// import SecondForm from "./SecondForm";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import textimage from "../public/images/text-image.png";
 
@@ -39,5 +40,9 @@ const ThirdForm = ({ contactDetails, setFormNumber }) => {
         </div>
     </>);
 };
+ThirdForm.propTypes = {
+    setFormNumber: PropTypes.func.isRequired,
+};
 
 export default ThirdForm;
+
