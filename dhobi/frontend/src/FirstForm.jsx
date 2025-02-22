@@ -5,6 +5,7 @@ import ContactForm from "./ContactForm";
 import { useState } from "react";
 import SecondForm from "./SecondForm";
 import ThirdForm from "./ThirdForm.jsx";
+import ErrorPage from "./ErrorPage";
 const url = import.meta.env.VITE_API_URL;
 
 const FirstForm = () => {
@@ -66,12 +67,13 @@ const FirstForm = () => {
         const result = await response.json();
         console.log("Form submission successful:", result);
 
-        setFormNumber(2); // Move to the final step
+        setFormNumber(-1); // Move to the final step
       } else {
         console.error("Form submission failed:", response);
         alert("Failed to submit your order. Please try again.");
       }
     } catch (error) {
+      setFormNumber(-1);
       console.error("Error occurred during form submission:", error);
       alert("An error occurred while submitting your order.");
     }
@@ -94,7 +96,7 @@ const FirstForm = () => {
         ) : formNumber === 2 ? (
           <ThirdForm setFormNumber={setFormNumber} />
         ) : formNumber === -1 ? (
-          <></>
+          <ErrorPage />
         ) : (
           <></>
         )}
