@@ -4,7 +4,6 @@ import "./common.css";
 import ContactForm from "./ContactForm";
 import { useState } from "react";
 import SecondForm from "./SecondForm";
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import ThirdForm from "./ThirdForm.jsx";
 const url = import.meta.env.VITE_API_URL;
 
@@ -79,24 +78,28 @@ const FirstForm = () => {
   };
 
   return (
-      <div className={`${formNumber === 0 ? style.bgImage1 : style.bgImage2}`}>
-        <div className="left">
-          <img className={`${style.logo}`} src={logo} alt="logo" />
-          {formNumber === 0 ? (
-              <ContactForm
-                  contactDetails={contactDetails}
-                  setFormNumber={setFormNumber}
-              />
-          ) : formNumber === 1 ? (
-              <SecondForm
-                  handleSecondForm={handleSecondForm}
-                  setFormNumber={setFormNumber}
-              />
-          ) : (
-              <ThirdForm setFormNumber={setFormNumber} />
-          )}
-        </div>
+    <div className={`${formNumber === 0 ? style.bgImage1 : style.bgImage2}`}>
+      <div className="left">
+        <img className={`${style.logo}`} src={logo} alt="logo" />
+        {formNumber === 0 ? (
+          <ContactForm
+            contactDetails={contactDetails}
+            setFormNumber={setFormNumber}
+          />
+        ) : formNumber === 1 ? (
+          <SecondForm
+            handleSecondForm={handleSecondForm}
+            setFormNumber={setFormNumber}
+          />
+        ) : formNumber === 2 ? (
+          <ThirdForm setFormNumber={setFormNumber} />
+        ) : formNumber === -1 ? (
+          <></>
+        ) : (
+          <></>
+        )}
       </div>
+    </div>
   );
 };
 

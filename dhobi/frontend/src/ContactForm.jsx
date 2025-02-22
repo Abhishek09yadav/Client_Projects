@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from 'prop-types';
 import style from "./first.module.css";
 import "./common.css";
 import { VscCircleLargeFilled } from "react-icons/vsc";
@@ -128,5 +129,10 @@ const ContactForm = ({ contactDetails, setFormNumber }) => {
     </form>
   );
 };
+ContactForm.propTypes = {
+  contactDetails: PropTypes.func.isRequired,
+  setFormNumber: PropTypes.func.isRequired,
+};
 
 export default ContactForm;
+
