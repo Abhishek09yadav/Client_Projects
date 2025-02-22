@@ -21,11 +21,21 @@ const FirstForm = () => {
     time: "",
   });
   useEffect(() => {
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => {console.log("server res:",data.message);
-    })
-    .catch((error) => console.error("Error:", error));
+    setLoading(true);
+    fetch(url)
+      .then((res) => {
+        res.json();
+        setLoading(true);
+      })
+      .then((data) => {
+        console.log("server res:", data.message);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
   const contactDetails = (data) => {
     setDetails({
