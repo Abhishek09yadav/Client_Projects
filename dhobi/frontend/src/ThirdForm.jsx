@@ -1,4 +1,4 @@
-// import React from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 // import style from "./first.module.css";
 // import logo from "../public/images/thedb.png";

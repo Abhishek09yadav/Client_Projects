@@ -34,7 +34,7 @@
         const Form = mongoose.model('DhobiForm', formSchema);
 
         app.get("/", (req, res) => {
-            res.send("Welcome to TheDhobi!");
+            res.status(200).json({message: "Welcome to TheDhobi!"});
         })
         app.post("/submitform", async(req, res) => {
         const formDetails = req.body;

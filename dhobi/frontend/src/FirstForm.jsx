@@ -2,7 +2,7 @@ import style from "./first.module.css";
 import logo from "../public/images/thedb.png";
 import "./common.css";
 import ContactForm from "./ContactForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SecondForm from "./SecondForm";
 import ThirdForm from "./ThirdForm.jsx";
 import ErrorPage from "./ErrorPage";
@@ -10,6 +10,7 @@ const url = import.meta.env.VITE_API_URL;
 
 const FirstForm = () => {
   const [formNumber, setFormNumber] = useState(0);
+  const [loading, setLoading] = useState(false);
   const [details, setDetails] = useState({
     name: "",
     email: "",
@@ -19,7 +20,13 @@ const FirstForm = () => {
     date: "",
     time: "",
   });
-
+  useEffect(() => {
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {console.log("server res:",data.message);
+    })
+    .catch((error) => console.error("Error:", error));
+  }, []);
   const contactDetails = (data) => {
     setDetails({
       name: data.name,
