@@ -67,8 +67,7 @@ const FirstForm = () => {
         const result = await response.json();
         console.log("Form submission successful:", result);
 
-        setFormNumber(-1); // Move to the final step
-      } else {
+        setFormNumber(2);
         console.error("Form submission failed:", response);
         alert("Failed to submit your order. Please try again.");
       }
@@ -96,7 +95,7 @@ const FirstForm = () => {
         ) : formNumber === 2 ? (
           <ThirdForm setFormNumber={setFormNumber} />
         ) : formNumber === -1 ? (
-          <ErrorPage />
+          <ErrorPage setFormNumber={setFormNumber} />
         ) : (
           <></>
         )}
