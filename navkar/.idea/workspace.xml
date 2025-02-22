@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Adds loading state and spinner to Banner component.">
-      <change afterPath="$PROJECT_DIR$/navkar-admin/src/Components/spinner/FullPageSpinner.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-admin/src/Components/spinner/Spinner.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/navkar-admin/vite.config.js.timestamp-1740120744160-568d18e05870d.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-admin/src/Components/UserList/UserList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navkar-frontend/src/Components/spinner/Spinner.js" beforeDir="false" afterPath="$PROJECT_DIR$/navkar-frontend/src/Components/spinner/Spinner.js" afterDir="false" />
-    </list>
+    <list default="true" id="78a1aaef-439a-4168-af50-f264eb2dd01d" name="Changes" comment="Adds loading spinner to UserList and handles loading state." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -238,15 +229,7 @@
       <workItem from="1739713577668" duration="595000" />
       <workItem from="1740027463824" duration="3169000" />
       <workItem from="1740054363492" duration="2500000" />
-      <workItem from="1740120732133" duration="2557000" />
-    </task>
-    <task id="LOCAL-00083" summary="setting up dark theme">
-      <option name="closed" value="true" />
-      <created>1738412738404</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1738412738404</updated>
+      <workItem from="1740120732133" duration="3389000" />
     </task>
     <task id="LOCAL-00084" summary="setting up dark theme for description box">
       <option name="closed" value="true" />
@@ -632,7 +615,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740117245015</updated>
     </task>
-    <option name="localTasksCounter" value="132" />
+    <task id="LOCAL-00132" summary="Adds loading spinner to UserList and handles loading state.">
+      <option name="closed" value="true" />
+      <created>1740124573859</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1740124573860</updated>
+    </task>
+    <option name="localTasksCounter" value="133" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -652,7 +643,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fixes search functionality and improves styling of the search bar in UserList component" />
     <MESSAGE value="Fixes UserList search and refactors API route." />
     <MESSAGE value="Implements pagination and search functionality for the user list." />
     <MESSAGE value="Implements pagination and search in UserList." />
@@ -677,7 +667,8 @@
     <MESSAGE value="Adds loading state and spinner to category page." />
     <MESSAGE value="Customizes Spinner component to accept custom paragraph." />
     <MESSAGE value="Adds loading state and spinner to Banner component." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adds loading state and spinner to Banner component." />
+    <MESSAGE value="Adds loading spinner to UserList and handles loading state." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adds loading spinner to UserList and handles loading state." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />

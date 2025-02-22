@@ -35,9 +35,11 @@ const ContactForm = ({ contactDetails, setFormNumber }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div style={{
-        height: "30%",
-      }}>
+      <div
+        style={{
+          height: "30%",
+        }}
+      >
         <p className={`${style.font} m0`}>Fill contact details</p>
         <p className="m0">
           <span className={`${style.font} m0`}>&</span>
@@ -45,16 +47,22 @@ const ContactForm = ({ contactDetails, setFormNumber }) => {
             Proceed
           </b>
         </p>
-        <p className={`${style.font2} `} style={{
-          margin:"20px 0px"
-        }}>
+        <p
+          className={`${style.font2} `}
+          style={{
+            margin: "20px 0px",
+          }}
+        >
           The Dhobi’z Is The One Of The Most Trusted Solution for all types of
           laundry services
         </p>
       </div>
-      <div className="contact-form" style={{
-        height: "70%",
-      }}>
+      <div
+        className="contact-form"
+        style={{
+          height: "70%",
+        }}
+      >
         <div className="form-group">
           <label htmlFor="name">Your name</label>
           <input
@@ -63,7 +71,6 @@ const ContactForm = ({ contactDetails, setFormNumber }) => {
             name="name"
             value={formData.name}
             onChange={handleChange}
-
             required
           />
         </div>
@@ -76,7 +83,7 @@ const ContactForm = ({ contactDetails, setFormNumber }) => {
             name="mobile"
             value={formData.mobile}
             onChange={handleChange}
-
+            pattern="[0-9]{10}"
             required
           />
         </div>
@@ -89,19 +96,18 @@ const ContactForm = ({ contactDetails, setFormNumber }) => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-
             required
           />
         </div>
 
         <div className="form-group">
           <label htmlFor="address">Address</label>
-          <textarea cols="1"
+          <textarea
+            cols="1"
             id="address"
             name="address"
             value={formData.address}
             onChange={handleChange}
-
           />
         </div>
 
@@ -116,9 +122,8 @@ const ContactForm = ({ contactDetails, setFormNumber }) => {
           </button>
         </div>
         <div className="text-image-holder">
-          <img src={textimage} alt=""/>
+          <img src={textimage} alt="" />
         </div>
-
       </div>
     </form>
   );
