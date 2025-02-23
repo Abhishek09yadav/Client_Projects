@@ -10,7 +10,7 @@ import "./ThirdForm.css"
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import textimage from "../public/images/text-image.png";
 
-const ThirdForm = ({ contactDetails, setFormNumber }) => {
+const ThirdForm = ({ setFormNumber }) => {
     return (<>
 
 
@@ -41,7 +41,7 @@ const ThirdForm = ({ contactDetails, setFormNumber }) => {
     </>);
 };
 ThirdForm.propTypes = {
-    setFormNumber: PropTypes.func.isRequired,
+    setFormNumber: PropTypes.func.isRequired
 };
 
 export default ThirdForm;
