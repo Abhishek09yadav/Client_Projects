@@ -4,7 +4,7 @@ import path from 'path';
 import Form from './models/Form.models.js';
 import cors from 'cors';
 import dotenv from 'dotenv';
-
+import ExcelRoute from './routes/downloadExcel.routes.js'
 // Load environment variables
 dotenv.config();
 
@@ -24,7 +24,7 @@ console.log( `MongoDB connected: ${conn.connection.host}` );
 app.get("/", (req, res) => {
     res.status(200).json({ message: "Welcome to TheDhobi!" });
 });
-
+app.use('/api', ExcelRoute)
 app.post("/submitform", async (req, res) => {
     const formDetails = req.body;
     try {
