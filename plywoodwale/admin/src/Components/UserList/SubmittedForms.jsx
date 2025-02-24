@@ -144,7 +144,7 @@ const SubmittedForms = () => {
                                     <p><strong>Address:</strong> {form.address}</p>
                                     <p><strong>Reference:</strong> {form.reference}</p>
                                     <p><strong>You Are:</strong> {form.youAre}</p>
-                                    <p><strong>Ordered on:</strong> {formatDate(form.Date)}</p>
+                                    {/*<p><strong>Ordered on:</strong> {formatDate(form.Date)}</p>*/}
                                 </Accordion.Body>
                             </Accordion.Item>
                         ))}
