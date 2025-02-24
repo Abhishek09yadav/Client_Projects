@@ -85,8 +85,7 @@ const FirstForm = () => {
         console.log("Form submission successful:", result);
 
         setFormNumber(2);
-        console.error("Form submission failed:", response);
-        alert("Failed to submit your order. Please try again.");
+
       }
     } catch (error) {
       setFormNumber(-1);
