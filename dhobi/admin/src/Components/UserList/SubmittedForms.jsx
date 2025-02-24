@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './SubmittedForms.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -7,8 +7,9 @@ import { Accordion, Button } from 'react-bootstrap';
 import Calendar from 'react-calendar';
 import { FaSearch } from 'react-icons/fa';
 import logo from '../../assets/logo.png';
-
+import { PiMicrosoftExcelLogoFill } from "react-icons/pi";
 const url = import.meta.env.VITE_API_URL;
+import { FaDownload } from "react-icons/fa6";
 
 const SubmittedForms = () => {
     const [forms, setForms] = useState([]);
@@ -139,8 +140,25 @@ const SubmittedForms = () => {
                         </Button>
                     </div>
                 </div>
-                <div className="sidebar">
+                <div className="sidebar d-flex flex-column ">
                     <Calendar onChange={handleDateChange} value={selectedDate}/>
+                    <button
+                        className="
+    btn btn-success
+    d-flex align-items-center
+    justify-content-center
+    px-4 py-3
+    rounded-pill
+    fw-bold
+    fs-5
+    mt-3
+    shadow-lg
+    hover-grow  "
+                    >
+                        <PiMicrosoftExcelLogoFill className="me-2"/>
+                        Download Excel
+                        <FaDownload className="ms-2"/>
+                    </button>
                 </div>
             </div>
 

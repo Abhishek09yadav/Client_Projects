@@ -39,7 +39,15 @@
     clip-path: polygon(0 0, 100% 0, 100% 60%, 0% 100%);
     z-index: 0;
 }
+/* Ensure the button has a smooth transition */
+.hover-grow {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
 
+/* Scale up the button on hover */
+.hover-grow:hover {
+    transform: scale(1.1);
+}
 .header {
     position: relative;
     z-index: 1;
