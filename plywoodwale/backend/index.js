@@ -44,20 +44,21 @@ app.get('/submittedforms', async (req, res) => {
             ...(search ? {
                 $or: [
                     {name: {$regex: search, $options: 'i'}},
-                    {email: {$regex: search, $options: 'i'}},
-                    {mobile: {$regex: search, $options: 'i'}},
-                    {services: {$regex: search, $options: 'i'}},
+                    {whatsapp: {$regex: search, $options: 'i'}},
+                    {company: {$regex: search, $options: 'i'}},
+                    {address: {$regex: search, $options: 'i'}},
+                    {reference: {$regex: search, $options: 'i'}},
                 ],
             } : null),
             ...(date && {
-                pickup_date: {
+                Date: {
                     $eq: new Date(date).toLocaleDateString('en-CA') // Format as YYYY-MM-DD
                 }
             }),
         };
 
         const forms = await Form.find(query || null)
-            .sort({pickup_date: -1})
+            .sort({Date: -1})
             .skip((page - 1) * limit)
             .limit(Number(limit));
 
