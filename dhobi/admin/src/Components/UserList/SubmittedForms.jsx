@@ -10,6 +10,7 @@ import logo from '../../assets/logo.png';
 import { PiMicrosoftExcelLogoFill } from "react-icons/pi";
 const url = import.meta.env.VITE_API_URL;
 import { FaDownload } from "react-icons/fa6";
+import {downloadExcel} from "../server/common/downloadExcel.js";
 
 const SubmittedForms = () => {
     const [forms, setForms] = useState([]);
@@ -52,6 +53,33 @@ const SubmittedForms = () => {
             console.error('Error occurred while fetching forms:', error);
         }
     };
+    const downloadExcelFile = async () => {
+        try {
+            const response = await downloadExcel()
+            if (response.status === 200) {
+                const blob = new Blob([response.data], {
+                    type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+                });
+                const link = document.createElement('a')
+                link.href = window.URL.createObjectURL(blob);
+                link.download = 'forms.xlsx';
+                link.click();
+                link.addEventListener('click', () => {
+                    setTimeout(() => {
+                        document.body.removeChild(link);
+                        window.URL.revokeObjectURL(link.href); // Clean up the URL object
+                    }, 100); // 100ms delay
+                });
+
+            } else {
+                alert('Failed to download')
+
+            }
+        } catch (error) {
+            alert(error.message)
+        } finally {
+        }
+    }
 
     const handleSearch = () => {
         setCurrentPage(1);
@@ -143,6 +171,9 @@ const SubmittedForms = () => {
                 <div className="sidebar d-flex flex-column ">
                     <Calendar onChange={handleDateChange} value={selectedDate}/>
                     <button
+                        onClick={() => {
+                            downloadExcelFile()
+                        }}
                         className="
     btn btn-success
     d-flex align-items-center
