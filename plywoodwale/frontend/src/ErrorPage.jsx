@@ -36,7 +36,7 @@ const ThirdForm = ({setFormNumber}) => {
                     </div>
                 </div>
                 <div className="text-image-holder">
-                    <img src={textimage} alt=""/>
+                    {/*<img src={textimage} alt=""/>*/}
                 </div>
             </div>
         </>
