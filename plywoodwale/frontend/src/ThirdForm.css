@@ -5,6 +5,9 @@
     flex-direction: column;
 }
 
+body {
+    background: linear-gradient(45deg, #225385, #000110);
+}
 .wrapper-2 {
     margin-top: 88px;
 

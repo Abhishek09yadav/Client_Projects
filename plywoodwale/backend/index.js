@@ -32,7 +32,7 @@ app.post("/submitform", async (req, res) => {
         const savedForm = await form.save();
         res.status(201).json(savedForm);
     } catch (error) {
-        res.status(400).json({error: error.message});
+        res.status(500).json({error: error.message});
     }
 });
 

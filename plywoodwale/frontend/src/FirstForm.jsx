@@ -1,5 +1,5 @@
 import style from "./first.module.css";
-import logo from "../public/images/thedb.png";
+import logo from "../public/images/logo.png";
 import "./common.css";
 import ContactForm from "./ContactForm";
 import {useEffect, useState} from "react";
@@ -14,12 +14,10 @@ const FirstForm = () => {
     const [loading, setLoading] = useState(false);
     const [details, setDetails] = useState({
         name: "",
-        email: "",
         mobile: "",
+        email: "",
         address: "",
-        services: [],
-        date: "",
-        time: "",
+        youAre: "",
     });
     useEffect(() => {
         setLoading(true);
@@ -41,12 +39,14 @@ const FirstForm = () => {
     const contactDetails = (data) => {
         setDetails({
             name: data.name,
-            email: data.email,
             mobile: data.mobile,
-            address: data.address,
-            services: [], // Reset services for the next form
-            date: "",
-            time: "",
+            email: da,
+            address: "",
+            youAre: "",
+            // name: data.name,
+            // email: data.email,
+            // mobile: data.mobile,
+            // address: data.address,
         });
 
         // Move to the next form
@@ -72,27 +72,7 @@ const FirstForm = () => {
             pickup_time: time || "Not Provided",
         };
 
-        try {
-            const response = await fetch(`${url}/submitform`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(payload),
-            });
 
-            if (response.ok) {
-                const result = await response.json();
-                console.log("Form submission successful:", result);
-
-                setFormNumber(2);
-
-            }
-        } catch (error) {
-            setFormNumber(-1);
-            console.error("Error occurred during form submission:", error);
-            alert("An error occurred while submitting your order.");
-        }
     };
 
     return (
@@ -100,10 +80,7 @@ const FirstForm = () => {
             <div className="left">
                 <img className={`${style.logo}`} src={logo} alt="logo"/>
                 {formNumber === 0 ? (
-                    <ContactForm
-                        contactDetails={contactDetails}
-                        setFormNumber={setFormNumber}
-                    />
+                    <ContactForm setFormNumber={setFormNumber}/>
                 ) : formNumber === 1 ? (
                     <SecondForm
                         handleSecondForm={handleSecondForm}

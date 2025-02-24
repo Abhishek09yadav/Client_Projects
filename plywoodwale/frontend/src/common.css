@@ -15,6 +15,7 @@
 .form-group {
     margin-bottom: 15px;
     margin-top: 1rem;
+    overflow: hidden;
 }
 
 .text-image-holder img {
@@ -31,14 +32,15 @@ label {
 }
 
 input,
-textarea {
+textarea, select {
     font-size: 1rem;
     margin-top: 10px;
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 4px;
     outline: none;
+
 
 }
 
@@ -65,9 +67,10 @@ textarea {
 .proceed {
     font-size: 1em;
     padding: 10px 100px;
-    border-radius: 30px;
-    background-color: #ff6b00;
+    border-radius: 8px;
+    background-color: #00ffbb;
     outline: none;
+    width: 100%;
 }
 
 .pro-btn {
@@ -151,6 +154,7 @@ textarea {
     .proceed {
         font-size: 1.8em;
         padding: 10px 80px;
+        width: 100%;
     }
 }
 
@@ -175,6 +179,7 @@ textarea {
     .proceed {
         font-size: 1.6em;
         padding: 10px 60px;
+        width: 100%;
     }
 }
 
@@ -191,6 +196,7 @@ textarea {
     .proceed {
         font-size: 1.5em;
         padding: 8px 80px;
+        width: 100%;
     }
 }
 
@@ -219,6 +225,7 @@ textarea {
     .proceed {
         font-size: 1.5em;
         padding: 10px 40px;
+        width: 100%;
     }
 
     /*.circles {*/
@@ -246,6 +253,7 @@ textarea {
     .proceed {
         font-size: 1.3em;
         padding: 8px 30px;
+        width: 100%;
     }
 }
 
@@ -262,6 +270,7 @@ textarea {
     .proceed {
         font-size: 1.2em;
         padding: 8px 20px;
+        width: 100%;
     }
 }
 

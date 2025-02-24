@@ -1,6 +1,7 @@
 .bgImage1 {
-    background-image: url("../public/images/1.png");
+    /*background-image: url("../public/images/1.png");*/
     margin: 0;
+    background: linear-gradient(45deg, #225385, #000110);
     padding: 0;
     /* background-image: url(path-to-your-image.jpg); */
     background-size: cover;
@@ -11,7 +12,8 @@
 }
 
 .bgImage2 {
-    background-image: url("../public/images/2.png");
+    /*background-image: url("../public/images/2.png");*/
+    background: linear-gradient(45deg, #225385, #000110);
     background-size: cover;
     width: 100svw;
     /* height: 100vh; */
@@ -42,13 +44,15 @@
 @media (max-width: 1024px) {
 
     .bgImage1 {
-        background-image: url("../public/images/default.png");
+        /*background-image: url("../public/images/default.png");*/
         min-height: 100vh;
+        background: linear-gradient(45deg, #225385, #000110);
 
     }
 
     .bgImage2 {
-        background-image: url("../public/images/default.png");
+        /*background-image: url("../public/images/default.png");*/
+        background: linear-gradient(45deg, #225385, #000110);
         min-height: 100vh;
 
     }
