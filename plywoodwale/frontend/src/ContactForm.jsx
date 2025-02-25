@@ -21,7 +21,7 @@ const ContactForm = ({setFormNumber}) => {
         company: "",
         address: "",
         reference: "",
-        youAre: "",
+        youAre: "You are ?",
     });
 
     const handleChange = (e) => {
@@ -37,6 +37,10 @@ const ContactForm = ({setFormNumber}) => {
 
         if (!formData.name || !formData.whatsapp || !formData.address || !formData.youAre) {
             alert("Please fill out all required fields.");
+            return;
+        }
+        if (formData.youAre === "You are ?") {
+            alert("please select a role");
             return;
         }
 
@@ -75,10 +79,11 @@ const ContactForm = ({setFormNumber}) => {
                            id={"responsive"} sx={{
                         borderRadius: "5px",
                         '& .MuiInputLabel-root': {color: 'navy'},
-                        '& .MuiInputLabel-root.Mui-focused': {color: 'cyan'}
+                        '& .MuiInputLabel-root.Mui-focused': {color: 'yellow'}
                     }}>
                         <FaUser className={'m-2'}/>
-                        <TextField fullWidth label="Your Name" name="name" value={formData.name} onChange={handleChange}
+                        <TextField fullWidth label="" placeholder={"name"} name="name" value={formData.name}
+                                   onChange={handleChange}
                                    required/>
                     </Grid2>
 
@@ -86,12 +91,12 @@ const ContactForm = ({setFormNumber}) => {
                            id={"responsive"} sx={{
                         borderRadius: "5px",
                         '& .MuiInputLabel-root': {color: 'navy'},
-                        '& .MuiInputLabel-root.Mui-focused': {color: 'cyan'}
+                        '& .MuiInputLabel-root.Mui-focused': {color: 'yellow', top: "-15% ! important"}
                     }}>
                         <RiWhatsappFill className={'m-2'}/>
                         <TextField
                             fullWidth
-                            label="WhatsApp Number"
+                            label=""
                             name="whatsapp"
                             value={formData.whatsapp}
                             onChange={handleChange}
@@ -111,25 +116,34 @@ const ContactForm = ({setFormNumber}) => {
                         width: "45%",
                         borderRadius: "5px",
                         '& .MuiInputLabel-root': {color: 'navy'},
-                        '& .MuiInputLabel-root.Mui-focused': {color: 'cyan'}
+                        '& .MuiInputLabel-root.Mui-focused': {color: 'yellow'}
                     }}>
                         <HiBuildingOffice className={'m-2'}/>
-                        <TextField fullWidth label="Company" name="company" value={formData.company}
+                        <TextField fullWidth label="" placeholder={"company"} name="company" value={formData.company}
                                    onChange={handleChange}/>
                     </Grid2>
-                    <Grid2 xs={12} className={`bg-white text-dark w-50 d-flex flex-row align-items-center`}
-                           id={"responsive"} sx={{
+                    <Grid2 xs={12} className="bg-white text-dark w-50 d-flex flex-row align-items-center"
+                           id="responsive" sx={{
                         background: "white",
                         color: "black",
                         width: "45%",
                         borderRadius: "5px",
                         '& .MuiInputLabel-root': {color: 'navy'},
-                        '& .MuiInputLabel-root.Mui-focused': {color: 'cyan'}
+                        '& .MuiInputLabel-root.Mui-focused': {color: 'yellow'}
                     }}>
-                        <HiMiniUserGroup className={'m-2'}/>
-                        <TextField select fullWidth label="You are" name="youAre" value={formData.youAre}
-                                   onChange={handleChange} required>
-                            <MenuItem value="">Select Role</MenuItem>
+                        <HiMiniUserGroup className="m-2"/>
+                        <TextField
+                            select
+                            fullWidth
+                            label="" // Add a meaningful label
+                            name="youAre"
+                            value={formData.youAre}
+                            onChange={handleChange}
+                            required
+                        >
+                            <MenuItem value="You are ?">
+                                Select Role
+                            </MenuItem>
                             <MenuItem value="End User">End User</MenuItem>
                             <MenuItem value="Architect/Interior Designer">Architect/Interior Designer</MenuItem>
                             <MenuItem value="Contractor">Contractor</MenuItem>
@@ -145,10 +159,11 @@ const ContactForm = ({setFormNumber}) => {
                         width: "45%",
                         borderRadius: "5px",
                         '& .MuiInputLabel-root': {color: 'navy'},
-                        '& .MuiInputLabel-root.Mui-focused': {color: 'cyan'}
+                        '& .MuiInputLabel-root.Mui-focused': {color: 'yellow'}
                     }}>
                         <FaLocationDot className={'m-2'}/>
-                        <TextField fullWidth multiline rows={3} label="Address" name="address" value={formData.address}
+                        <TextField fullWidth multiline placeholder={"address"} rows={3} label="" name="address"
+                                   value={formData.address}
                                    onChange={handleChange} required/>
                     </Grid2>
 
@@ -160,9 +175,10 @@ const ContactForm = ({setFormNumber}) => {
                         height: "fit-content",
                         borderRadius: "5px",
                         '& .MuiInputLabel-root': {color: 'navy'},
-                        '& .MuiInputLabel-root.Mui-focused': {color: 'cyan'}
+                        '& .MuiInputLabel-root.Mui-focused': {color: 'yellow'}
                     }}> <FaSquareShareNodes className={'m-2'}/>
-                        <TextField fullWidth label="Reference" name="reference" value={formData.reference}
+                        <TextField fullWidth label="" placeholder={"reference"} name="reference"
+                                   value={formData.reference}
                                    onChange={handleChange}/>
                     </Grid2>
 
