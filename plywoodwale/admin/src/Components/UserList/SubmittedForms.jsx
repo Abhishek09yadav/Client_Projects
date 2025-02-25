@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'react-calendar/dist/Calendar.css';
 import {Accordion, Button} from 'react-bootstrap';
+import Spinner from '../spinner/Spinner.jsx'
 import Calendar from 'react-calendar';
 import {FaSearch} from 'react-icons/fa';
 import logo from '../../assets/logo.png';
@@ -19,6 +20,8 @@ const SubmittedForms = () => {
     const [totalPages, setTotalPages] = useState(1);
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedDate, setSelectedDate] = useState(null); // State for selected date
+    const [loading, setLoading] = useState(false);
+    const [excelLoading, setExcelLoading] = useState(false);
     const limit = 10;
 
     useEffect(() => {
@@ -27,6 +30,7 @@ const SubmittedForms = () => {
 
     const fetchForms = async () => {
         try {
+            setLoading(true)
             const formattedDate = selectedDate ?
                 selectedDate.toLocaleDateString('en-CA') // Format as YYYY-MM-DD
                 : '';
@@ -52,11 +56,14 @@ const SubmittedForms = () => {
             }
         } catch (error) {
             console.error('Error occurred while fetching forms:', error);
+        } finally {
+            setLoading(false)
         }
     };
 
     const downloadExcelFile = async () => {
         try {
+            setExcelLoading(true)
             const response = await downloadExcel()
             if (response.status === 200) {
                 const blob = new Blob([response.data], {
@@ -80,6 +87,7 @@ const SubmittedForms = () => {
         } catch (error) {
             alert(error.message)
         } finally {
+            setExcelLoading(false)
         }
     }
 
@@ -129,7 +137,7 @@ const SubmittedForms = () => {
                     </button>
                 </div>
             </div>
-            <div className="content">
+            {loading ? <Spinner paragraph={"Loading..."}/> : (<div className="content">
                 <div className="main-content">
                     <Accordion>
                         {forms.map((form, index) => (
@@ -185,7 +193,7 @@ const SubmittedForms = () => {
                 </div>
                 <div className="sidebar d-flex flex-column ">
                     <Calendar onChange={handleDateChange} value={selectedDate}/>
-                    <button
+                    {excelLoading ? <Spinner paragraph={"Downloading..."}/> : (<button
                         onClick={() => {
                             downloadExcelFile()
                         }}
@@ -204,9 +212,9 @@ const SubmittedForms = () => {
                         <PiMicrosoftExcelLogoFill className="me-2"/>
                         Download Excel
                         <FaDownload className="ms-2"/>
-                    </button>
+                    </button>)}
                 </div>
-            </div>
+            </div>)}
 
         </div>
     );
