@@ -7,6 +7,7 @@ import SecondForm from "./SecondForm";
 import ThirdForm from "./ThirdForm.jsx";
 import ErrorPage from "./ErrorPage";
 import "bootstrap/dist/css/bootstrap.min.css"
+import Spinner from "./spinner/Spinner.jsx";
 
 const url = import.meta.env.VITE_API_URL;
 
@@ -86,7 +87,8 @@ const FirstForm = () => {
                          mixBlendMode: "lighten",
                          margin: "20px 0px"
                      }}/>
-                {formNumber === 0 ? (
+                {loading ? <Spinner paragraph={"Loading..."}/> :
+                    formNumber === 0 ? (
                     <ContactForm setFormNumber={setFormNumber}/>
                     )
                     //     : formNumber === 1 ? (
