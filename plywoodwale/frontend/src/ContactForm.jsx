@@ -1,9 +1,9 @@
 import {useState} from "react";
 import PropTypes from "prop-types";
+import {TextField, MenuItem, Button, Grid2} from "@mui/material";
+import "bootstrap/dist/css/bootstrap.min.css"
 import style from "./first.module.css";
 import "./common.css";
-import {VscCircleLargeFilled} from "react-icons/vsc";
-import textimage from "../public/images/text-image.png";
 
 const url = import.meta.env.VITE_API_URL;
 
@@ -27,160 +27,145 @@ const ContactForm = ({setFormNumber}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Form Data Submitted:", formData);
 
-        // Basic email-like validation is not needed here, but ensure required fields are filled
-        if (
-            !formData.name ||
-            !formData.whatsapp ||
-            !formData.address ||
-            !formData.youAre
-        ) {
+        if (!formData.name || !formData.whatsapp || !formData.address || !formData.youAre) {
             alert("Please fill out all required fields.");
             return;
         }
 
-        // You can add further validations as needed (for example, validating the whatsapp number)
-        // call  the backed api
         try {
             const response = await fetch(`${url}/submitform`, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
+                headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(formData),
             });
 
             if (response.ok) {
-                const result = await response.json();
-                console.log("Form submission successful:", result);
-
                 setFormNumber(2);
-
             }
         } catch (error) {
             setFormNumber(-1);
-            console.error("Error occurred during form submission:", error);
             alert("An error occurred while submitting your order.");
         }
-
     };
+
 
     return (
         <form onSubmit={handleSubmit}>
-            <div style={{height: "30%"}}>
-                <p className={`${style.font} m0`}>Fill contact details</p>
-                <p className="m0">
-                    <span className={`${style.font} m0`}>&</span>
-                    <b className={`${style.font}`} style={{color: "yellow"}}>
-                        Proceed
-                    </b>
-                </p>
-                <p
-                    className={`${style.font2}`}
-                    style={{margin: "20px 0px"}}
-                >
-                    {/*The Dhobi’z is one of the most trusted solutions for all types of laundry services.*/}
+
+            <div
+                className={`d-flex gap-3  justify-content-md-start justify-content-center align-content-md-start align-items-center`}>
+
+                <p className={`${style.font} m0 rubik-400 `} style={{margin: "20px 0px"}}>
+                    Fill contact details
                 </p>
             </div>
-            <div className="contact-form" style={{height: "70%"}}>
-                <div className="form-group">
-                    <label htmlFor="name">Your Name*</label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
 
-                <div className="form-group">
-                    <label htmlFor="whatsapp">WhatsApp Number*</label>
-                    <input
-                        type="tel"
-                        id="whatsapp"
-                        name="whatsapp"
-                        value={formData.whatsapp}
-                        onChange={handleChange}
-                        pattern="[0-9]{10}"
-                        placeholder="10-digit number"
-                        required
-                    />
-                </div>
+            <Grid2 container spacing={2}>
+                <div
+                    className={`text-dark w-100 d-flex gap-3 flex-md-row  flex-column justify-content-md-start justify-content-center align-content-md-start align-items-center`}>
+                    <Grid2 xs={12} className={`bg-white text-dark w-50`} id={"responsive"} sx={{
+                        borderRadius: "5px",
+                        '& .MuiInputLabel-root': {color: 'navy'},
+                        '& .MuiInputLabel-root.Mui-focused': {color: 'cyan'}
+                    }}>
+                        <TextField fullWidth label="Your Name" name="name" value={formData.name} onChange={handleChange}
+                                   required/>
+                    </Grid2>
 
-                <div className="form-group">
-                    <label htmlFor="company">Company</label>
-                    <input
-                        type="text"
-                        id="company"
-                        name="company"
-                        value={formData.company}
-                        onChange={handleChange}
-                    />
+                    <Grid2 xs={12} className={`bg-white text-dark w-50`} id={"responsive"} sx={{
+                        borderRadius: "5px",
+                        '& .MuiInputLabel-root': {color: 'navy'},
+                        '& .MuiInputLabel-root.Mui-focused': {color: 'cyan'}
+                    }}>
+                        <TextField
+                            fullWidth
+                            label="WhatsApp Number"
+                            name="whatsapp"
+                            value={formData.whatsapp}
+                            onChange={handleChange}
+                            inputProps={{pattern: "[0-9]{10}"}}
+                            placeholder="10-digit number"
+                            required
+                        />
+                    </Grid2>
                 </div>
+                <div
+                    className={`text-dark w-100 d-flex gap-3 flex-md-row  flex-column justify-content-md-start justify-content-center align-content-md-start align-items-center`}>
+                    <Grid2 xs={12} className={`bg-white text-dark w-50`} id={"responsive"} sx={{
+                        background: "white",
+                        color: "black",
+                        width: "45%",
+                        borderRadius: "5px",
+                        '& .MuiInputLabel-root': {color: 'navy'},
+                        '& .MuiInputLabel-root.Mui-focused': {color: 'cyan'}
+                    }}>
+                        <TextField fullWidth label="Company" name="company" value={formData.company}
+                                   onChange={handleChange}/>
+                    </Grid2>
+                    <Grid2 xs={12} className={`bg-white text-dark w-50`} id={"responsive"} sx={{
+                        background: "white",
+                        color: "black",
+                        width: "45%",
+                        borderRadius: "5px",
+                        '& .MuiInputLabel-root': {color: 'navy'},
+                        '& .MuiInputLabel-root.Mui-focused': {color: 'cyan'}
+                    }}>
+                        <TextField select fullWidth label="You are" name="youAre" value={formData.youAre}
+                                   onChange={handleChange} required>
+                            <MenuItem value="">Select Role</MenuItem>
+                            <MenuItem value="End User">End User</MenuItem>
+                            <MenuItem value="Architect/Interior Designer">Architect/Interior Designer</MenuItem>
+                            <MenuItem value="Contractor">Contractor</MenuItem>
+                        </TextField>
+                    </Grid2>
+                </div>
+                <div
+                    className={`text-dark w-100 d-flex gap-3 flex-md-row  flex-column justify-content-md-start justify-content-center align-content-md-start align-items-center`}>
+                    <Grid2 xs={12} className={`bg-white text-dark w-50`} id={"responsive"} sx={{
+                        background: "white",
+                        color: "black",
+                        width: "45%",
+                        borderRadius: "5px",
+                        '& .MuiInputLabel-root': {color: 'navy'},
+                        '& .MuiInputLabel-root.Mui-focused': {color: 'cyan'}
+                    }}>
+                        <TextField fullWidth multiline rows={3} label="Address" name="address" value={formData.address}
+                                   onChange={handleChange} required/>
+                    </Grid2>
 
-                <div className="form-group">
-                    <label htmlFor="address">Address*</label>
-                    <textarea
-                        id="address"
-                        name="address"
-                        value={formData.address}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
 
-                <div className="form-group">
-                    <label htmlFor="reference">Reference</label>
-                    <input
-                        type="text"
-                        id="reference"
-                        name="reference"
-                        value={formData.reference}
-                        onChange={handleChange}
-                    />
-                </div>
+                    <Grid2 xs={12} className={`bg-white text-dark w-50`} id={"responsive"} sx={{
+                        background: "white",
+                        color: "black",
+                        width: "45%",
+                        height: "fit-content",
+                        borderRadius: "5px",
+                        '& .MuiInputLabel-root': {color: 'navy'},
+                        '& .MuiInputLabel-root.Mui-focused': {color: 'cyan'}
+                    }}>
+                        <TextField fullWidth label="Reference" name="reference" value={formData.reference}
+                                   onChange={handleChange}/>
+                    </Grid2>
 
-                <div className="form-group">
-                    <label htmlFor="youAre">You are*</label>
-                    <select
-                        id="youAre"
-                        name="youAre"
-                        value={formData.youAre}
-                        onChange={handleChange}
-                        required
-                    >
-                        <option value="">Select Role</option>
-                        <option value="End User">End User</option>
-                        <option value="Architect/Interior Designer">
-                            Architect/Interior Designer
-                        </option>
-                        <option value="Contractor">Contractor</option>
-                    </select>
                 </div>
-
-                <div className="circles">
-                    <VscCircleLargeFilled style={{color: "orange"}}/>
-                    <VscCircleLargeFilled style={{color: "white"}}/>
+                <div
+                    className={`text-dark w-100 d-flex gap-3 flex-md-row  flex-column justify-content-md-start justify-content-center align-content-md-start align-items-center`}>
+                    <Grid2 xs={12} id={"responsive"} sx={{
+                        width: "100%",
+                    }}>
+                        <Button fullWidth variant="contained" type="submit">
+                            Proceed
+                        </Button>
+                    </Grid2>
                 </div>
-
-                <div className="pro-btn">
-                    <button type="submit" className="proceed">
-                        Proceed
-                    </button>
-                </div>
-                {/*<div className="text-image-holder">*/}
-                {/*    <img src={textimage} alt="Illustration" />*/}
-                {/*</div>*/}
-            </div>
+            </Grid2>
         </form>
     );
 };
 
 ContactForm.propTypes = {
-    contactDetails: PropTypes.func.isRequired,
+    setFormNumber: PropTypes.func.isRequired,
 };
 
 export default ContactForm;

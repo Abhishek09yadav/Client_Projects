@@ -14,7 +14,7 @@ const ThirdForm = ({setFormNumber}) => {
     return (<>
 
 
-        <div className="content">
+        <div className="">
             <div className="wrapper-1">
                 <div className="wrapper-2">
                     <h1>Thank you !</h1>

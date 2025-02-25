@@ -130,7 +130,8 @@
     z-index: 1;
     display: flex;
     gap: 2.5rem;
-    align-items: flex-start;
+    align-items: center;
+    /*max-width: 50%;*/
 }
 
 .sidebar {

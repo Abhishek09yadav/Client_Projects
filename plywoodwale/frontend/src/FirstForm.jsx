@@ -6,6 +6,7 @@ import {useEffect, useState} from "react";
 import SecondForm from "./SecondForm";
 import ThirdForm from "./ThirdForm.jsx";
 import ErrorPage from "./ErrorPage";
+import "bootstrap/dist/css/bootstrap.min.css"
 
 const url = import.meta.env.VITE_API_URL;
 
@@ -40,7 +41,7 @@ const FirstForm = () => {
         setDetails({
             name: data.name,
             mobile: data.mobile,
-            email: da,
+            email: data.email,
             address: "",
             youAre: "",
             // name: data.name,
@@ -77,16 +78,24 @@ const FirstForm = () => {
 
     return (
         <div className={`${formNumber === 0 ? style.bgImage1 : style.bgImage2}`}>
-            <div className="left">
-                <img className={`${style.logo}`} src={logo} alt="logo"/>
+            <div className="left w-100">
+                <img className={`${style.logo}`} src={logo} alt="logo"
+                     onClick={() => window.location.replace('/')}
+                     style={{
+                         cursor: 'pointer',
+                         mixBlendMode: "lighten",
+                         margin: "20px 0px"
+                     }}/>
                 {formNumber === 0 ? (
                     <ContactForm setFormNumber={setFormNumber}/>
-                ) : formNumber === 1 ? (
-                    <SecondForm
-                        handleSecondForm={handleSecondForm}
-                        setFormNumber={setFormNumber}
-                    />
-                ) : formNumber === 2 ? (
+                    )
+                    //     : formNumber === 1 ? (
+                    //     <SecondForm
+                    //         handleSecondForm={handleSecondForm}
+                    //         setFormNumber={setFormNumber}
+                    //     />
+                    // )
+                    : formNumber === 2 ? (
                     <ThirdForm setFormNumber={setFormNumber}/>
                 ) : formNumber === -1 ? (
                     <ErrorPage setFormNumber={setFormNumber}/>

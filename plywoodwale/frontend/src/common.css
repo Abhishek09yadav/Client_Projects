@@ -4,10 +4,19 @@
 
 }
 
+.rubik-400 {
+    font-family: "Rubik", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
 .m0 {
     margin: 0;
 }
 
+.css-113d811-MuiFormLabel-root-MuiInputLabel-root .Mui-focused {
+    color: white;
+}
 .contact-form {
     max-width: 510px;
 }
@@ -132,7 +141,10 @@ textarea {
     bottom: 0
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 768px) {
+    #responsive {
+        width: 25% !important;
+    }
     .button-wrapper {
         gap: 20px;
     }
@@ -180,6 +192,10 @@ textarea {
         font-size: 1.6em;
         padding: 10px 60px;
         width: 100%;
+    }
+
+    #responsive {
+        width: 80% !important;
     }
 }
 

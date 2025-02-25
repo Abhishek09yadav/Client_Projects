@@ -1,7 +1,7 @@
 .bgImage1 {
     /*background-image: url("../public/images/1.png");*/
     margin: 0;
-    background: linear-gradient(45deg, #225385, #000110);
+    height: 100vh;
     padding: 0;
     /* background-image: url(path-to-your-image.jpg); */
     background-size: cover;
@@ -32,7 +32,7 @@
     color: white;
     font-weight: 600;
     margin: 10px 10px 10px 0;
-    font-family: math;
+    /*font-family: math;*/
 }
 
 .font2 {

@@ -112,7 +112,9 @@ const SubmittedForms = () => {
 
     return (
         <div className="submitted-forms-container w-100">
-            <img className={'logo'} src={logo} alt="logo"/>
+            <img className={'logo'} src={logo} alt="logo" style={{
+                mixBlendMode: "lighten"
+            }}/>
             <div className="header">
                 <h1>User Details</h1>
                 <div className="search-bar">
@@ -138,12 +140,26 @@ const SubmittedForms = () => {
                                     </span>
                                 </Accordion.Header>
                                 <Accordion.Body>
-                                    <p><strong>Name:</strong> {form.name}</p>
-                                    <p><strong>WhatsApp:</strong> {form.whatsapp}</p>
-                                    <p><strong>Company:</strong> {form.company}</p>
-                                    <p><strong>Address:</strong> {form.address}</p>
-                                    <p><strong>Reference:</strong> {form.reference}</p>
-                                    <p><strong>You Are:</strong> {form.youAre}</p>
+                                    <p className={`d-flex align-items-center justify-content-start gap-3`}>
+                                        <img src="/plywood admin icons/user.png" alt="name icon" height={22}
+                                             width={22}/>
+                                        <strong>Name:</strong> {form.name}
+                                    </p>
+                                    <p className={`d-flex align-items-center justify-content-start gap-3`}>
+                                        <img src="/plywood admin icons/whatsapp.png" alt="name icon" height={22}
+                                             width={22}/><strong>WhatsApp:</strong> {form.whatsapp}</p>
+                                    <p className={`d-flex align-items-center justify-content-start gap-3`}>
+                                        <img src="/plywood admin icons/company.png" alt="name icon" height={22}
+                                             width={22}/><strong>Company:</strong> {form.company}</p>
+                                    <p className={`d-flex align-items-center justify-content-start gap-3`}>
+                                        <img src="/plywood admin icons/location.png" alt="name icon" height={22}
+                                             width={22}/><strong>Address:</strong> {form.address}</p>
+                                    <p className={`d-flex align-items-center justify-content-start gap-3`}>
+                                        <img src="/plywood admin icons/change.png" alt="name icon" height={22}
+                                             width={22}/><strong>Reference:</strong> {form.reference}</p>
+                                    <p className={`d-flex align-items-center justify-content-start gap-3`}>
+                                        <img src="/plywood admin icons/role.png" alt="name icon" height={22}
+                                             width={22}/><strong>You Are:</strong> {form.youAre}</p>
                                     {/*<p><strong>Ordered on:</strong> {formatDate(form.Date)}</p>*/}
                                 </Accordion.Body>
                             </Accordion.Item>

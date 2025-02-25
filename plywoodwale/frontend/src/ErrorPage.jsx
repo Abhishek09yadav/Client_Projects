@@ -12,7 +12,7 @@ import textimage from "../public/images/text-image.png";
 const ThirdForm = ({setFormNumber}) => {
     return (
         <>
-            <div className="content">
+            <div className="">
                 <div className="wrapper-1">
                     <div className="wrapper-2">
                         <h1 style={{color: 'red'}}>Something Went Wrong!</h1>
