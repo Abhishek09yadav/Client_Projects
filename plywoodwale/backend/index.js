@@ -46,13 +46,14 @@ app.get('/submittedforms', async (req, res) => {
                     {name: {$regex: search, $options: 'i'}},
                     {whatsapp: {$regex: search, $options: 'i'}},
                     {company: {$regex: search, $options: 'i'}},
-                    {address: {$regex: search, $options: 'i'}},
+                    {youAre: {$regex: search, $options: 'i'}},
                     {reference: {$regex: search, $options: 'i'}},
                 ],
             } : null),
             ...(date && {
                 Date: {
-                    $eq: new Date(date).toLocaleDateString('en-CA') // Format as YYYY-MM-DD
+                    $gte: new Date(date).setHours(0, 0, 0, 0), // Start of the day
+                    $lt: new Date(date).setHours(23, 59, 59, 999) // End of the day
                 }
             }),
         };
@@ -76,5 +77,5 @@ app.get('/submittedforms', async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server running at ${baseUrl}: ${port}`);
+    console.log(`Server running at ${baseUrl}`);
 });

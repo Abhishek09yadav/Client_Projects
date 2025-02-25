@@ -167,7 +167,7 @@ const SubmittedForms = () => {
                                              width={22}/><strong>Reference:</strong> {form.reference}</p>
                                     <p className={`d-flex align-items-center justify-content-start gap-3`}>
                                         <img src="/plywood admin icons/role.png" alt="name icon" height={22}
-                                             width={22}/><strong>You Are:</strong> {form.youAre}</p>
+                                             width={22}/><strong>Role:</strong> {form.youAre}</p>
                                     {/*<p><strong>Ordered on:</strong> {formatDate(form.Date)}</p>*/}
                                 </Accordion.Body>
                             </Accordion.Item>
