@@ -155,7 +155,7 @@ const ContactForm = ({setFormNumber}) => {
                         width: "100%",
                     }}>
                         <Button fullWidth variant="contained" type="submit">
-                            Proceed
+                            Submit Form
                         </Button>
                     </Grid2>
                 </div>
