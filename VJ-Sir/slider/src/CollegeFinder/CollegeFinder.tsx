@@ -1,42 +1,65 @@
-import React, { useState } from 'react';
-import { FaSearch } from 'react-icons/fa';
+import React, { useState, useMemo, useCallback } from 'react';
+import { debounce } from 'lodash';
+import { FixedSizeList as List } from 'react-window';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import categorized_data from './categorized_data.json';
 
-const CollegeFinder: React.FC = () => {
+// Debounced input handler
+const useDebouncedInput = (initialValue = '', delay = 300) => {
+    const [value, setValue] = useState(initialValue);
+    const debouncedSetValue = useCallback(debounce(setValue, delay), []);
+
+    return [value, debouncedSetValue];
+};
+
+// Row component for virtualization
+const Row = ({ index, style, data }) => (
+    <div style={style} className="list-group-item">
+        <strong>{data[index].institute}</strong> - {data[index].program} ({data[index].courseDuration})
+        <br />
+        <small>Quota: {data[index].quota} | Category: {data[index].category}</small>
+        <br />
+        <small>Rank Range: {data[index].openingRank} - {data[index].closingRank}</small>
+    </div>
+);
+
+const CollegeFinder: React.FC = React.memo(() => {
+    // State for filters
     const [examType, setExamType] = useState<string>('');
-    const [institute, setInstitute] = useState<string>('');
-    const [program, setProgram] = useState<string>('');
+    const [institute, setInstitute] = useDebouncedInput('');
+    const [program, setProgram] = useDebouncedInput('');
     const [quota, setQuota] = useState<string>('');
     const [category, setCategory] = useState<string>('');
     const [courseDuration, setCourseDuration] = useState<string>('');
     const [rank, setRank] = useState<string>('');
 
     // Convert JSON object to a flat array of colleges
-    const colleges = Object.values(categorized_data).flat();
+    const colleges = useMemo(() => Object.values(categorized_data).flat(), []);
 
     // Mapping Exam Type to College Types
-    const getAllowedCollegeTypes = (exam: string) => {
+    const getAllowedCollegeTypes = useCallback((exam: string) => {
         if (exam === "JEE Advanced") return ["IIT"];
         if (exam === "JEE Mains") return ["NIT", "IIIT", "GFTI"];
         return [];
-    };
+    }, []);
 
-    const allowedCollegeTypes = getAllowedCollegeTypes(examType);
+    const allowedCollegeTypes = useMemo(() => getAllowedCollegeTypes(examType), [examType, getAllowedCollegeTypes]);
 
     // Filter colleges based on user input
-    const filteredColleges = colleges.filter(college => {
+    const filteredColleges = useMemo(() => {
         const userRank = Number(rank);
-        return (
-            (!examType || allowedCollegeTypes.includes(college.type)) &&
-            (!institute || college.institute.toLowerCase().includes(institute.toLowerCase())) &&
-            (!program || college.program.toLowerCase().includes(program.toLowerCase())) &&
-            (!quota || college.quota.toLowerCase() === quota.toLowerCase()) &&
-            (!category || college.category.toLowerCase() === category.toLowerCase()) &&
-            (!courseDuration || college.courseDuration.toLowerCase() === courseDuration.toLowerCase()) &&
-            (!rank || (userRank >= college.openingRank && userRank <= college.closingRank))
-        );
-    });
+        return colleges.filter(college => {
+            return (
+                (!examType || allowedCollegeTypes.includes(college.type)) &&
+                (!institute || college.institute.toLowerCase().includes(institute.toLowerCase())) &&
+                (!program || college.program.toLowerCase().includes(program.toLowerCase())) &&
+                (!quota || college.quota.toLowerCase() === quota.toLowerCase()) &&
+                (!category || college.category.toLowerCase() === category.toLowerCase()) &&
+                (!courseDuration || college.courseDuration.toLowerCase() === courseDuration.toLowerCase()) &&
+                (!rank || (userRank <= college.closingRank))
+            );
+        });
+    }, [colleges, examType, allowedCollegeTypes, institute, program, quota, category, courseDuration, rank]);
 
     return (
         <div className="container mt-5">
@@ -57,7 +80,6 @@ const CollegeFinder: React.FC = () => {
                         type="text"
                         className="form-control"
                         placeholder="Institute Name"
-                        value={institute}
                         onChange={(e) => setInstitute(e.target.value)}
                     />
                 </div>
@@ -68,7 +90,6 @@ const CollegeFinder: React.FC = () => {
                         type="text"
                         className="form-control"
                         placeholder="Program"
-                        value={program}
                         onChange={(e) => setProgram(e.target.value)}
                     />
                 </div>
@@ -116,24 +137,22 @@ const CollegeFinder: React.FC = () => {
                 </div>
             </div>
 
-            {/* Display filtered colleges */}
-            <ul className="list-group">
-                {filteredColleges.length > 0 ? (
-                    filteredColleges.map((college, index) => (
-                        <li key={index} className="list-group-item">
-                            <strong>{college.institute}</strong> - {college.program} ({college.courseDuration})
-                            <br />
-                            <small>Quota: {college.quota} | Category: {college.category}</small>
-                            <br />
-                            <small>Rank Range: {college.openingRank} - {college.closingRank}</small>
-                        </li>
-                    ))
-                ) : (
-                    <li className="list-group-item">No colleges found</li>
-                )}
-            </ul>
+            {/* Display filtered colleges using virtualization */}
+            {filteredColleges.length > 0 ? (
+                <List
+                    height={400} // Height of the list
+                    itemCount={filteredColleges.length} // Total number of items
+                    itemSize={100} // Height of each row
+                    width={'100%'} // Width of the list
+                    itemData={filteredColleges} // Data to render
+                >
+                    {Row}
+                </List>
+            ) : (
+                <div className="list-group-item">No colleges found</div>
+            )}
         </div>
     );
-};
+});
 
 export default CollegeFinder;
