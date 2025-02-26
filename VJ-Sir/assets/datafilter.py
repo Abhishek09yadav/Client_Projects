@@ -1,7 +1,7 @@
 import json
 
 # Load the JSON data from the file
-with open('csvjson.json', 'r') as file:
+with open('categorized_data.json', 'r') as file:
     data = json.load(file)
 
 # Initialize an empty dictionary to hold the categorized data
