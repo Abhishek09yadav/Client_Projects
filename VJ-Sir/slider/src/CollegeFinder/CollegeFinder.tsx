@@ -1,7 +1,9 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import { debounce } from 'lodash';
+import ReactPaginate from 'react-paginate';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import categorized_data from './categorized_data.json';
+import Spinner from '../spinner/Spinner.jsx'
 
 // Debounced input handler
 const useDebouncedInput = (initialValue = '', delay = 300) => {
@@ -12,6 +14,7 @@ const useDebouncedInput = (initialValue = '', delay = 300) => {
 };
 
 const CollegeFinder: React.FC = React.memo(() => {
+    const [loading, setLoading] = useState(false);
     const [examType, setExamType] = useState<string>('');
     const [institute, setInstitute] = useDebouncedInput('');
     const [program, setProgram] = useDebouncedInput('');
@@ -19,6 +22,7 @@ const CollegeFinder: React.FC = React.memo(() => {
     const [category, setCategory] = useState<string>('');
     const [courseDuration, setCourseDuration] = useState<string>('');
     const [rank, setRank] = useState<string>('');
+    const [currentPage, setCurrentPage] = useState<number>(0);
 
     const colleges = useMemo(() => Object.values(categorized_data).flat(), []);
 
@@ -43,9 +47,19 @@ const CollegeFinder: React.FC = React.memo(() => {
         ));
     }, [colleges, examType, allowedCollegeTypes, institute, program, quota, category, courseDuration, rank]);
 
+    // Pagination logic
+    const itemsPerPage = 10;
+    const pageCount = Math.ceil(filteredColleges.length / itemsPerPage);
+    const offset = currentPage * itemsPerPage;
+    const currentColleges = filteredColleges.slice(offset, offset + itemsPerPage);
+
+    const handlePageClick = ({selected}: { selected: number }) => {
+        setCurrentPage(selected);
+    };
+
     return (
         <div className="container mt-5">
-            <h2 className="mb-4">College Finder</h2>
+            <h2 className="mb-4">VJ Nucleus College Finder</h2>
             <div className="row mb-3">
                 <div className="col-md-4 mb-2">
                     <select className="form-control" value={examType} onChange={(e) => setExamType(e.target.value)}>
@@ -94,33 +108,54 @@ const CollegeFinder: React.FC = React.memo(() => {
                 </div>
             </div>
 
-            {filteredColleges.length > 0 ? (
-                <table className="table table-bordered">
-                    <thead>
-                    <tr>
-                        <th>Institute</th>
-                        <th>Program</th>
-                        <th>Quota</th>
-                        <th>Category</th>
-                        <th>Course Duration</th>
-                        <th>Opening Rank</th>
-                        <th>Closing Rank</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {filteredColleges.map((college, index) => (
-                        <tr key={index}>
-                            <td>{college.institute}</td>
-                            <td>{college.program}</td>
-                            <td>{college.quota}</td>
-                            <td>{college.category}</td>
-                            <td>{college.courseDuration}</td>
-                            <td>{college.openingRank}</td>
-                            <td>{college.closingRank}</td>
+            {currentColleges.length > 0 ? (
+                <>
+                    <table className="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Institute</th>
+                            <th>Program</th>
+                            <th>Quota</th>
+                            <th>Category</th>
+                            <th>Course Duration</th>
+                            <th>Opening Rank</th>
+                            <th>Closing Rank</th>
                         </tr>
-                    ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                        {currentColleges.map((college, index) => (
+                            <tr key={index}>
+                                <td>{college.institute}</td>
+                                <td>{college.program}</td>
+                                <td>{college.quota}</td>
+                                <td>{college.category}</td>
+                                <td>{college.courseDuration}</td>
+                                <td>{college.openingRank}</td>
+                                <td>{college.closingRank}</td>
+                            </tr>
+                        ))}
+                        </tbody>
+                    </table>
+                    <ReactPaginate
+                        previousLabel={'previous'}
+                        nextLabel={'next'}
+                        breakLabel={'...'}
+                        pageCount={pageCount}
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={5}
+                        onPageChange={handlePageClick}
+                        containerClassName={'pagination justify-content-center'}
+                        activeClassName={'active'}
+                        pageClassName={'page-item'}
+                        pageLinkClassName={'page-link'}
+                        previousClassName={'page-item'}
+                        previousLinkClassName={'page-link'}
+                        nextClassName={'page-item'}
+                        nextLinkClassName={'page-link'}
+                        breakClassName={'page-item'}
+                        breakLinkClassName={'page-link'}
+                    />
+                </>
             ) : (
                 <div className="alert alert-warning">No colleges found</div>
             )}
