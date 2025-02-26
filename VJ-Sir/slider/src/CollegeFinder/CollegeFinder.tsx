@@ -39,7 +39,7 @@ const CollegeFinder: React.FC = React.memo(() => {
     // Mapping Exam Type to College Types
     const getAllowedCollegeTypes = useCallback((exam: string) => {
         if (exam === "JEE Advanced") return ["IIT"];
-        if (exam === "JEE Mains") return ["NIT", "IIIT", "GFTI"];
+        if (exam === "JEE Mains") return ["NIT"];
         return [];
     }, []);
 
@@ -57,6 +57,8 @@ const CollegeFinder: React.FC = React.memo(() => {
                 (!category || college.category.toLowerCase() === category.toLowerCase()) &&
                 (!courseDuration || college.courseDuration.toLowerCase() === courseDuration.toLowerCase()) &&
                 (!rank || (userRank <= college.closingRank))
+             //   (!rank || (userRank >= college.openingRank && userRank <= college.closingRank))
+
             );
         });
     }, [colleges, examType, allowedCollegeTypes, institute, program, quota, category, courseDuration, rank]);
