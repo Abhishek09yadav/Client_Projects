@@ -111,10 +111,18 @@ const CollegeFinder: React.FC = React.memo(() => {
                     <select className="form-control" value={category} onChange={(e) => setCategory(e.target.value)}>
                         <option value="">Select Category</option>
                         <option value="GEN">General</option>
-                        <option value="OBC">OBC</option>
+                        <option value="GEN-PWD">GEN-PWD</option>
+                        <option value="GEN-EWS">GEN-EWS</option>
+                        <option value="GEN-EWS-PWD">GEN-EWS-PWD</option>
+                        {/*<option value="OBC">OBC</option>*/}
+                        <option value="OBC-NCL">OBC-NCL</option>
+                        <option value="OBC-NCL-PWD">OBC-NCL-PWD</option>
+                        <option value="GEN-EWS">GEN-EWS</option>
                         <option value="SC">SC</option>
+                        <option value="SC-PWD">SC-PWD</option>
                         <option value="ST">ST</option>
-                        <option value="EWS">EWS</option>
+                        <option value="ST-PWD">ST-PWD</option>
+                        {/*<option value="EWS">EWS</option>*/}
                     </select>
                 </div>
 
