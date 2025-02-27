@@ -6,12 +6,11 @@ import {FadeLoader} from "react-spinners";
 //     margin: "0 auto",
 //     borderColor: "red",
 // };
-
 function Spinner({paragraph}) {
     let [loading, setLoading] = useState(true);
 
 
-    
+
     return (
         <div className=" d-flex flex-column justify-content-center align-items-center">
 
