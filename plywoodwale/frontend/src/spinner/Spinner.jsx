@@ -11,6 +11,7 @@ function Spinner({paragraph}) {
     let [loading, setLoading] = useState(true);
 
 
+    
     return (
         <div className=" d-flex flex-column justify-content-center align-items-center">
 
