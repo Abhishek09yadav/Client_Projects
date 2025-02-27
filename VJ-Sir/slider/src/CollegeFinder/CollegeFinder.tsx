@@ -4,7 +4,6 @@ import { debounce } from "lodash";
 import ReactPaginate from "react-paginate";
 import "bootstrap/dist/css/bootstrap.min.css";
 import categorized_data from "./categorized_data.json";
-// import Spinner from '../spinner/Spinner.jsx';
 
 // Debounced input handler
 const useDebouncedInput = (initialValue = "", delay = 300) => {
@@ -22,7 +21,7 @@ const CollegeFinder: React.FC = React.memo(() => {
   const [quota, setQuota] = useState<string>("");
   const [category, setCategory] = useState<string>("");
   const [courseDuration, setCourseDuration] = useState<string>("");
-  const [rank, setRank] = useState<string>("");
+  const [rank, setRank] = useState<string>("900000");
   const [seatType, setSeatType] = useState<string>(""); // New state for seat type
   const [currentPage, setCurrentPage] = useState<number>(0);
 
@@ -82,7 +81,9 @@ const CollegeFinder: React.FC = React.memo(() => {
 
   return (
     <div className="container mt-5">
+        {/* <Image src = '' /> */}
       <h2 className="mb-4">VJ Nucleus College Finder</h2>
+
       <div className="row mb-3">
         <div className="col-md-4 mb-2">
           <select
@@ -139,10 +140,15 @@ const CollegeFinder: React.FC = React.memo(() => {
           </select>
         </div>
         <div className="col-md-4 mb-2">
+          <label htmlFor="rankSlider" className="form-label">
+            Rank: {rank}
+          </label>
           <input
-            type="number"
-            className="form-control"
-            placeholder="Enter Rank"
+            type="range"
+            className="form-range"
+            id="rankSlider"
+            min="1"
+            max="900000"
             value={rank}
             onChange={(e) => setRank(e.target.value)}
           />

@@ -4,6 +4,7 @@ import { CiHeart } from "react-icons/ci";
 import { FaHeart, FaGrinHearts } from "react-icons/fa";
 import './RankSlider.css'
 import "@mantine/core/styles.css";
+import CollegeFinder from "../CollegeFinder/CollegeFinder";
 
 function RankSlider() {
     const [value, setValue] = useState(50);
@@ -13,7 +14,7 @@ function RankSlider() {
     const marks = Array.from({ length: (max - min) / step + 1 }, (_, i) => i * step);
 
     return (
-        <div style={{ width: 400, margin: "50px auto", textAlign: "center", position: "relative" }}>
+        <div style={{ margin: "50px auto", textAlign: "center", position: "relative" }}>
             <Slider
                 size="xl"
                 value={value}
@@ -45,7 +46,8 @@ function RankSlider() {
                 ))}
             </div>
 
-            <p className="mt-5">Selected Value: {value}</p>
+            <p className="mt-5">Rank: {value}</p>
+            <CollegeFinder />
         </div>
     );
 }
