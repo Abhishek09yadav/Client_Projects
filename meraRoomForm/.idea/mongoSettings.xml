@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MongoConfiguration">
+    <option name="serverConfigurations">
+      <set>
+        <ServerConfiguration>
+          <option name="label" value="ecom" />
+          <option name="serverUrls">
+            <list>
+              <option value="mongodb+srv://Ecommerce:Z1*6$5*7A4$qC&amp;@cluster0.dwmcu.mongodb.net/" />
+            </list>
+          </option>
+          <option name="shellWorkingDir" value="null" />
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+        </ServerConfiguration>
+        <ServerConfiguration>
+          <option name="label" value="local" />
+          <option name="serverUrls">
+            <list>
+              <option value="localhost:27017" />
+            </list>
+          </option>
+          <option name="shellWorkingDir" value="null" />
+          <option name="sshTunnelingConfiguration">
+            <SshTunnelingConfiguration />
+          </option>
+        </ServerConfiguration>
+      </set>
+    </option>
+  </component>
+</project>

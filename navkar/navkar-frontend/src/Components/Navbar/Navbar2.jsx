@@ -43,6 +43,15 @@ const Navbar2 = () => {
                             Us</Link>
                         <Link className="nav-item nav-link text-white   vb-qtn-history" to={`${homepageUrl}/contact`}>Contact
                             Us</Link>
+                        {/* <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">Pages</a>
+                            <ul className="dropdown-menu">
+                                <li><Link className="dropdown-item" to={`${homepageUrl}/page1`}>Page 1</Link></li>
+                                <li><Link className="dropdown-item" to={`${homepageUrl}/page2`}>Page 2</Link></li>
+                                <li><Link className="dropdown-item" to={`${homepageUrl}/page3`}>Page 3</Link></li>
+                            </ul>
+                        </li> */}
+                        
                         <Link className="nav-item nav-link text-white   vb-qtn-history"
                               to={`${homepageUrl}/service`}>Service</Link>
                         {isLoggedIn ? (
