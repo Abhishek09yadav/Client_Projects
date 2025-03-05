@@ -28,7 +28,7 @@ import { HiIdentification } from "react-icons/hi2";
 import { PiIdentificationCardFill } from "react-icons/pi";
 import { MdOutlineBedroomChild } from "react-icons/md";
 const url = import.meta.env.VITE_API_URL;
-import { HostelAgreementTerms, FormTitle } from "./typographyContent.jsx";
+import { HostelAgreementTerms, } from "./typographyContent.jsx";
 const SecondForm = ({ setFormNumber, details, setDetails }) => {
     const handleChange = (e) => {
         const { name, value } = e.target;

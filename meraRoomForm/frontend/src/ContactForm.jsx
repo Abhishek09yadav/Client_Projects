@@ -127,7 +127,7 @@ const HostelAgreementForm = ({ setFormNumber, details, setDetails }) => {
                         <TextField
                             fullWidth
                             label=""
-                            placeholder="10-digit WhatsApp Number"
+                            placeholder="10-digit Student WhatsApp Number"
                             name="whatsapp"
                             value={details.whatsapp}
                             onChange={handleChange}
@@ -143,7 +143,7 @@ const HostelAgreementForm = ({ setFormNumber, details, setDetails }) => {
                         <TextField
                             fullWidth
                             label=""
-                            placeholder="10-digit WhatsApp Number"
+                            placeholder="10-digit Guardian WhatsApp Number"
                             name="guardianPhone"
                             value={details.guardianPhone}
                             onChange={handleChange}
