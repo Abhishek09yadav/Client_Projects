@@ -27,6 +27,8 @@ import { HiMiniBuildingOffice2 } from "react-icons/hi2";
 import { HiIdentification } from "react-icons/hi2";
 import { PiIdentificationCardFill } from "react-icons/pi";
 import { MdOutlineBedroomChild } from "react-icons/md";
+import { FaCalendarAlt } from "react-icons/fa";
+
 const url = import.meta.env.VITE_API_URL;
 import { HostelAgreementTerms, } from "./typographyContent.jsx";
 const SecondForm = ({ setFormNumber, details, setDetails }) => {
@@ -62,64 +64,160 @@ const SecondForm = ({ setFormNumber, details, setDetails }) => {
     };
 
     return (
-        <LocalizationProvider dateAdapter={AdapterDayjs} >
-            <form onSubmit={handleSubmit} >
-                <Typography variant="h5" className={style.font} gutterBottom>
-                    Submit <span style={{ color: "orange" }}> Form</span> Details
-                </Typography>
-                <Grid2 className='d-flex flex-column justify-content-center' sx={{ width: { xs: '100%', md: '50%' } }} container spacing={2}>
-                    <Grid2 xs={12} md={6} className={`bg-white text-dark d-flex flex-row align-items-center`} style={{ borderRadius: "5px" }}>
-                             <FaBuilding className="m-2" />
-                        <TextField fullWidth  placeholder="Hostel Name" name="hostelName" value={details.hostelName} onChange={handleChange} required />
-                    </Grid2>
-                    <Grid2 xs={12} md={6} className={`bg-white text-dark d-flex flex-row align-items-center`} style={{ borderRadius: "5px" }}>
-                    <HiMiniBuildingOffice2 className="m-2" />
-                        <TextField  select fullWidth name="hostelType" value={details.hostelType ||  "Select Hostel Type"} onChange={handleChange}
-                         required>
-                            <MenuItem value="Select Hostel Type">Select Hostel Type</MenuItem>
-                            <MenuItem value="Boys Hostel">Boys Hostel</MenuItem>
-                            <MenuItem value="Girls Hostel">Girls Hostel</MenuItem>
-                        </TextField>
-                    </Grid2 >
-                    <Grid2 xs={12} md={6} className={`bg-white text-dark d-flex flex-row align-items-center`} style={{ borderRadius: "5px" }}>
-                    <HiIdentification className="m-2" />
-                    <TextField  select  fullWidth name="idProofType" value={details.idProofType || "Select ID Proof Type"} onChange={handleChange} required >
-                            <MenuItem value="Select ID Proof Type">Select ID Proof Type</MenuItem>
-                            <MenuItem value="Aadhaar Card">Aadhaar Card</MenuItem>
-                            <MenuItem value="PAN Card">PAN Card</MenuItem>
-                        </TextField>
-                    </Grid2>
-                    <Grid2 xs={12} md={6} className={`bg-white text-dark d-flex flex-row align-items-center`} style={{ borderRadius: "5px" }}>
-                    <PiIdentificationCardFill className="m-2" />
-                        <TextField  fullWidth placeholder="ID Proof" name="idProof" value={details.idProof} onChange={handleChange} required />
-                    </Grid2>
-                    <Grid2 xs={12} md={6} className={`bg-white text-dark d-flex flex-row align-items-center`} style={{ borderRadius: "5px" }}>
-                    <MdOutlineBedroomChild className="m-2" />       <TextField  fullWidth placeholder="Room No" name="roomNo" value={details.roomNo} onChange={handleChange} required />
-                    </Grid2>
-                    <Grid2 xs={12} md={6} className={`bg-white text-dark d-flex flex-row align-items-center`} style={{ borderRadius: "5px" }}>
-                        <DatePicker   value={dayjs(details.BookingDate)} onChange={(newValue) => setDetails((prev) => ({ ...prev, BookingDate: newValue }))} required />
-                    </Grid2>
-                    <Grid2 xs={12}>
-                        <Accordion>
-                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                                <Typography variant="h6">Hostel Agreement Terms</Typography>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                            <HostelAgreementTerms />
-                            </AccordionDetails>
-                        </Accordion>
-                    </Grid2>
-                    <Grid2 xs={12}>
-                        <FormGroup>
-                            <FormControlLabel required control={<Checkbox />} label="I agree to all terms and conditions" />
-                        </FormGroup>
-                    </Grid2>
-                    <Grid2 xs={12}>
-                        <Button fullWidth size="large" variant="contained" type="submit">Submit Form</Button>
-                    </Grid2>
-                </Grid2>
-            </form>
-        </LocalizationProvider>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <form onSubmit={handleSubmit}>
+          <Typography variant="h5" className={style.font} gutterBottom>
+            Submit <span style={{ color: "orange" }}> Form</span> Details
+          </Typography>
+          <Grid2
+            className="d-flex flex-column justify-content-center"
+            sx={{ width: { xs: "100%", md: "50%" } }}
+            container
+            spacing={2}
+          >
+            <Grid2
+              xs={12}
+              md={6}
+              className={`bg-white text-dark d-flex flex-row align-items-center`}
+              style={{ borderRadius: "5px" }}
+            >
+              <FaBuilding className="m-2" />
+              <TextField
+                fullWidth
+                placeholder="Hostel Name"
+                name="hostelName"
+                value={details.hostelName}
+                onChange={handleChange}
+                required
+              />
+            </Grid2>
+            <Grid2
+              xs={12}
+              md={6}
+              className={`bg-white text-dark d-flex flex-row align-items-center`}
+              style={{ borderRadius: "5px" }}
+            >
+              <HiMiniBuildingOffice2 className="m-2" />
+              <TextField
+                select
+                fullWidth
+                name="hostelType"
+                value={details.hostelType || "Select Hostel Type"}
+                onChange={handleChange}
+                required
+              >
+                <MenuItem value="Select Hostel Type">
+                  Select Hostel Type
+                </MenuItem>
+                <MenuItem value="Boys Hostel">Boys Hostel</MenuItem>
+                <MenuItem value="Girls Hostel">Girls Hostel</MenuItem>
+              </TextField>
+            </Grid2>
+            <Grid2
+              xs={12}
+              md={6}
+              className={`bg-white text-dark d-flex flex-row align-items-center`}
+              style={{ borderRadius: "5px" }}
+            >
+              <HiIdentification className="m-2" />
+              <TextField
+                select
+                fullWidth
+                name="idProofType"
+                value={details.idProofType || "Select ID Proof Type"}
+                onChange={handleChange}
+                required
+              >
+                <MenuItem value="Select ID Proof Type">
+                  Select ID Proof Type
+                </MenuItem>
+                <MenuItem value="Aadhaar Card">Aadhaar Card</MenuItem>
+                <MenuItem value="PAN Card">PAN Card</MenuItem>
+              </TextField>
+            </Grid2>
+            <Grid2
+              xs={12}
+              md={6}
+              className={`bg-white text-dark d-flex flex-row align-items-center`}
+              style={{ borderRadius: "5px" }}
+            >
+              <PiIdentificationCardFill className="m-2" />
+              <TextField
+                fullWidth
+                placeholder="ID Proof"
+                name="idProof"
+                value={details.idProof}
+                onChange={handleChange}
+                required
+              />
+            </Grid2>
+            <Grid2
+              xs={12}
+              md={6}
+              className={`bg-white text-dark d-flex flex-row align-items-center`}
+              style={{ borderRadius: "5px" }}
+            >
+              <MdOutlineBedroomChild className="m-2" />{" "}
+              <TextField
+                fullWidth
+                placeholder="Room No"
+                name="roomNo"
+                value={details.roomNo}
+                onChange={handleChange}
+                required
+              />
+            </Grid2>
+            <Grid2
+              xs={12}
+              md={6}
+              className="bg-white text-dark d-flex flex-row align-items-center"
+              style={{ borderRadius: "5px", width: "100%" }}
+            >
+              {" "}
+              <FaCalendarAlt className="m-2" />
+              <DatePicker
+                sx={{ width: "100%" }}
+                value={details.BookingDate ? dayjs(details.BookingDate) : null}
+                onChange={(newValue) =>
+                  setDetails((prev) => ({ ...prev, BookingDate: newValue }))
+                }
+                required
+                slotProps={{
+                  textField: {
+                    placeholder: "Select Booking Date",
+                    fullWidth: true,
+                  },
+                }}
+              />
+            </Grid2>
+
+            <Grid2 xs={12}>
+              <Accordion>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                  <Typography variant="h6">Hostel Agreement Terms</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <HostelAgreementTerms />
+                </AccordionDetails>
+              </Accordion>
+            </Grid2>
+            <Grid2 xs={12}>
+              <FormGroup>
+                <FormControlLabel
+                  required
+                  control={<Checkbox />}
+                  label="I agree to all terms and conditions"
+                />
+              </FormGroup>
+            </Grid2>
+            <Grid2 xs={12}>
+              <Button fullWidth size="large" variant="contained" type="submit">
+                Submit Form
+              </Button>
+            </Grid2>
+          </Grid2>
+        </form>
+      </LocalizationProvider>
     );
 };
 
