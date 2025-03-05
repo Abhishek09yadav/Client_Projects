@@ -18,9 +18,6 @@ import { FaUser } from "react-icons/fa";
 // import { FaLocationDot } from "react-icons/fa6";
 import { RiWhatsappFill } from "react-icons/ri";
 import { PiStudentFill  } from "react-icons/pi";
-import { FaPhoneAlt } from "react-icons/fa";
-
-
 // import { HiOfficeBuilding } from "react-icons/hi";
 
 
@@ -28,7 +25,7 @@ import {  HiMiniUserGroup } from "react-icons/hi2";
 import "bootstrap/dist/css/bootstrap.min.css";
 import style from "./first.module.css";
 
-// const url = import.meta.env.VITE_API_URL;
+const url = import.meta.env.VITE_API_URL;
 
 const HostelAgreementForm = ({ setFormNumber, details, setDetails }) => {
 
@@ -84,22 +81,7 @@ const HostelAgreementForm = ({ setFormNumber, details, setDetails }) => {
                         />
                     </div>
                 </Grid2>
-  {/* WhatsApp Number */}
-  <Grid2 xs={12} md={6}>
-                    <div className={`bg-white text-dark d-flex flex-row align-items-center`} style={{ borderRadius: "5px" }}>
-                        <RiWhatsappFill className="m-2" />
-                        <TextField
-                            fullWidth
-                            label=""
-                            placeholder="10-digit WhatsApp Number"
-                            name="whatsapp"
-                            value={details.whatsapp}
-                            onChange={handleChange}
-                            inputProps={{ pattern: "[0-9]{10}" }}
-                            required
-                        />
-                    </div>
-                </Grid2>
+
                 {/* Guardian Name */}
                 <Grid2 xs={12} md={6}>
                     <div className={`bg-white text-dark d-flex flex-row align-items-center`} style={{ borderRadius: "5px" }}>
@@ -138,15 +120,30 @@ const HostelAgreementForm = ({ setFormNumber, details, setDetails }) => {
                     </div>
                 </Grid2>
 
-              
-                    {/* Guardian Number */}
-                     <Grid2 xs={12} md={6}>
+                {/* WhatsApp Number */}
+                <Grid2 xs={12} md={6}>
                     <div className={`bg-white text-dark d-flex flex-row align-items-center`} style={{ borderRadius: "5px" }}>
-                        <FaPhoneAlt className="m-2" />
+                        <RiWhatsappFill className="m-2" />
                         <TextField
                             fullWidth
                             label=""
-                            placeholder="Gurdian Number"
+                            placeholder="10-digit WhatsApp Number"
+                            name="whatsapp"
+                            value={details.whatsapp}
+                            onChange={handleChange}
+                            inputProps={{ pattern: "[0-9]{10}" }}
+                            required
+                        />
+                    </div>
+                </Grid2>
+                    {/* Guardian Number */}
+                     <Grid2 xs={12} md={6}>
+                    <div className={`bg-white text-dark d-flex flex-row align-items-center`} style={{ borderRadius: "5px" }}>
+                        <RiWhatsappFill className="m-2" />
+                        <TextField
+                            fullWidth
+                            label=""
+                            placeholder="10-digit WhatsApp Number"
                             name="guardianPhone"
                             value={details.guardianPhone}
                             onChange={handleChange}

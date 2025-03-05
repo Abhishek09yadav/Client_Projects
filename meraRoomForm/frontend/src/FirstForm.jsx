@@ -51,18 +51,6 @@ const FirstForm = () => {
     }, []);
  
 
-    const handleSecondForm = async (services, date, time) => {
-        setDetails((prev) => ({
-            ...prev,
-            services: services,
-            date: date,
-            time: time,
-        }));
-
-
-
-    };
-
     return (
         <div className={`${formNumber === 0 ? style.bgImage1 : style.bgImage2}`}>
             <div className="left w-100">
@@ -80,7 +68,7 @@ const FirstForm = () => {
                     )
                         : formNumber === 1 ? (
                         <SecondForm
-                        setFormNumber={setFormNumber} details = {details} setDetails={setDetails}
+                           setFormNumber={setFormNumber} details = {details} setDetails={setDetails}
                         />
                     )
                     : formNumber === 2 ? (

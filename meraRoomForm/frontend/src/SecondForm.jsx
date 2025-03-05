@@ -21,8 +21,13 @@ import { DatePicker } from "@mui/x-date-pickers";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
-
 const url = import.meta.env.VITE_API_URL;
+import { FaUser } from "react-icons/fa";
+import { FaBuilding } from "react-icons/fa";
+import { HiMiniBuildingOffice2 } from "react-icons/hi2";
+import { HiIdentification } from "react-icons/hi2";
+import { PiIdentificationCardFill } from "react-icons/pi";
+import { MdOutlineBedroomChild } from "react-icons/md";
 
 const SecondForm = ({ setFormNumber, details, setDetails }) => {
     const handleChange = (e) => {
@@ -63,31 +68,36 @@ const SecondForm = ({ setFormNumber, details, setDetails }) => {
                     Submit <span style={{ color: "orange" }}> Form</span> Details
                 </Typography>
                 <Grid2 container spacing={2}>
-                    <Grid2 xs={12} md={6}>
-                        <TextField fullWidth placeholder="Hostel Name" name="hostelName" value={details.hostelName} onChange={handleChange} required />
+                    <Grid2 xs={12} md={6} className={`bg-white text-dark d-flex flex-row align-items-center`} style={{ borderRadius: "5px" }}>
+                             <FaBuilding className="m-2" />
+                        <TextField fullWidth  placeholder="Hostel Name" name="hostelName" value={details.hostelName} onChange={handleChange} required />
                     </Grid2>
-                    <Grid2 xs={12} md={6}>
-                        <TextField select fullWidth name="hostelType" value={details.hostelType} onChange={handleChange} required>
-                            <MenuItem value="">Select Hostel Type</MenuItem>
+                    <Grid2 xs={12} md={6} className={`bg-white text-dark d-flex flex-row align-items-center`} style={{ borderRadius: "5px" }}>
+                    <HiMiniBuildingOffice2 className="m-2" />
+                        <TextField  select fullWidth name="hostelType" value={details.hostelType ||  "Select Hostel Type"} onChange={handleChange}
+                         required>
+                            <MenuItem value="Select Hostel Type">Select Hostel Type</MenuItem>
                             <MenuItem value="Boys Hostel">Boys Hostel</MenuItem>
                             <MenuItem value="Girls Hostel">Girls Hostel</MenuItem>
                         </TextField>
-                    </Grid2>
-                    <Grid2 xs={12} md={6}>
-                        <TextField select fullWidth name="idProofType" value={details.idProofType} onChange={handleChange} required>
-                            <MenuItem value="">Select ID Proof Type</MenuItem>
+                    </Grid2 >
+                    <Grid2 xs={12} md={6} className={`bg-white text-dark d-flex flex-row align-items-center`} style={{ borderRadius: "5px" }}>
+                    <HiIdentification className="m-2" />
+                    <TextField  select  fullWidth name="idProofType" value={details.idProofType || "Select ID Proof Type"} onChange={handleChange} required >
+                            <MenuItem value="Select ID Proof Type">Select ID Proof Type</MenuItem>
                             <MenuItem value="Aadhaar Card">Aadhaar Card</MenuItem>
                             <MenuItem value="PAN Card">PAN Card</MenuItem>
                         </TextField>
                     </Grid2>
-                    <Grid2 xs={12} md={6}>
-                        <TextField fullWidth placeholder="ID Proof" name="idProof" value={details.idProof} onChange={handleChange} required />
+                    <Grid2 xs={12} md={6} className={`bg-white text-dark d-flex flex-row align-items-center`} style={{ borderRadius: "5px" }}>
+                    <PiIdentificationCardFill className="m-2" />
+                        <TextField  fullWidth placeholder="ID Proof" name="idProof" value={details.idProof} onChange={handleChange} required />
                     </Grid2>
-                    <Grid2 xs={12} md={6}>
-                        <TextField fullWidth placeholder="Room No" name="roomNo" value={details.roomNo} onChange={handleChange} required />
+                    <Grid2 xs={12} md={6} className={`bg-white text-dark d-flex flex-row align-items-center`} style={{ borderRadius: "5px" }}>
+                    <MdOutlineBedroomChild className="m-2" />       <TextField  fullWidth placeholder="Room No" name="roomNo" value={details.roomNo} onChange={handleChange} required />
                     </Grid2>
-                    <Grid2 xs={12} md={6}>
-                        <DatePicker label="Booking Date" value={dayjs(details.BookingDate)} onChange={(newValue) => setDetails((prev) => ({ ...prev, BookingDate: newValue }))} required />
+                    <Grid2 xs={12} md={6} className={`bg-white text-dark d-flex flex-row align-items-center`} style={{ borderRadius: "5px" }}>
+                        <DatePicker   value={dayjs(details.BookingDate)} onChange={(newValue) => setDetails((prev) => ({ ...prev, BookingDate: newValue }))} required />
                     </Grid2>
                     <Grid2 xs={12}>
                         <Accordion>
