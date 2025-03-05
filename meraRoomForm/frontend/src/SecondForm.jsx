@@ -1,152 +1,139 @@
+
+import PropTypes from "prop-types";
+import Checkbox from '@mui/material/Checkbox';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import {
+    TextField,
+    MenuItem,
+    Button,
+    Accordion,
+    AccordionSummary,
+    AccordionDetails,
+    Typography,
+} from "@mui/material";
+import Grid2 from '@mui/material/Grid2'
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+// import { HiOfficeBuilding } from "react-icons/hi";
+import "bootstrap/dist/css/bootstrap.min.css";
 import style from "./first.module.css";
-import "./common.css";
-import {useState} from "react";
-import {VscCircleLargeFilled} from "react-icons/vsc";
-import washAndIron from "../public/images/wi.png";
-import washAndFold from "../public/images/wf.png";
-import steamIron from "../public/images/sis.png";
-import DryClean from "../public/images/dc.png";
-import shoeClean from "../public/images/sc.png";
-import curtain from "../public/images/cc.png";
-import premium from "../public/images/pl.png";
-import {MdOutlineDateRange, MdOutlineTimer} from "react-icons/md";
-import textimage from "../public/images/text-image.png";
-import {DotLottieReact} from '@lottiefiles/dotlottie-react';
+import { DatePicker } from "@mui/x-date-pickers";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import dayjs from "dayjs";
 
-const SecondForm = ({handleSecondForm, setFormNumber}) => {
-    const [services, setServices] = useState([]);
-    const [pickupDate, setPickupDate] = useState("");
-    const [pickupTime, setPickupTime] = useState("");
+const url = import.meta.env.VITE_API_URL;
 
-    const handleDateChange = (event) => {
-        setPickupDate(event.target.value);
+const SecondForm = ({ setFormNumber, details, setDetails }) => {
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setDetails((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
     };
 
-    const handleTimeChange = (event) => {
-        setPickupTime(event.target.value);
-    };
-
-    const setSelectedServices = (serviceName) => {
-        setServices((prevServices) =>
-            prevServices.includes(serviceName)
-                ? prevServices.filter((service) => service !== serviceName)
-                : [...prevServices, serviceName]
-        );
-    };
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
-        if (!pickupDate || !pickupTime || services.length === 0) {
-            alert("Please fill all fields and select at least one service.");
+        if (!details.hostelName || !details.hostelType || !details.idProofType || !details.idProof || !details.roomNo || !details.BookingDate) {
+            alert("Please fill out all required fields.");
             return;
         }
-
-        handleSecondForm(services, pickupDate, pickupTime);
-        setFormNumber(2);
+        setFormNumber(2)
+        try {
+            const response = await fetch(`${url}/submitHostelAgreement`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(details),
+            });
+            if (response.ok) {
+                setFormNumber(2);
+            }
+        } catch (error) {
+            console.error(error);
+            setFormNumber(-1);
+            alert("An error occurred while submitting the form.");
+        }
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <p className={`${style.font}`}>
-                    Submit <span style={{color: "orange"}}> Order</span> <br/>Details
-                </p>
-                <p className={`${style.font2}`}>
-                    The Dhobi’z Is The One Of The Most trusted Solution for all types of
-                    laundry services
-                </p>
-            </div>
-            <b
-                style={{
-                    fontSize: "1.2em",
-                    color: "white",
-                    fontFamily: "sans-serif",
-                }}
-            >
-                Select Service{" "}
-            </b>
-            <div style={{marginTop: "20px"}} className="contact-form">
-                <div className="button-wrapper">
-                    {[
-                        {name: "WASH & IRON", src: washAndIron},
-                        {name: "WASH & FOLD", src: washAndFold},
-                        {name: "STEAM & IRON", src: steamIron},
-                        {name: "DRY CLEANING", src: DryClean},
-                        {name: "SHOE CLEANING", src: shoeClean},
-                        {name: "CURTAIN CLEANING", src: curtain},
-                        {name: "PREMIUM LAUNDRY", src: premium},
-                    ].map((service) => (
-                        <div key={service.name}>
-                            <img
-                                className={`service-logo ${
-                                    services.includes(service.name) ? "selected" : ""
-                                }`}
-                                src={service.src}
-                                alt={service.name}
-                                onClick={() => setSelectedServices(service.name)}
-                            />
-                            <p className="logo-text">{service.name}</p>
-                        </div>
-                    ))}
-                </div>
-
-                <div className="pickup-form">
-                    <div className="form-group">
-                        <label htmlFor="pickupDate">Pickup Date</label>
-                        <div className="secondForm">
-                            <MdOutlineDateRange
-                                style={{
-                                    fontSize: "2.8em",
-                                    color: "white",
-                                }}
-                                className="icon-style"
-                            />
-                            <input
-                                type="date"
-                                id="pickupDate"
-                                value={pickupDate}
-                                onChange={handleDateChange}
-                            />
-                        </div>
-                    </div>
-
-                    <div className="form-group">
-                        <label htmlFor="pickupTime">Pickup Time</label>
-                        <div className="secondForm">
-                            <MdOutlineTimer
-                                style={{
-                                    fontSize: "2.8em",
-                                    color: "white",
-                                }}
-                                className="icon-style"
-                            />
-                            <input
-                                type="time"
-                                id="pickupTime"
-                                value={pickupTime}
-                                onChange={handleTimeChange}
-                            />
-                        </div>
-                    </div>
-                </div>
-
-                <div className="circles">
-                    <VscCircleLargeFilled style={{color: "orange"}}/>
-
-                </div>
-
-                <div className="pro-btn">
-                    <button type="submit" className="proceed">
-                        Generate Order
-                    </button>
-                </div>
-            </div>
-            <div className="text-image-holder">
-                <img src={textimage} alt=""/>
-            </div>
-        </form>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <form onSubmit={handleSubmit}>
+                <Typography variant="h5" className={style.font} gutterBottom>
+                    Submit <span style={{ color: "orange" }}> Form</span> Details
+                </Typography>
+                <Grid2 container spacing={2}>
+                    <Grid2 xs={12} md={6}>
+                        <TextField fullWidth placeholder="Hostel Name" name="hostelName" value={details.hostelName} onChange={handleChange} required />
+                    </Grid2>
+                    <Grid2 xs={12} md={6}>
+                        <TextField select fullWidth name="hostelType" value={details.hostelType} onChange={handleChange} required>
+                            <MenuItem value="">Select Hostel Type</MenuItem>
+                            <MenuItem value="Boys Hostel">Boys Hostel</MenuItem>
+                            <MenuItem value="Girls Hostel">Girls Hostel</MenuItem>
+                        </TextField>
+                    </Grid2>
+                    <Grid2 xs={12} md={6}>
+                        <TextField select fullWidth name="idProofType" value={details.idProofType} onChange={handleChange} required>
+                            <MenuItem value="">Select ID Proof Type</MenuItem>
+                            <MenuItem value="Aadhaar Card">Aadhaar Card</MenuItem>
+                            <MenuItem value="PAN Card">PAN Card</MenuItem>
+                        </TextField>
+                    </Grid2>
+                    <Grid2 xs={12} md={6}>
+                        <TextField fullWidth placeholder="ID Proof" name="idProof" value={details.idProof} onChange={handleChange} required />
+                    </Grid2>
+                    <Grid2 xs={12} md={6}>
+                        <TextField fullWidth placeholder="Room No" name="roomNo" value={details.roomNo} onChange={handleChange} required />
+                    </Grid2>
+                    <Grid2 xs={12} md={6}>
+                        <DatePicker label="Booking Date" value={dayjs(details.BookingDate)} onChange={(newValue) => setDetails((prev) => ({ ...prev, BookingDate: newValue }))} required />
+                    </Grid2>
+                    <Grid2 xs={12}>
+                        <Accordion>
+                            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                                <Typography variant="h6">Hostel Agreement Terms</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                <Typography>
+                                    <ul>
+                                        <li>Security deposit will be refunded to a legal guardian&apos;s account.</li>
+                                        <li>Complaints about refunds should be addressed to the Hostel Association.</li>
+                                        <li>Appliances like heaters and stoves are prohibited, with a ₹5000 fine if found.</li>
+                                        <li>Biometric entry registration is mandatory.</li>
+                                    </ul>
+                                </Typography>
+                            </AccordionDetails>
+                        </Accordion>
+                    </Grid2>
+                    <Grid2 xs={12}>
+                        <FormGroup>
+                            <FormControlLabel required control={<Checkbox />} label="I agree to all terms and conditions" />
+                        </FormGroup>
+                    </Grid2>
+                    <Grid2 xs={12}>
+                        <Button fullWidth size="large" variant="contained" type="submit">Submit Form</Button>
+                    </Grid2>
+                </Grid2>
+            </form>
+        </LocalizationProvider>
     );
+};
+
+SecondForm.propTypes = {
+    setFormNumber: PropTypes.func.isRequired,
+    details: PropTypes.shape({
+        hostelName: PropTypes.string.isRequired,
+        hostelType: PropTypes.string.isRequired,
+        idProofType: PropTypes.string.isRequired,
+        idProof: PropTypes.string.isRequired,
+        roomNo: PropTypes.string.isRequired,
+        BookingDate: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.object
+        ]).isRequired,
+    }).isRequired,
+    setDetails: PropTypes.func.isRequired,
 };
 
 export default SecondForm;
