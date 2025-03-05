@@ -62,12 +62,12 @@ const SecondForm = ({ setFormNumber, details, setDetails }) => {
     };
 
     return (
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <form onSubmit={handleSubmit}>
+        <LocalizationProvider dateAdapter={AdapterDayjs} >
+            <form onSubmit={handleSubmit} >
                 <Typography variant="h5" className={style.font} gutterBottom>
                     Submit <span style={{ color: "orange" }}> Form</span> Details
                 </Typography>
-                <Grid2 container spacing={2}>
+                <Grid2 className='d-flex flex-column justify-content-center' sx={{ width: { xs: '100%', md: '50%' } }} container spacing={2}>
                     <Grid2 xs={12} md={6} className={`bg-white text-dark d-flex flex-row align-items-center`} style={{ borderRadius: "5px" }}>
                              <FaBuilding className="m-2" />
                         <TextField fullWidth  placeholder="Hostel Name" name="hostelName" value={details.hostelName} onChange={handleChange} required />

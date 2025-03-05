@@ -65,7 +65,7 @@ const HostelAgreementForm = ({ setFormNumber, details, setDetails }) => {
                 </p>
             </div>
 
-            <Grid2 container spacing={2}>
+            <Grid2 className=' d-flex flex-column w-50 justify-content-center' container spacing={2}>
                 {/* Student Name */}
                 <Grid2 xs={12} md={6}>
                     <div className={`bg-white text-dark d-flex flex-row align-items-center`} style={{ borderRadius: "5px" }}>
