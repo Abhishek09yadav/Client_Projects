@@ -25,7 +25,7 @@ import {  HiMiniUserGroup } from "react-icons/hi2";
 import "bootstrap/dist/css/bootstrap.min.css";
 import style from "./first.module.css";
 
-const url = import.meta.env.VITE_API_URL;
+
 
 const HostelAgreementForm = ({ setFormNumber, details, setDetails }) => {
 

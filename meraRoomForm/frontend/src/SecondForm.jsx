@@ -21,14 +21,14 @@ import { DatePicker } from "@mui/x-date-pickers";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
-const url = import.meta.env.VITE_API_URL;
-import { FaUser } from "react-icons/fa";
+
 import { FaBuilding } from "react-icons/fa";
 import { HiMiniBuildingOffice2 } from "react-icons/hi2";
 import { HiIdentification } from "react-icons/hi2";
 import { PiIdentificationCardFill } from "react-icons/pi";
 import { MdOutlineBedroomChild } from "react-icons/md";
-
+const url = import.meta.env.VITE_API_URL;
+import { HostelAgreementTerms, FormTitle } from "./typographyContent.jsx";
 const SecondForm = ({ setFormNumber, details, setDetails }) => {
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -105,14 +105,7 @@ const SecondForm = ({ setFormNumber, details, setDetails }) => {
                                 <Typography variant="h6">Hostel Agreement Terms</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
-                                <Typography>
-                                    <ul>
-                                        <li>Security deposit will be refunded to a legal guardian&apos;s account.</li>
-                                        <li>Complaints about refunds should be addressed to the Hostel Association.</li>
-                                        <li>Appliances like heaters and stoves are prohibited, with a ₹5000 fine if found.</li>
-                                        <li>Biometric entry registration is mandatory.</li>
-                                    </ul>
-                                </Typography>
+                            <HostelAgreementTerms />
                             </AccordionDetails>
                         </Accordion>
                     </Grid2>

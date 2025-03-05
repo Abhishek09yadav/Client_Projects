@@ -13,7 +13,7 @@ const url = import.meta.env.VITE_API_URL;
 
 const FirstForm = () => {
     const [formNumber, setFormNumber] = useState(0);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [details, setDetails] = useState({
         studentName: "",
         whatsapp: "",
