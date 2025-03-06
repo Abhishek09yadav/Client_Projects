@@ -10,24 +10,34 @@ export const downloadExcel = async (req, res) => {
         const workbook = new ExcelJS.Workbook();
         const worksheet = workbook.addWorksheet('Forms');
         worksheet.columns = [
-            {header: 'Name', key: 'name', width: 20},
-            {header: 'WhatsApp', key: 'whatsapp', width: 20},
-            {header: 'Company', key: 'company', width: 25},
-            {header: 'Address', key: 'address', width: 30},
-            {header: 'Reference', key: 'reference', width: 25},
-            {header: 'Role', key: 'youAre', width: 25},
-            {header: 'Date', key: 'Date', width: 20}
+            { header: 'Student Name', key: 'studentName', width: 20 },
+            { header: 'WhatsApp', key: 'whatsapp', width: 20 },
+            { header: 'Guardian Name', key: 'guardianName', width: 25 },
+            { header: 'Guardian Phone', key: 'guardianPhone', width: 20 },
+            { header: 'Guardian Relation', key: 'guardianRelation', width: 20 },
+            { header: 'Course', key: 'course', width: 20 },
+            { header: 'Hostel Name', key: 'hostelName', width: 25 },
+            { header: 'Hostel Type', key: 'hostelType', width: 15 },
+            { header: 'ID Proof Type', key: 'idProofType', width: 20 },
+            { header: 'ID Proof', key: 'idProof', width: 30 },
+            { header: 'Room No', key: 'roomNo', width: 15 },
+            { header: 'Booking Date', key: 'BookingDate', width: 20 }
         ];
 
         forms.forEach(form => {
             worksheet.addRow({
-                name: form.name,
+                studentName: form.studentName,
                 whatsapp: form.whatsapp,
-                company: form.company,
-                address: form.address,
-                reference: form.reference,
-                youAre: form.youAre,
-                Date: form.Date
+                guardianName: form.guardianName,
+                guardianPhone: form.guardianPhone,
+                guardianRelation: form.guardianRelation,
+                course: form.course,
+                hostelName: form.hostelName,
+                hostelType: form.hostelType,
+                idProofType: form.idProofType,
+                idProof: form.idProof,
+                roomNo: form.roomNo,
+                BookingDate: form.BookingDate
             });
         });
 
@@ -37,13 +47,13 @@ export const downloadExcel = async (req, res) => {
         );
         res.setHeader(
             'Content-Disposition',
-            'attachment; filename=forms.xlsx'
+            'attachment; filename=hostel_bookings.xlsx'
         );
 
         await workbook.xlsx.write(res);
         res.end();
     } catch (error) {
         console.error('Error generating Excel file:', error);
-        res.status(500).json({message: 'Error generating Excel file 🙁'});
+        res.status(500).json({ message: 'Error generating Excel file 🙁' });
     }
 };
