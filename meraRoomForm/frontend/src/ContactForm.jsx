@@ -40,22 +40,22 @@ const HostelAgreementForm = ({ setFormNumber, details, setDetails }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
         if (
             !details.studentName ||
             !details.whatsapp ||
             !details.guardianName ||
             !details.guardianPhone ||
-            !details.guardianRelation === 'Guardian Relation?' ||
+            !details.guardianRelation || details.guardianRelation === 'Guardian Relation?' ||
             !details.course
         ) {
-            console.log("details ",details);
+            console.log("details ", details);
             alert("Please fill out all required fields.");
             return;
         }
         setFormNumber(1);
-    
     };
+    
 
     return (
         <form onSubmit={handleSubmit}>

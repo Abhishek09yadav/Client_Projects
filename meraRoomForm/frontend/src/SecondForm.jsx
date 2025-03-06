@@ -42,7 +42,12 @@ const SecondForm = ({ setFormNumber, details, setDetails }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!details.hostelName || !details.hostelType || !details.idProofType || !details.idProof || !details.roomNo || !details.BookingDate) {
+        if (!details.hostelName || 
+          details.hostelType ==='Select Hostel Type' || 
+          details.idProofType ==="Select ID Proof Type" ||
+           !details.idProof ||
+            !details.roomNo ||
+             !details.BookingDate) {
             alert("Please fill out all required fields.");
             return;
         }
