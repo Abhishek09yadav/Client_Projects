@@ -109,15 +109,13 @@ const SubmittedForms = () => {
     const handlePreviousPage = () => {
         if (currentPage > 1) setCurrentPage(currentPage - 1);
     };
+ 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
-        // Use toLocaleDateString to get the date in local timezone format
-        return date.toLocaleDateString('en-GB', {
-            day: '2-digit',
-            month: '2-digit',
-            year: 'numeric',
-            timeZone: 'UTC' // Force UTC interpretation to match backend
-        }).replace(/\//g, '-');
+        const day = String(date.getDate()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const year = date.getFullYear();
+        return `${day}-${month}-${year}`;
     };
 
     return (
