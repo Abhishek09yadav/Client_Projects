@@ -155,30 +155,30 @@ const SubmittedForms = () => {
                                         <div className="col-md-6">
                                             <h5>Student Information</h5>
                                             <p className={`d-flex align-items-center justify-content-start gap-3`}>
-                                                <img src="/plywood admin icons/user.png" alt="name icon" height={22} width={22}/>
+                                                <img src="/meraroom admin icons/user.png" alt="name icon" height={22} width={22}/>
                                                 <strong>Student Name:</strong> {form.studentName}
                                             </p>
                                             <p className={`d-flex align-items-center justify-content-start gap-3`}>
-                                                <img src="/plywood admin icons/whatsapp.png" alt="whatsapp icon" height={22} width={22}/>
+                                                <img src="/meraroom admin icons/whatsapp.png" alt="whatsapp icon" height={22} width={22}/>
                                                 <strong>WhatsApp:</strong> {form.whatsapp}
                                             </p>
                                             <p className={`d-flex align-items-center justify-content-start gap-3`}>
-                                                <img src="/plywood admin icons/role.png" alt="course icon" height={22} width={22}/>
+                                                <img src="/meraroom admin icons/role.png" alt="course icon" height={22} width={22}/>
                                                 <strong>Course:</strong> {form.course}
                                             </p>
                                         </div>
                                         <div className="col-md-6">
                                             <h5>Guardian Information</h5>
                                             <p className={`d-flex align-items-center justify-content-start gap-3`}>
-                                                <img src="/plywood admin icons/user.png" alt="guardian icon" height={22} width={22}/>
+                                                <img src="/meraroom admin icons/user.png" alt="guardian icon" height={22} width={22}/>
                                                 <strong>Guardian Name:</strong> {form.guardianName}
                                             </p>
                                             <p className={`d-flex align-items-center justify-content-start gap-3`}>
-                                                <img src="/plywood admin icons/whatsapp.png" alt="phone icon" height={22} width={22}/>
+                                                <img src="/meraroom admin icons/whatsapp.png" alt="phone icon" height={22} width={22}/>
                                                 <strong>Phone:</strong> {form.guardianPhone}
                                             </p>
                                             <p className={`d-flex align-items-center justify-content-start gap-3`}>
-                                                <img src="/plywood admin icons/change.png" alt="relation icon" height={22} width={22}/>
+                                                <img src="/meraroom admin icons/change.png" alt="relation icon" height={22} width={22}/>
                                                 <strong>Relation:</strong> {form.guardianRelation}
                                             </p>
                                         </div>
@@ -188,30 +188,30 @@ const SubmittedForms = () => {
                                         <div className="col-md-6">
                                             <h5>Hostel Details</h5>
                                             <p className={`d-flex align-items-center justify-content-start gap-3`}>
-                                                <img src="/plywood admin icons/company.png" alt="hostel icon" height={22} width={22}/>
+                                                <img src="/meraroom admin icons/company.png" alt="hostel icon" height={22} width={22}/>
                                                 <strong>Hostel Name:</strong> {form.hostelName}
                                             </p>
                                             <p className={`d-flex align-items-center justify-content-start gap-3`}>
-                                                <img src="/plywood admin icons/location.png" alt="room icon" height={22} width={22}/>
+                                                <img src="/meraroom admin icons/bed.png" alt="room icon" height={22} width={22}/>
                                                 <strong>Room No:</strong> {form.roomNo}
                                             </p>
                                             <p className={`d-flex align-items-center justify-content-start gap-3`}>
-                                                <img src="/plywood admin icons/role.png" alt="hostel type icon" height={22} width={22}/>
+                                                <img src="/meraroom admin icons/hostel.png" alt="hostel type icon" height={22} width={22}/>
                                                 <strong>Hostel Type:</strong> {form.hostelType}
                                             </p>
                                         </div>
                                         <div className="col-md-6">
                                             <h5>ID Verification</h5>
                                             <p className={`d-flex align-items-center justify-content-start gap-3`}>
-                                                <img src="/plywood admin icons/change.png" alt="id icon" height={22} width={22}/>
+                                                <img src="/meraroom admin icons/id-card.png" alt="id icon" height={22} width={22}/>
                                                 <strong>ID Type:</strong> {form.idProofType}
                                             </p>
                                             <p className={`d-flex align-items-center justify-content-start gap-3`}>
-                                                <img src="/plywood admin icons/change.png" alt="id number icon" height={22} width={22}/>
+                                                <img src="/meraroom admin icons/id-card.png" alt="id number icon" height={22} width={22}/>
                                                 <strong>ID Number:</strong> {form.idProof}
                                             </p>
                                             <p className={`d-flex align-items-center justify-content-start gap-3`}>
-                                                <img src="/plywood admin icons/role.png" alt="date icon" height={22} width={22}/>
+                                                <img src="/meraroom admin icons/calendar.png" alt="date icon" height={22} width={22}/>
                                                 <strong>Booking Date:</strong> {formatDate(form.BookingDate)}
                                             </p>
                                         </div>
