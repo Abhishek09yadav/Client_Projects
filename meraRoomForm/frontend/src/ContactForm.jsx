@@ -47,7 +47,7 @@ const HostelAgreementForm = ({ setFormNumber, details, setDetails }) => {
             !details.guardianName ||
             !details.guardianPhone ||
             !details.guardianRelation || details.guardianRelation === 'Guardian Relation?' ||
-            !details.course
+            !details.course || details.course === 'Course?'
         ) {
             console.log("details ", details);
             alert("Please fill out all required fields.");

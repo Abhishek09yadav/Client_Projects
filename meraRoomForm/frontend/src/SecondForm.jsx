@@ -51,7 +51,6 @@ const SecondForm = ({ setFormNumber, details, setDetails }) => {
             alert("Please fill out all required fields.");
             return;
         }
-        setFormNumber(2)
         try {
             const response = await fetch(`${url}/submitHostelAgreement`, {
                 method: "POST",
