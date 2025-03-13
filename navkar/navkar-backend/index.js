@@ -21,8 +21,10 @@ app.use('/api', listUser);
 // Database Connection with mongodb
 mongoose.connect(process.env.MONGODB_URI).then(r => console.log('mongodb connected successfully')).catch(e => console.log('mongoDb error ', e))
 const fs = require('fs');
+
+
 app.get("/", (req, res) => {
-    res.send("Welcome to Ecommerce!");
+    res.status(200).json({message:"Welcome to Navkar!"});
 })
 const Users = require('./models/models');
 

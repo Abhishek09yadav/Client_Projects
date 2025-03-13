@@ -6,23 +6,34 @@ import Admin from "./Pages/Admin/Admin.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import LoginSignup from "./Components/LoginSignup/LoginSignup.jsx";
 import Spinner from "./Components/spinner/Spinner.jsx";
-
+ const url = import.meta.env.VITE_API_URL;
 function App() {
   const [loading, setLoading] = useState(true);
   const authToken = localStorage.getItem("auth-token");
   useEffect(() => {
-    const checkServer = async () => {
-      setLoading(true);
-      try {
-        const response = await fetch(`/`);
-        console.log("response", response);
-      } catch (error) {
-        console.error("Error fetching banners:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
 
+  const checkServer = () => {
+    setLoading(true);
+
+    fetch(`${url}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(
+            `Server responded with status: ${response.status} ${response.statusText}`
+          );
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Server Response:", data?.message);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
     checkServer();
   }, []);
   return (
