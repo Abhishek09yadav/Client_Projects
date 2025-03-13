@@ -8,7 +8,7 @@ import LoginSignup from "./Components/LoginSignup/LoginSignup.jsx";
 import Spinner from "./Components/spinner/Spinner.jsx";
 
 function App() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const authToken = localStorage.getItem("auth-token");
   useEffect(() => {
     const checkServer = async () => {
@@ -28,7 +28,7 @@ function App() {
   return (
     <>
       <Navbar />
-      {loading? <Spinner /> :(authToken ? <Admin /> : <LoginSignup />)}
+      {loading === true ? <Spinner /> :(authToken ? <Admin /> : <LoginSignup />)}
     </>
   );
 }
