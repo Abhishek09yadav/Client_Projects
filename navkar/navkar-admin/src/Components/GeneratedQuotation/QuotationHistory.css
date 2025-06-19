@@ -149,7 +149,7 @@
     color: white;
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 14px;
+    font-size: 1.1rem;
     letter-spacing: 0.5px;
 }
 
@@ -326,5 +326,262 @@
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+/* Add these styles to your existing QuotationHistory.css file */
+
+/* Custom Modal Styles */
+.modal-backdrop-custom {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-container-custom {
+    width: 90%;
+    max-width: 1200px;
+    max-height: 90vh;
+    margin: auto;
+    animation: slideIn 0.3s ease-out;
+}
+
+.modal-content-custom {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
+    overflow: hidden;
+}
+
+.modal-body-custom {
+    padding: 1.5rem;
+    overflow-y: auto;
+    flex: 1;
+    max-height: calc(90vh - 140px); /* Adjust based on header and footer height */
+}
+
+.modal-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    align-items: center;
+    justify-content: between;
+    flex-shrink: 0;
+}
+
+.modal-title {
+    margin: 0;
+    font-size: 1.5rem;
+    flex: 1;
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.btn-close:hover {
+    opacity: 1;
+}
+
+.btn-close-white {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.modal-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #dee2e6;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    flex-shrink: 0;
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Enhanced Card Styles for Modal */
+.quotation-details .card {
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+/* .quotation-details .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+} */
+
+/* Card Header Enhancements */
+.quotation-details .card-header {
+    border-bottom: 2px solid #dee2e6;
+    font-weight: 600;
+    padding: 1rem 1.25rem;
+}
+
+.quotation-details .card-header.bg-light {
+    background-color: #f8f9fa !important;
+}
+
+.quotation-details .card-header.bg-success {
+    background: linear-gradient(135deg, #28a745, #20c997) !important;
+}
+
+/* Table Enhancements */
+.quotation-details .table {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+}
+
+.quotation-details .table th {
+    border-top: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background-color: #343a40 !important;
+    color: white !important;
+}
+
+.quotation-details .table td {
+    vertical-align: middle;
+    padding: 0.75rem;
+}
+
+.quotation-details .table tbody tr:hover {
+    background-color: #f8f9fa;
+    transition: background-color 0.2s ease;
+}
+
+/* Product Name Styling */
+.quotation-details .table td.fw-medium {
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+/* Badge Enhancements */
+.quotation-details .badge {
+    font-size: 1rem;
+    padding: 0.35em 0.65em;
+}
+
+.quotation-details .badge.bg-secondary {
+    background-color: #6c757d !important;
+}
+
+/* Price Highlighting */
+.quotation-details .table td.fw-bold {
+    color: #28a745;
+    font-weight: 700;
+}
+
+/* Summary text styling */
+.quotation-details .text-success.fw-bold {
+    color: #28a745 !important;
+    font-size: 1.2em;
+}
+
+/* Loading State */
+.quotation-details .spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* Button Hover Effects */
+.quotation-details .btn {
+    transition: all 0.2s ease;
+}
+
+.quotation-details .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom Scrollbar for Modal Body */
+.modal-body-custom::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-body-custom::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.modal-body-custom::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+.modal-body-custom::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Responsive Modal */
+@media (max-width: 768px) {
+    .modal-container-custom {
+        width: 95%;
+        margin: 1rem;
+    }
+    
+    .modal-body-custom {
+        padding: 1rem;
+    }
+    
+    .quotation-details .table {
+        font-size: 0.8rem;
+    }
+    
+    .quotation-details .card-body {
+        padding: 0.75rem;
+    }
+    
+    .modal-header,
+    .modal-footer {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .modal-container-custom {
+        width: 98%;
+        margin: 0.5rem;
+    }
+    
+    .modal-content-custom {
+        border-radius: 4px;
     }
 }

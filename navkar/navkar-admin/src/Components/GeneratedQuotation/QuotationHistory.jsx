@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import ReactPaginate from 'react-paginate';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faDownload, faEye} from "@fortawesome/free-solid-svg-icons";
+import {faDownload, faEye, faTimes} from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
 import './QuotationHistory.css';
 import {FaSearch} from "react-icons/fa";
@@ -21,6 +21,9 @@ const QuotationHistory = () => {
     const [showEndCalendar, setShowEndCalendar] = useState(false);
     const [currentPage, setCurrentPage] = useState(0);
     const [totalPages, setTotalPages] = useState(0);
+    const [showModal, setShowModal] = useState(false);
+    const [selectedQuotation, setSelectedQuotation] = useState(null);
+    const [loading, setLoading] = useState(false);
     const itemsPerPage = 10;
 
     const formatDate = (timestamp) => {
@@ -29,6 +32,17 @@ const QuotationHistory = () => {
         const month = String(date.getMonth() + 1).padStart(2, '0');
         const year = String(date.getFullYear()).slice(-2);
         return `${day}/${month}/${year}`;
+    };
+
+    const formatFullDate = (timestamp) => {
+        const date = new Date(timestamp);
+        return date.toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
     };
 
     const fetchQuotations = async (page, search = '', startDate = null, endDate = null) => {
@@ -43,6 +57,8 @@ const QuotationHistory = () => {
                 }
             });
 
+            console.log("Response: ", response);
+            
             const formattedQuotations = response.data.quotations.map((quotation) => ({
                 ...quotation,
                 formattedDate: formatDate(quotation.uploadedAt),
@@ -54,6 +70,51 @@ const QuotationHistory = () => {
             console.error('Error fetching quotations:', error);
         }
     };
+
+    const fetchQuotationDetails = async (quotationId) => {
+        setLoading(true);
+        try {
+            const response = await axios.get(`${url}/api/quotation/${quotationId}`);
+            console.log("Quotation details:", response.data);
+            setSelectedQuotation(response.data);
+            setShowModal(true);
+        } catch (error) {
+            console.error('Error fetching quotation details:', error);
+            toast.error('Failed to fetch quotation details');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleViewQuotation = (quotationId) => {
+        console.log("Viewing quotation with ID:", quotationId);
+        fetchQuotationDetails(quotationId);
+    };
+
+    const closeModal = () => {
+        setShowModal(false);
+        setSelectedQuotation(null);
+    };
+
+    // Add keyboard event listener for ESC key to close modal
+    useEffect(() => {
+        const handleEscKey = (event) => {
+            if (event.key === 'Escape' && showModal) {
+                closeModal();
+            }
+        };
+
+        if (showModal) {
+            document.addEventListener('keydown', handleEscKey);
+            // Prevent body scroll when modal is open
+            document.body.style.overflow = 'hidden';
+        }
+
+        return () => {
+            document.removeEventListener('keydown', handleEscKey);
+            document.body.style.overflow = 'unset';
+        };
+    }, [showModal]);
 
     useEffect(() => {
         fetchQuotations(currentPage, searchTerm, startDate, endDate);
@@ -100,14 +161,14 @@ const QuotationHistory = () => {
     };
 
     const toggleStartCalendar = (e) => {
-        e.stopPropagation(); // Prevent event from bubbling up
-        setShowEndCalendar(false); // Close end calendar
+        e.stopPropagation();
+        setShowEndCalendar(false);
         setShowStartCalendar(!showStartCalendar);
     };
 
     const toggleEndCalendar = (e) => {
-        e.stopPropagation(); // Prevent event from bubbling up
-        setShowStartCalendar(false); // Close start calendar
+        e.stopPropagation();
+        setShowStartCalendar(false);
         setShowEndCalendar(!showEndCalendar);
     };
 
@@ -165,7 +226,7 @@ const QuotationHistory = () => {
                     )}
                 </div>
 
-                <button onClick={handleSearch} className="btn btn-primary justify-content-center  search-bar w-25">
+                <button onClick={handleSearch} className="btn btn-primary justify-content-center search-bar w-25">
                     Search... <FaSearch/>
                 </button>
             </div>
@@ -177,28 +238,29 @@ const QuotationHistory = () => {
                     <th>Phone Number</th>
                     <th>Email</th>
                     <th>Date</th>
-                    <th>PDF</th>
+                    <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
                 {quotations.map((quotation, index) => (
-                    <tr key={index}>
+                    <tr key={quotation._id || quotation.id || index}>
                         <td>{quotation.userName}</td>
                         <td>{quotation.phoneNo}</td>
                         <td>{quotation.email}</td>
                         <td>{quotation.formattedDate}</td>
                         <td className={'d-flex flex-row flex-nowrap gap-2'}>
-                            <button className="btn btn-outline-primary "
-                                    onClick={() => window.open(`${url}${quotation.link}`, '_blank')}
-                                    rel="noopener noreferrer"
-                                    title="View PDF"
+                            <button 
+                                className="btn btn-outline-primary"
+                                onClick={() => handleViewQuotation(quotation._id || quotation.id)}
+                                title="View Details"
+                                disabled={loading}
                             >
-                                View <FontAwesomeIcon icon={faEye}/>
+                                {loading ? 'Loading...' : 'View'} <FontAwesomeIcon icon={faEye}/>
                             </button>
                             <button
                                 onClick={() => handlePdfDownload(quotation)}
                                 title="Download PDF"
-                                className="btn "
+                                className="btn btn-outline-success"
                             >
                                 Download <FontAwesomeIcon icon={faDownload}/>
                             </button>
@@ -220,6 +282,144 @@ const QuotationHistory = () => {
                 activeClassName={'active'}
                 forcePage={currentPage}
             />
+
+            {/* Bootstrap Modal with proper z-index and positioning */}
+            {showModal && (
+                <div 
+                    className="modal-backdrop-custom"
+                    onClick={closeModal}
+                >
+                    <div className="modal-container-custom">
+                        <div 
+                            className="modal-content-custom"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <div className="modal-header bg-primary text-white">
+                                <h5 className="modal-title">
+                                    <FontAwesomeIcon icon={faEye} className="me-2"/>
+                                    Quotation Details
+                                </h5>
+                                <button 
+                                    type="button" 
+                                    className="btn-close btn-close-white" 
+                                    onClick={closeModal}
+                                    aria-label="Close"
+                                ></button>
+                            </div>
+                            <div className="modal-body-custom">
+                                {selectedQuotation ? (
+                                    <div className="quotation-details">
+                                        {/* User Information Card */}
+                                        <div className="card mb-4">
+                                            <div className="card-header bg-light">
+                                                <h6 className="mb-0 fw-bold">Customer Information</h6>
+                                            </div>
+                                            <div className="card-body">
+                                                <div className="row">
+                                                    <div className="col-md-6">
+                                                        <p><strong>Name:</strong> {selectedQuotation.user?.name || 'N/A'}</p>
+                                                        <p><strong>Email:</strong> {selectedQuotation.user?.email || 'N/A'}</p>
+                                                    </div>
+                                                    <div className="col-md-6">
+                                                        <p><strong>Phone:</strong> {selectedQuotation.user?.phone || 'N/A'}</p>
+                                                        <p><strong>Created:</strong> {formatFullDate(selectedQuotation.createdAt)}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Products Table */}
+                                        <div className="card mb-4">
+                                            <div className="card-header bg-light">
+                                                <h6 className="mb-0 fw-bold">Products ({selectedQuotation.products?.length || 0})</h6>
+                                            </div>
+                                            <div className="card-body p-0">
+                                                <div className="table-responsive">
+                                                    <table className="table table-striped mb-0">
+                                                        <thead className="table-dark">
+                                                            <tr>
+                                                                <th>#</th>
+                                                                <th>Product Name</th>
+                                                                <th>Category</th>
+                                                                <th>Quantity</th>
+                                                                <th>Unit Price</th>
+                                                                <th>Tax</th>
+                                                                <th>Total Price</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {selectedQuotation.products?.map((product, index) => (
+                                                                <tr key={product._id || index}>
+                                                                    <td>{index + 1}</td>
+                                                                    <td className="fw-medium">{product.name || 'N/A'}</td>
+                                                                    <td>
+                                                                        <span className="badge bg-secondary">
+                                                                            {product.category || 'N/A'}
+                                                                        </span>
+                                                                    </td>
+                                                                    <td>{product.quantity || 0}</td>
+                                                                    <td>₹{product.price?.toFixed(2) || '0.00'}</td>
+                                                                    <td>₹{product.Tax?.toFixed(2) || '0.00'}</td>
+                                                                    <td className="fw-bold">₹{product.totalPrice?.toFixed(2) || '0.00'}</td>
+                                                                </tr>
+                                                            ))}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Total Summary Card */}
+                                        <div className="card">
+                                            <div className="card-header bg-success text-white">
+                                                <h6 className="mb-0 fw-bold">Summary</h6>
+                                            </div>
+                                            <div className="card-body">
+                                                <div className="row">
+                                                    <div className="col-md-6">
+                                                        <p><strong>Total Items:</strong> {selectedQuotation.products?.length || 0}</p>
+                                                        <p><strong>Total Quantity:</strong> {selectedQuotation.products?.reduce((sum, product) => sum + (product.quantity || 0), 0)}</p>
+                                                    </div>
+                                                    <div className="col-md-6">
+                                                        <p><strong>Total Tax:</strong> ₹{selectedQuotation.products?.reduce((sum, product) => sum + (product.Tax || 0), 0).toFixed(2)}</p>
+                                                        <p className="fs-5"><strong>Grand Total:</strong> 
+                                                            <span className="text-success fw-bold ms-2">₹{selectedQuotation.totalPrice?.toFixed(2) || '0.00'}</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="text-center py-5">
+                                        <div className="spinner-border text-primary" role="status">
+                                            <span className="visually-hidden">Loading...</span>
+                                        </div>
+                                        <p className="mt-3">Loading quotation details...</p>
+                                    </div>
+                                )}
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" onClick={closeModal}>
+                                    <FontAwesomeIcon icon={faTimes} className="me-2"/>
+                                    Close
+                                </button>
+                                {selectedQuotation && (
+                                    <button 
+                                        type="button" 
+                                        className="btn btn-primary"
+                                        onClick={() => window.open(`${url}${selectedQuotation.link}`, '_blank')}
+                                    >
+                                        <FontAwesomeIcon icon={faEye} className="me-2"/>
+                                        View PDF
+                                    </button>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
             <ToastContainer/>
         </div>
     );
