@@ -82,7 +82,7 @@ const QuotationHistory = () => {
           `${url}/api/quotation/user/${userDetails?._id}`
         );
         const data = response.data;
-
+        console.log("quotations ->", response.data);
         if (data?.quotations) {
           const sortedQuotations = [...data.quotations].sort(
             (a, b) => new Date(b.date) - new Date(a.date)
@@ -105,11 +105,12 @@ const QuotationHistory = () => {
       fetchQuotations();
     }
   }, [userDetails]);
-
+  // console.log("quotations status ->", quotations.status);
   const fetchDetails = async (quotationId) => {
     try {
       const response = await axios.get(`${url}/api/quotation/${quotationId}`);
       setQuotationDetails(response.data); // Save data to state
+      // console.log("quotations",response.data)
       setShowPdfModal(true); // Show modal
     } catch (error) {
       console.error("Error fetching quotation details:", error);
@@ -129,8 +130,6 @@ const QuotationHistory = () => {
       setFilteredQuotations(quotations);
     }
   }, [selectedDate, quotations]);
-
-
 
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected);
@@ -169,22 +168,29 @@ const QuotationHistory = () => {
                 </p>
 
                 <div className="button-container">
-                  <Button
-                    variant="primary"
-                    onClick={() => {
-                      fetchDetails(quotation.quotationId);
-                      console.log("Quotation item:", quotation.quotationId);
-                    }}
-                  >
-                    View Quotation
-                  </Button>
-
-                  {/* <Button
-                    variant="secondary"
-                    onClick={() => handlePdfDownload(quotation)}
-                  >
-                    Download PDF
-                  </Button> */}
+                  {quotation.status === "Completed" ? (
+                    <>
+                      <Button
+                        variant="primary"
+                        onClick={() => {
+                          fetchDetails(quotation.quotationId);
+                          // console.log("Quotation item:", quotation.quotationId);
+                        }}
+                      >
+                        View Quotation
+                      </Button>
+                      {/* <Button
+                        variant="secondary"
+                        // onClick={() => handlePdfDownload(quotation)}
+                      >
+                        Download PDF
+                      </Button> */}
+                    </>
+                  ) : (
+                    <div className=" p-1 text-center text-white rounded-pill fst-italic">
+                      Quotation Pending
+                    </div>
+                  )}
                 </div>
               </li>
             ))}
@@ -203,7 +209,7 @@ const QuotationHistory = () => {
           />
         </>
       )}
-   
+
       <QuotationModal
         isModalOpen={showPdfModal}
         setIsModalOpen={setShowPdfModal}
