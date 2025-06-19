@@ -7,7 +7,7 @@ import {ShopContext} from '../../Context/ShopContext';
 import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import no_products_found from "../Assets/no_products_found.jpeg";
-import QuotationModal from './QuotationModal'; // Import the new QuotationModal component
+import CategoryModal from "./CategoryModal"; // Import the new QuotationModal component
 import html2pdf from 'html2pdf.js';
 import SelectedItemsModal from './SelectedItemsModal';
 import {FaEye} from 'react-icons/fa';
@@ -293,7 +293,7 @@ const Category = () => {
                 </div>
             </div>
 
-            <QuotationModal
+            <CategoryModal
                 isModalOpen={isModalOpen}
                 setIsModalOpen={setIsModalOpen}
                 selectedItems={selectedItems}

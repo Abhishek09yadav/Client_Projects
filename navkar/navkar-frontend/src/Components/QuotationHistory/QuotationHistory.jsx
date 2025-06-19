@@ -9,6 +9,7 @@ import no_quotations_found from "../Assets/no_quotatoins_found.svg";
 import { FaCalendarAlt } from "react-icons/fa";
 
 import axios from "axios";
+import QuotationModal from "./QuotationModal";
 
 const url = process.env.REACT_APP_API_URL;
 const CalendarInput = ({ value, onChange }) => {
@@ -68,7 +69,6 @@ const QuotationHistory = () => {
   const { userDetails } = useContext(ShopContext);
   const [loading, setLoading] = useState(true);
   const [showPdfModal, setShowPdfModal] = useState(false);
-  const [selectedPdf, setSelectedPdf] = useState(null);
   const [quotationDetails, setQuotationDetails] = useState(null);
 
   const [currentPage, setCurrentPage] = useState(0);
@@ -107,8 +107,6 @@ const QuotationHistory = () => {
   }, [userDetails]);
 
   const fetchDetails = async (quotationId) => {
- 
-
     try {
       const response = await axios.get(`${url}/api/quotation/${quotationId}`);
       setQuotationDetails(response.data); // Save data to state
@@ -117,26 +115,22 @@ const QuotationHistory = () => {
       console.error("Error fetching quotation details:", error);
     }
   };
-  
 
   useEffect(() => {
     if (quotations.length > 0 && selectedDate) {
-        const filtered = quotations.filter((quotation) => {
-          const quotationDate = new Date(quotation.date).toDateString();
-          const selectedDateString = new Date(selectedDate).toDateString();
-          return quotationDate === selectedDateString;
-        });
-        
+      const filtered = quotations.filter((quotation) => {
+        const quotationDate = new Date(quotation.date).toDateString();
+        const selectedDateString = new Date(selectedDate).toDateString();
+        return quotationDate === selectedDateString;
+      });
+
       setFilteredQuotations(filtered);
     } else {
       setFilteredQuotations(quotations);
     }
   }, [selectedDate, quotations]);
 
-  const handlePdfClick = (quotation) => {
-    setSelectedPdf(`${url}${quotation.link}`);
-    setShowPdfModal(true);
-  };
+
 
   const handlePageClick = ({ selected }) => {
     setCurrentPage(selected);
@@ -150,11 +144,9 @@ const QuotationHistory = () => {
   return (
     <div className="quotation-history-container">
       <h1 className="quotation-history-title">Quotation History</h1>
-
       <div className="calendar-container">
         <CalendarInput value={selectedDate} onChange={setSelectedDate} />
       </div>
-
       {loading ? (
         <div className="loading">Loading quotations...</div>
       ) : paginatedQuotations.length === 0 ? (
@@ -179,8 +171,9 @@ const QuotationHistory = () => {
                 <div className="button-container">
                   <Button
                     variant="primary"
-                    onClick={() =>{ fetchDetails(quotation.quotationId);
-                        console.log("Quotation item:", quotation.quotationId);
+                    onClick={() => {
+                      fetchDetails(quotation.quotationId);
+                      console.log("Quotation item:", quotation.quotationId);
                     }}
                   >
                     View Quotation
@@ -210,48 +203,13 @@ const QuotationHistory = () => {
           />
         </>
       )}
-
-     <Modal
-  show={showPdfModal}
-  onHide={() => setShowPdfModal(false)}
-  size="lg"
->
-  <Modal.Header closeButton>
-    <Modal.Title style={{ color: 'black' }}>Quotation Preview</Modal.Title>
-  </Modal.Header>
-  <Modal.Body>
-    <div style={{ color: 'black' }}>
-      {quotationDetails ? (
-        <div>
-          <p>
-            <strong>Status:</strong> {quotationDetails.Status}
-          </p>
-          <p>
-            <strong>Total Price:</strong> ₹{quotationDetails.totalPrice}
-          </p>
-          <p>
-            <strong>Date:</strong>{" "}
-            {new Date(quotationDetails.createdAt).toLocaleString()}
-          </p>
-          <hr />
-          <h5>Products:</h5>
-          <ul>
-            {quotationDetails.products.map((product, index) => (
-              <li key={index}>
-                <strong>{product.name}</strong> - {product.quantity} x ₹
-                {product.price} = ₹{product.totalPrice} (Tax: {product.Tax}
-                %)
-              </li>
-            ))}
-          </ul>
-        </div>
-      ) : (
-        <p>Loading quotation details...</p>
-      )}
-    </div>
-  </Modal.Body>
-</Modal>
-
+   
+      <QuotationModal
+        isModalOpen={showPdfModal}
+        setIsModalOpen={setShowPdfModal}
+        quotationDetails={quotationDetails}
+        userDetails={userDetails}
+      />
     </div>
   );
 };

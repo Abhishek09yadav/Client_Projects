@@ -27,7 +27,7 @@ const LoginSignup = () => {
     const [state, setState] = useState("Login");
     const [forgotPasswordState, setForgotPasswordState] = useState(false);
     const [newPassword, setNewPassword] = useState('');
-    const [disableLoginSignupButtonAfterOTP, setDisableLoginSignupButtonAfterOTP] = useState(false);
+    // const [disableLoginSignupButtonAfterOTP, setDisableLoginSignupButtonAfterOTP] = useState(false);
     const changeHandler = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
@@ -79,7 +79,7 @@ const LoginSignup = () => {
             if (data.success) {
                 toast.success('Signup successful.');
 
-                window.location.replace('/');
+                window.location.replace('/login');
             } else {
                 alert(data.error);
             }

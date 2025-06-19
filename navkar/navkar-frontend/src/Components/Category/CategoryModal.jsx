@@ -1,5 +1,5 @@
 import React from "react";
-import "./QuotationModal.css"; // Import the CSS file for styling
+import "./CategoryModal.css"; // Import the CSS file for styling
 import html2pdf from "html2pdf.js";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -7,7 +7,7 @@ import logo from "../Assets/logo.png";
 import signanureimg from "../Assets/signature.jpeg";
 import cross_icon from "../Assets/cross_icon.png";
 
-const QuotationModal = ({
+const CategoryModal = ({
   isModalOpen,
   setIsModalOpen,
   selectedItems,
@@ -146,4 +146,4 @@ const QuotationModal = ({
   );
 };
 
-export default QuotationModal;
+export default CategoryModal;
