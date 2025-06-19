@@ -85,68 +85,66 @@ router.post("/uploadQuotation", async (req, res) => {
 module.exports = router;
 
 // Route to fetch all quotations with pagination, search, and date range
+// Route to fetch all quotations with pagination, search, and date range
 router.get("/quotations", async (req, res) => {
-  try {
-    const { page = 1, limit = 10, search = "", startDate, endDate } = req.query;
-    const skip = (page - 1) * limit;
-
-    // Build the search query
-    const searchQuery = search
-      ? {
+    try {
+      const { page = 1, limit = 10, search = "", startDate, endDate } = req.query;
+      const skip = (page - 1) * limit;
+  
+      // Build filter object
+      const filter = {};
+  
+      // Add search on user details
+      if (search) {
+        const users = await Users.find({
           $or: [
             { name: { $regex: search, $options: "i" } },
             { phoneNo: { $regex: search, $options: "i" } },
             { email: { $regex: search, $options: "i" } },
-          ],
-        }
-      : {};
-
-    // Find all users matching the search query
-    const users = await Users.find(
-      searchQuery,
-      "name email phoneNo QuotationPages"
-    );
-
-    // Flatten and map the quotations with user details
-    let allQuotations = users.flatMap((user) => {
-      return user.QuotationPages.map((quotation) => ({
-        userName: user.name,
-        phoneNo: user.phoneNo,
-        email: user.email,
-        uploadedAt: quotation.uploadedAt,
-        link: quotation.link,
+          ]
+        }).select("_id");
+  
+        const userIds = users.map(user => user._id);
+        filter.user = { $in: userIds };
+      }
+  
+      // Add date filtering
+      if (startDate && endDate) {
+        filter.createdAt = {
+          $gte: new Date(parseInt(startDate)),
+          $lte: new Date(parseInt(endDate))
+        };
+      }
+  
+      // Query Quotations with population of user details
+      const quotations = await Quotation.find(filter)
+        .populate("user", "name email phoneNo") // Get user info
+        .sort({ createdAt: -1 }) // newest first
+        .skip(skip)
+        .limit(parseInt(limit));
+  
+      const totalQuotations = await Quotation.countDocuments(filter);
+  
+      // Format output
+      const formatted = quotations.map(q => ({
+        userName: q.user?.name,
+        phoneNo: q.user?.phoneNo,
+        email: q.user?.email,
+        uploadedAt: q.createdAt,
+        id: q._id,
       }));
-    });
-
-    // Filter by date range if provided
-    if (startDate && endDate) {
-      allQuotations = allQuotations.filter((quotation) => {
-        return (
-          quotation.uploadedAt >= parseInt(startDate) &&
-          quotation.uploadedAt <= parseInt(endDate)
-        );
+  
+      res.status(200).json({
+        quotations: formatted,
+        totalPages: Math.ceil(totalQuotations / limit),
+        currentPage: parseInt(page)
       });
-    }
-
-    // Sort quotations by date (newest first)
-    allQuotations.sort((a, b) => b.uploadedAt - a.uploadedAt);
-
-    // Apply pagination to the flattened quotations
-    const quotations = allQuotations.slice(skip, skip + parseInt(limit));
-
-    // Get the total count of quotations for pagination
-    const totalQuotations = allQuotations.length;
-
-        res.status(200).json({
-            quotations,
-            totalPages: Math.ceil(totalQuotations / limit),
-            currentPage: parseInt(page)
-        });
     } catch (error) {
-        console.error('Error fetching quotations:', error);
-        res.status(500).json({error: 'Internal server error.'});
+      console.error('Error fetching quotations:', error);
+      res.status(500).json({ error: 'Internal server error.' });
     }
-});
+  });
+  
 
 // To get specific user's quotation
 router.get('/quotation/:id', async (req, res) => {
