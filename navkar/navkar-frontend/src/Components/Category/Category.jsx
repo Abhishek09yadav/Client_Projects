@@ -287,7 +287,7 @@ const Category = () => {
                             className="query-generator-button p-3 h-100 "
                             onClick={generateQuery}
                         >
-                            Generate Quotation
+                            Request Quotation
                         </button>
                     </div>
                 </div>
