@@ -5,9 +5,8 @@ const multer = require("multer");
 const path = require("path");
 const mongoose = require("mongoose");
 const Users = require("../models/models");
-const Quotation = require('../models/Quotations');
+const Quotation = require('../models/Quotation');
 const Product = require('../index');
-const Quotations = require('../models/Quotations');
 const { ObjectId } = require("mongoose").Types;
 const baseUrl = process.env.BASE_URL;
 
@@ -116,7 +115,7 @@ router.get("/quotations", async (req, res) => {
         };
       }
   
-      // Query Quotations with population of user details
+      // Query Quotation with population of user details
       const quotations = await Quotation.find(filter)
         .populate("user", "name email phoneNo") // Get user info
         .sort({ createdAt: -1 }) // newest first
@@ -174,7 +173,7 @@ router.put('/quotation/:id/price', async (req, res) => {
   }
 
   try {
-    const quotation = await Quotations.findById(req.params.id);
+    const quotation = await Quotation.findById(req.params.id);
     // console.log("quotation -> ", quotation);
 
     if (!quotation) {
@@ -195,7 +194,7 @@ router.put('/quotation/:id/price', async (req, res) => {
 
     // Recalculate quotation's totalPrice
     quotation.totalPrice = quotation.products.reduce((sum, p) => sum + (p.totalPrice || 0), 0);
-
+    quotation.Status = "Completed";
     await quotation.save();
 
     res.status(200).json({
