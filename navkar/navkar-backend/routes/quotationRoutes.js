@@ -211,10 +211,7 @@ router.put('/quotation/:id/price', async (req, res) => {
       totalPages: Math.ceil(totalQuotations / limit),
       currentPage: parseInt(page),
     });
-  } catch (error) {
-    console.error("Error fetching quotations:", error);
-    res.status(500).json({ error: "Internal server error." });
   }
-});
+);
 
 module.exports = router;
