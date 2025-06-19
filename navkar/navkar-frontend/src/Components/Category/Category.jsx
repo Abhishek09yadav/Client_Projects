@@ -127,110 +127,93 @@ const Category = () => {
     };
 
     const generateQuery = async () => {
-        if (!userDetails) {
-            toast.warn("Please log in to continue.");
-            return;
-        }
-        if (Object.keys(selectedProducts).length === 0) {
-            toast.warn("No products selected. Please select a product to generate the quotation.");
-            return;
-        }
+      if (!userDetails) {
+        toast.warn("Please log in to continue.");
+        return;
+      }
 
-        let hasInvalidQuantities = false;
-        Object.keys(selectedProducts).forEach((productId) => {
-            const product = allProducts.find(item =>
-                item.id === Number(productId) || item._id === productId
+      if (Object.keys(selectedProducts).length === 0) {
+        toast.warn(
+          "No products selected. Please select a product to generate the quotation."
+        );
+        return;
+      }
+
+      let hasInvalidQuantities = false;
+      Object.keys(selectedProducts).forEach((productId) => {
+        const product = allProducts.find(
+          (item) => item.id === Number(productId) || item._id === productId
+        );
+        if (product) {
+          const quantity = parseInt(selectedProducts[productId].quantity, 10);
+          if (quantity < product.MOQ) {
+            toast.error(
+              `Quantity for ${product.name} is below the Minimum Order Quantity of ${product.MOQ}.`
             );
-            if (product) {
-                const quantity = parseInt(selectedProducts[productId].quantity, 10);
-                if (quantity < product.MOQ) {
-                    toast.error(`Quantity for ${product.name} is below the Minimum Order Quantity of ${product.MOQ}.`, {
-                        position: "top-right",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                    });
-                    hasInvalidQuantities = true;
-                }
-            }
+            hasInvalidQuantities = true;
+          }
+        }
+      });
+
+      if (hasInvalidQuantities) return;
+
+      let total = 0;
+      const selectedItems = Object.keys(selectedProducts)
+        .map((productId) => {
+          const product = allProducts.find(
+            (item) => item.id === Number(productId) || item._id === productId
+          );
+          if (!product) {
+            console.error(`Product with ID ${productId} not found.`);
+            return null;
+          }
+
+          const quantity = parseInt(selectedProducts[productId].quantity, 10);
+          const price = product.new_price;
+          const taxPercentage = product?.Tax;
+
+          const tax = (price * taxPercentage) / 100;
+          const itemTotal = price * quantity + tax * quantity;
+          total += itemTotal;
+
+          return {
+            _id: product._id,
+            name: product.name,
+            quantity,
+            price,
+            totalPrice: itemTotal,
+            category: product.category,
+            Tax: product.Tax,
+          };
+        })
+        .filter((item) => item !== null);
+
+      setTotalPrice(total);
+      setSelectedItems(selectedItems);
+      setIsModalOpen(true);
+
+      try {
+        const response = await axios.post(`${url}/api/uploadQuotation`, {
+          user: {
+            id: userDetails._id,
+            name: userDetails.name,
+            email: userDetails.email,
+          },
+          products: selectedItems,
+          totalPrice: total,
         });
 
-        if (hasInvalidQuantities) {
-            return;
+        if (response.data.success) {
+          toast.success("Quotation details sent successfully.");
+        } else {
+          toast.error("Failed to send quotation details.");
         }
-
-        let total = 0;
-        const selectedItems = Object.keys(selectedProducts).map((productId) => {
-            const product = allProducts.find(item =>
-                item.id === Number(productId) || item._id === productId
-            );
-            if (!product) {
-                console.error(`Product with ID ${productId} not found.`);
-                return null;
-            }
-
-            const quantity = parseInt(selectedProducts[productId].quantity, 10);
-            const price = product.new_price;
-            const taxPercentage = product?.Tax;
-
-            const tax = (price * taxPercentage) / 100;
-            const itemTotal = (price * quantity) + (tax * quantity);
-            total += itemTotal;
-            const TotalTax = tax * quantity;
-
-            return {
-                name: product.name,
-                quantity,
-                price,
-                totalPrice: itemTotal,
-                category: product.category,
-                Tax: product.Tax,
-            };
-        }).filter(item => item !== null);
-
-        setTotalPrice(total);
-        setSelectedItems(selectedItems);
-        setIsModalOpen(true);
-
-        setTimeout(async () => {
-            try {
-                const element = document.querySelector('#generate-pdf');
-                const opt = {
-                    margin: 1,
-                    filename: `${userDetails?.name}_quotation.pdf`,
-                    html2canvas: {scale: 2},
-                    jsPDF: {unit: 'in', format: 'letter', orientation: 'portrait'}
-                };
-
-                const pdfBlob = await html2pdf().set(opt).from(element).outputPdf('blob');
-
-                const formData = new FormData();
-                const pdfFile = new File([pdfBlob], `${userDetails?.name}.pdf`, {type: 'application/pdf'});
-                formData.append('quotation', pdfFile);
-                formData.append('userId', userDetails._id);
-
-                const response = await axios.post(`${url}/api/uploadQuotation`, formData, {
-                    headers: {'Content-Type': 'multipart/form-data'}
-                });
-
-                if (response.data.success) {
-                    toast.success(`Quotation Generated successfully`);
-                }
-            } catch (error) {
-                console.error('Error generating or uploading PDF:', error);
-                toast.error('Failed to upload the quotation.', {
-                    position: "top-right",
-                    autoClose: 3000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                });
-            }
-        }, 1000);
+      } catch (error) {
+        console.error("Error sending quotation details:", error);
+        toast.error("Failed to send quotation details.");
+      }
     };
+    
 
     return (
         <div ref={categoryRef} className={'Category container-md p-0'}>
