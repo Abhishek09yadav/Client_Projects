@@ -18,6 +18,11 @@ const quotationSchema = new mongoose.Schema({
       Tax: Number,
     },
   ],
+  Status:{
+    type: String,
+    default: "Pending",
+    enum: ["Pending", "Completed"],
+  },
   totalPrice: Number,
   createdAt: {
     type: Date,
