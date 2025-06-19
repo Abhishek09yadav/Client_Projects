@@ -5,7 +5,6 @@ const multer = require("multer");
 const path = require("path");
 const mongoose = require("mongoose");
 const Users = require("../models/models");
-const Quotation = require("../models/Quotation");
 const Quotation = require('../models/Quotations');
 const Product = require('../index');
 const Quotations = require('../models/Quotations');
@@ -155,6 +154,7 @@ router.get('/quotation/:id', async (req, res) => {
     const quotationId = req.params.id;
 
     const quotation = await Quotation.findById(quotationId);
+    // console.log("quotation -> ",quotation)
 
     if (!quotation) {
       return res.status(404).json({ message: 'Quotation not found' });
@@ -176,7 +176,9 @@ router.put('/quotation/:id/price', async (req, res) => {
   }
 
   try {
-    const quotation = await Quotations.findById(req.params._id);
+    const quotation = await Quotations.findById(req.params.id);
+    // console.log("quotation -> ", quotation);
+
     if (!quotation) {
       return res.status(404).json({ message: 'Quotation not found' });
     }
@@ -206,11 +208,6 @@ router.put('/quotation/:id/price', async (req, res) => {
     console.error('Error updating quotation:', error);
     res.status(500).json({ message: 'Server error', error });
   }
-    res.status(200).json({
-      quotations,
-      totalPages: Math.ceil(totalQuotations / limit),
-      currentPage: parseInt(page),
-    });
   }
 );
 
