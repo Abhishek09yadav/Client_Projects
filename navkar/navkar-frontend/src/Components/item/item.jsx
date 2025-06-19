@@ -44,12 +44,12 @@ const Item = ({
             className={`item-main-container bg-white position-relative rounded-3 item ${isSelected ? 'item-selected' : ''}`}>
             <img src={`${url}${image}`} className={'item-img'} alt="prod image"/>
             <div className="d-flex justify-content-center align-items-center flex-column" style={{width: '50%'}}>
-                <div className="item-price d-flex justify-content-center flex-column">
-                    <p className="product-name w-100 text-center">{name}</p>
-                    <div className="align-self-center">
+                <div className="item-price d-flex justify-content-center flex-column mt-2">
+                    <p className="product-name  w-100 text-center">{name}</p>
+                    {/* <div className="align-self-center">
                         <span className="item-price-old mx-1">₹{old_price}</span>
                         <span className="item-price-new mx-1">₹{new_price}</span>
-                    </div>
+                    </div> */}
                 </div>
                 <div className={'d-flex flex-row gap-4 mb-2 '}>
                     <p title="Minimum order Quantity"

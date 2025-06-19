@@ -49,14 +49,14 @@ const ProductDisplay = (props) => {
             <div className="productdisplay-right text-center">
 
                 <h1>{product?.name}</h1>
-                <div className="productdisplay-right-prices align-self-center m-1">
+                {/* <div className="productdisplay-right-prices align-self-center m-1">
                 <span className="productdisplay-right-prices-old">
                   ₹{product?.old_price}
                 </span>
                     <span className="productdisplay-right-prices-new">
                   ₹{product?.new_price}
                 </span>
-                </div>
+                </div> */}
                 <p className="productdisplay-right-category">
                     <span>Category : </span> {product?.category}
                 </p>
