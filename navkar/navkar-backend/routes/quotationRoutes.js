@@ -5,6 +5,9 @@ const multer = require('multer');
 const path = require('path');
 const mongoose = require('mongoose');
 const Users = require('../models/models');
+const Quotation = require('../models/Quotations');
+const Product = require('../index');
+const Quotations = require('../models/Quotations');
 
 const baseUrl = process.env.BASE_URL;
 
@@ -118,6 +121,65 @@ router.get('/quotations', async (req, res) => {
         console.error('Error fetching quotations:', error);
         res.status(500).json({error: 'Internal server error.'});
     }
+});
+
+// To get specific user's quotation
+router.get('/quotation/:id', async (req, res) => {
+    try {
+    const quotationId = req.params.id;
+
+    const quotation = await Quotation.findById(quotationId);
+
+    if (!quotation) {
+      return res.status(404).json({ message: 'Quotation not found' });
+    }
+
+    return res.status(200).json(quotation);
+  } catch (error) {
+    console.error('Error fetching quotation:', error);
+    res.status(500).json({ message: 'Server error', error });
+  }
+})
+
+// To manipulate pricing in quotation
+router.put('/quotation/:id/price', async (req, res) => {
+  const { price, productId } = req.body;
+
+  if (typeof price !== 'number' || price <= 0 || !productId) {
+    return res.status(400).json({ message: 'Invalid input: price or productId' });
+  }
+
+  try {
+    const quotation = await Quotations.findById(req.params._id);
+    if (!quotation) {
+      return res.status(404).json({ message: 'Quotation not found' });
+    }
+
+    // Find the product in the quotation
+    const product = quotation.products.find(p => p._id.toString() === productId);
+    if (!product) {
+      return res.status(404).json({ message: 'Product not found in quotation' });
+    }
+
+    // Update price and totalPrice for the product
+    product.price = price;
+    const baseAmount = price * product.quantity;
+    const taxAmount = (product.Tax / 100) * baseAmount;
+    product.totalPrice = baseAmount + taxAmount;
+
+    // Recalculate quotation's totalPrice
+    quotation.totalPrice = quotation.products.reduce((sum, p) => sum + (p.totalPrice || 0), 0);
+
+    await quotation.save();
+
+    res.status(200).json({
+      message: 'Product price updated successfully in quotation',
+      quotation
+    });
+  } catch (error) {
+    console.error('Error updating quotation:', error);
+    res.status(500).json({ message: 'Server error', error });
+  }
 });
 
 module.exports = router;

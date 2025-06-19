@@ -18,16 +18,16 @@ const otpRoutes = require('./routes/otpRoutes');
 app.use('/api/otp', otpRoutes);
 const listUser = require('./routes/listUser');
 app.use('/api', listUser);
+
+
 // Database Connection with mongodb
 mongoose.connect(process.env.MONGODB_URI).then(r => console.log('mongodb connected successfully')).catch(e => console.log('mongoDb error ', e))
 const fs = require('fs');
-
 
 app.get("/", (req, res) => {
     res.status(200).json({message:"Welcome to Navkar!"});
 })
 const Users = require('./models/models');
-
 
 // Image storage Engine
 const imagesStorage = multer.diskStorage({
@@ -82,7 +82,6 @@ app.get('/banners', async (req, res) => {
     }
 });
 
-
 app.put('/banners/:id', upload.fields([
     {name: 'image', maxCount: 1},
     {name: 'image1', maxCount: 1},
@@ -117,8 +116,6 @@ app.put('/banners/:id', upload.fields([
     }
 });
 
-
-
 // Serve static files from the uploads directory
 app.use('/uploads', express.static('upload'));
 
@@ -137,6 +134,7 @@ const ProductCategory = mongoose.model("Category", {
     date: {type: Date, default: Date.now},
 
 })
+
 // Route to Fetch All Categories
 app.get('/categories', async (req, res) => {
     try {
@@ -191,13 +189,12 @@ app.delete('/categories/:id', async (req, res) => {
         res.status(500).json({error: 'Error removing category'});
     }
 });
+
 app.get('/products/:category', async (req, res) => {
     const category = req.params.category;
     const products = await Product.find({category: category});
     res.json(products);
 });
-
-
 
 const validateAndConvertProduct = (data) => {
     try {
@@ -376,9 +373,6 @@ const fetchUser = async (req, res, next) => {
     }
 };
 
-
-
-
 app.delete('/removeUser', async (req, res) => {
     try {
         const {email} = req.body;
@@ -427,7 +421,6 @@ app.post('/getUserDetails', fetchUser, async (req, res) => {
         res.status(500).json({success: false, error: "Internal server error"});
     }
 });
-
 
 app.get('/newCollection', async (req, res) => {
     let products = await Product.find({});
