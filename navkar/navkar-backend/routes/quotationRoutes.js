@@ -60,7 +60,7 @@ router.post("/uploadQuotation", async (req, res) => {
     }
 
     const quotation = new Quotation({
-      user: user.id,
+      user: existingUser._id,
       products,
       totalPrice,
     });
@@ -144,7 +144,39 @@ router.get("/quotations", async (req, res) => {
     }
   });
   
-
+// Get all quotations for a specific user by user ID
+router.get('/quotation/user/:userId', async (req, res) => {
+    const { userId } = req.params;
+  
+    if (!mongoose.Types.ObjectId.isValid(userId)) {
+      return res.status(400).json({ error: 'Invalid user ID format.' });
+    }
+  
+    try {
+      const quotations = await Quotation.find({ user: userId })
+        .select('_id createdAt Status')
+        .sort({ createdAt: -1 }); // Optional: newest first
+  
+      if (!quotations || quotations.length === 0) {
+        return res.status(404).json({ message: 'No quotations found for this user.' });
+      }
+  
+      const formatted = quotations.map(q => ({
+        quotationId: q._id,
+        date: q.createdAt,
+        status: q.Status
+      }));
+  
+      res.status(200).json({
+        userId,
+        quotations: formatted
+      });
+    } catch (error) {
+      console.error('Error fetching user quotations:', error);
+      res.status(500).json({ error: 'Internal server error.' });
+    }
+  });
+  
 // To get specific user's quotation
 router.get('/quotation/:id', async (req, res) => {
     try {
