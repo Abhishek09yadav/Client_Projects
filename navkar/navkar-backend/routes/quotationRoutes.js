@@ -197,47 +197,65 @@ router.get('/quotation/:id', async (req, res) => {
 })
 
 // To manipulate pricing in quotation
-router.put('/quotation/:id/price', async (req, res) => {
-  const { price, productId } = req.body;
+router.put("/quotation/prices/:id", async (req, res) => {
+  const { updates } = req.body; // expects an array: [{ productId, price }, ...]
 
-  if (typeof price !== 'number' || price <= 0 || !productId) {
-    return res.status(400).json({ message: 'Invalid input: price or productId' });
+  if (!Array.isArray(updates) || updates.length === 0) {
+    return res
+      .status(400)
+      .json({ message: "Invalid input: updates array required" });
   }
 
   try {
     const quotation = await Quotation.findById(req.params.id);
-    // console.log("quotation -> ", quotation);
 
     if (!quotation) {
-      return res.status(404).json({ message: 'Quotation not found' });
+      return res.status(404).json({ message: "Quotation not found" });
     }
 
-    // Find the product in the quotation
-    const product = quotation.products.find(p => p._id.toString() === productId);
-    if (!product) {
-      return res.status(404).json({ message: 'Product not found in quotation' });
+    // Track update status
+    let updatedCount = 0;
+
+    updates.forEach(({ productId, price }) => {
+      if (typeof price !== "number" || price <= 0 || !productId) return;
+
+      const product = quotation.products.find(
+        (p) => p._id.toString() === productId
+      );
+      if (product) {
+        product.price = price;
+        const baseAmount = price * product.quantity;
+        const taxAmount = (product.Tax / 100) * baseAmount;
+        product.totalPrice = baseAmount + taxAmount;
+        updatedCount++;
+      }
+    });
+
+    if (updatedCount === 0) {
+      return res
+        .status(400)
+        .json({ message: "No valid product updates were applied" });
     }
 
-    // Update price and totalPrice for the product
-    product.price = price;
-    const baseAmount = price * product.quantity;
-    const taxAmount = (product.Tax / 100) * baseAmount;
-    product.totalPrice = baseAmount + taxAmount;
-
-    // Recalculate quotation's totalPrice
-    quotation.totalPrice = quotation.products.reduce((sum, p) => sum + (p.totalPrice || 0), 0);
+    // Recalculate total quotation price
+    quotation.totalPrice = quotation.products.reduce(
+      (sum, p) => sum + (p.totalPrice || 0),
+      0
+    );
     quotation.Status = "Completed";
+
     await quotation.save();
 
     res.status(200).json({
-      message: 'Product price updated successfully in quotation',
-      quotation
+      message: `${updatedCount} product(s) updated successfully in quotation`,
+      quotation,
     });
   } catch (error) {
-    console.error('Error updating quotation:', error);
-    res.status(500).json({ message: 'Server error', error });
+    console.error("Error updating quotation:", error);
+    res.status(500).json({ message: "Server error", error });
   }
-  }
-);
+});
+
+
 
 module.exports = router;
