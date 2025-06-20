@@ -33,14 +33,14 @@ function ListProduct() {
     const removeProductModal = async (id, name) => {
         confirmAlert({
             title: 'Delete Product Confirmation',
-            message: `Are you certain you wish to permanently delete Product 123? Please note that this action is irreversible.`,
+            message: `Are you certain you wish to permanently delete Product ${name}? Please note that this action is irreversible.`,
             buttons: [
                 {
                     label: 'Confirm',
                     onClick: () => removeProduct(id),
                     style: {
-                        backgroundColor: '#ff0000', // Change to your desired color
-                        color: '#ffffff' // Change text color if needed
+                        backgroundColor: '#ff0000',
+                        color: '#ffffff' 
                     }
                 },
                 {
@@ -89,10 +89,10 @@ function ListProduct() {
         fetchInfo();
     };
 
-    const handleAddNew = () => {
-        setSelectedProduct(null);
-        setShowModal(true);
-    };
+    // const handleAddNew = () => {
+    //     setSelectedProduct(null);
+    //     setShowModal(true);
+    // };
 
     const handlePageChange = (selectedPage) => {
         setCurrentPage(selectedPage.selected);
@@ -131,8 +131,8 @@ function ListProduct() {
                 <div className="ListProduct-format-main">
                     <p>Products</p>
                     <p>Title</p>
-                    <p>Old Price</p>
-                    <p>New Price</p>
+                    {/* <p>Old Price</p> */}
+                    <p> Price</p>
                     <p>Category</p>
                     <p>Edit</p>
                     <p>Remove</p>
@@ -142,8 +142,8 @@ function ListProduct() {
                     {paginatedProducts.map((product, index) => (
                         <div key={index} className="ListProduct-format-main ListProduct-format">
                             <img src={`${url}${product.image}`} alt="" className="ListProduct-product-icon"/>
-                            <p>{product.name}</p>
-                            <p>₹{product.old_price}</p>
+                            <p>{' '}{product.name}</p>
+                            {/* <p>₹{product.old_price}</p> */}
                             <p>₹{product.new_price}</p>
                             <p>{product.category}</p>
                             <img

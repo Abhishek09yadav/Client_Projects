@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import  {useEffect, useState} from 'react';
 import './AddProduct.css';
 import upload_area from '../../assets/upload_area.svg';
 import plus_icon from '../../assets/plus.png';
@@ -38,7 +38,7 @@ function AddProduct({product}) {
         Description: '',
         Tax: '',
         new_price: '',
-        old_price: '',
+        old_price: '0',
         MOQ: '',
     });
 
@@ -204,7 +204,8 @@ function AddProduct({product}) {
                 </div>
             </div>
             <div className="AddProduct-price">
-                <div className="AddProduct-itemfield">
+                {/* old price not needed anymore */}
+                {/* <div className="AddProduct-itemfield">
                     <p>Price</p>
                     <div className="AddProduct-price-input">
                         <img src={rupee_icon} alt="Rupee" className="input-icon"/>
@@ -216,9 +217,10 @@ function AddProduct({product}) {
                             placeholder="Type Here"
                         />
                     </div>
-                </div>
+                </div> */}
+                {/* new price */}
                 <div className="AddProduct-itemfield">
-                    <p>Offer Price</p>
+                    <p>Price</p>
                     <div className="AddProduct-price-input">
                         <img src={rupee_icon} alt="Rupee" className="input-icon"/>
                         <input
