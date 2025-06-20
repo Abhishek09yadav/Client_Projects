@@ -1,14 +1,17 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faDownload, faEye, faTimes} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDownload, faEye, faTimes } from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
 import './QuotationHistory.css';
-import {FaSearch} from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 import Calendar from 'react-calendar';
+import { MdEdit } from "react-icons/md";
 import 'react-calendar/dist/Calendar.css';
 import handlePdfDownload from "../DownloadPdf/handlePdfDownload.js";
-import {toast, ToastContainer} from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import { IoClose } from "react-icons/io5";
+import { GiConfirmed } from "react-icons/gi";
 
 const url = import.meta.env.VITE_API_URL;
 
@@ -24,6 +27,10 @@ const QuotationHistory = () => {
     const [showModal, setShowModal] = useState(false);
     const [selectedQuotation, setSelectedQuotation] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [editingProduct, setEditingProduct] = useState(null);
+    const [editingPrice, setEditingPrice] = useState('');
+    const [editedPrices, setEditedPrices] = useState({});
+    const [quotation, setQuotation] = useState();
     const itemsPerPage = 10;
 
     const formatDate = (timestamp) => {
@@ -57,8 +64,8 @@ const QuotationHistory = () => {
                 }
             });
 
-            console.log("Response: ", response);
-            
+            // console.log("Response: ", response);
+
             const formattedQuotations = response.data.quotations.map((quotation) => ({
                 ...quotation,
                 formattedDate: formatDate(quotation.uploadedAt),
@@ -71,11 +78,12 @@ const QuotationHistory = () => {
         }
     };
 
-    const fetchQuotationDetails = async (quotationId) => {
+    const fetchQuotationDetails = async (quotation) => {
         setLoading(true);
+        setQuotation(quotation);
         try {
-            const response = await axios.get(`${url}/api/quotation/${quotationId}`);
-            console.log("Quotation details:", response.data);
+            const response = await axios.get(`${url}/api/quotation/${quotation.id}`);
+            // console.log("Quotation details:", response.data);
             setSelectedQuotation(response.data);
             setShowModal(true);
         } catch (error) {
@@ -86,9 +94,9 @@ const QuotationHistory = () => {
         }
     };
 
-    const handleViewQuotation = (quotationId) => {
-        console.log("Viewing quotation with ID:", quotationId);
-        fetchQuotationDetails(quotationId);
+    const handleViewQuotation = (quotation) => {
+        // console.log("Viewing quotation with ID:", quotation);
+        fetchQuotationDetails(quotation);
     };
 
     const closeModal = () => {
@@ -144,6 +152,23 @@ const QuotationHistory = () => {
         setCurrentPage(0);
         fetchQuotations(0, searchTerm, startDate, endDate);
     };
+
+const handleConfirm = async () => {
+    if (!selectedQuotation?._id || Object.keys(editedPrices).length === 0) return;
+    try {
+        // Prepare updates array as required by the API
+        const updates = Object.entries(editedPrices).map(([productId, price]) => ({ productId, price }));
+        // Make the PUT request to the bulk price update endpoint
+        await axios.put(`${url}/api/quotation/prices/${selectedQuotation._id}`, { updates });
+        // console.log("Selected Quotation: ", selectedQuotation);
+        
+        toast.success('Prices updated successfully');
+        // Optionally, refresh the quotation details here
+    } catch (error) {
+        toast.error('Failed to update prices');
+        console.error(error);
+    }
+};
 
     const handlePageClick = (data) => {
         setCurrentPage(data.selected);
@@ -227,46 +252,46 @@ const QuotationHistory = () => {
                 </div>
 
                 <button onClick={handleSearch} className="btn btn-primary justify-content-center search-bar w-25">
-                    Search... <FaSearch/>
+                    Search... <FaSearch />
                 </button>
             </div>
 
             <table className="quotation-table">
                 <thead>
-                <tr>
-                    <th>User Name</th>
-                    <th>Phone Number</th>
-                    <th>Email</th>
-                    <th>Date</th>
-                    <th>Actions</th>
-                </tr>
+                    <tr>
+                        <th>User Name</th>
+                        <th>Phone Number</th>
+                        <th>Email</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
                 </thead>
                 <tbody>
-                {quotations.map((quotation, index) => (
-                    <tr key={quotation._id || quotation.id || index}>
-                        <td>{quotation.userName}</td>
-                        <td>{quotation.phoneNo}</td>
-                        <td>{quotation.email}</td>
-                        <td>{quotation.formattedDate}</td>
-                        <td className={'d-flex flex-row flex-nowrap gap-2'}>
-                            <button 
-                                className="btn btn-outline-primary"
-                                onClick={() => handleViewQuotation(quotation._id || quotation.id)}
-                                title="View Details"
-                                disabled={loading}
-                            >
-                                {loading ? 'Loading...' : 'View'} <FontAwesomeIcon icon={faEye}/>
-                            </button>
-                            <button
-                                onClick={() => handlePdfDownload(quotation)}
-                                title="Download PDF"
-                                className="btn btn-outline-success"
-                            >
-                                Download <FontAwesomeIcon icon={faDownload}/>
-                            </button>
-                        </td>
-                    </tr>
-                ))}
+                    {quotations.map((quotation, index) => (
+                        <tr key={quotation._id || quotation.id || index}>
+                            <td>{quotation.userName}</td>
+                            <td>{quotation.phoneNo}</td>
+                            <td>{quotation.email}</td>
+                            <td>{quotation.formattedDate}</td>
+                            <td className={'d-flex flex-row flex-nowrap gap-2'}>
+                                <button
+                                    className="btn btn-outline-primary my-auto"
+                                    onClick={() => handleViewQuotation(quotation)}
+                                    title="View Details"
+                                    disabled={loading}
+                                >
+                                    {loading ? 'Loading...' : 'View'} <FontAwesomeIcon icon={faEye} />
+                                </button>
+                                <button
+                                    onClick={() => handlePdfDownload(quotation)}
+                                    title="Download PDF"
+                                    className="btn btn-outline-success my-auto"
+                                >
+                                    Download <FontAwesomeIcon icon={faDownload} />
+                                </button>
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
 
@@ -285,58 +310,66 @@ const QuotationHistory = () => {
 
             {/* Bootstrap Modal with proper z-index and positioning */}
             {showModal && (
-                <div 
+                <div
                     className="modal-backdrop-custom"
                     onClick={closeModal}
                 >
                     <div className="modal-container-custom">
-                        <div 
+                        <div
                             className="modal-content-custom"
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <div className="modal-header bg-primary text-white">
+                            <div className="modal-header bg-primary text-white relative">
                                 <h5 className="modal-title">
-                                    <FontAwesomeIcon icon={faEye} className="me-2"/>
+                                    <FontAwesomeIcon icon={faEye} className="me-2" />
                                     Quotation Details
                                 </h5>
-                                <button 
-                                    type="button" 
-                                    className="btn-close btn-close-white" 
+                                <button
+                                    type="button"
+                                    className="btn-close btn-close-white absolute "
                                     onClick={closeModal}
                                     aria-label="Close"
-                                ></button>
+                                    style={{ position: 'relative', right: '8px', bottom: '4px' }}
+                                ><IoClose size={25} /></button>
                             </div>
-                            <div className="modal-body-custom">
+                            <div className="modal-body-custom" >
                                 {selectedQuotation ? (
-                                    <div className="quotation-details">
+                                    <div className="quotation-details" >
                                         {/* User Information Card */}
-                                        <div className="card mb-4">
+                                            <div className="card mb-4">
                                             <div className="card-header bg-light">
-                                                <h6 className="mb-0 fw-bold">Customer Information</h6>
+                                                <h6 className="mb-0 fw-bold" style={{fontSize: "16px"}}>Customer Information</h6>
                                             </div>
                                             <div className="card-body">
                                                 <div className="row">
-                                                    <div className="col-md-6">
-                                                        <p><strong>Name:</strong> {selectedQuotation.user?.name || 'N/A'}</p>
-                                                        <p><strong>Email:</strong> {selectedQuotation.user?.email || 'N/A'}</p>
-                                                    </div>
-                                                    <div className="col-md-6">
-                                                        <p><strong>Phone:</strong> {selectedQuotation.user?.phone || 'N/A'}</p>
-                                                        <p><strong>Created:</strong> {formatFullDate(selectedQuotation.createdAt)}</p>
-                                                    </div>
+                                                {(() => {
+                                                    // console.log("Quotations: ", quotation);
+                                                    return (
+                                                    <>
+                                                        <div className="col-md-6">
+                                                        <p><strong>Name:</strong> {quotation?.userName || 'N/A'}</p>
+                                                        <p><strong>Email:</strong> {quotation?.email || 'N/A'}</p>
+                                                        </div>
+                                                        <div className="col-md-6">
+                                                        <p><strong>Phone:</strong> {quotation?.phoneNo || 'N/A'}</p>
+                                                        <p><strong>Date:</strong> {quotation?.formattedDate || 'N/A'}</p>
+                                                        </div>
+                                                    </>
+                                                    );
+                                                })()}
                                                 </div>
                                             </div>
-                                        </div>
+                                            </div>
 
                                         {/* Products Table */}
-                                        <div className="card mb-4">
+                                        <div className="card mb-4" >
                                             <div className="card-header bg-light">
-                                                <h6 className="mb-0 fw-bold">Products ({selectedQuotation.products?.length || 0})</h6>
+                                                <h6 className="mb-0 fw-bold" style={{ fontSize: "16px" }}>Products ({selectedQuotation.products?.length || 0})</h6>
                                             </div>
                                             <div className="card-body p-0">
                                                 <div className="table-responsive">
                                                     <table className="table table-striped mb-0">
-                                                        <thead className="table-dark">
+                                                        <thead className="table-dark" >
                                                             <tr>
                                                                 <th>#</th>
                                                                 <th>Product Name</th>
@@ -347,7 +380,7 @@ const QuotationHistory = () => {
                                                                 <th>Total Price</th>
                                                             </tr>
                                                         </thead>
-                                                        <tbody>
+                                                        <tbody style={{ fontSize: "16px" }}>
                                                             {selectedQuotation.products?.map((product, index) => (
                                                                 <tr key={product._id || index}>
                                                                     <td>{index + 1}</td>
@@ -358,7 +391,48 @@ const QuotationHistory = () => {
                                                                         </span>
                                                                     </td>
                                                                     <td>{product.quantity || 0}</td>
-                                                                    <td>₹{product.price?.toFixed(2) || '0.00'}</td>
+                                                                    <td>
+                                                                        {editingProduct === product._id ? (
+                                                                            <div className="d-flex align-items-center gap-2">
+                                                                                <input
+                                                                                    type="number"
+                                                                                    className="form-control form-control-sm"
+                                                                                    value={editingPrice}
+                                                                                    onChange={e => setEditingPrice(e.target.value)}
+                                                                                    style={{ width: '100px' }}
+                                                                                />
+                                                                                <button
+                                                                                    className="btn btn-sm btn-success my-auto"
+                                                                                    onClick={() => {
+                                                                                        setEditedPrices(prev => ({ ...prev, [product._id]: parseFloat(editingPrice) }));
+                                                                                        setEditingProduct(null);
+                                                                                        setEditingPrice('');
+                                                                                    }}
+                                                                                    title="Save"
+                                                                                >✓</button>
+                                                                                <button
+                                                                                    className="btn btn-sm btn-danger my-auto"
+                                                                                    onClick={() => {
+                                                                                        setEditingProduct(null);
+                                                                                        setEditingPrice('');
+                                                                                    }}
+                                                                                    title="Cancel"
+                                                                                ><IoClose /></button>
+                                                                            </div>
+                                                                        ) : (
+                                                                            <div className="d-flex gap-2 align-items-center">
+                                                                                ₹{editedPrices[product._id]?.toFixed(2) ?? product.price?.toFixed(2) ?? '0.00'}
+                                                                                <button
+                                                                                    className="btn btn-sm btn-outline-primary my-auto"
+                                                                                    onClick={() => {
+                                                                                        setEditingProduct(product._id);
+                                                                                        setEditingPrice(editedPrices[product._id]?.toString() || product.price.toString());
+                                                                                    }}
+                                                                                    title="Edit Price"
+                                                                                ><MdEdit /></button>
+                                                                            </div>
+                                                                        )}
+                                                                    </td>
                                                                     <td>₹{product.Tax?.toFixed(2) || '0.00'}</td>
                                                                     <td className="fw-bold">₹{product.totalPrice?.toFixed(2) || '0.00'}</td>
                                                                 </tr>
@@ -372,7 +446,7 @@ const QuotationHistory = () => {
                                         {/* Total Summary Card */}
                                         <div className="card">
                                             <div className="card-header bg-success text-white">
-                                                <h6 className="mb-0 fw-bold">Summary</h6>
+                                                <h6 className="mb-0 fw-bold" style={{ fontSize: "16px" }}>Summary</h6>
                                             </div>
                                             <div className="card-body">
                                                 <div className="row">
@@ -382,7 +456,7 @@ const QuotationHistory = () => {
                                                     </div>
                                                     <div className="col-md-6">
                                                         <p><strong>Total Tax:</strong> ₹{selectedQuotation.products?.reduce((sum, product) => sum + (product.Tax || 0), 0).toFixed(2)}</p>
-                                                        <p className="fs-5"><strong>Grand Total:</strong> 
+                                                        <p className="fs-5"><strong>Grand Total:</strong>
                                                             <span className="text-success fw-bold ms-2">₹{selectedQuotation.totalPrice?.toFixed(2) || '0.00'}</span>
                                                         </p>
                                                     </div>
@@ -400,18 +474,14 @@ const QuotationHistory = () => {
                                 )}
                             </div>
                             <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" onClick={closeModal}>
-                                    <FontAwesomeIcon icon={faTimes} className="me-2"/>
-                                    Close
-                                </button>
                                 {selectedQuotation && (
-                                    <button 
-                                        type="button" 
+                                    <button
+                                        type="button"
                                         className="btn btn-primary"
-                                        onClick={() => window.open(`${url}${selectedQuotation.link}`, '_blank')}
+                                        onClick={handleConfirm}
                                     >
-                                        <FontAwesomeIcon icon={faEye} className="me-2"/>
-                                        View PDF
+                                        <GiConfirmed />
+                                        Confirm
                                     </button>
                                 )}
                             </div>
@@ -420,7 +490,7 @@ const QuotationHistory = () => {
                 </div>
             )}
 
-            <ToastContainer/>
+            <ToastContainer />
         </div>
     );
 };
