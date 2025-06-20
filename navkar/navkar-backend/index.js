@@ -18,7 +18,8 @@ const otpRoutes = require('./routes/otpRoutes');
 app.use('/api/otp', otpRoutes);
 const listUser = require('./routes/listUser');
 app.use('/api', listUser);
-
+const bannerHomeRoutes = require('./routes/bannerHomeRoutes');
+app.use('/api/bannerHome',bannerHomeRoutes)
 
 // Database Connection with mongodb
 mongoose.connect(process.env.MONGODB_URI).then(r => console.log('mongodb connected successfully')).catch(e => console.log('mongoDb error ', e))
@@ -232,7 +233,7 @@ const Product = mongoose.model("Product", {
     image3: {type: String, required: false},
     category: {type: String, required: true},
     new_price: {type: Number, required: true},
-    old_price: {type: Number, required: true},
+    old_price: {type: Number,default:0, required: true},
     Tax: {type: Number, required: true},
     Description: {type: String, required: true},
     date: {type: Date, default: Date.now},
