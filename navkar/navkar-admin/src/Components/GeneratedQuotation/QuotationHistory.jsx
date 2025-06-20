@@ -30,6 +30,7 @@ const QuotationHistory = () => {
     const [editingProduct, setEditingProduct] = useState(null);
     const [editingPrice, setEditingPrice] = useState('');
     const [editedPrices, setEditedPrices] = useState({});
+    const [quotation, setQuotation] = useState();
     const itemsPerPage = 10;
 
     const formatDate = (timestamp) => {
@@ -63,7 +64,7 @@ const QuotationHistory = () => {
                 }
             });
 
-            console.log("Response: ", response);
+            // console.log("Response: ", response);
 
             const formattedQuotations = response.data.quotations.map((quotation) => ({
                 ...quotation,
@@ -77,10 +78,11 @@ const QuotationHistory = () => {
         }
     };
 
-    const fetchQuotationDetails = async (quotationId) => {
+    const fetchQuotationDetails = async (quotation) => {
         setLoading(true);
+        setQuotation(quotation);
         try {
-            const response = await axios.get(`${url}/api/quotation/${quotationId}`);
+            const response = await axios.get(`${url}/api/quotation/${quotation.id}`);
             // console.log("Quotation details:", response.data);
             setSelectedQuotation(response.data);
             setShowModal(true);
@@ -92,9 +94,9 @@ const QuotationHistory = () => {
         }
     };
 
-    const handleViewQuotation = (quotationId) => {
-        console.log("Viewing quotation with ID:", quotationId);
-        fetchQuotationDetails(quotationId);
+    const handleViewQuotation = (quotation) => {
+        // console.log("Viewing quotation with ID:", quotation);
+        fetchQuotationDetails(quotation);
     };
 
     const closeModal = () => {
@@ -158,7 +160,7 @@ const handleConfirm = async () => {
         const updates = Object.entries(editedPrices).map(([productId, price]) => ({ productId, price }));
         // Make the PUT request to the bulk price update endpoint
         await axios.put(`${url}/api/quotation/prices/${selectedQuotation._id}`, { updates });
-        console.log("Selected Quotation: ", selectedQuotation);
+        // console.log("Selected Quotation: ", selectedQuotation);
         
         toast.success('Prices updated successfully');
         // Optionally, refresh the quotation details here
@@ -273,8 +275,8 @@ const handleConfirm = async () => {
                             <td>{quotation.formattedDate}</td>
                             <td className={'d-flex flex-row flex-nowrap gap-2'}>
                                 <button
-                                    className="btn btn-outline-primary"
-                                    onClick={() => handleViewQuotation(quotation._id || quotation.id)}
+                                    className="btn btn-outline-primary my-auto"
+                                    onClick={() => handleViewQuotation(quotation)}
                                     title="View Details"
                                     disabled={loading}
                                 >
@@ -283,7 +285,7 @@ const handleConfirm = async () => {
                                 <button
                                     onClick={() => handlePdfDownload(quotation)}
                                     title="Download PDF"
-                                    className="btn btn-outline-success"
+                                    className="btn btn-outline-success my-auto"
                                 >
                                     Download <FontAwesomeIcon icon={faDownload} />
                                 </button>
@@ -334,23 +336,30 @@ const handleConfirm = async () => {
                                 {selectedQuotation ? (
                                     <div className="quotation-details" >
                                         {/* User Information Card */}
-                                        <div className="card mb-4" >
+                                            <div className="card mb-4">
                                             <div className="card-header bg-light">
-                                                <h6 className="mb-0 fw-bold" style={{ fontSize: "16px" }}>Customer Information</h6>
+                                                <h6 className="mb-0 fw-bold" style={{fontSize: "16px"}}>Customer Information</h6>
                                             </div>
                                             <div className="card-body">
                                                 <div className="row">
-                                                    <div className="col-md-6">
-                                                        <p><strong>Name:</strong> {selectedQuotation.user?.name || 'N/A'}</p>
-                                                        <p><strong>Email:</strong> {selectedQuotation.user?.email || 'N/A'}</p>
-                                                    </div>
-                                                    <div className="col-md-6">
-                                                        <p><strong>Phone:</strong> {selectedQuotation.user?.phone || 'N/A'}</p>
-                                                        <p><strong>Created:</strong> {formatFullDate(selectedQuotation.createdAt)}</p>
-                                                    </div>
+                                                {(() => {
+                                                    // console.log("Quotations: ", quotation);
+                                                    return (
+                                                    <>
+                                                        <div className="col-md-6">
+                                                        <p><strong>Name:</strong> {quotation?.userName || 'N/A'}</p>
+                                                        <p><strong>Email:</strong> {quotation?.email || 'N/A'}</p>
+                                                        </div>
+                                                        <div className="col-md-6">
+                                                        <p><strong>Phone:</strong> {quotation?.phoneNo || 'N/A'}</p>
+                                                        <p><strong>Date:</strong> {quotation?.formattedDate || 'N/A'}</p>
+                                                        </div>
+                                                    </>
+                                                    );
+                                                })()}
                                                 </div>
                                             </div>
-                                        </div>
+                                            </div>
 
                                         {/* Products Table */}
                                         <div className="card mb-4" >
