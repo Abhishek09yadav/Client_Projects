@@ -155,7 +155,7 @@ router.get('/quotation/user/:userId', async (req, res) => {
     try {
       const quotations = await Quotation.find({ user: userId })
         .select('_id createdAt Status')
-        .sort({ createdAt: -1 }); // Optional: newest first
+        .sort({ createdAt: -1 }); 
   
       if (!quotations || quotations.length === 0) {
         return res.status(404).json({ message: 'No quotations found for this user.' });

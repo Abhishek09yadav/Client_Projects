@@ -1,24 +1,21 @@
+import axios from "axios";
+import { useState } from "react";
+
 const url = import.meta.env.VITE_API_URL;
 const handlePdfDownload = async (quotation) => {
+  console.log(quotation);
+//   const [resData, setResData] = useState();
+  const fetchQuotationDetails = async (quotation) => {
+    // setLoading(true);
+    // setQuotation(resData);
     try {
+      const response = await axios.get(`${url}/api/quotation/${quotation.id}`);
 
-        const response = await fetch(`${url}${quotation.link}`);
-        console.log('res', response)
-        if (!response.ok) {
-            throw new Error(`Failed to download PDF: ${response.statusText}`);
-        }
-        const blob = await response.blob();
-        const blobUrl = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.style.display = 'none';
-        a.href = blobUrl;
-        a.download = `Quotation_${quotation.uploadedAt}`;
-        document.body.appendChild(a);
-        a.click();
-        window.URL.revokeObjectURL(url);
-        document.body.removeChild(a);
+      console.log("Quotation details:", response.data);
     } catch (error) {
-        console.error('Error downloading the PDF:', error);
+      console.error("Error fetching quotation details:", error);
     }
+  };
+  fetchQuotationDetails(quotation);
 };
-export default handlePdfDownload
+export default handlePdfDownload;

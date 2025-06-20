@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDownload, faEye, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faDownload, faEye } from "@fortawesome/free-solid-svg-icons";
 import axios from 'axios';
 import './QuotationHistory.css';
 import { FaSearch } from "react-icons/fa";
@@ -41,16 +41,16 @@ const QuotationHistory = () => {
         return `${day}/${month}/${year}`;
     };
 
-    const formatFullDate = (timestamp) => {
-        const date = new Date(timestamp);
-        return date.toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit'
-        });
-    };
+    // const formatFullDate = (timestamp) => {
+    //     const date = new Date(timestamp);
+    //     return date.toLocaleDateString('en-US', {
+    //         year: 'numeric',
+    //         month: 'long',
+    //         day: 'numeric',
+    //         hour: '2-digit',
+    //         minute: '2-digit'
+    //     });
+    // };
 
     const fetchQuotations = async (page, search = '', startDate = null, endDate = null) => {
         try {
@@ -83,7 +83,7 @@ const QuotationHistory = () => {
         setQuotation(quotation);
         try {
             const response = await axios.get(`${url}/api/quotation/${quotation.id}`);
-            // console.log("Quotation details:", response.data);
+            console.log("Quotation details:", response.data);
             setSelectedQuotation(response.data);
             setShowModal(true);
         } catch (error) {
