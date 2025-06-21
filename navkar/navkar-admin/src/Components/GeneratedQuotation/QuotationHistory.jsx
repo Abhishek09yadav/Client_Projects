@@ -12,6 +12,7 @@ import handlePdfDownload from "../DownloadPdf/handlePdfDownload.jsx";
 import { toast, ToastContainer } from "react-toastify";
 import { IoClose } from "react-icons/io5";
 import { GiConfirmed } from "react-icons/gi";
+import { confirmAlert } from "react-confirm-alert";
 
 const url = import.meta.env.VITE_API_URL;
 
@@ -55,24 +56,28 @@ const QuotationHistory = () => {
     startDate = null,
     endDate = null
   ) => {
-    const utcStart = startDate ? new Date(
-      Date.UTC(
-        startDate.getFullYear(),
-        startDate.getMonth(),
-        startDate.getDate()
-      )
-    ) : null ;
-    const utcEnd = endDate ? new Date(
-      Date.UTC(
-        endDate.getFullYear(),
-        endDate.getMonth(),
-        endDate.getDate(),
-        23,
-        59,
-        59,
-        999
-      )
-    ): null;
+    const utcStart = startDate
+      ? new Date(
+          Date.UTC(
+            startDate.getFullYear(),
+            startDate.getMonth(),
+            startDate.getDate()
+          )
+        )
+      : null;
+    const utcEnd = endDate
+      ? new Date(
+          Date.UTC(
+            endDate.getFullYear(),
+            endDate.getMonth(),
+            endDate.getDate(),
+            23,
+            59,
+            59,
+            999
+          )
+        )
+      : null;
     try {
       const response = await axios.get(`${url}/api/quotations`, {
         params: {
@@ -178,23 +183,42 @@ const QuotationHistory = () => {
   const handleConfirm = async () => {
     if (!selectedQuotation?._id || Object.keys(editedPrices).length === 0)
       return;
-    try {
-      // Prepare updates array as required by the API
-      const updates = Object.entries(editedPrices).map(
-        ([productId, price]) => ({ productId, price })
-      );
-      // Make the PUT request to the bulk price update endpoint
-      await axios.put(`${url}/api/quotation/prices/${selectedQuotation._id}`, {
-        updates,
-      });
-      // console.log("Selected Quotation: ", selectedQuotation);
 
-      toast.success("Prices updated successfully");
-      // Optionally, refresh the quotation details here
-    } catch (error) {
-      toast.error("Failed to update prices");
-      console.error(error);
-    }
+    confirmAlert({
+      title: "Confirm Price Update",
+      message: "Are you sure you want to update the prices?",
+      buttons: [
+        {
+          label: "Yes",
+          onClick: async () => {
+            try {
+              // Prepare updates array as required by the API
+              const updates = Object.entries(editedPrices).map(
+                ([productId, price]) => ({ productId, price })
+              );
+              // Make the PUT request to the bulk price update endpoint
+              await axios.put(
+                `${url}/api/quotation/prices/${selectedQuotation._id}`,
+                {
+                  updates,
+                }
+              );
+              // console.log("Selected Quotation: ", selectedQuotation);
+
+              toast.success("Prices updated successfully");
+              // Optionally, refresh the quotation details here
+            } catch (error) {
+              toast.error("Failed to update prices");
+              console.error(error);
+            }
+          },
+        },
+        {
+          label: "No",
+          onClick: () => {},
+        },
+      ],
+    });
   };
 
   const handlePageClick = (data) => {
@@ -606,8 +630,7 @@ const QuotationHistory = () => {
                     className="btn btn-primary"
                     onClick={handleConfirm}
                   >
-                    <GiConfirmed />
-                    Confirm
+                    <GiConfirmed /> Confirm
                   </button>
                 )}
               </div>
