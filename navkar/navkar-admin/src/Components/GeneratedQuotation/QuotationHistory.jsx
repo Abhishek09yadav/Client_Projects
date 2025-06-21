@@ -37,7 +37,6 @@ const QuotationHistory = () => {
     const date = new Date(timestamp);
     return date.toLocaleDateString("en-GB"); // Format: DD/MM/YYYY
   };
-  
 
   // const formatFullDate = (timestamp) => {
   //     const date = new Date(timestamp);
@@ -56,14 +55,32 @@ const QuotationHistory = () => {
     startDate = null,
     endDate = null
   ) => {
+    const utcStart = startDate ? new Date(
+      Date.UTC(
+        startDate.getFullYear(),
+        startDate.getMonth(),
+        startDate.getDate()
+      )
+    ) : null ;
+    const utcEnd = endDate ? new Date(
+      Date.UTC(
+        endDate.getFullYear(),
+        endDate.getMonth(),
+        endDate.getDate(),
+        23,
+        59,
+        59,
+        999
+      )
+    ): null;
     try {
       const response = await axios.get(`${url}/api/quotations`, {
         params: {
           page: page + 1,
           limit: itemsPerPage,
           search: search,
-          startDate: startDate ? startDate.getTime() : null,
-          endDate: endDate ? endDate.getTime() : null,
+          startDate: startDate ? utcStart.getTime() : null,
+          endDate: endDate ? utcEnd.getTime() : null,
         },
       });
 
