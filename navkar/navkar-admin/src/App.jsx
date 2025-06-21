@@ -7,6 +7,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import LoginSignup from "./Components/LoginSignup/LoginSignup.jsx";
 import Spinner from "./Components/spinner/Spinner.jsx";
  const url = import.meta.env.VITE_API_URL;
+ import { ToastContainer } from "react-toastify";
+ import "react-toastify/dist/ReactToastify.css";
 function App() {
   const [loading, setLoading] = useState(true);
   const authToken = localStorage.getItem("auth-token");
@@ -39,7 +41,18 @@ function App() {
   return (
     <>
       <Navbar />
-      {loading === true ? <Spinner /> :(authToken ? <Admin /> : <LoginSignup />)}
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+      {loading === true ? <Spinner /> : authToken ? <Admin /> : <LoginSignup />}
     </>
   );
 }

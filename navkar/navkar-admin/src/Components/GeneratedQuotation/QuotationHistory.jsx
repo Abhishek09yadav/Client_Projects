@@ -9,7 +9,7 @@ import Calendar from "react-calendar";
 import { MdEdit } from "react-icons/md";
 import "react-calendar/dist/Calendar.css";
 import handlePdfDownload from "../DownloadPdf/handlePdfDownload.jsx";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { IoClose } from "react-icons/io5";
 import { GiConfirmed } from "react-icons/gi";
 import { confirmAlert } from "react-confirm-alert";
@@ -95,7 +95,7 @@ const QuotationHistory = () => {
         ...quotation,
         formattedDate: formatDate(quotation.uploadedAt),
       }));
-    //   console.log("formatted Quotations", formattedQuotations);
+      //   console.log("formatted Quotations", formattedQuotations);
 
       setQuotations(formattedQuotations);
       setTotalPages(response.data.totalPages);
@@ -181,14 +181,19 @@ const QuotationHistory = () => {
   };
 
   const handleConfirm = async () => {
-    if (!selectedQuotation?._id )
-        // || Object.keys(editedPrices).length === 0
-
+    if (!selectedQuotation?._id)
+      // || Object.keys(editedPrices).length === 0
       return;
-
+    console.log(selectedQuotation);
+    if (selectedQuotation.Status === "Completed") {
+      toast.warn("Quotation is already marked as Completed");
+      console.log("hi");
+      return;
+    }
     confirmAlert({
-      title: "Confirm Price Update",
-      message: "Are you sure you want to update the prices?",
+      title: "Mark As Completed",
+      message:
+        "Are you sure you want to mark status as Completed? Once confimed prices cannot be changed for this Quotation",
       buttons: [
         {
           label: "Yes",
@@ -325,6 +330,7 @@ const QuotationHistory = () => {
             <th>Phone Number</th>
             <th>Email</th>
             <th>Date</th>
+            <th>Status</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -335,6 +341,16 @@ const QuotationHistory = () => {
               <td>{quotation.phoneNo}</td>
               <td>{quotation.email}</td>
               <td>{quotation.formattedDate}</td>
+              <td
+                className={
+                  quotation.status === "Completed"
+                    ? "text-success"
+                    : "text-warning"
+                }
+              >
+                {quotation.status}
+              </td>
+
               <td className={"d-flex flex-row flex-nowrap gap-2"}>
                 <button
                   className="btn btn-outline-primary my-auto"
@@ -470,7 +486,7 @@ const QuotationHistory = () => {
                                 <th>Category</th>
                                 <th>Quantity</th>
                                 <th>Unit Price</th>
-                                <th>Tax</th>
+                                <th>Tax (%)</th>
                                 <th>Total Price</th>
                               </tr>
                             </thead>
@@ -553,7 +569,7 @@ const QuotationHistory = () => {
                                       )}
                                     </td>
                                     <td>
-                                      ₹{product.Tax?.toFixed(2) || "0.00"}
+                                      {product.Tax?.toFixed(2) || "0.00"} %
                                     </td>
                                     <td className="fw-bold">
                                       ₹
@@ -595,13 +611,13 @@ const QuotationHistory = () => {
                           </div>
                           <div className="col-md-6">
                             <p>
-                              <strong>Total Tax:</strong> ₹
+                              <strong>Total Tax:</strong> 
                               {selectedQuotation.products
                                 ?.reduce(
                                   (sum, product) => sum + (product.Tax || 0),
                                   0
                                 )
-                                .toFixed(2)}
+                                .toFixed(2)} 
                             </p>
                             <p className="fs-5">
                               <strong>Grand Total:</strong>
@@ -631,8 +647,9 @@ const QuotationHistory = () => {
                     type="button"
                     className="btn btn-primary"
                     onClick={handleConfirm}
+                    // disabled={selectedQuotation.Status == "Completed"}
                   >
-                    <GiConfirmed /> Confirm
+                    <GiConfirmed /> mark as Completed
                   </button>
                 )}
               </div>
@@ -641,7 +658,6 @@ const QuotationHistory = () => {
         </div>
       )}
 
-      <ToastContainer />
     </div>
   );
 };

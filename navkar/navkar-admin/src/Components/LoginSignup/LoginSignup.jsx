@@ -1,6 +1,6 @@
 import  {useState} from 'react';
 import './LoginSignup.css';
-import {toast, ToastContainer} from 'react-toastify';
+import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 
@@ -192,7 +192,7 @@ const LoginSignup = () => {
 
     return (
         <div className="login-signup container-md bg-dark">
-            <ToastContainer/>
+            {/* <ToastContainer/> */}
             <div className="login-signup-container">
                 <h1>
                     {forgotPasswordState

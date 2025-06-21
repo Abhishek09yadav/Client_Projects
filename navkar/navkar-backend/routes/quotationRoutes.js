@@ -129,6 +129,7 @@ router.get("/quotations", async (req, res) => {
       userName: q.user?.name,
       phoneNo: q.user?.phoneNo,
       email: q.user?.email,
+      status:q.Status,
       uploadedAt: q.createdAt,
       id: q._id,
     }));
