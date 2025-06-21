@@ -95,7 +95,7 @@ const QuotationHistory = () => {
         ...quotation,
         formattedDate: formatDate(quotation.uploadedAt),
       }));
-      console.log("formatted Quotations", formattedQuotations);
+    //   console.log("formatted Quotations", formattedQuotations);
 
       setQuotations(formattedQuotations);
       setTotalPages(response.data.totalPages);
@@ -181,7 +181,9 @@ const QuotationHistory = () => {
   };
 
   const handleConfirm = async () => {
-    if (!selectedQuotation?._id || Object.keys(editedPrices).length === 0)
+    if (!selectedQuotation?._id )
+        // || Object.keys(editedPrices).length === 0
+
       return;
 
     confirmAlert({
