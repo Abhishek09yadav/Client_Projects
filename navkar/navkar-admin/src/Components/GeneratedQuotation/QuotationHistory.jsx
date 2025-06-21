@@ -610,15 +610,15 @@ const QuotationHistory = () => {
                             </p>
                           </div>
                           <div className="col-md-6">
-                            <p>
+                            {/* <p>
                               <strong>Total Tax:</strong> 
                               {selectedQuotation.products
                                 ?.reduce(
-                                  (sum, product) => sum + (product.Tax || 0),
+                                  (sum, product) => sum + (product.price)*(product.quantity)*(product.Tax || 0),
                                   0
                                 )
                                 .toFixed(2)} 
-                            </p>
+                            </p> */}
                             <p className="fs-5">
                               <strong>Grand Total:</strong>
                               <span className="text-success fw-bold ms-2">
