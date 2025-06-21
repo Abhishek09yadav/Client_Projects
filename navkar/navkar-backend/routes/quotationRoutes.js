@@ -182,7 +182,7 @@ router.get('/quotation/:id', async (req, res) => {
     try {
     const quotationId = req.params.id;
 
-    const quotation = await Quotation.findById(quotationId);
+    const quotation = await Quotation.findById(quotationId).populate("user", "name email city state phoneNo");
     // console.log("quotation -> ",quotation)
 
     if (!quotation) {

@@ -8,7 +8,7 @@ import { FaSearch } from "react-icons/fa";
 import Calendar from 'react-calendar';
 import { MdEdit } from "react-icons/md";
 import 'react-calendar/dist/Calendar.css';
-import handlePdfDownload from "../DownloadPdf/handlePdfDownload.js";
+import handlePdfDownload from "../DownloadPdf/handlePdfDownload.jsx";
 import { toast, ToastContainer } from "react-toastify";
 import { IoClose } from "react-icons/io5";
 import { GiConfirmed } from "react-icons/gi";

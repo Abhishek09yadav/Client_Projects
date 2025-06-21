@@ -8,7 +8,7 @@ import {confirmAlert} from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import {toast, ToastContainer} from "react-toastify";
 import ReactPaginate from 'react-paginate';
-import handlePdfDownload from "../DownloadPdf/handlePdfDownload.js";
+import handlePdfDownload from "../DownloadPdf/handlePdfDownload.jsx";
 import {FaSearch} from "react-icons/fa";
 import Spinner from "../spinner/Spinner.jsx";
 
