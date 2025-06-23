@@ -254,7 +254,12 @@ const QuotationHistory = () => {
     setShowStartCalendar(false);
     setShowEndCalendar(!showEndCalendar);
   };
-
+  // const totalTax = selectedQuotation.products?.reduce((sum, product) => {
+  //   const price = editedPrices[product._id] ?? product.price;
+  //   const base = price * product.quantity;
+  //   const taxAmount = base * (product.Tax || 0) / 100;
+  //   return sum + taxAmount;
+  // }, 0);
   return (
     <div className="quotation-history-container w-100 w-lg-75">
       <h1>Quotation History</h1>
@@ -573,7 +578,12 @@ const QuotationHistory = () => {
                                     </td>
                                     <td className="fw-bold">
                                       ₹
-                                      {product.totalPrice?.toFixed(2) || "0.00"}
+                                      {(
+                                        (editedPrices[product._id] ??
+                                          product.price) *
+                                          product.quantity *
+                                          (1 + (product.Tax || 0) / 100) || 0
+                                      ).toFixed(2)}
                                     </td>
                                   </tr>
                                 )
@@ -623,8 +633,22 @@ const QuotationHistory = () => {
                               <strong>Grand Total:</strong>
                               <span className="text-success fw-bold ms-2">
                                 ₹
-                                {selectedQuotation.totalPrice?.toFixed(2) ||
-                                  "0.00"}
+                                {(
+                                  selectedQuotation.products?.reduce(
+                                    (sum, product) => {
+                                      const price =
+                                        editedPrices[product._id] ??
+                                        product.price;
+                                      const taxMultiplier =
+                                        1 + (product.Tax || 0) / 100;
+                                      return (
+                                        sum +
+                                        price * product.quantity * taxMultiplier
+                                      );
+                                    },
+                                    0
+                                  ) || 0
+                                ).toFixed(2)}
                               </span>
                             </p>
                           </div>
@@ -657,7 +681,6 @@ const QuotationHistory = () => {
           </div>
         </div>
       )}
-
     </div>
   );
 };
