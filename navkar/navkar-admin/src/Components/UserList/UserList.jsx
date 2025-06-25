@@ -186,9 +186,8 @@ const UserList = () => {
                               >
                                 Delete User
                               </Button>
-                              {user.QuotationPages.length > 0 ? (
+                              {/* {user.QuotationPages.length > 0 ? (
                                 <div>
-                                  {/* Table */}
                                   <table className="table table-bordered mt-3">
                                     <thead>
                                       <tr>
@@ -239,7 +238,6 @@ const UserList = () => {
                                     </tbody>
                                   </table>
 
-                                  {/* Load More Button */}
                                   {visibleItems <
                                     user.QuotationPages.length && (
                                     <div className="text-center">
@@ -254,7 +252,7 @@ const UserList = () => {
                                 </div>
                               ) : (
                                 <p>No quotations available.</p>
-                              )}
+                              )} */}
                             </div>
                           </div>
                         )}
