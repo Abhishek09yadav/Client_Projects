@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const bannerHome = require("../models/bannerHome");
+const bannerHome = require("../models/BannerHome.js");
 const router = express.Router();
 // create or update
 router.post("/banner", async (req, res) => {

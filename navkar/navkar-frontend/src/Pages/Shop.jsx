@@ -10,7 +10,7 @@ const Shop = () => {
         <div className="shop-container">
             <Banner/>
             <Category/>
-            <NewCollections/>
+            {/* <NewCollections/> */}
         </div>
     )
 }

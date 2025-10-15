@@ -39,10 +39,9 @@
     max-width: calc(33.33% - 20px); /* Adjust based on your grid layout (3 columns) */
 }
 
-/*.products-grid {*/
-/*    margin-left:  70px;*/
-
-/*}*/
+.products-grid {
+  padding-bottom:  170px;
+}
 /*.products-grid {*/
 
 /*    display: flex;*/
@@ -215,7 +214,9 @@
     /*    text-align: left;*/
     /*    margin-left: 0;*/
     /*}*/
-
+    .products-grid {
+        padding-bottom:  90px;
+      }
     .no_products_found {
         width: 40%;
 
