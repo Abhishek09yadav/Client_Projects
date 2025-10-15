@@ -1,8 +1,14 @@
 {
-  "dependencies": {
-    "bootstrap": "^5.3.3",
-    "nodemailer": "^6.9.16",
-    "popper.js": "^1.16.1",
-    "react-icons": "^5.4.0"
+  "name": "my-monorepo",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "concurrently --names \"FE,BE,ADM\" -c \"blue.bold,cyan.bold,green.bold\" \"npm run frontend:start\" \"npm run backend:start\" \"npm run admin:start\"",
+    "frontend:start": "npm start --prefix navkar-frontend",
+    "backend:start": "npm start --prefix navkar-backend",
+    "admin:start": "npm run dev --prefix navkar-admin",
+    "bootstrap": "npm install && npm install --prefix navkar-frontend && npm install --prefix navkar-backend && npm install --prefix navkar-admin"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }
